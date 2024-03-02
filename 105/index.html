@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/105/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Alinhamento entre pares de sequências - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Alinhamento entre pares de sequ\u00eancias";
+        var mkdocs_page_input_path = "105.md";
+        var mkdocs_page_url = "/tutoriais/105/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Alinhamento entre pares de sequências</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#entre-pares-de-sequencias-pairwise-alignment">Entre pares de sequências (Pairwise alignment)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sequencias-de-nucletideos">Sequências de nucletídeos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sequencias-de-aminoacidos">Sequências de aminoácidos</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#importancia-das-informacoes-estruturais-em-alinhamentos-de-aminoacidos">Importância das informações estruturais em alinhamentos de aminoácidos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#questoes-desafios">Questões desafios</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutoriais Iniciais de Bioinformática</li>
+      <li class="breadcrumb-item active">Alinhamento entre pares de sequências</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="alinhamentos-e-busca-de-similaridade">Alinhamentos e busca de similaridade</h1>
+<p>Nos passos que seguem, você deverá aprender:</p>
+<ul>
+<li>Alinhamento entre pares de sequências de nucleotídeos e aminoácidos.</li>
+<li>Busca de similaridades entre sequências.</li>
+<li>Usar informações estruturais no alinhamento consultando outros bancos de dados.</li>
+</ul>
+<blockquote>
+<p><em>Antes de realizar este tutorial, é importante que os tutoriais 103 (GenBank &amp; Cia.) e 104 tenham sido realizados.</em></p>
+</blockquote>
+<p><strong>Observação:</strong></p>
+<ul>
+<li>Este tutorial foi construído <strong><em>apenas para fins didáticos</em></strong>. <span style="color:red"><strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida.</strong></span></li>
+</ul>
+<h2 id="entre-pares-de-sequencias-pairwise-alignment">Entre pares de sequências (<em>Pairwise alignment</em>)</h2>
+<h3 id="sequencias-de-nucletideos">Sequências de nucletídeos</h3>
+<p>Utilizando o BLAST, vamos alinhar as duas sequências abaixo, uma contra a outra. Como são sequências de nucleotídeos, teremos de usar inicialmente o BLASTN. </p>
+<p>Para isso abra a página do <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;BLAST_SPEC=blast2seq&amp;LINK_LOC=blasttab&amp;LAST_PAGE=blastp&amp;BLAST_INIT=blast2seq"><em>blastn 2 sequences</em></a>.</p>
+<blockquote>
+<p><em>Além do link direto acima, o alinhamento entre duas sequências utilizando o BLAST também pode ser alcançado diretamente da página inicial de qualquer um dos "sabores" do BLAST, basta clicar na caixa de seleção</em> <strong><em>"Align two or more sequences"</em></strong> <em>que fica logo abaixo do campo destinado a sequência</em> <strong><em>"Query"</em></strong>.</p>
+</blockquote>
+<p>Copie a sequência abaixo e cole no primeiro quadro:</p>
+<pre><code>&gt;NM_002301.4
+CGTGCGTGTCTCGAGTCGCACGGAGGGCAACCGTCGACGGGCTTAGCGCCTCAACTGTCGTTGGTGTATT
+TTTCTGGTGTCACTTCTGTGCCTTCCTTCAAAGGTGGTGCTTTGTCCCTGTGGGTCATCTGTACTGATTG
+CGCCAAGCAAAGCATTTGTTCTCCAAATGTCAACTGTCAAGGAGCAGCTAATTGAGAAGCTAATTGAGGA
+TGATGAAAACTCCCAGTGTAAAATTACTATTGTTGGAACTGGTGCCGTAGGCATGGCTTGTGCTATTAGT
+ATCTTACTGAAGGATTTGGCTGATGAACTTGCCCTTGTTGATGTTGCATTGGACAAACTGAAGGGAGAAA
+TGATGGATCTTCAGCATGGCAGTCTTTTCTTTAGTACTTCAAAGATTACTTCTGGAAAAGATTACAGTGT
+ATCTGCAAACTCCAGAATAGTTATTGTCACAGCAGGTGCAAGGCAGCAGGAGGGAGAAACTCGCCTTGCC
+CTGGTCCAACGTAATGTGGCTATAATGAAATCAATCATTCCTGCCATAGTCCATTATAGTCCTGATTGTA
+AAATTCTTGTTGTTTCAAATCCAGTGGATATTTTGACATATATAGTCTGGAAGATAAGTGGCTTACCTGT
+AACTCGTGTAATTGGAAGTGGTTGTAATCTAGACTCTGCCCGTTTCCGTTACCTAATTGGAGAAAAGTTG
+GGTGTCCACCCCACAAGCTGCCATGGTTGGATTATTGGAGAACATGGTGATTCTAGTGTGCCCTTATGGA
+GTGGGGTGAATGTTGCTGGTGTTGCTCTGAAGACTCTGGACCCTAAATTAGGAACGGATTCAGATAAGGA
+ACACTGGAAAAATATCCATAAACAAGTTATTCAAAGTGCCTATGAAATTATCAAGCTGAAGGGGTATACC
+TCTTGGGCTATTGGACTGTCTGTGATGGATCTGGTAGGATCCATTTTGAAAAATCTTAGGAGAGTGCACC
+CAGTTTCCACCATGGTTAAGGGATTATATGGAATAAAAGAAGAACTCTTTCTCAGTATCCCTTGTGTCTT
+GGGGCGGAATGGTGTCTCAGATGTTGTGAAAATTAACTTGAATTCTGAGGAGGAGGCCCTTTTCAAGAAG
+AGTGCAGAAACACTTTGGAATATTCAAAAGGATCTAATATTTTAAATTAAAGCCTTCTAATGTTCCACTG
+TTTGGAGAACAGAAGATAGCAGGCTGTGTATTTTAAATTTTGAAAGTATTTTCATTTGATCTTTAAAAAA
+TAAAAACAAATTGGAGACCTGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</code></pre>
+<p>Agora, copie a sequência abaixo e cole no segundo quadro:</p>
+<pre><code>&gt;XM_004050792.2
+GTGCGTGTCTCGAGTCGCACGGAGGGCAACCGTCGCCGGGCTTAGCGCCTCAACTGTCGTTGGTGTATTT
+TTCTGGTGTCACTTCTGTGCCTTCCTTCAAAGGTGGTGCTTTGTCCTTGTGGGTCATCTGTACTGATTGC
+GCCAAGCAAAGCATTTGTTCTCCAAATGTCAACTGTCAAGGAGCAGCTAATTGAGAAGCTAATTGAGGAT
+GATAAAGACTCCCAGTGTAAAATTACTATTGTTGGAACTGGTGCCGTAGGCATGGCTTGTGCTATTAGTA
+TCTTACTGAAGGATTTGGCTGATGAACTTGCCCTTGTTGATGTTGCATTGGACAAACTGAAGGGAGAAAT
+GATGGATCTTCAGCATGGCAGTCTTTTCTTTAGTACTTCAAAGATTACTTCTGGAAAAGATTACAGTGTA
+TCTGCAAACTCCAGAATAGTTATTGTCACAGCAGGTGCAAGGCAGCAGGAGGGAGAAACTCGCCTTGCCC
+TGGTCCAACGTAATGTGGCTATAATGAAATCAATCATTCCTGCCATAGTCCATTATAGTCCTGATTGTAA
+AATTCTTGTTGTTTCAAATCCAGTGGATATTTTGACATATATAGTCTGGAAGATAAGTGGCTTACCTGTA
+ACTCGTGTAATTGGAAGTGGTTGTAATCTAGACTCTGCCCGTTTCCGTTACCTAATTGGAGAAAAGTTGG
+GTGTCCACCCCACAAGCTGCCATGGTTGGATTATTGGAGAACATGGTGATTCTAGTGTGCCCTTATGGAG
+TGGGGTGAATGTTGCTGGTGTTGCTCTGAAGACTCTGGACCCTAAATTAGGAACGGATTCAGATAAGGAA
+CACTGGAAAAATATCCATAAACAAGTTATTCAAAGTGCCTATGAAATTATCAAGCTGAAGGGGTATACCT
+CTTGGGCTATTGGACTGTCTGTGATGGATCTGGTAGGATCCATTTTGAAAAATCTTAGGAGAGTGCACCC
+AGTTTCCACCATGGTTAAGGGATTATATGGAATAAAAGAAGAACTCTTTCTCAGTATCCCTTGTGTCTTG
+GGGCGGAATGGTGTCTCAGATGTTGTGAAAATTAACTTGAATTCTGAGGAGGAGGCCCTTTTCAAGAAGA
+GTGCAGAAACACTTTGGAATATTCAAAAGGATCTAATATTTTAAATTAAAGCCTTCTAATGTTCCACTGT
+TTGGAGAACAGAAGATAGCAGGCTGTGTATTTTAAATTTTGAAAGTATTTTCATTTGATCTTTAAAAAAT
+AAAAACAAATTGGAGACCTGTGA
+</code></pre>
+<p>Deixe o resto das opções da forma como estão e clique em <strong>BLAST</strong>.</p>
+<blockquote>
+<p><em>É sempre recomendável clicar na caixa de seleção</em> <strong><em>"Show results in a new window"</em></strong><em>, para que os resultados sejam visualizados em uma nova janela/aba.</em></p>
+</blockquote>
+<p>Após alguns minutos, você deverá ter um resultado como o descrito abaixo. Clique no local indicado para trocar para a página tradicional de resultados do BLAST:</p>
+<p><img alt="Exemplo de um resultado do BLASTn entre 2 sequências" src="../BLAST2SEQ-NEW.png" /></p>
+<ul>
+<li>Na página tradicional, os resultados ficam mais acessíveis e são explicados na figura abaixo:</li>
+</ul>
+<p><img alt="Exemplo de um resultado do BLASTn entre 2 sequências" src="../blastn2seq.png" /></p>
+<p>Neste caso, onde os identificadores da sequência (o nome que vem depois do <code>&gt;</code>) são os códigos de registro do GenBank, o mesmo procedimento acima pode ser realizado, colocando apenas a descrição de cada sequência (sem o identificador <code>&gt;</code>) nos campos da <strong><em>Query</em></strong>. Basta colocar <code>NM_002301.4</code> no 1º campo e <code>XM_004050792.2</code> no 2º campo. Assim, a tela de resultados já retornará links para consulta direta a anotação das sequências.</p>
+<p><strong>Perguntas:</strong></p>
+<ol>
+<li>Você considera este alinhamento bom? Justifique utilizando os parâmetros do BLAST.</li>
+<li>Observe quantas diferenças existem entre estas duas sequências e onde elas estão.</li>
+<li>Sendo sequências de mRNA, você diria que os produtos proteicos delas possuem função relacionada?</li>
+</ol>
+<h3 id="sequencias-de-aminoacidos">Sequências de aminoácidos</h3>
+<p>Vamos agora abrir e verificar o registro do Genbank destas sequências. Para facilitar, abaixo estão os links direto para as entradas (abra em abas diferentes):</p>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/nuccore/NM_002301.4">NM_002301.4</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/nuccore/XM_004050792.2">XM_004050792.2</a></li>
+</ul>
+<p>Vamos agora verificar nas entradas destas sequências, a região codificante para a proteína (CDS). Esta estará descrita nas <em>features</em>, de acordo com a figura abaixo:</p>
+<ul>
+<li>Role a página até encontrar <strong>CDS</strong>:</li>
+</ul>
+<p><img alt="Achando a CDS de uma entrada de nuccore" src="../HsLDHC.png" /></p>
+<ul>
+<li>Clique no local identificado na figura acima.</li>
+</ul>
+<p>Agora você tem a sequência de aminoácidos da proteína resultante. Faça o mesmo para obter a sequência de aminoácidos que a outra sequência (XM_004050792.2) codifica.</p>
+<p>Vamos alinhar as duas sequências de aminoácidos agora, utilizando o blast2sequences, na variação <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins&amp;PROGRAM=blastp&amp;BLAST_PROGRAMS=blastp&amp;PAGE_TYPE=BlastSearch&amp;BLAST_SPEC=blast2seq&amp;DATABASE=n/a&amp;QUERY=&amp;SUBJECTS=">BLASTp</a>.</p>
+<p><strong>Perguntas:</strong></p>
+<ol>
+<li>Todas as diferenças encontradas no alinhamento das sequências de mRNA são encontradas nas sequências de aminoácidos?</li>
+<li>Você afirmaria que as trocas observadas dos aminoácidos influenciariam a estrutura da proteína? Explique.  </li>
+</ol>
+<h2 id="importancia-das-informacoes-estruturais-em-alinhamentos-de-aminoacidos">Importância das informações estruturais em alinhamentos de aminoácidos</h2>
+<p>Considere que você esteja trabalhando com a seguinte sequência de uma amilase:</p>
+<pre><code>&gt;1smd
+GRTSIVHLFEWRWVDIALECERYLAPKGFGGVQVSPPNENVAIHNPFRPWWERYQPVSYK
+LCTRSGNEDEFRNMVTRCNNVGVRIYVDAVINHMCGNAVSAGTSSTCGSYFNPGSRDFPA
+VPYSGWDFNDGKCKTGSGDIENYNDATQVRDCRLSGLLDLALGKDYVRSKIAEYMNHLID
+IGVAGFRIDASKHMWPGDIKAILDKLHNLNSNWFPEGSKPFIYQEVIDLGGEPIKSSDYF
+GNGRVTEFKYGAKLGTVIRKWNGEKMSYLKNWGEGWGFMPSDRALVFVDNHDNQRGHGAG
+GASILTFWDARLYKMAVGFMLAHPYGFTRVMSSYRWPRYFENGKDVNDWVGPPNDNGVTK
+EVTINPDTTCGNDWVCEHRWRQIRNMVNFRNVVDGQPFTNWYDNGSNQVAFGRGNRGFIV
+FNNDDWTFSLTLQTGLPAGTYCDVISGDKINGNCTGIKIYVSDDGKAHFSISNSAEDPFI
+AIHAESKL
+</code></pre>
+<p>Os 3 resíduos que formam o sítio ativo da proteína e são essenciais à catálise são: <strong>D</strong> (...FRI<strong>D</strong>AS...), <strong>E</strong> (...YQ<strong>E</strong>VID...) e <strong>D</strong> (...NH<strong>D</strong>NQR...). Você pode obter mais informações desta sequência no <strong>UniProtKB</strong>, com o código <a href="http://www.uniprot.org/uniprot/P04745">P04745</a>.</p>
+<p>Considere ainda que você conhece a proteína abaixo e sabe que se trata de uma amilase:</p>
+<pre><code>&gt;1bf2
+DVIYEVHVRGFTEQDTSIPAQYRGTYYGAGLKASYLASLGVTAVEFLPVQETQNDANDVV
+PNSDANQNYWGYMTENYFSPDRRYAYNKAAGGPTAEFQAMVQAFHNAGIKVYMDVVYNHT
+AEGGTWTSSDPTTATIYSWRGLDNATYYELTSGNQYFYDNTGIGANFNTYNTVAQNLIVD
+SLAYWANTMGVDGFRFDLASVLGNSCLNGAYTASAPNCPNGGYNFDAADSNVAINRILRE
+FTVRPAAGGSGLDLFAEPWAIGGNSYQLGGFPQGWSEWNGLFRDSLRQAQNELGSMTIYV
+TQDANDFSGSSNLFQSSGRSPWNSINFIDVHDGMTLKDVYSCNGANNSQAWPYGPSDGGT
+STNYSWDQGMSAGTGAAVDQRRAARTGMAFEMLSAGTPLMQGGDEYLRTLQCNNNAYNLD
+SSANWLTYSWTTDQSNFYTFAQRLIAFRKAHPALRPSSWYSGSQLTWYQPSGAVADSNYW
+NNTSNYAIAYAINGPSLGDSNSIYVAYNGWSSSVTFTLPAPPSGTQWYRVTDTCDWNDGA
+STFVAPGSETLIGGAGTTYGQCGQSLLLLISK
+</code></pre>
+<blockquote>
+<p><em>O registro do SwissProt para esta sequência <a href="http://www.uniprot.org/uniprot/P10342">P10342</a> mostrará que é realmente uma amilase, no entanto, iremos considerar que não temos esta informação.</em></p>
+</blockquote>
+<p>Para identificar possíveis resíduos candidatos na sequência 1bf2 que podem participar do sítio ativo, faremos alinhamento com 2 diferentes algorítmos: o do BLAST e o do Smith-Waterman. </p>
+<ul>
+<li>
+<p>Obtenha o alinhamento das sequências acima utilizando o blast2sequences, na variação <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins&amp;PROGRAM=blastp&amp;BLAST_PROGRAMS=blastp&amp;PAGE_TYPE=BlastSearch&amp;BLAST_SPEC=blast2seq&amp;DATABASE=n/a&amp;QUERY=&amp;SUBJECTS=">BLASTp</a>.</p>
+</li>
+<li>
+<p>Obtenha o alinhamento também com o algorítmo <a href="http://www.ebi.ac.uk/Tools/psa/emboss_water/">Smith-Waterman</a> do EBI (<em>European Bioinformatics Institute</em>).</p>
+</li>
+</ul>
+<p>Vamos agora comparar os resultados obtidos a um alinhamento baseado em estrutura. Neste, os resíduos de aminoácidos são alinhados de acordo com a sua posição na estrutura tridimensional da proteína (portanto, só é possível quando as duas sequências possuem estruturas resolvidas). Isto pode ser realizado utilizando o <a href="http://modbase.compbio.ucsf.edu/salign/">SALIGN</a>, vinculado a <a href="http://modbase.compbio.ucsf.edu/modweb/">ModWeb</a>, um servidor para modelagem computacional de proteínas do grupo que criou o programa Modeller (<a href="http://salilab.org">SaliLab</a>): </p>
+<ul>
+<li>Coloque os códigos 1smd e 1bf2, em cada linha, no campo “<em>Enter 4-letter code(s) to choose PDB structures</em>”, de acordo como demonstrado nas figuras abaixo.</li>
+<li>Clique em <code>Continue</code>.</li>
+</ul>
+<p><img alt="Tela do *SALIGN*" src="../salign2.png" /></p>
+<blockquote>
+<p><em>Os resultados podem demorar alguns minutos para aparecerem.</em></p>
+</blockquote>
+<ul>
+<li>
+<p>O arquivo deste alinhamento pode ser baixado <a href="https://drive.google.com/uc?id=1SPFai_F7-rHWI-vWROFx6VLmAs9WghQP">AQUI</a>.</p>
+</li>
+<li>
+<p>Abra o arquivo do alinhamento no ClustalX ou no Jalview (veja o tutorial 104).</p>
+</li>
+</ul>
+<p>Analise cuidadosamente cada um dos alinhamentos obtidos. Verifique a diferença entre o alinhamento do BLAST e os algoritmos de SW e do SALIGN.</p>
+<p><strong>Pergunta:</strong></p>
+<ol>
+<li>Os alinhamentos de sequência e de estrutura identificam os mesmos resíduos em 1bf2 como equivalentes aos resíduos do sítio ativo em 1smd?</li>
+</ol>
+<h2 id="questoes-desafios">Questões desafios</h2>
+<ol>
+<li>Em qual janela (<em>frame</em>) está codificada a proteína nas sequências <code>NM_002301.4</code> e <code>XM_004050792.2</code>?</li>
+<li>Os <em>gaps</em> no alinhamento estrutural tendem a ser associados com elementos de estrutura secundária (alfa-hélices ou fitas-beta) ou regiões de loop? Justifique.</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../104/" class="btn btn-neutral float-left" title="Buscas de Similaridade"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../106-MSA/" class="btn btn-neutral float-right" title="Alinhamento Múltiplo de Sequências">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../104/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../106-MSA/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

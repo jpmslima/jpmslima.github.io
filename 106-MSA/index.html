@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/106-MSA/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Alinhamento Múltiplo de Sequências - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Alinhamento M\u00faltiplo de Sequ\u00eancias";
+        var mkdocs_page_input_path = "106-MSA.md";
+        var mkdocs_page_url = "/tutoriais/106-MSA/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Alinhamento Múltiplo de Sequências</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#objetivos">Objetivos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conhecendo-o-jalview">Conhecendo o Jalview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usando-diferentes-programas-de-alinhamento">Usando diferentes programas de alinhamento</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parte-a">Parte A:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parte-b">Parte B:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parte-c-comparando-as-etapas-a-e-b">Parte C: Comparando as etapas A e B</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parte-d-utilizando-os-outros-programas">Parte D: Utilizando os outros programas</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modificando-parametros-no-alinhamento">Modificando parâmetros no alinhamento</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#passo-1">Passo 1:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#passo-2">Passo 2:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#passo-3">Passo 3:</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutoriais Iniciais de Bioinformática</li>
+      <li class="breadcrumb-item active">Alinhamento Múltiplo de Sequências</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="alinhamento-multiplo-de-sequencias-msa">Alinhamento Múltiplo de Sequências (MSA)</h1>
+<h2 id="objetivos">Objetivos</h2>
+<ul>
+<li>Utilizar e manipular alinhamentos múltiplos no programa CLUSTAL;</li>
+<li>Conhecer e alterar os parâmetros de alinhamento, como penalidades de gaps e matrizes de substituição;</li>
+<li>Trabalhar com sequências muito e pouco relacionadas;</li>
+<li>Utilizar ferramentas iterativas e baseadas em consistência, como o MAFFT e o T-Coffee;</li>
+<li>Conhecer a ferramenta JalView.</li>
+</ul>
+<p><strong>Observações:</strong></p>
+<ul>
+<li>Para visualização, utilizaremos o programa Jalview, a partir do qual podemos utilizar vários programas de alinhamento. Além disso, o Jalview é multiplataforma, por ser baseado em JAVA. </li>
+<li>Você pode acessar os arquivos de ajuda a qualquer momento dentro do programa, clicando 'Help' &gt; 'Documentation'. </li>
+<li>Existe também um tutorial disponível em: <a href="http://www.jalview.org/tutorial/TheJalviewTutorial_screen.pdf">http://www.jalview.org/tutorial/TheJalviewTutorial_screen.pdf</a>.</li>
+<li>Este tutorial foi construído <strong><em>apenas para fins didáticos</em></strong>. <span style="color:red"><strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida.</strong></span></li>
+</ul>
+<h2 id="conhecendo-o-jalview">Conhecendo o Jalview</h2>
+<p>Acesse a home page do Jaview: <a href="http://www.jalview.org">http://www.jalview.org</a></p>
+<p>Execute uma das opções contidas no canto superior direito. A que vai funcionar dependerá do nível de acesso e permissões que o seu usuário possui na máquina. No primeiro acesso realiza-se o download do programa. Um arquivo .jnlp é baixado e depois você o executa (caso isto não aconteça automaticamente).</p>
+<p>Baixe o seguinte conjunto de sequências: <a href="https://drive.google.com/uc?export=download&amp;id=1Oo7dXualTds3AQA1n59O93mY_5iNezLT">1dox_ref1.fasta</a>.</p>
+<ul>
+<li>Abra o alinhamento indo em <strong>'File' &gt; 'Input alignment' &gt; 'from File'</strong>. </li>
+<li>Observe os dados. Eles estão alinhados?</li>
+</ul>
+<p>Tente alguns dos comandos básicos:</p>
+<ul>
+<li>Para selecionar um táxon, clique no nome no lado esquerdo.</li>
+<li>Para selecionar todas as sequências de uma só vez, clique:<ul>
+<li>Command-A nos computadores do tipo Mac.</li>
+<li>Control-A, nos computadores do tipo Linux, Windows (PCs).</li>
+</ul>
+</li>
+<li>Para retirar a seleção, vá em <strong>'Select'&gt;'Deselect All'</strong>;</li>
+<li>Para mover as sequências selecionadas para outro ponto no grupo de dados (<em>dataset</em>), selecione uma e então pressione as teclas de direção (setas) para mover as sequências.</li>
+</ul>
+<p>As sequências podem ser editadas manualmente:</p>
+<ul>
+<li>Clique com o botão esquerdo e arraste para selecionar onde se deseja iniciar a edição;</li>
+<li>Clique com o botão direito na sequência selecionada e então selecione <strong>'Selection'&gt;'Edit'&gt;'Edit Sequence'</strong>.</li>
+<li>Inclua os caracteres que desejar, ou inclua um espaço para um gap no dataset.</li>
+<li>Você pode desfazer as mudanças indo em <strong>'Edit'&gt;'Undo'</strong>.</li>
+</ul>
+<p>Feche o arquivo, evitando salvar as mudanças.</p>
+<h2 id="usando-diferentes-programas-de-alinhamento">Usando diferentes programas de alinhamento</h2>
+<p>Abra o dataset (1dox_ref1.fasta) do passo anterior no Jalview:</p>
+<h3 id="parte-a">Parte A:</h3>
+<ul>
+<li>Dentro da área de trabalho do Jalview, clique na janela 1dox_ref1.fasta.</li>
+<li>Faça um alinhamento básico com o Clustal, clicando em <strong>'Web Service' &gt; 'Alignment' &gt; 'Clustal' &gt; ‘with Defaults’</strong>.</li>
+<li>Terminado o alinhamento, uma nova janela com os dados alinhados será aberta, incluíndo um gráfico abaixo do alinhamento. Observe os parâmetros indicados por este gráfico.</li>
+<li>Não feche a janela do alinhamento.</li>
+</ul>
+<h3 id="parte-b">Parte B:</h3>
+<ul>
+<li>Dentro da área de trabalho do Jalview, clique na janela 1dox_ref1.fasta.
+-Faça um alinhamento básico com o MAFFT, clicando em <strong>'Web Service' &gt; 'Alignment' &gt; 'MAFFT with Defaults’</strong>.</li>
+<li>Terminado o alinhamento, uma nova janela com os dados alinhados será aberta, incluíndo um gráfico abaixo do alinhamento. Observe os parâmetros indicados por este gráfico.</li>
+</ul>
+<h3 id="parte-c-comparando-as-etapas-a-e-b">Parte C: Comparando as etapas A e B</h3>
+<ul>
+<li>Observe cuidadosamente os alinhamentos obtidos na Parte A e na Parte B. São diferentes? Qual dos 2 você prefere, MAFFT ou Clustal? Por que?</li>
+<li>Em cada uma das janelas de alinhamento, com cada um dos programas, vá em <strong>‘File’ &gt; ‘Save As’</strong>. Exporte o alinhamento no formato .msf ou .aln. Não esqueça de identificar no nome do arquivo o alinhamento.</li>
+<li>Construa um dendograma a partir de cada um dos seus alinhamentos:<ul>
+<li>Vá na janela dos alinhamentos (tanto para o MAFFT, como para o Clustal) e clique em <strong>'Calculate' &gt; 'Calculate Tree' &gt; 'Neighbor Joining using BLOSUM62'</strong>.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em>A árvore é um parâmetro importante para ajudar na avaliação de um alinhamento. Mas esta árvore não pode ser considerada com uma hipótese evolutiva entre estas sequências, como veremos em outra aula, de Filogenia Molecular.</em></p>
+</blockquote>
+<ul>
+<li>Compare as árvores obtidas pelos 2 programas. As topologias e os comprimentos de ramos diferiram?</li>
+</ul>
+<h3 id="parte-d-utilizando-os-outros-programas">Parte D: Utilizando os outros programas</h3>
+<ul>
+<li>
+<p>Repita a mesma operação com os programas: T-Coffee, Muscle e Probscon.</p>
+</li>
+<li>
+<p>Analise os alinhamentos e exporte os arquivos no formato .msf.</p>
+</li>
+</ul>
+<h2 id="modificando-parametros-no-alinhamento">Modificando parâmetros no alinhamento</h2>
+<ul>
+<li>Repita as etapas do Passo 2, com o <em>dataset</em> <a href="https://drive.google.com/uc?export=download&amp;id=13EcG9xjed4yCqq41Q_AeZ-GjJr5QXJFa">3grs_ref2.fasta</a></li>
+<li>Faça o alinhamento com todos os programas, deixando o programa MAFFT por último.</li>
+<li>Com o programa MAFFT, faça um alinhamento com as condições padrões.</li>
+</ul>
+<h3 id="passo-1">Passo 1:</h3>
+<ul>
+<li>Volte para a janela principal do fasta e modifique o parâmetro Gap Open Penalty para 20.</li>
+</ul>
+<h3 id="passo-2">Passo 2:</h3>
+<ul>
+<li>Volte para a janela principal do fasta e modifique o parâmetro Gap Open Penalty para 0.1.</li>
+</ul>
+<h3 id="passo-3">Passo 3:</h3>
+<ul>
+<li>
+<p>Modifique a Matriz de proteínas para uma de sua escolha. (Observe o alinhamento e lembre-se das recomendações na escolha das matrizes).</p>
+</li>
+<li>
+<p>Exporte os resultados no formato .msf ou .aln, indicando no nome do arquivo cada modificação.</p>
+</li>
+</ul>
+<p><strong>PERGUNTAS</strong></p>
+<ul>
+<li>Qual a influência destes parâmetros de GOP no alinhamento final?</li>
+<li>Como você acha que estes parâmetros de GOP e GEP devem ser usados para melhorar o alinhamento de proteínas que não possuem variação de tamanho em diferentes organismos?</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../105/" class="btn btn-neutral float-left" title="Alinhamento entre pares de sequências"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../107-NCBI-CLI/" class="btn btn-neutral float-right" title="NCBI/GenBank via CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../105/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../107-NCBI-CLI/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
