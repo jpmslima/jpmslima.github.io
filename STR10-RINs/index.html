@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR10-RINs/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>RINs - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "RINs";
+        var mkdocs_page_input_path = "STR10-RINs.md";
+        var mkdocs_page_url = "/tutoriais/STR10-RINs/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">RINs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao-do-cytoscape">Instalação do Cytoscape</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ambiente-windows-ou-macos">Ambiente Windows ou MacOS</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao-dos-plugins">Instalação dos Plugins</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#como-construir-rins">Como construir RINs?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#construindo-uma-rin-via-cytoscapeucsf-chimera">Construindo uma RIN via Cytoscape/UCSF Chimera</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conexao-com-o-ucsf-chimera">Conexão com o UCSF Chimera</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#construindo-a-rin">Construindo a RIN:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#visualizar-as-interacoes-no-residuo-no-pdb">Visualizar as interações no resíduo no PDB</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">RINs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="construcao-e-analise-de-redes-de-interacao-de-residuos-rins">Construção e análise de Redes de Interação de Resíduos (RINs)</h1>
+<p>O objetivo deste tutorial é construir e visualizar os níveis uma rede de interação de resíduos utilizando o programa Cytoscape.</p>
+<h2 id="instalacao-do-cytoscape">Instalação do Cytoscape</h2>
+<h3 id="linux">Linux</h3>
+<p>Para instalar será necessário baixar o programa em: <a href="https://cytoscape.org/download.html">https://cytoscape.org/download.html</a></p>
+<blockquote>
+<p><em>Lembrando que para instalar o Cytoscape, é necessário possuir o Java instalado na sua máquina.</em></p>
+</blockquote>
+<p>Após baixar, vá ao terminal e vá até a pasta onde o arquivo de instalação foi baixado
+(normalmente a pasta Downloads).</p>
+<pre><code>cd Downloads
+chmod u+x Cytoescape_X_X_X_unix.sh 
+</code></pre>
+<blockquote>
+<p><em>Lembre-se de trocar os Xs pela versão correta do Cytoscape baixada.</em></p>
+</blockquote>
+<p>Agora execute o <em>script</em> em <em>shell</em> para instalar o programa:</p>
+<pre><code>sudo ./Cytoescape_X_X_X_unix.sh
+</code></pre>
+<p>Durante a execução do <em>script</em> de instalação algumas perguntas aparecerão. Basta pressionar <code>Enter</code>.</p>
+<h3 id="ambiente-windows-ou-macos">Ambiente Windows ou MacOS</h3>
+<p>Instaladores para ambos os sistemas estão disponíveis na página de Download do Cytoscape. Após o download, dê um duplo clique e siga as instruções de instalação.</p>
+<h2 id="instalacao-dos-plugins">Instalação dos <em>Plugins</em></h2>
+<p>Para a construção das RINs é necessária a instalação dos <em>plugins</em> <em>structureviz2</em> e <em>rinalyser</em>. Para isso siga as etapas abaixo:</p>
+<ul>
+<li>
+<p>Abra o Cytoscape.</p>
+</li>
+<li>
+<p>Ao abrir o programa, uma tela semelhante a abaixo deverá aparecer:</p>
+</li>
+</ul>
+<p><img alt="RIN1" src="../str10-fig1.png" /></p>
+<p>Iremos inicialmente instalar via Cytoscape o plugin <em>structureviz2</em>. Para isso siga os passos abaixo:</p>
+<ul>
+<li>
+<p>No menu da janela, vá em <em>Apps &gt; App Manager</em>.</p>
+</li>
+<li>
+<p>Ao clicar nestas opções uma tela semelhante a abaixo deverá aparecer:</p>
+</li>
+</ul>
+<p><img alt="RIN2" src="../str10-fig2.png" /></p>
+<ul>
+<li>
+<p>No campo destacado digite <em>structureviz2</em>.</p>
+</li>
+<li>
+<p>Selecione o pacote e clique em <em>Install</em>.</p>
+</li>
+<li>
+<p>Repita as instruções acima, mas desta vez, no campo destacado, digite o nome do outro plugin RINalyser.</p>
+</li>
+</ul>
+<h2 id="como-construir-rins">Como construir RINs?</h2>
+<p>Existem várias ferramentas e programas disponíveis para construir e analisar RINs a partir da estrutura/modelo de uma proteína. O arquivo de entrada para cálculo da RIN de uma proteína é um arquivo .pdb ou mmCIF. Portanto, é necessário que o seu ponto de partida seja seja uma estrutura resolvida experimentalmente ou um modelo calculado computacionalmente por técnicas de modelagem molecular. A ferramenta que recomendamos para a construção da RIN é o programa <a href="https://ring.biocomputingup.it/submit">RING 3.0</a>, do laboratório <a href="https://biocomputingup.it/">BioComputing UP</a>, da Universidade de Pádua, Itália. Para comparar entre diferentes RINs de uma mesma proteína ou de conformações diferentes, recomendamos utilizar a ferramenta <a href="https://github.com/LasisUFRN/CoRINs">CoRINs</a>) do nosso grupo de pesquisa<sup>1</sup>.</p>
+<blockquote>
+<p><em>O CoRINs está passando por um processo de atualização</em>.</p>
+</blockquote>
+<p>Seguem abaixo alguns outros links de ferramentas para cálculo/análise de RINs:</p>
+<ul>
+<li>
+<p><a href="https://ring.biocomputingup.it/submit">RING 3.0</a>.</p>
+</li>
+<li>
+<p><a href="https://www.biorxiv.org/content/10.1101/2020.06.29.178541v1.full">CoRINs</a>.</p>
+</li>
+<li>
+<p><a href="https://academic.oup.com/nar/article/47/W1/W471/5494742">ProSNEx</a>.</p>
+</li>
+<li>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/35140884/">PSNtools for standalone and web-based structure network analyses of conformational ensembles - PubMed</a>.</p>
+</li>
+<li>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/35298511/">SenseNet, a tool for analysis of protein structure networks obtained from molecular dynamics simulations - PubMed</a>.</p>
+</li>
+<li>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/29800260/">gRINN: a tool for calculation of residue interaction energies and protein energy network analysis of molecular dynamics simulations - PubMed</a>.</p>
+</li>
+<li>
+<p><a href="https://peerj.com/articles/5998/">RIP-MD</a>.</p>
+</li>
+</ul>
+<h2 id="construindo-uma-rin-via-cytoscapeucsf-chimera">Construindo uma RIN via Cytoscape/UCSF Chimera</h2>
+<p>Para construir o exemple da RIN que iremos utilizar, é necessário baixar <a href="https://drive.google.com/uc?export=download&amp;id=16KaGLIZ_fbarhiSg-R4uY7M7SM6-1mBc">este arquivo .xml</a>.</p>
+<p>Com a tela inicial do Cytoescape aberta, vamos importar o arquivo para iniciar a construção da RIN.
+Para isso, siga os passos abaixo:</p>
+<ul>
+<li>Vá no menu e clique em: <em>File &gt; Import &gt; Network &gt; File</em>.</li>
+</ul>
+<p>Ao clicar nestas opções uma tela semelhante a abaixo deverá aparecer:</p>
+<p><img alt="" src="../str10-fig3.png" /></p>
+<p>O arquivo <code>pte.xgmml.xml</code> deve ser selecionado. Clique em abrir. A visualização abaixo aparecerá:</p>
+<p><img alt="RIN4" src="../str10-fig4.png" /></p>
+<h3 id="conexao-com-o-ucsf-chimera">Conexão com o UCSF Chimera</h3>
+<p>Agora vamos conectar o Cytoscape com o USCF Chimera, para que
+possamos visualizar as interações entre os resíduos em paralelo ao visualização do arquivo PDB. Para isso, siga os passos abaixo:</p>
+<ul>
+<li>No menu do Cytoscape, clique em: <em>Apps &gt; structureviz &gt; Settings</em>.</li>
+</ul>
+<p><img alt="RIN5" src="../str10-fig5.png" /></p>
+<p>Todas as opções <em>Select All</em> devem ser selecionadas como na figura. No local em destaque, indique o caminho onde está instalado o UCSF Chimera em seu computador.</p>
+<blockquote>
+<p><em>Em computadores com Linux, normalmente o UCSF Chimera está na pasta /usr/bin. No entanto, isso depende como fizeste a instalação do programa.</em></p>
+</blockquote>
+<p>Clique em ok. Em seguida, clique novamente em: <em>App &gt; structureviz &gt; Open structure for node(s).</em> Ao clicar nas opções acima a seguinte tela aparecerá:</p>
+<p><img alt="RIN6" src="../str10-fig6.png" /></p>
+<p>Na opção <em>Open structures</em>, destacada na figura, escolha uma proteína e depois clique em Ok. Aparecerão duas telas: uma com a estrutura da proteína no UCSF Chimera e outra tela do próprio Cytoscape:</p>
+<p><img alt="RIN7" src="../str10-fig7.png" /></p>
+<p>A tela com a seta em destaque deve ser selecionada para que haja a interação UCSF Chimera –Cytoscape.</p>
+<h3 id="construindo-a-rin">Construindo a RIN:</h3>
+<p>Siga as etapas abaixo: </p>
+<ul>
+<li>Vá no menu da janela do Cytoscape e clique em: <em>App &gt; RINalyzer &gt; Create RIN from Chimera</em>.</li>
+</ul>
+<p>Ao clicar nestas opções uma tela semelhante a abaixo deverá aparecer:</p>
+<p><img alt="RIN8" src="../str10-fig8.png" /></p>
+<ul>
+<li>Na opção em destaque, clique em <em>Add hydrogens</em>. Depois, clique em Ok. A RIN estará pronta.</li>
+</ul>
+<p><img alt="RIN9" src="../str10-fig9.png" /></p>
+<p>É possível visualizar, via UCSF Chimera, algumas ligações entre os resíduos da proteína.
+Para isso, siga os passos abaixo:</p>
+<ul>
+<li>
+<p>Inicialmente, clique em um resíduo (aminoácido) na RIN.</p>
+</li>
+<li>
+<p>Nesse momento, o UCSF Chimera já está em execução em seu computador. Clique na aba do Chimera, local em destaque na figura.</p>
+</li>
+<li>
+<p>No Chimera, vá no menu e clique em: <em>Actions &gt; Focus</em>. Você observará:</p>
+</li>
+</ul>
+<p><img alt="RIN10" src="../str10-fig10.png" /></p>
+<p>O resíduo no qual você clicou anteriormente aparece em destaque na tela do UCSF Chimera, como demonstrado na figura acima.</p>
+<h3 id="visualizar-as-interacoes-no-residuo-no-pdb">Visualizar as interações no resíduo no PDB</h3>
+<p>Agora iremos visualizar as ligações de hidrogênio existente para este resíduo.
+Para isso, siga as etapas abaixo:</p>
+<ul>
+<li>No UCSF Chimera:
+  ◦ Vá em: <em>Actions &gt; Atoms/Bonds &gt; Show</em>.
+  ◦ Depois em: <em>Actions &gt; Ribbon &gt; hide</em>.
+  ◦ E agora em: <em>Tools &gt; Surface/Binding Analysis &gt; Find Bonds</em>.</li>
+</ul>
+<p><img alt="RIN11" src="../str10-fig11.png" /></p>
+<p>Na janela de opções <code>H-Bond Parameters</code> do UCSF Chimera, marque a caixa de seleção em destaque <em>Only find H-bonds</em>, com a opção <em>with exactly one end selected</em>, da forma como demonstrado abaixo:</p>
+<p><img alt="RIN12" src="../str10-fig12.png" /></p>
+<p>Ao fazer isso, uma tela semelhante a abaixo deverá aparecer:</p>
+<p><img alt="RIN13" src="../str10-fig13.png" /></p>
+<p>Aqui são visualizadas as ligações de hidrogênio entre o resíduo escolhido na RIN e os outros resíduos na proteína, como demonstrado pela RIN.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR9-EM/" class="btn btn-neutral float-left" title="EM/CryoEM fitting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR11-APBS/" class="btn btn-neutral float-right" title="APBS">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR9-EM/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR11-APBS/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

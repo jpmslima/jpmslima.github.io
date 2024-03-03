@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR16-EGB1/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Modelos de Pequenas Moléculas - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Modelos de Pequenas Mol\u00e9culas";
+        var mkdocs_page_input_path = "STR16-EGB1.md";
+        var mkdocs_page_url = "/tutoriais/STR16-EGB1/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Modelos de Pequenas Moléculas</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introducao">Introdução</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-1">Tutorial 1:</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#obtendo-modelos-moleculares-para-a-vitamina-c">Obtendo modelos moleculares para a Vitamina C.</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#obtencao-da-estrutura-em-servidores-especializados">Obtenção da estrutura em Servidores especializados.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#desenhar-manualmente-o-composto">Desenhar manualmente o composto.</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-2">Tutorial 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#criando-uma-estrutura-3d-para-a-vitamina-c">Criando uma estrutura 3D para a Vitamina C</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#baixar-estruturas-3d-prontas-de-servidores">Baixar estruturas 3D prontas de servidores</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#converter-formatos-smiles-2d-em-3d">Converter formatos SMILES 2D em 3D</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#desenhar-a-molecula-diretamente-em-3d">Desenhar a molécula diretamente em 3D</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#converter-moleculas-utilizando-linha-de-comando-ideal-para-automatizacao">Converter moléculas utilizando linha de comando (Ideal para automatização)</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-3">Tutorial 3</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ionizacao-e-tautomeria-nunca-podem-ser-ignorados">Ionização e Tautomeria nunca podem ser ignorados</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#dica">Dica:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-4">Tutorial 4</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#consideracoes-sobre-otimizacao-de-geometria">Considerações sobre otimização de geometria</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Modelos de Pequenas Moléculas</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modelos-computacionais-de-moleculas-pequenas">Modelos computacionais de moléculas pequenas</h1>
+<p><strong>Autoria</strong> Euzébio Guimarães – DFAR – BioME - UFRN</p>
+<p><strong>Revisores</strong> Pedro Igor Câmara de Oliveira (PPgBioinfo) e Estela Mariana Guimarães Lourenço (PPgCF).</p>
+<h2 id="introducao">Introdução</h2>
+<p>O presente tutorial terá como foco moléculas orgânicas mais comuns. Tais moléculas são constituídas principalmente de Carbono (<em>C</em>), Oxigênio (O), Nitrogênio (N) e Hidrogênio (H). Halogênios também são muito comuns, assim como a presença de átomos de Enxofre (S), dentre outros. Fármacos, pesticidas, substratos enzimáticos etc. são moléculas que possuem esta constituição. Não daremos atenção a compostos organometálicos.</p>
+<p>Traremos primeiramente métodos para estudar tais moléculas conforme o fluxograma* abaixo partindo de uma molécula de interesse.</p>
+<p><img alt="Fluxograma" src="https://drive.google.com/uc?id=11DDGRCTYqrxISoboW0_mIZlWpc_1PT0S" /></p>
+<blockquote>
+<p><em>Construído com o programa DIA.</em></p>
+</blockquote>
+<h2 id="tutorial-1">Tutorial 1:</h2>
+<h3 id="obtendo-modelos-moleculares-para-a-vitamina-c">Obtendo modelos moleculares para a Vitamina C.</h3>
+<p>Vamos supor que queiras trabalhar com a estrutura da Vitamina C. Para isso, precisamos criar modelos 3D para tal molécula. Temos duas opções:</p>
+<ul>
+<li>Obter a estrutura de servidores especializados  </li>
+<li>Desenhar manualmente o composto.</li>
+</ul>
+<h4 id="obtencao-da-estrutura-em-servidores-especializados">Obtenção da estrutura em Servidores especializados.</h4>
+<p>Os servidores mais comuns para se obter a estrutura de uma molécula de interesse são:</p>
+<ul>
+<li><a href="https://pubchem.ncbi.nlm.nih.gov/search/#collection=compounds">PubChem</a></li>
+<li><a href="http://www.chemspider.com/">ChemSpider</a></li>
+<li><a href="http://zinc.docking.org/">ZINC</a></li>
+<li><a href="https://www.ebi.ac.uk/chembl/">ChEMBL</a></li>
+</ul>
+<p>Para nosso primeiro tutorial usaremos o servidor ZINC.</p>
+<p><img alt="ZINC" src="https://drive.google.com/uc?id=1H2N5ZC2uf2zITivyrRPLUKIJ4MnAV4-3" /></p>
+<p>Basta buscar <strong><em>ascorbic acid</em></strong> na barra de busca rápida.</p>
+<p>Como mostrado na figura baixo você conseguirá o código SMILES para a Vitamina C. Com a linha de SMILES você pode desenhar com facilidade este composto utilizando programas como o Marvin.</p>
+<p><img alt="SMILES" src="https://drive.google.com/uc?id=11jR2qJWap7AwPg9I0aoYvqdNXetlv_Gl" /></p>
+<p>Mas podemos baixar as estruturas já em formato 3D: <code>MOL2</code> ou <code>SDF</code>.</p>
+<p>A dinâmica é muito similar com os outros servidores.</p>
+<h4 id="desenhar-manualmente-o-composto">Desenhar manualmente o composto.</h4>
+<p>Esse caso é bem útil se vemos desenhado o composto de interesse em papers ou materiais impressos. Para isso lançamos mão do programa Marvin. É muito simples.</p>
+<p>Recomendo assistir este vídeo:</p>
+<p><a href="https://www.youtube.com/watch?v=N-idU05G9YA">Video do Youtube</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N-idU05G9YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N-idU05G9YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N-idU05G9YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>Contudo, uma vez que você já possui o código SMILE basta copiar e colar diretamente no Marvin:</p>
+<p><img alt="Desenhando Molécula" src="https://drive.google.com/uc?id=1dlib6naGKxDpUfgLOMq6ketiQEumQgbx" /></p>
+<h2 id="tutorial-2">Tutorial 2</h2>
+<h3 id="criando-uma-estrutura-3d-para-a-vitamina-c">Criando uma estrutura 3D para a Vitamina C</h3>
+<p>Para realizar simulações mais complexas, as estruturas 2D são insuficientes. É necessária a obtenção de modelos 3D. Existem 4 maneiras para se conseguir tais modelos:</p>
+<ul>
+<li>Baixar estruturas 3D prontas de servidores.</li>
+<li>Converter formatos SMILES 2D em 3D.</li>
+<li>Desenhar a molécula diretamente em 3D.</li>
+<li>Converter moléculas utilizando linha de comando (Ideal para automatização em <em>pipelines</em>).</li>
+</ul>
+<h4 id="baixar-estruturas-3d-prontas-de-servidores">Baixar estruturas 3D prontas de servidores</h4>
+<p>Você pode encontrar as estruturas prontas em servidores como já foi demostrado. Para baixar, por exemplo, a estrutura da vitamina C do PubChem proceda como se segue:</p>
+<p><img alt="PubChem" src="https://drive.google.com/uc?id=1jayYyyJv06mqrllX9XUOo4tdjls-mD22" /></p>
+<p>Abaixo está um trecho do arquivo SDF, muito utilizado para representar as coordenadas dos átomos moleculares.</p>
+<pre><code class="language-none">54670067
+  -OEChem-06301813333D
+
+ 20 20  0     1  0  0  0  0  0999 V2000
+    0.0932   -1.1066    0.6445 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.3436    0.0892   -1.3863 O   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8392    2.3901    0.2844 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.8929   -0.2040   -0.3326 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0220    0.5695   -0.6056 O   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9915   -2.1560   -0.1376 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3397    0.2618    0.7853 C   0  0  2  0  0  0  0  0  0  0  0  0
+   -1.6059    0.4585   -0.0330 C   0  0  2  0  0  0  0  0  0  0  0  0
+    0.8212    1.0265    0.2887 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.7464   -0.4082    0.4863 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8077    0.2273   -0.1049 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3536   -1.1481    0.1108 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.5154    0.4609    1.8484 H   0  0  0  0  0  0  0  0  0  0  0  0
+</code></pre>
+<p>Podemos observar as coordenadas <em>x, y e z</em>, assim o tipo de átomo neste pequeno trecho do arquivo. Este arquivo tem qualidade bastante alta e possivelmente já está pronto para as próximas etapas deste tutorial.</p>
+<h4 id="converter-formatos-smiles-2d-em-3d">Converter formatos SMILES 2D em 3D</h4>
+<p>Para proceder com uma transformação podemos desenhar o composto no msketch e converter para um formato de 3D.</p>
+<p><img alt="SMILES" src="https://drive.google.com/uc?id=11ASR9T8qTUbpiLD6HvvaNPvrWzBtqUKs" /></p>
+<p>Vá em: <strong><em>Calculation &gt; Conformation &gt; Conformers</em></strong> Selecione a opção: <code>Return only the lowest energy conformer found</code>.</p>
+<p>Basta agora salvar como <code>.sdf</code> ou qualquer outro formato.</p>
+<p>Um procedimento para obtenção da estrutura 3D pode ser feito com o UCSF Chimera apenas com o código SMILE da estrutura.</p>
+<blockquote>
+<p><em>Sempre use a opção Isomeric SMILES quando disponível, pois é conservada a informação de esteroquímica.</em></p>
+</blockquote>
+<p>Para isso, siga os menus no UCSF Chimera: <strong><em>Tools &gt; Structure Editing &gt; Build Structure</em></strong></p>
+<p><img alt="Construindo Moléculas no UCSF Chimera" src="https://drive.google.com/uc?id=1KbZ913nnpdD8NA_5fx3N3RhS5xCteH12" /></p>
+<p>Basta colar o SMILES no local indicado e clicar em <code>Apply</code>, assim sua estrutura 2D será convertida para 3D.</p>
+<h4 id="desenhar-a-molecula-diretamente-em-3d">Desenhar a molécula diretamente em 3D</h4>
+<p>Como o uso do programa Avogadro, você vai poder desenhar a molécula diretamente em 3D. Contudo fique bem atento, pois o erro humano é um fator preponderante quando você escolher criar seus modelos assim.</p>
+<p>O vídeo abaixo mostra como desenhar uma molécula em 3D no Avogadro (Basta clicar).</p>
+<h4 id="converter-moleculas-utilizando-linha-de-comando-ideal-para-automatizacao">Converter moléculas utilizando linha de comando (Ideal para automatização)</h4>
+<p>Podemos converter uma linha SMILE para uma conformação 3D utilizando programas como o OpenBabel e o <a href="http://users.abo.fi/mivainio/balloon/download.php">Balloon</a>. Programas sem interface gráfica são muito úteis para automatização. Imagine se estivesse trabalhando com 300 moléculas. Criar um <em>loop</em> (<em>shell scripting</em>) para converter todas para 3D é bem mais produtivo que converter uma por uma com os métodos mostrados anteriormente.</p>
+<p>Vamos tentar:</p>
+<ul>
+<li>Salve os SMILES que você possui em um arquivo de texto único. No nosso caso temos uma molécula apenas.</li>
+</ul>
+<p><img alt="Salvando SMILES em arquivo de trxto" src="https://drive.google.com/uc?id=1zx2O8iFYNaG51hKC6G6xxnBpX3fw_BvN" /></p>
+<blockquote>
+<p><em>Aqui vai uma dica importante: Nunca use, ao nomear seus arquivos, caracteres especiais ou espaços.</em></p>
+<p><em>Exemplo: Evite: Vitamina C.smi ou Ácido Ascóbico.smi, ao invés use vitC.smi ou AC.smi.</em></p>
+</blockquote>
+<p>Vamos salvar como <code>vitC.smi</code> e converter para formato 3D, utilizando a seguinte linha de comando em terminal:</p>
+<pre><code class="language-none">obabel vitC.smi -O vitC.sdf –gen3d
+</code></pre>
+<p>Daí, o arquivo <code>vitC.sdf</code> já está pronto para as próximas etapas.</p>
+<h2 id="tutorial-3">Tutorial 3</h2>
+<h3 id="ionizacao-e-tautomeria-nunca-podem-ser-ignorados">Ionização e Tautomeria nunca podem ser ignorados</h3>
+<p>Dois fatores frequentemente e erroneamente ignorados em muitos estudos de modelagem molecular são as modificações decorrentes do equilíbrio químico com o solvente. A água pode agir como um ácido protonando sua molécula de interesse ou agir como uma base, a tornando um ânion. Este fator é decisivo quando se faz a previsão da interação com alvos biológicos. Não se pode ignorar estes fatores. Carboxilas muito provavelmente estão na forma de ânion e aminas geralmente estão protonadas. O programa mksketch pode prever se sua estrutura de interesse está ionizada com grande facilidade.</p>
+<blockquote>
+<p><em>IMPORTANTE: Sempre simule sua molécula como se ela estivesse no pH de um possível teste biológico ou ensaio.</em></p>
+</blockquote>
+<p>Exemplo da ciprofloxacina:</p>
+<p><img alt="Ciprofloxacina" src="https://drive.google.com/uc?id=1THwDmYF8jcDK73cJgb6JqFdu_ugyFzcu" /></p>
+<p>Para estimar todos os estados de protonação e suas respectivas populações:</p>
+<p><img alt="Ciprofloxacina" src="https://drive.google.com/uc?id=1-rBwFtxFela5SAF17XsZalhzqgMBp-8Q" /></p>
+<p>A tautomeria é a mais ignorada de todos estes fatores. Em anexo a esta apostila está um paper bastante intrigante sobre tal fenômeno: <a href="https://www.ncbi.nlm.nih.gov/pubmed/19842045">J Comput Aided Mol Des (2009) 23:693–704. Let’s not forget tautomers de Yvonne Connolly Martin.</a>. O trecho abaixo foi retirado dele:</p>
+<blockquote>
+<p><em>“Tautomerization equilibria present a continuing challenge to computer-aided molecular design, affecting everything from library design to SAR to docking and scoring protein-ligand interactions. The absence of experimental data and validated computational methods make tautomerization easy to ignore but overwhelming to consider.”</em></p>
+</blockquote>
+<p>No msketch você pode levar em conta o tautomerismo (pode ser que nada mude) quando estiver calculando os estados de protonação.</p>
+<blockquote>
+<p><em>Jamais ignore os estados de protonação e o tautomerismo.</em></p>
+</blockquote>
+<hr />
+<h5 id="dica"><em>Dica</em>:</h5>
+<p>Para levar em conta a protonação de sua molécula você pode usar o OpenBabel também, com o seguinte comando:</p>
+<pre><code class="language-none">obabel vitC.smi -O vitC.sdf –gen3d -p 7.4
+</code></pre>
+<blockquote>
+<p><em>Nesse exemplo utilizamos o pH 7,40</em></p>
+</blockquote>
+<p>Os resultados do babel são muito inferiores aos do Marvin:</p>
+<p><img alt="Marvin" src="https://drive.google.com/uc?id=1x0SfFNtYEL4EdkUqsu1JDhkgIYaz21bA" /></p>
+<h2 id="tutorial-4">Tutorial 4</h2>
+<h3 id="consideracoes-sobre-otimizacao-de-geometria">Considerações sobre otimização de geometria</h3>
+<p><img alt="Geometria" src="https://drive.google.com/uc?id=1BV9ETFO_ckMdqAoEBsvydWx5qvRuAflA" /></p>
+<p>A estrutura 3D que você obteve passou por otimizações com campos de força, os quais trataremos mais adiante no curso. Os campos de força hoje em dia já foram muito bem refinados e automatizados. Anteriormente, eles eram muito difíceis de implementar corretamente para fornecerem resultados exatos. Os melhores resultados de otimização de geometria para moléculas orgânicas vêm de cálculos com mecânica quântica <em>ab initio</em> ou <em>funcional da densidade</em>. Recomendo os funcionais de densidade M052X com as funções de base 6-31G** implementados no programa <a href="http://psicode.org/">PSI4</a> para moléculas orgânicas. Contudo estes cálculos são bastante caros computacionalmente (Demoram muito tempo para o cálculo da geometria 3D otimizadas). Uma versão de mecânica quântica semi-empírica é o PM7 implementado no programa MOPAC (já instalado em sua máquina). O PM7 é muito bem parameterizado e garante geometrias para moléculas orgânicas de boa qualidade.</p>
+<p>Vamos ver como otimizar sua molécula. Utilize o programa GABEDIT para criar os <em>inputs</em>:</p>
+<p><img alt="GABEDIT" src="https://drive.google.com/uc?id=1ZkodZg9v3aS-7h-a-ZWmHfAp2r86jHN-" /></p>
+<p>Ao visualizar a molécula, feche a janela e clique no botão para criar o input para o MOPAC2016.</p>
+<p><img alt="GABEDIT" src="https://drive.google.com/uc?id=10uF9c4WuZ_L5SbDRjqvqa6prhPBMJUtk" /></p>
+<p>Coloque a carga da molécula (pode estar ionizada). <em>Spin</em> quase sempre vai aparecer 1. Caso apareça 2, você fez algo errado. Nas outras opções, coloque:</p>
+<ul>
+<li><code>Job Type</code> - <em>Equilibrium structure search</em>.</li>
+<li><code>Hamiltonian</code> - <em>PM7</em>.</li>
+<li><code>Solvent</code> - <em>Water [H2O]</em>.</li>
+</ul>
+<p>Salve a molécula como vitC.mop e execute o seguinte comando em um terminal:</p>
+<pre><code class="language-none">mopac vitC.mop
+</code></pre>
+<blockquote>
+<p><em>Deve ser muito rápido.</em></p>
+</blockquote>
+<p>Ao terminar digite:</p>
+<pre><code class="language-none">gabedit vitC.mop
+</code></pre>
+<p>Desenhe a molécula otimizada em <code>Draw</code> e salve como <code>vitC_opt.mol</code> na janela subsequente.</p>
+<p><img alt="GABEDIT" src="https://drive.google.com/uc?id=10Lyj7AmSjB-xtxbZbTpHECoO47sllEY8" /></p>
+<p>Veja abaixo a comparação da molécula feita com campos de força e a otimizada. Neste caso não houve uma grande modificação, mas algumas vezes a mudança é substancial.</p>
+<blockquote>
+<p><em>Sempre otimize suas moléculas pelo menos com um método semi-empírico (Sugestão PM7).</em></p>
+</blockquote>
+<p><img alt="Comparando as moléculas no UCSF Chimera" src="https://drive.google.com/uc?id=1PKTJZu2RzBmedGwpqidYMBD0CNXmXaqk" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR15-VS1/" class="btn btn-neutral float-left" title="Virtual Screening"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR17-EGB2/" class="btn btn-neutral float-right" title="Análise conformacional">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR15-VS1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR17-EGB2/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

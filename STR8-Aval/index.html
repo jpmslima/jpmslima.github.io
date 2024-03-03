@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR8-Aval/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Avaliação dos Modelos - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Avalia\u00e7\u00e3o dos Modelos";
+        var mkdocs_page_input_path = "STR8-Aval.md";
+        var mkdocs_page_url = "/tutoriais/STR8-Aval/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Avaliação dos Modelos</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#structural-assessment-do-swiss-model">Structural Assessment do Swiss-Model</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resultados">Resultados</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#grafico-de-ramachandran-visualizacao-do-modelo">Gráfico de Ramachandran + Visualização do Modelo:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#avaliacao-pelo-molprobity">Avaliação pelo MolProbity</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#avaliacao-da-qualidade">Avaliação da Qualidade</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#tarefa">Tarefa</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outras-ferramentas-recomendadas">Outras Ferramentas recomendadas:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#escores-e-parametros">Escores e parâmetros:</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Avaliação dos Modelos</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="avaliacao-da-qualidade-dos-modelos-proteicos-teoricos-gerados">Avaliação da Qualidade dos Modelos Proteicos Teóricos Gerados</h1>
+<p>Para avaliação dos modelos gerados pelas diferentes ferramentas utilizaremos o Módulo <em>Structural Assessment</em> do <a href="http://swissmodel.expasy.org">Swiss-Model</a>. Em versões anteriores, a avaliação de estruturas por este servidor era baseada nos programas <strong><em>Procheck</em></strong> e <strong><em>Anolea</em></strong> (Ver descrições abaixo). Na última versão (a que utilizaremos neste tutorial) a interface ficou mais simples e incluiu ferramentas muito utilizadas para validação de modelos teóricos, como o <strong><em>Molprobity</em></strong>.</p>
+<h2 id="structural-assessment-do-swiss-model"><em>Structural Assessment</em> do Swiss-Model</h2>
+<ul>
+<li>Abra a página do <a href="https://swissmodel.expasy.org">Swiss-Model</a>.</li>
+<li>Clique em <code>Log in</code> no canto superior direito e entre com suas credenciais.</li>
+<li>Você verá a seguinte página:</li>
+</ul>
+<p><img alt="Swiss-Model" src="../str8-fig1.png" /></p>
+<ul>
+<li>Vá até <code>Tools</code> e clique em <code>Structural Assessment</code>, da maneira indicada na página abaixo:</li>
+</ul>
+<p><img alt="Swiss-Model-SA1" src="../str8-fig2.png" /></p>
+<ul>
+<li>
+<p>Na página seguinte irá aparecer dois campos para preenchimento: um para o <em>upload</em> do arquivo de estrutura (<code>.pdb</code>) e o outro para inserir um título do projeto. É extremamente recomendável que você use este campo para dizer características do modelo que estás submetendo para avaliação. Neste exemplo, utilizaremos um dos arquivos gerados pelo I-TASSER, o <a href="https://drive.google.com/uc?id=1gsl4QcdsMJVnrNZMMcl0WeC-XI91ZE0u">tAPX-itasser-model1.pdb</a>.</p>
+</li>
+<li>
+<p>Clique em <code>+ Upload Coordinate File:</code> ou arraste o arquivo pdb para o campo. Após o reconhecimento, ele irá atribuir um nome automático ao Projeto. Edite-o se achar necessário.</p>
+</li>
+</ul>
+<p><img alt="Swiss-Model-SA2" src="../str8-fig3.png" /></p>
+<ul>
+<li>Agora clique em <code>Start Assessment</code> e espere os resultados completos.</li>
+</ul>
+<h3 id="resultados">Resultados</h3>
+<p>Os resultados aparecem na seguinte ordem:</p>
+<h4 id="grafico-de-ramachandran-visualizacao-do-modelo">Gráfico de Ramachandran + Visualização do Modelo:</h4>
+<p><img alt="Swiss-Model-SA3" src="../str8-fig4.png" /></p>
+<ul>
+<li>Nos botões abaixo do gráfico você pode escolher as variações do Gráfico de Ramachandran e obter a figura para publicação.</li>
+<li>Na figura interativa ao lado, você poderá editar a estrutura, mudar o tipo de visualização e exportar como figura.</li>
+</ul>
+<h4 id="avaliacao-pelo-molprobity">Avaliação pelo MolProbity</h4>
+<p><img alt="Swiss-Model-SA4" src="../str8-fig5.png" /></p>
+<ul>
+<li>A tabela descritiva dos parâmetros avaliados pelo MolProbity estará descrita no lado esquerdo.</li>
+<li>As colunas da tabela são, respectivamente: Parâmetro, Valor e Lista dos Resíduos com a sua respectiva posição.</li>
+<li>Ao lado de cada parâmetro há uma caixa. Se você selecionar esta caixa, por exemplo, ao lado do item <strong><em>Ramachandran Outliers</em></strong>, os resíduos que estão fora  das regiões permitidas serão realçados na visualização lateral. O mesmo acontece com os outros parâmetros.</li>
+</ul>
+<h4 id="avaliacao-da-qualidade">Avaliação da Qualidade</h4>
+<p><img alt="Swiss-Model-SA5" src="../str8-fig6.png" /></p>
+<ul>
+<li>Dois campos são agora mostrados:<ul>
+<li>Estimativas gerais de qualidade do modelo, realizadas em comparação a todas estruturas do banco RCSB PDB.</li>
+<li>Estimativa de qualidade (escore QMean) de cada resíduo na sequência. Ao clicar no resíduo neste diagrama, ele ficará em evidência na figura interativa ao lado. A figura acima mostra o resíduo de Phe356.</li>
+</ul>
+</li>
+</ul>
+<p>O resumo dos escores de avaliação utilizados pelo Swiss-Model estão listados no item <strong>Escores e Parâmteros</strong> abaixo.</p>
+<h4 id="tarefa">Tarefa</h4>
+<ul>
+<li>Faça esta avaliação para os modelos que você obteve para a proteína O46921_SPIOL. </li>
+</ul>
+<h2 id="outras-ferramentas-recomendadas">Outras Ferramentas recomendadas:</h2>
+<ul>
+<li>
+<p><strong>Modeller:</strong></p>
+<ul>
+<li>Via ModEval: <a href="https://modbase.compbio.ucsf.edu/evaluation/">https://modbase.compbio.ucsf.edu/evaluation/</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Molprobity:</strong> </p>
+<ul>
+<li><a href="http://molprobity.biochem.duke.edu">http://molprobity.biochem.duke.edu</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Verify3D:</strong></p>
+<ul>
+<li>Direto: <a href="http://services.mbi.ucla.edu/Verify_3D/">http://services.mbi.ucla.edu/Verify_3D/</a> </li>
+</ul>
+</li>
+<li>
+<p><strong>ERRAT:</strong></p>
+<ul>
+<li><a href="http://services.mbi.ucla.edu/ERRAT/">http://services.mbi.ucla.edu/ERRAT/</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Análise no SAVES (<em>Structure Analysis and Verification Server</em>):</strong></p>
+<ul>
+<li><a href="http://services.mbi.ucla.edu/SAVES/">http://services.mbi.ucla.edu/SAVES/</a></li>
+<li>Verifica todas estas ferramentas:<ul>
+<li>Procheck.</li>
+<li>What_Check.</li>
+<li>ERRAT.</li>
+<li>Verify3D.</li>
+<li>Prove.</li>
+<li>CRYT1 <em>record matches</em>.</li>
+<li>Ramachandran Plot.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="escores-e-parametros">Escores e parâmetros:</h2>
+<ul>
+<li>
+<p><strong><em>DOPE:</em></strong> <em>Discrete Optimized Protein Energy</em>. É um potencial estatístico utilizado para avaliar modelos realizados por homologia. É baseado em um estado de referência que corresponde a átomos que não-interagem em uma esfera homogênea, com o raio dependente de uma estrutura nativa de amostra. Portanto, é relativo a forma nativa e esférica das estruturas nativas. Escores menores são mais favoráveis. No Modeller-Chimera ou no ModEval é representado como um escore Z (z-DOPE). Escores positivos provavelmente representam modelos pobres, enquanto escores menores do que -1 estão relacionados a estruturas nativas.</p>
+</li>
+<li>
+<p><strong><em>RMSD:</em></strong> <em>Root-mean-square deviation</em> (RMSD). É a medida distância média entre os átomos de duas proteínas superpostas. Em relação as coordenadas atômicas do C-α ou em relação a todos os átomos (depende da forma como ele é computado).</p>
+</li>
+<li>
+<p><strong><em>Predicted Native Overlap:</em></strong> Fração dos átomos Cα que estão preditos a estar dentro de 3.5 Å das suas posições na estrutura nativa.</p>
+</li>
+<li>
+<p><strong><em>GA341:</em></strong> Escore para a confiabilidade de um modelo, derivado de potenciais estatísticos. Um modelo é considerado confiável quando o escore de modelagem é maior que um valor de corte pré-especificado (0.7). Um modelo confiável tem a probabilidade de ter assumindo um fold correto maior do que 95%. Um fold é correto quando pelo menos 30% dos seus Cα estão sobrepostos dentro de 3.5 Å de suas posições corretas.</p>
+</li>
+<li>
+<p><strong><em>Z-Score:</em></strong> É uma medida da compatibilidade entre a sequência do modelo e sua estrutura. O Z-score do modelo deve ser comparável ao Z-score obtido pelo molde. Não é um parâmetro completamente excludente, pois alguns modelos bons podem apresentar Z-scores ruins.</p>
+</li>
+<li>
+<p><strong><em>MolProbity Score:</em></strong> Estruturas de proteínas são muito bem empacotadas, com contatos de van der Waals interdigitados e sobreposição mínima entre átomos não envolvidos em ligações de hidrogênio (Pontes de hidrogênio). <em>Clashes</em> (conflitos) estéricos desfavoráveis são fortemente correlacionados com qualidade pobre de dados, com clashes reduzidos para perto de zero em partes bem ordenadas de estruturas cristalizadas de alta resolução. Números menores indicam melhores modelos. Leva em conta em seus cálculos:</p>
+<ul>
+<li><strong><em>Clashscore:</em></strong> Número de sobreposições estéricas desfavoráveis de todos os átomos &gt; 0.4 Å por 1000 átomos.</li>
+<li><strong><em>Rotâmeros outliers:</em></strong> Porcentagem de conformações de cadeia laterais fora das regiões permitidas.</li>
+<li>Número de cadeias fora das regiões favoráveis de Ramachandran.</li>
+</ul>
+</li>
+<li>
+<p><strong><em>Anolea:</em></strong> Potencial de Força empírico médio atômico é utilizado para avaliar a qualidade de empacotamento do modelo. O eixo-y do gráfico gerado representa a energia de cada aminoácido da cadeia protéica. Valores negativos de energia (em verde) representam ambientes de energia favorável, enquanto valores positivos (vermelhos) representam regiões de energia desfavorável para aquele aminoácido.</p>
+</li>
+<li>
+<p><strong><em>Verify3D:</em></strong> Avalia a estrutura das proteínas utilizando perfis 3D. Ele analisa a compatibilidade de um modelo atômico (3D) com a sua própria sequência primária (1D). Cada resíduo é atribuído a uma classe estrutural baseada na sua localização e ambiente (hélices, folhas, loops, polar, apolar, etc.). Daí um banco de dados gerado a partir de boas estruturas é utilizado para obter um escore para cada um dos 20 aminoácidos nesta classe estrutural. O eixo vertical no gráfico representa a média do escore do perfil 3D-1D para cada um dos resíduos em uma janela de 21 resíduos. Os escores variam de -1 (ruins) a +1 (bons).</p>
+</li>
+<li>
+<p><strong><em>ERRAT:</em></strong> Analisa a estatística de interações não-covalentes entre diferentes tipos de átomos e plota o valor da função de erro versus a posição em uma “janela deslizante” de 9 resíduos, calculada por comparação estatística com estruturas refinadas.</p>
+</li>
+<li>
+<p><strong><em>PROVE:</em></strong> Calcula o volume dos átomos nas macromoléculas usando um algoritmo que os trata como esferas rígidas e calcula um desvio de Z-escore estatístico para o modelo a partir de estruturas pdb depositadas bem resolvidas (de 2.0 Å ou melhores) ou refinadas (Fator-R de 0.2 ou melhor).</p>
+</li>
+<li>
+<p><strong><em>Gromos:</em></strong> O eixo y do gráfico representa os GROMOS, campo de força e energia empírico para cada aminoácido da cadeia de proteína. Valores negativos de energia (em verde) representam ambiente favorável de energia enquanto os valores positivos (em vermelho) energia representam ambiente desfavorável para um determinado aminoácido.</p>
+</li>
+<li>
+<p><strong><em>Procheck:</em></strong> Este grupo de programas avalia "qualidade estereoquímica" de uma dada estrutura de proteína. O objetivo do PROCHECK é avaliar o quão normal, ou, inversamente, quão anormal, a geometria dos resíduos de uma dada estrutura de proteínas é, em comparação com os parâmetros estereoquímicos derivados de estruturas de alta resolução refinadas (Por cristalização).</p>
+</li>
+<li>
+<p><strong><em>What_check:</em></strong> Checagem extensiva de muitos parâmetros estereoquímicos dos resíduos de aminoácidos no modelo. </p>
+</li>
+<li>
+<p><strong><em>QMean:</em></strong> é uma função de pontuação composta que é capaz de derivar ambas estimativas de erro, global (isto é, por toda a estrutura) e local (ou seja, por resíduo) na base de um modelo único. É uma pontuação global de todo o modelo que reflecte a confiabilidade do modelo previsto que varia de 0 a 1.</p>
+</li>
+<li>
+<p><strong><em>QMean Z-score:</em></strong> fornece uma estimativa da qualidade de um modelo absoluto, relacionando-a com referência a estruturas resolvidas por cristalografia de raios-X. O QMEAN Z-score é uma estimativa do "grau de natividade" das características estruturais observadas em um modelo por descrever a probabilidade de que um modelo é de qualidade comparável aos experimentais estruturas de alta resolução.</p>
+</li>
+<li>
+<p><strong><em>Estimated absolute model quality:</em></strong> A pontuação QMEAN do modelo de consulta está relacionada com a pontuação de um conjunto não redundante de alta resolução de estruturas de raios-X de tamanho similar e um Z-score é calculado.</p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR7-MDA/" class="btn btn-neutral float-left" title="MDA"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR9-EM/" class="btn btn-neutral float-right" title="EM/CryoEM fitting">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR7-MDA/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR9-EM/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
