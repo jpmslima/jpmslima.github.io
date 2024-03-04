@@ -436,7 +436,7 @@ Protein_A         1
 SOL           10636
 CL                8
 </code></pre>
-<p><img alt="" src="../system_solv_ions.jpg" /></p>
+<p><img alt="md1" src="../system_solv_ions.jpg" /></p>
 <h3 id="minimizacao-de-energia">Minimização de energia</h3>
 <p>O sistema solvatado e eletroneutro está agora montado. Antes de iniciar a dinâmica, devemos assegurar que o sistema não tenha choques estéreos ou geometria inadequada. A estrutura é relaxada por meio de um processo chamado minimização de energia (EM).</p>
 <p>O processo para o EM é muito parecido com a adição de íons. Vamos mais uma vez usar o <code>grompp</code> para montar a estrutura, topologia e parâmetros de simulação em um arquivo binário de entrada (<code>.tpr</code>), mas desta vez, em vez de passar o <code>.tpr</code> para o <code>genion</code>, vamos executar a minimização de energia por meio do algorítmo de dinâmica molecular do GROMACS, <code>mdrun</code>.</p>
@@ -471,7 +471,7 @@ CL                8
 <pre><code class="language-shell">gmx energy -f em.edr -o potential.xvg
 </code></pre>
 <p>No prompt, digite "10 0" para selecionar Potencial (10); zero (0) encerra a entrada. Será mostrada a média do <em>E<sub>pot</sub></em>, e um arquivo chamado <code>potencial.xvg</code> será escrito. Para plotar estes dados, você precisará da ferramenta tipo <strong><em>Xmgrace</em></strong> ou <strong><em>ggplot2</em></strong> do R. O gráfico resultante deverá ser parecido com o abaixo, demonstrando a convergência constante da <em>E<sub>pot</sub></em>:</p>
-<p><img alt="" src="plot_lyso_em_potential.png" /></p>
+<p><img alt="md2" src="../plot_lyso_em_potential.png" /></p>
 <p>Agora que nosso sistema está <em>minimizado</em>, podemos iniciar uma verdadeira dinâmica.</p>
 <h3 id="equilibracao"><em>Equilibração</em></h3>
 <p>A EM garante uma estrutura de partida razoável, em termos de geometria e orientação de solvente. Para iniciar uma dinâmica real, devemos equilibrar o solvente e os íons em torno da proteína. Se tentarmos uma dinâmica desenfreada neste ponto, o sistema pode entrar em colapso. A razão é que o solvente é em sua maioria otimizado dentro de si mesmo, e não necessariamente com o soluto. Ele precisa ser levado à temperatura que desejamos simular e estabelecer a orientação adequada sobre o soluto (a proteína). Após chegarmos à temperatura correta (baseada em energias cinéticas), aplicaremos pressão no sistema até que ele atinja a densidade adequada.</p>
@@ -500,7 +500,7 @@ gmx mdrun -deffnm nvt
 <pre><code class="language-shell">gmx energy -f nvt.edr -o temperature.xvg
 </code></pre>
 <p>Digite "16 0" no <em>prompt</em> para selecionar a temperatura do sistema e sair. O gráfico resultante deve ser parecido com o abaixo:</p>
-<p><img alt="" src="plot_lyso_nvt_temperature.png" /></p>
+<p><img alt="md3" src="../plot_lyso_nvt_temperature.png" /></p>
 <p>A partir do gráfico, fica claro que a temperatura do sistema atinge rapidamente o valor alvo (300 K), e permanece estável durante o restante do equilíbrio. Para este sistema, um período de equilíbrio mais curto (na ordem de 50 ps) pode ser adequado.</p>
 <p>A etapa anterior, o equilíbrio da NVT, estabilizou a temperatura do sistema. Antes da coleta de dados, devemos também estabilizar a pressão (e, portanto, também a densidade) do sistema. A <em>equilibração </em>da pressão é realizada sob um conjunto NPT, no qual o Número de partículas, Pressão e Temperatura são todos constantes. O conjunto também é chamado de conjunto "isotérmico-isobárico", e mais se assemelha às condições experimentais.</p>
 <p>O arquivo <code>.mdp</code> usado para um equilíbrio de 100 ps NPT pode ser encontrado <a href="http://www.mdtutorials.com/gmx/lysozyme/Files/npt.mdp">aqui</a>. Ele não é drasticamente diferente do arquivo de parâmetros usado para o equilíbrio do NVT. Observe a adição da seção de acoplamento de pressão, usando o barostato Parrinello-Rahman.</p>
@@ -522,12 +522,12 @@ gmx mdrun -deffnm npt
 <pre><code class="language-shell">gmx energy -f npt.edr -o pressure.xvg
 </code></pre>
 <p>Digite "18 0" no prompt para selecionar a pressão do sistema e sair. O gráfico resultante deve ser parecido com o abaixo:</p>
-<p><img alt="" src="plot_lyso_npt_pressure.png" /></p>
+<p><img alt="md4" src="../plot_lyso_npt_pressure.png" /></p>
 <p>O valor da pressão flutua muito ao longo da fase de equilíbrio de 100 ps, mas este comportamento não é inesperado. A média de funcionamento destes dados está plotada como a linha vermelha no gráfico. Durante o curso do equilíbrio, o valor médio da pressão é de 7,5 ± 160,5 bar. Note que a pressão de referência foi ajustada para 1 bar, então este resultado é aceitável? A pressão é uma quantidade que flutua amplamente durante o curso de uma simulação MD, como está claro a partir da grande flutuação do desvio padrão (160,5 bar). Portanto, estatisticamente falando, não se pode distinguir uma diferença entre a média obtida (7,5 ± 160,5 bar) e o valor alvo/referência (1 bar).</p>
 <p>Vamos dar uma olhada também na densidade, desta vez usando energia e digitando "24 0" no prompt.</p>
 <pre><code class="language-shell">gmx energy -f npt.edr -o density.xvg
 </code></pre>
-<p><img alt="" src="plot_lyso_npt_density.png" /></p>
+<p><img alt="md5" src="../plot_lyso_npt_density.png" /></p>
 <p>Assim como com a pressão, a média da densidade também está plotada em vermelho. O valor médio ao longo de 100 ps é 1019±3 kg . m<sup>-3</sup>, próximo ao valor experimental de 1000 kg . m<sup>-3</sup> e à densidade esperada do modelo SPC/E de 1008 kg . m<sup>-3</sup>. Os parâmetros para o modelo SPC/E da água reproduzem de perto os valores experimentais para a água. Os valores de densidade são muito estáveis ao longo do tempo, indicando que o sistema está bem calibrado agora em relação à pressão e densidade.</p>
 <blockquote>
 <p><em>Por favor, observe: é comum ter dúvidas sobre por que os valores de densidade obtidos não correspondem aos resultados. Os termos relacionados à pressão são lentos para convergir e, portanto, você pode ter que executar o equilíbrio do NPT em um tempo mais longo do que o especificado aqui.</em></p>
@@ -564,13 +564,13 @@ gmx mdrun -deffnm npt
 <pre><code class="language-shell">gmx rms -s em.tpr -f md_0_1_noPBC.xtc -o rmsd_xtal.xvg -tu ns
 </code></pre>
 <p>Plotados juntos, os resultados serão parecidos com:</p>
-<p><img alt="" src="plot_lyso_md_rmsd.png" /></p>
+<p><img alt="md6" src="../plot_lyso_md_rmsd.png" /></p>
 <p>Ambas as séries temporais mostram os níveis de RMSD em ~0,1 nm (1 Å), indicando que a estrutura é muito estável. As diferenças sutis entre os gráficos indicam que a estrutura em t = 0 ns é ligeiramente diferente desta estrutura de cristal. Isto é de se esperar, já que foi minimizado em termos energéticos e porque as restrições de posição não são 100% perfeitas, como discutido anteriormente.</p>
 <p>O raio de giro de uma proteína é uma medida de sua compactação. Se uma proteína for dobrada de forma estável, ela provavelmente manterá um valor relativamente estável de Rg. Se uma proteína se desdobrar, seu Rg irá mudar com o tempo. Vamos analisar o raio de giro da lisozima em nossa simulação:</p>
 <pre><code class="language-shell">gmx gyrate -s md_0_1.tpr -f md_0_1_noPBC.xtc -o gyrate.xvg
 </code></pre>
 <p>Escolha o grupo 1 (Proteína) para análise.</p>
-<p><img alt="" src="plot_lyso_md_rg.png" /></p>
+<p><img alt="md7" src="../plot_lyso_md_rg.png" /></p>
 <p>Podemos ver pelos valores de Rg razoavelmente invariantes que a proteína permanece muito estável, em sua forma compacta (dobrada) ao longo de 1 ns a 300 K. Este resultado não é inesperado, mas ilustra uma capacidade avançada de análise GROMACS que vem embutida.</p>
 <h3 id="conclusao">Conclusão</h3>
 <p>Agora você conduziu uma simulação de dinâmica molecular com o GROMACS, e analisou alguns dos resultados. Este tutorial não deve ser visto como abrangente. Há muito mais tipos de simulações que se pode conduzir com o GROMACS (cálculos de energia livre, MD não-equilibrio, e análise de modos normais, só para citar alguns). Você também deve rever a literatura e o manual do GROMACS para ajustes nos arquivos <code>.mdp</code> fornecidos aqui para fins de eficiência e precisão.</p>
