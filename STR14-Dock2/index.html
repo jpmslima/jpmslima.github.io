@@ -196,14 +196,14 @@
 <p>Iremos dividir este tutorial em 4 partes: preparação do receptor, preparação do ligante, preparação e execução do atracamento, e analisando os resultados. Os 4 passos a seguir serão realizados utilizando o programa <a href="https://www.cgl.ucsf.edu/chimera/">UCSF Chimera</a>. Vamos lá?</p>
 <h3 id="1-preparacao-do-receptor">1. Preparação do receptor</h3>
 <p>No programa UCSF Chimera clique em <code>Fetch</code>. </p>
-<p><a href="../str14-fig1.png">dock1</a></p>
+<p><img alt="dock1" src="../str14-fig1.png" /></p>
 <p>Na nova aba selecione pdb e escreva o código <code>6M2Q</code> e clique novamente em <code>Fetch</code>. Em seguida a estrutura será aberta e visualizada. </p>
-<p><a href="../str14-fig2.png">dock2</a></p>
+<p><img alt="dock2" src="../str14-fig2.png" /></p>
 <p>Agora que a proteína foi localizada com sua estrutura tridimensional, seguiremos para a preparação da proteína para o <em>docking</em>. Esta etapa consiste em remover solventes (como moléculas de água), adicionar hidrogênios à estrutura, minimizar a estrutura e adicionar cargas. Inicialmente vá ao menu  presente na barra superior do Chimera até a seleção <em>Tools</em> e siga os passos: </p>
 <ul>
 <li>Vá em <em>Tools &gt; Surface/Binding Analysis &gt; Dock Prep</em>.</li>
 </ul>
-<p><a href="../str14-fig3.png">dock3</a></p>
+<p><img alt="dock3" src="../str14-fig3.png" /></p>
 <ul>
 <li>Na janela aberta escolha as opções abaixo (veja a figura abaixo): </li>
 <li><em>Delete solvent</em>;</li>
@@ -214,14 +214,14 @@
 <li><em>Add Charges</em>;</li>
 <li><em>Write Mol2 file</em>.</li>
 </ul>
-<p><a href="../str14-fig4.png">dock4</a></p>
+<p><img alt="dock4" src="../str14-fig4.png" /></p>
 <ul>
 <li>Após isto, pressione <code>Ok</code>.</li>
 </ul>
 <p>Em seguida uma janela será aberta sobre a adição de hidrogênios na proteína. Nas alternativas, deixe as opções padrão (<strong><em>also consider H—bonds; histidine e Residue-name-based</em></strong>). Após marcação, pressione <code>Ok</code>.</p>
-<p><a href="../str14-fig5.png">dock5</a></p>
+<p><img alt="dock5" src="../str14-fig5.png" /></p>
 <p>Após isto, uma terceira aba será aberta, denominada <strong><em>Assign charges for Dock Prep</em></strong>. Deixe a opção de cargas <strong><em>AMBER ff14SB</em></strong> e <strong><em>AM1-BCC</em></strong> (um campo de força baseado em mecânica quântica, semi-empírico).</p>
-<p><a href="../str14-fig6.png">dock6</a></p>
+<p><img alt="dock6" src="../str14-fig6.png" /></p>
 <blockquote>
 <p><em>Em estruturas que possuem outros ligantes (que não seja o que estás utilizando) após pressionar <code>Ok</code> uma nova janela será aberta para especificarmos as cargas líquidas destas moléculas químicas, sendo denominada de </em><strong>Specify Net Charges</strong><em>. Nesta nova janela escolha o método </em><strong>AM1-BCC</strong><em> e pressione <code>Ok</code>.</em> <em>Esta opção não irá aparecer com o pdb 6MQ2.</em></p>
 </blockquote>
@@ -229,7 +229,7 @@
 <h3 id="2-preparando-o-ligante">2. Preparando o ligante</h3>
 <p>Iremos trabalhar com um inibidor relatado em literatura para esta enzima: o inibidor <strong><em>Baicalein</em></strong>. Ele é um composto natural pertencente a classe das flavonas, um tipo específico de flavonoide. Estudos de Su e colaboradores (2020) [<a href="https://pubmed.ncbi.nlm.nih.gov/32737471/">3</a>] identificaram a inibição de forma dose-dependente a proteína 3CLpro de SARS-CoV-2, bem como a replicação do SARS-CoV-2 em células Vero E6.</p>
 <p>O ligante está disponível no PDB sob o código <a href="https://www.rcsb.org/ligand/3WL">3WL</a>. O arquivo do ligante pode ser construído e salvo por meio do software UCSF Chimera usando o código SMILES (<em>Simplified-Molecular Input-Entry System</em>) que está disponível no site PDB. </p>
-<p><a href="../str14-fig7.png">dock7</a></p>
+<p><img alt="dock7" src="../str14-fig7.png" /></p>
 <p>Após copiar o código SMILES, siga as instruções abaixo no Chimera:</p>
 <ul>
 <li>Vá em <em>Tools &gt; Structure Editing &gt; Build Structure</em>.</li>
@@ -250,16 +250,16 @@
 <p>Na nova janela, clique em <code>Minimize</code>; </p>
 </li>
 </ul>
-<p><a href="../str14-fig8.png">dock8</a></p>
+<p><img alt="dock8" src="../str14-fig8.png" /></p>
 <ul>
 <li>Teremos novamente a janela de Dock Prep. Pode seguir da mesma forma como na preparação da proteína acima.</li>
 </ul>
-<p><a href="../str14-fig9.png">dock9</a></p>
+<p><img alt="dock9" src="../str14-fig9.png" /></p>
 <ul>
 <li>Na próxima janela escolha <em>AM1-BCC</em> e clique em <code>Ok</code>.</li>
 <li>Na janela <strong><em>Assign Charges</em></strong> (que agora aparece), você deixa o ligante como não carregado.</li>
 </ul>
-<p><a href="../str14-fig10.png">dock10</a></p>
+<p><img alt="dock10" src="../str14-fig10.png" /></p>
 <p>A minimização irá iniciar para os compostos estudados.</p>
 <h3 id="3-preparacao-e-execucao-do-atracamento">3. Preparação e execução do atracamento</h3>
 <p>Após preparar o ligante e o receptor, vamos realizar o <em>docking</em> das duas moléculas pelo programa AutoDock Vina. No Chimera siga os passos abaixo: </p>
