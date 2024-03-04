@@ -86,12 +86,22 @@
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Predição de Epítopos</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#epitopos-de-celulas-t">Epítopos de células T</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mhci">MHCI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mhcii">MHCII</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#epitopos-de-celulas-b">Epítopos de células B</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#vamos-a-um-primeiro-teste">Vamos a um primeiro teste?</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#procurando-pela-doenca">Procurando pela doença</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#predicao-de-alergenicidade">Predição de Alergenicidade</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#perguntas">Perguntas</a>
     </li>
     </ul>
                   </li>
@@ -121,11 +131,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
                   </li>
@@ -158,10 +170,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a href="bioinfo.ufrn.br"><img alt="Biome" src="https://drive.google.com/uc?id=1Rgh88avopwh7YtUKsD5hXMwF3BFH5-Kj" /></a></p>
-<h2 id="predicao-de-epitopos-para-celulas-do-tipo-b-e-t">Predição de Epitopos para células do tipo B e T</h2>
+                <h1 id="predicao-de-epitopos-para-celulas-do-tipo-b-e-t">Predição de Epitopos para células do tipo B e T</h1>
 <p>A partir da identificação de proteínas de superfície de patógenos e utilizando buscas de similaridades pode-se inferir epitopos de células B e T para qualquer sequência. Para isso, a <em>knowledge database</em> (Banco de conhecimentos) do <em>Immune Epitope Database and Analysis Resource</em> (<a href="http://www.iedb.org">IEDB</a>) é uma ferramenta essencial para estudos de antigenicidade e imunogenicidade.</p>
-<p><img alt="Página Inicial do IEDB" src="https://drive.google.com/uc?id=1EtDo5kafIm-OepZ7WUr6jnuqzhOURyiU" /></p>
+<p><img alt="Página Inicial do IEDB" src="../str22-fig1.png" /></p>
 <p>Neste exemplo, utilizaremos uma sequência de tropomiosina camarão <em>Litopenaeus vannamei</em>:</p>
 <pre><code>&gt;Lit v 1 tropomyosin [Litopenaeus vannamei]
 MDAIKKKMQAMKLEKDNAMDRADTLEQQNKEANNRAEKSEEEVHNLQKRMQQLENDLDQVQESLLKANIQ
@@ -170,9 +181,9 @@ MDALENQLKEARFLAEEADRKYDEVARKLAMVEADLERAEERAETGESKIVELEEELRVVGNNLKSLEVS
 EEKANQREEAYKEQIKTLTNKLKAAEARAEFAERSVQKLQKEVDRLEDELVNEKEKYKSITDELDQTFSE
 LSGY
 </code></pre>
-<h3 id="epitopos-de-celulas-t">Epítopos de células T</h3>
+<h2 id="epitopos-de-celulas-t">Epítopos de células T</h2>
 <p>Vamos primeiro verificar quais regiões desta proteína podem ser possíveis epitopos de células T (No quadro mais a esquerda <strong><em>Epitope Analysis Resource</em></strong>).</p>
-<p><strong>MHCI</strong></p>
+<h3 id="mhci">MHCI</h3>
 <ul>
 <li>Clique em <strong><em>MHC I Binding</em></strong>.</li>
 <li>Na página seguinte, copie e cole a sequência acima.</li>
@@ -180,12 +191,12 @@ LSGY
 <li>Para fins de simplificação, analisaremos apenas o alelo humano <strong>HLA-A-01:01</strong>. Na caixa ao lado, colocar <em>All lengths</em> (Para todos os tamanhos de epitopos).</li>
 <li>Observe a tabela resultante, que deverá ser similar a abaixo:</li>
 </ul>
-<p><img alt="MHC-I" src="https://drive.google.com/uc?id=1I15nBppFgWhV2sMoktH9fGhuEF5agxD6" /></p>
+<p><img alt="MHC-I" src="str22-fig2.png6" /></p>
 <p>Na tabela acima, ele demonstra o Alelo, a posição na sequência, o tamanho e a sequência do peptídeo, e na última coluna o <em>Percentile Rank</em>. Segundo o método, quanto menor for este percentil, melhor será a ligação com o MHCI. Selecione a caixa <code>Check to expand the result</code>. A tabela será expandida com os seguintes resultados:</p>
-<p><img alt="MHC-II" src="https://drive.google.com/uc?id=1xxnUUunheMMG6EnOeQAZ77CvTVvFEK5J" /></p>
+<p><img alt="MHC-II" src="../str22-fig3.png" /></p>
 <p>Um outro resultado importante é relatado: IC<sub>50</sub> (nM). É concentração em nanomolar necessária para ligar a metade das moléculas. </p>
 <p><em>Portanto, um número menor indica maior afinidade. Como diretriz aproximada, peptídeos com valores de IC<sub>50</sub>&lt;50 nM são considerados alta afinidade, IC<sub>50</sub>&lt;500 nM de afinidade intermediária e IC<sub>50</sub>&lt;5000 nM de baixa afinidade. Os epítopos mais conhecidos têm afinidade alta ou intermediária. Alguns epítopos têm baixa afinidade, mas nenhum epítopo de célula T conhecido tem um valor de IC<sub>50</sub> maior que 5000</em> (Retirado e traduzido do <a href="http://tools.iedb.org/mhci/help/">MHC-I help</a> do IEDB).</p>
-<p><strong>MHCII</strong></p>
+<h3 id="mhcii">MHCII</h3>
 <ul>
 <li>Clique em <strong><em>MHC II Binding</em></strong>.</li>
 <li>Na página seguinte, copie e cole a sequência acima.</li>
@@ -196,14 +207,14 @@ LSGY
 </li>
 <li>Observe a tabela resultante (figura abaixo), que será de similar interpretação a tabela obtida para o MHC-I.</li>
 </ul>
-<p><img alt="MHC-II" src="https://drive.google.com/uc?id=1t49lmVGTIoPHgM0Pj1Rwcrr6-jF3am9W" /></p>
+<p><img alt="MHC-II" src="../str22-fig4.png" /></p>
 <blockquote>
 <p><em>A escolha do(s) alelo(s) é de extrema importância neste tipo de análise. Neste tutorial apenas um alelo foi utilizado para fins de simplificação, mas quando se trabalha com </em><em>imunoinformática</em><em>, recomenda-se uma pesquisa bem aprofundada sobre o conjunto de alelos que será utilizado.</em></p>
 </blockquote>
-<h3 id="epitopos-de-celulas-b">Epítopos de células B</h3>
+<h2 id="epitopos-de-celulas-b">Epítopos de células B</h2>
 <p>Agora vamos verificar quais regiões desta proteína podem ser possíveis epitopos de células B. </p>
 <p>Volte a página inicial do IEDB. Procure o quadro mais a esquerda, as opções: <strong><em>Epitope Analysis Resource</em></strong>, clicar em <em>Antigen Sequence Properties</em>, abaixo de <strong><em>B Cell Epitope Prediction</em></strong>).</p>
-<p><img alt="IEDB - Células B" src="https://drive.google.com/uc?id=1G7xPAKyuzhsvOuVVtf4O_KNPx0KNmIRH" /></p>
+<p><img alt="IEDB - Células B" src="../str22-fig5.png" /></p>
 <p>Na página seguinte, siga os passos:</p>
 <ul>
 <li>Cole a sequência no campo maior. Retire o cabeçalho fasta (como na figura baixo).</li>
@@ -211,17 +222,17 @@ LSGY
 <li>Clique em <strong><em>Submit</em></strong>.</li>
 <li>Observe os resultados.</li>
 </ul>
-<p><img alt="IEDB - Células B" src="https://drive.google.com/uc?id=13Gp5kIS87XQ7A6QL0PbYY_AqaD6HneWV" /></p>
+<p><img alt="IEDB - Células B" src="../str22-fig6.png" /></p>
 <p>No gráfico apresentado como resultados, as regiões em amarelo representam regiões da sequência submetida com alta possibilidade de serem epitopos de células B. Verifique as sequências destas regiões.</p>
-<p><img alt="IEDB-Results" src="https://drive.google.com/uc?id=1WlRyRhVO_GWgnfB6UI0K65p-WsTetydH" /></p>
-<h3 id="vamos-a-um-primeiro-teste">Vamos a um primeiro teste?</h3>
+<p><img alt="IEDB-Results" src="../str22-fig7.png" /></p>
+<h2 id="vamos-a-um-primeiro-teste">Vamos a um primeiro teste?</h2>
 <p>Verifique se regiões da proteína abaixo, de Zika vírus, podem ser utilizadas para uma possível vacina. Para isso, realize a busca por epitopos de células B e T da forma como apresentado acima.</p>
 <pre><code>&gt;Proteina Zika
 GKAFEATVRGAKRMAVLGDTAWDFGSVGGALNSLGKGIHQIFGAAFKSLFGGMSWFSQILIGTLLMWLGLNTKNGSISLMCLALGGVLIFLSTAVSA
 </code></pre>
-<h3 id="procurando-pela-doenca">Procurando pela doença</h3>
+<h2 id="procurando-pela-doenca">Procurando pela doença</h2>
 <p>Na página inicial do IEDB você também pode procurar por epítopos já conhecidos (por predição, validados experimentalmente ou utilizados em kits disponíveis) a partir do nome da doença (Ex. Covid-19), como mostrado na figura abaixo:</p>
-<p><img alt="Buscando a partir da doença - IEDB" src="https://drive.google.com/uc?id=1UvBY48AtyWXNPRyclaSnQrYUCY2zYhjU" /></p>
+<p><img alt="Buscando a partir da doença - IEDB" src="../str22-fig8.png" /></p>
 <p>Clique em <code>Search</code> e analise os resultados.</p>
 <p>Todos os epítopos e antígenos já catalogados para as proteínas do agente causador estarão listadas na tabela resultante. Nela você também tem acesso a várias informações associadas a cada sequência de epítopo. Essa ferramenta é muito útil para você verificar se determinado epítopo não foi identificado antes.</p>
 <h2 id="predicao-de-alergenicidade">Predição de Alergenicidade</h2>
@@ -236,7 +247,7 @@ GKAFEATVRGAKRMAVLGDTAWDFGSVGGALNSLGKGIHQIFGAAFKSLFGGMSWFSQILIGTLLMWLGLNTKNGSISLM
 <p><em>Sempre verifique se os bancos que você está utilizando estão sendo atualizados. Isto é fundamental importância, pois uma nova proteína alergênica pode ter sido identificada mais recentemente. Por exemplo, o AllerMatch não recebe atualizações há um tempo.</em> </p>
 </blockquote>
 <p>Utilizaremos o banco <a href="http://www.allergenonline.org">AllergenOnline</a>, mantido pela Universidade de Nebraska. Nele você pode procurar pelo nome, código e também pela sequência. Vamos fazer a consulta pela sequência:</p>
-<p><img alt="Página Inicial do AllergenOnline" src="https://drive.google.com/uc?id=1CvUtsJVu_MedCFEPhVjIi0IfHJpKZ9dJ" /></p>
+<p><img alt="Página Inicial do AllergenOnline" src="str22-fig9.pngJ" /></p>
 <ul>
 <li>Abra a página do <a href="http://www.allergenonline.org">AllergenOnline</a>.</li>
 <li>Na lateral esquerda, clique na opção <strong><em>Sequence Search Allergen Database</em></strong>.</li>
@@ -279,7 +290,7 @@ LTG
 <li>Na tabela resultante, veja o resultado e clique em <strong><em>Go</em></strong>.</li>
 </ul>
 <p>A sequência de <em>Dermatophagoides farinae</em> (ácaro comum) apresenta um epítopo conservado em relação a do camarão. Portanto, é provável que ela também é alergênica.</p>
-<h3 id="exercicios">Exercícios</h3>
+<h2 id="perguntas">Perguntas</h2>
 <p>Verifique se a sequência abaixo é alergênica:</p>
 <pre><code>&gt;Der f 1
 RPASIKTFEEFKKAFNKNYATVEEEEVARKNFLESLKYVEANKGAINHLSDLSLDEFKNR

@@ -125,11 +125,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
                   </li>
@@ -162,8 +164,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a href="bioinfo.ufrn.br"><img alt="Biome" src="https://drive.google.com/uc?id=1Rgh88avopwh7YtUKsD5hXMwF3BFH5-Kj" /></a></p>
-<h1 id="obtencao-de-modelos-de-membranas-biologicas-para-simulacoes-in-silico">Obtenção de modelos de membranas biológicas para simulações <em>In silico</em>.</h1>
+                <h1 id="obtencao-de-modelos-de-membranas-biologicas-para-simulacoes-in-silico">Obtenção de modelos de membranas biológicas para simulações <em>In silico</em>.</h1>
 <p>O estudo e a caracterização da membrana de uma célula é de extrema importância para o entendimento de sua função. Adicionalmente, a composição da membrana é absolutamente necessária para a compreensão da estrutura e da função de proteínas integrais da membrana, como canais e transportadores. Este trabalho pode ser facilitado por meio de simulações computacionais da interação destas proteínas. No entanto, para isto modelos <em>In silico</em> de membranas biológicas precisam ser construídos. Baseado nas informações acima, iremos fazer o roteiro abaixo.</p>
 <h2 id="diferenciando-proteinas-integrais-e-proteinas-perifericas-da-membrana">Diferenciando proteínas integrais e proteínas periféricas da membrana.</h2>
 <ul>
@@ -222,19 +223,19 @@
 <h2 id="construindo-uma-membrana-para-a-tapx-de-spinacia-oleracea">Construindo uma membrana para a tAPX de <em>Spinacia oleracea</em></h2>
 <p>Nos tutoriais anteriores fizemos o modelo das duas isoformas do cloroplasto da enzima APX de <em>Spinacia oleracea</em>: a sAPX, que era a isoforma presente no estroma do cloroplasto; e a tAPX, que era a isoforma ligada a membrana do tilacóide. Esta última possui uma região C-terminal estendida, responsável pela <em>âncoragem</em>  desta proteína na membrana do tilacóide.</p>
 <p>Iremos agora, produzir uma membrana para incluir no modelo da tAPX obtido nas aulas anteriores, utilizando a interface web do CHARMM-GUI. No entanto, precisamos ter ideia da composicão de lipídeos da membrana do tilacóide, estruturas internas do cloroplasto (vide figura abaixo)</p>
-<p><img alt="Figura Tilacóide Lehninger" src="https://drive.google.com/uc?id=1VsRiMCPGvO8FL7Syn9pvawXinYl6yeWv" /></p>
+<p><img alt="Figura Tilacóide Lehninger" src="../str12-fig1.png" /></p>
 <p>A membrana do tilacóide possui uma composição especial de lipídeos, quando comparada a membrana plasmática da célula vegetal. Os galactolipídeos estão entre as principais tipos de lipídeos polares constituintes dessa membrana, altamente especializada, devido aos seguintes fatores:</p>
 <ul>
 <li>Nela estão vários pigmentos fotossintetizantes, tanto aqueles com função de antenas, como os que estão ligados aos Fotossistemas e aos LHCs (<em>Light Harvesting Complexes</em>). É nesta membrana que ocorre a fase fotoquímica da fotossíntese em <a href="https://pt.wikipedia.org/wiki/Viridiplantae">Viridiplantae</a>. É nessta fase que há transformação da energia luminosa em energia química, quebra da molécula de água e consequente liberação do O<sub>2</sub>. A energia luminosa é então conservada na forma de um gradiente de H<sup>+</sup> que promove uma força motriz de prótons para a produção de ATP (que será posteriormente utilizado na fase bioquímica).</li>
 <li>Durante a presença de luz, ao longo desta membrana há uma enorme diferença de gradiente eletroquímico, portanto, ela deve ter uma estrutura resistente para tal fim (da mesma forma que a membrana interna da mitocôndria).</li>
 </ul>
 <p>Iremos tirar a composição geral de lipídeos dessa membrana do artigo publicado por <a href="https://www.ncbi.nlm.nih.gov/pubmed/25749153">Eerden <em>et al.</em>, 2015</a>, o qual apresenta a seguinte tabela:</p>
-<p><img alt="Tabela Eerden et al. 2015" src="https://drive.google.com/uc?id=165Ol1R8QVzQx3YSPNU8D2gLQwDnISflV" /></p>
+<p><img alt="Tabela Eerden et al. 2015" src="../str12-fig2.png" /></p>
 <h3 id="outras-ferramentas">Outras ferramentas</h3>
 <ul>
 <li><a href="http://rocce-vm0.ucsd.edu/data/sw/hosted/lipidwrapper/">LipidWrapper</a>. <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003720">Artigo original</a>. <a href="https://git.durrantlab.pitt.edu/jdurrant/lipidwrapper">Git</a>.</li>
 <li><a href="http://opig.stats.ox.ac.uk/webapps/memoir/php/index.php">Memoir</a>. <a href="https://www.ncbi.nlm.nih.gov/pubmed/23640332">Artigo</a>.</li>
-<li><a href="http://lipidbuilder.epfl.ch/home">LipidBuilder</a> - <em>Plugin do programa <a href="https://www.ks.uiuc.edu/Research/vmd/">VMD</a></em>.1</li>
+<li><a href="http://lipidbuilder.epfl.ch/home">LipidBuilder</a> - <em>Plugin do programa <a href="https://www.ks.uiuc.edu/Research/vmd/">VMD</a></em>.</li>
 </ul>
               
             </div>

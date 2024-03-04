@@ -111,6 +111,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Análise conformacional</a>
@@ -131,7 +133,7 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
                   </li>
@@ -165,50 +167,49 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="analise-conformacional">Análise conformacional</h1>
-<p><strong>Autoria</strong> Euzébio Guimarães – DFAR – BioME - UFRN</p>
-<p><strong>Revisores</strong> Pedro Igor Câmara de Oliveira (PPgBioinfo) e Estela Mariana Guimarães Lourenço (PPgCF).</p>
+<p>Prof. Euzébio Guimarães – DFAR – BioME - UFRN</p>
 <h2 id="introducao">Introdução</h2>
 <p>Análise conformacional é a busca por todas as posições energeticamente acessíveis para uma determinada molécula. Nos anos 70, 80 e 90 eram muito comuns publicações contendo estudos minuciosos sobre conformações de moléculas. Atualmente, este tipo de estudo é feito, mas não é o alvo principal abordado em uma pesquisa. Contudo, é uma fase vital para adquirir uma conformação realística.</p>
-<p><img alt="Análise Conformacional" src="https://drive.google.com/uc?id=1CfISBbnaqFr32MDhO_oUk1SNauDbJeaz" /></p>
+<p><img alt="Análise Conformacional" src="../str17-fig1.png" /></p>
 <p>Em todo estudo que fizeres, principalmente se a molécula de interesse tiver várias ligações que giram, é essencial realizar uma extensiva análise conformacional. Além disso, a conformação de energia mínima no solvente pode ser diferente da encontrada dentro de um receptor, então é importante encontrar o maior número de conformações possível e obter a energia relativa de cada uma. Com o método PM7 que já usamos podemos obter esse dado com grande facilidade. O difícil na verdade é amostrar as conformações.</p>
-<p><img alt="Fluxograma da análise conformacional" src="https://drive.google.com/uc?id=18uVtTsyb7M4whMxWVjgLXTUuuoRN-Dh_" /></p>
+<p><img alt="Fluxograma da análise conformacional" src="../str17-fig2.png" /></p>
 <p>A melhor maneira de se criar conformações para sua molécula é a forma automática. Pode ser feito com os programas Marvin ou Avogadro, mas interfaces gráficas apenas tornam o processo mais demorado.</p>
 <h2 id="tutorial-5">Tutorial 5</h2>
 <h3 id="gerando-conformacoes-com-balloon">Gerando conformações com Balloon</h3>
 <p>Vamos utilizar agora uma molécula maior que a Vitamina C para que o resultado seja mais interessante. A quiotorfina é mais interessante neste caso. Vamos obter várias conformações 3D a partir do SMILES do PubChem</p>
-<p><img alt="PubChem" src="https://drive.google.com/uc?id=1gaZqqQdLKyKHQtZsbsOwdcwm0yNSkaPu" /></p>
+<p><img alt="PubChem" src="../str17-fig3.png" /></p>
 <p>Salvar um arquivo <code>kyo.smi</code> como feito anteriormente.</p>
 <pre><code class="language-none">gedit kyo.smi
 </code></pre>
 <p>Use o programa Marvin para gerar a protonação correta para a molécula. Repare que é bastante complexa a população de microespécies. Mas a conformação 5 (no caso da figura abaixo) foi a mais predominante no pH 7,00.</p>
-<p><img alt="Marvin" src="https://drive.google.com/uc?id=1e5Z3215DBI7MyHrBAarFINBc0ty5clpf" /></p>
+<p><img alt="Marvin" src="../str17-fig4.png" /></p>
 <p>Agora você pode gerar várias conformações no próprio <strong>Marvin</strong>, mas iremos criar apenas uma e depois utilizar o <strong>Balloon</strong> para gerar outras.</p>
-<p><img alt="Marvin" src="https://drive.google.com/uc?id=1Fm5u1vw6KPmzNmDSnusLT52bVYJ7R3kI" /></p>
+<p><img alt="Marvin" src="../str17-fig5.png" /></p>
 <p>Salve como <code>kyo_3D.mol</code> (MDL molfile) e gere as conformações para o composto de maneira automática com o <strong>Balloon</strong>.</p>
 <p>Digite:</p>
-<pre><code class="language-none">export BALLOON_FORCEFIELD=/home/...
+<pre><code class="language-shell">export BALLOON_FORCEFIELD=/home/...
 </code></pre>
 <blockquote>
 <p><em>Lugar onde está o arquivo MMFF94.mff que veio com o Balloon.</em></p>
 </blockquote>
 <p>e em seguida:</p>
-<pre><code class="language-none">balloon --nconfs 20 --nGenerations 300 --rebuildGeometry kyo_3D.mol kyo_conformers.sdf
+<pre><code class="language-shell">balloon --nconfs 20 --nGenerations 300 --rebuildGeometry kyo_3D.mol kyo_conformers.sdf
 </code></pre>
 <p>Com o comando acima serão geradas no mínimo 20 conformações utilizando uma busca via algoritmo genético. Repare na figura abaixo que são geradas diversas conformações para uma estrutura 3D única. Basta agora realizar uma otimização de geometria para cada uma utilizando PM7. Para isso seus conhecimentos de <em>shell script</em> serão necessários. Ao obter a energia para cada conformação pondere-as por uma distribuição de Boltzman para obter a porcentagem de existência de cada conformação em uma determinada temperatura.</p>
-<p><img alt="Chimera" src="https://drive.google.com/uc?id=15tn_nC3KVqHrQq6FXtFFd6wgQmeQwN8_" /></p>
+<p><img alt="Chimera" src="../str17-fig6.png" /></p>
 <h2 id="tutorial-6">Tutorial 6</h2>
 <h3 id="gerando-conformacoes-de-forma-manual">Gerando conformações de forma manual</h3>
 <p>Quando a molécula tem ciclos muito grandes (7 átomos ou mais) os algoritmos de geração de conformações não conseguem amostrar bem estas porções. Tomamos como exemplo a molécula abaixo. Podemos gerar no mínimo 3 confomações de baixa energia.</p>
-<p><img alt="Cyclooctane" src="https://drive.google.com/uc?id=1933yzAe6FUBj0_FfIDSDLwzhP6kHpblM" /></p>
+<p><img alt="Cyclooctane" src="../str17-fig7.png" /></p>
 <p>O SMILE do ciclooctano é <code>C1CCCCCCC1</code>. Vamos gerar a estrutura 3D no UCSF Chimera e tentar criar tais conformações manualmente.</p>
-<p><img alt="Chimera Cyclooctane" src="https://drive.google.com/uc?id=14rCuACxCPEt-6aAd_Ce5jPOIjjSnjE1d" /></p>
+<p><img alt="Chimera Cyclooctane" src="../str17-fig8.png" /></p>
 <p>Será criada automaticamente uma conformação aleatória.</p>
-<p><img alt="Chimera Cyclooctane 2" src="https://drive.google.com/uc?id=1rlqwkiVGR1CwhJJEy5sdClH-4gb1fRJT" /></p>
+<p><img alt="Chimera Cyclooctane 2" src="../str17-fig9.png" /></p>
 <p>Agora utilize o UCSF Chimera para otimizar a molécula com o campo de força implementado no próprio software. Otimizações sucessivas juntamente com a movimentação de átomos selecionados gera uma nova conformação.</p>
-<p><img alt="Chimera Cyclooctane 2" src="https://drive.google.com/uc?id=1oXSbp5ATjV830qsb1OloJJTeE6IzH6-p" /></p>
+<p><img alt="Chimera Cyclooctane 2" src="../str17-fig10.png" /></p>
 <p>Vamos usar a ferramenta de <strong><em>mouse movement</em></strong> para mover os átomos indicados na figura abaixo.</p>
-<p><img alt="Chimera Cyclooctane 2" src="https://drive.google.com/uc?id=1IMHB__1UvoebodPh0_BwNPyBxWeCa6rA" /></p>
-<p><img alt="Chimera Cyclooctane 2" src="https://drive.google.com/uc?id=1Gdweokb5EmPnTFVseekYYgc0sUZFRhdA" /></p>
+<p><img alt="Chimera Cyclooctane 2" src="../str17-fig11.png" /></p>
+<p><img alt="Chimera Cyclooctane 2" src="../str17-fig12.png" /></p>
 <p>Agora você precisa ser habilidoso para mover os átomos apontados otimizar a molécula para uma nova conformação. Segure a tecla <code>Ctrl</code> e selecione um átomo, depois segure <code>Shift</code> juntamente com <code>Ctrl</code> e selecione outros átomos. Com o botão do <em>thumbwheel</em> (aquele do entre os dois botões do mouse) mova os átomos até a posição desejada. Otimize novamente. Com este método você será capaz de conseguir diversas conformações para os ciclos e otimizar com PM7 para saber a energia relativa.</p>
 <blockquote>
 <p><em>Não se preocupe se esta parte ficou meio obscura, tutoriais futuros faremos os procedimentos de docking manual onde este procedimento é mostrado novamente.</em></p>
@@ -218,7 +219,7 @@
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../STR16-EGB1/" class="btn btn-neutral float-left" title="Modelos de Pequenas Moléculas"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../STR19-EGB4/" class="btn btn-neutral float-right" title="Posicionamento Manual">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../STR18-EGB3/" class="btn btn-neutral float-right" title="Docking Automático">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -244,7 +245,7 @@
       <span><a href="../STR16-EGB1/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../STR19-EGB4/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../STR18-EGB3/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR18-%20EGB3/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR18-EGB3/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>STR18  EGB3 - Tutoriais BioinfoX</title>
+    <title>Docking Automático - Tutoriais BioinfoX</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "STR18  EGB3";
-        var mkdocs_page_input_path = "STR18- EGB3.md";
-        var mkdocs_page_url = "/tutoriais/STR18-%20EGB3/";
+        var mkdocs_page_name = "Docking Autom\u00e1tico";
+        var mkdocs_page_input_path = "STR18-EGB3.md";
+        var mkdocs_page_url = "/tutoriais/STR18-EGB3/";
       </script>
     
     <!--[if lt IE 9]>
@@ -76,7 +76,7 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
@@ -111,11 +111,33 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Docking Automático</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#parte-1">Parte 1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#docking-ligante-proteina-com-ucsf-chimera-e-autodock-vina">Docking ligante proteína com UCSF Chimera e Autodock-Vina</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parte-2">Parte 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#docking-ligante-proteina-com-servidor-swissdock">Docking ligante proteína com servidor SwissDock</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parte-3">Parte 3</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#docking-ligante-proteina-com-servidor-autodock-vina">Docking ligante proteína com servidor Autodock-Vina</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
                   </li>
@@ -138,7 +160,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">STR18  EGB3</li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Docking Automático</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -147,9 +170,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a href="bioinfo.ufrn.br"><img alt="Biome" src="https://drive.google.com/uc?id=1Rgh88avopwh7YtUKsD5hXMwF3BFH5-Kj" /></a></p>
-<h1 id="docking-molecular-automatico"><em>Docking</em> molecular automático</h1>
-<h3 id="prof-euzebio-g-barbosa-dfarufrnbiome">Prof. Euzébio G. Barbosa (DFAR/UFRN/BioME)</h3>
+                <h1 id="docking-molecular-automatico"><em>Docking</em> molecular automático</h1>
+<p>Prof. Euzébio G. Barbosa (DFAR/UFRN/BioME)</p>
 <blockquote>
 <p><strong>Observação:</strong> <em>O Tutorial abaixo está sendo reproduzido com o consetimento do professor, apenas para fins didáticos.</em></p>
 </blockquote>
@@ -160,28 +182,28 @@
 <h3 id="docking-ligante-proteina-com-ucsf-chimera-e-autodock-vina"><em>Docking</em> ligante proteína com UCSF Chimera e Autodock-Vina</h3>
 <p>Eu gravei um tutorial bem simples (Sem narração) sobre como fazer docking com o autodock-vina acoplado no UCSF Chimera:</p>
 <p><a href="https://www.youtube.com/watch?v=KwdxdfzJiws&amp;list=PLRLpdK3kOpA_LwOjXrHiz5dhO5Stk9Fsh">Playlist - Vídeos Docking</a> </p>
-<p>A <em>playlist</em> acima cobre todas as etapas necessárias para conseguir sua conformação ancorada no sítio. Contudo esta maneira de realizar <em>docking</em> não é a mais eficiente. A melhor estilo de se fazer um ancoramento é utilizando o mínimo possível de interfaces gráficas. Quando tratarmos de triagem virtual estes detalhes serão elucidados. Um outro tutorial utilizando o Autodock-Vina pode também ser encontrado <a href="https://sites.google.com/imd.ufrn.br/biomemodel/tutoriais-adicionais/docking-prote%C3%ADna-ligante">AQUI</a>, no material do curso.</p>
+<p>A <em>playlist</em> acima cobre todas as etapas necessárias para conseguir sua conformação ancorada no sítio. Contudo esta maneira de realizar <em>docking</em> não é a mais eficiente. A melhor estilo de se fazer um ancoramento é utilizando o mínimo possível de interfaces gráficas. Quando tratarmos de triagem virtual estes detalhes serão elucidados. Um outro tutorial utilizando o Autodock-Vina pode também ser encontrado nessa mesma página.</p>
 <h2 id="parte-2">Parte 2</h2>
 <h3 id="docking-ligante-proteina-com-servidor-swissdock"><em>Docking</em> ligante proteína com servidor SwissDock</h3>
 <p>Para este tutorial utilizaremos os dados da estrutura <a href="https://www.rcsb.org/structure/2P7U">2P7U</a>, (<em>The crystal structure of rhodesain, the major cysteine protease of T. brucei rhodesiense, bound to inhibitor K777</em>). A molécula K777 (mostrada abaixo) é capaz de se ligar a proteína Rodesaína do <em>T. brucei</em>. A estrutura <a href="https://www.rcsb.org/structure/2P7U">2P7U</a> já contém o mesmo ligante. O que faremos estão é um Redock, um procedimento onde o mesmo ligante é colocado no seu próprio sítio. Se a estrutura experimental for parecida com a estrutura simulada podemos atestar a qualidade do algoritmo utilizado para o <em>docking</em>.</p>
 <blockquote>
 <p><em>Esta é também uma excelente estratégia para você treinar suas habilidades em docking.</em></p>
 </blockquote>
-<p><img alt="K-777 e 2P7U" src="https://drive.google.com/uc?id=1xbfUrwGDrI_di7MV0ZdpkMPjYnTj-LIW" /></p>
+<p><img alt="K-777 e 2P7U" src="../str18-fig1.png" /></p>
 <p>Baixe a estrutura PDB da <a href="http://www.rcsb.org/structure/2P7U">2P7U</a> e, com o auxílio do programa UCSF Chimera, remova o ligante. Salvando a proteína como <code>recep.pdb</code>. Em seguida, baixe a estrutura do <a href="https://pubchem.ncbi.nlm.nih.gov/compound/9851116#section=2D-Structure">K777</a> do PubChem em 3D. Salve esta estrutura como K777.sdf ou qualquer outro formato de arquivo 3D.</p>
-<p><img alt="K-777" src="https://drive.google.com/uc?id=147lABMo5iNq3QL-gQ0BUpe4pq7Y8TMxt" /></p>
+<p><img alt="K-777" src="../str18-fig2.png" /></p>
 <p>Você precisará obrigatoriamente de um formato <code>MOL2</code>. Se não for o caso basta converter, usando o seguinte comando em um terminal:</p>
-<pre><code>obabel K777.sdf -O K777.mol2
+<pre><code class="language-shell">obabel K777.sdf -O K777.mol2
 </code></pre>
 <p>Faremos agora o upload dos dois arquivos no servidor SwissDock.</p>
 <p>A figura abaixo mostra como fica se tudo estiver correto. Dê um nome para o <em>Job</em> e pronto. Basta esperar para ver o resultado. Vai demorar bastante. Muito mesmo.</p>
-<p><img alt="Swiss-Dock 1" src="https://drive.google.com/uc?id=1ZzosUjAe4L0HnzTbRxJKMIsXDZRPaMnT" /></p>
+<p><img alt="Swiss-Dock 1" src="../str18-fig3.png" /></p>
 <p>O SwissDock dá diversas estruturas e é possível baixar todas no site e visualizar os resultados no UCSF Chimera:</p>
-<p><img alt="Swiss-Dock 2" src="https://drive.google.com/uc?id=1kQSG10xWidsOjfn2sNopIqmG36r3EoO7" /></p>
+<p><img alt="Swiss-Dock 2" src="../str18-fig4.png" /></p>
 <h2 id="parte-3">Parte 3</h2>
 <h3 id="docking-ligante-proteina-com-servidor-autodock-vina"><em>Docking</em> ligante proteína com servidor Autodock-Vina</h3>
 <p>Realizar <em>docking</em> por linha de comando ao invés de utilizar um servidor ou uma interface gráfica é a possibilidade de automatização das etapas. O arquivo principal para realizar um docking por linha de comando é a criação de um arquivo de configuração que tem um formato muito parecido com o seguinte (<code>Arguivo config.cfg</code>):</p>
-<pre><code>receptor = recep.pdbqt
+<pre><code class="language-text">receptor = recep.pdbqt
 ligand = K777.pdbqt
 center_x =
 center_y =
@@ -191,9 +213,9 @@ size_y =
 size_z =
 </code></pre>
 <p>Basta copiar e colar no gedit e salvar como <code>config.cfg</code>.</p>
-<p><img alt="Chimera-Autodock 1" src="https://drive.google.com/uc?id=13UkNgiKU-FMavMlPadOp_RKTNO_sKmZq" /></p>
+<p><img alt="Chimera-Autodock 1" src="../str18-fig5.png" /></p>
 <p>As informações são necessárias para o centro do sítio ativo e também o tamanho de uma caixa que englobe todo o sitio. Iremos usar o UCSF Chimera pera obter esses valores. Para isso é só abrir o Arquivo <code>2P7U.pdb</code> e definir uma caixa ao redor do ligante.</p>
-<p><img alt="Chimera-Autodock 2" src="https://drive.google.com/uc?id=1VDz6MSbWTFrtDlhYDmg4d-U0GhdoMSqu" /></p>
+<p><img alt="Chimera-Autodock 2" src="hstr18-fig6.png" /></p>
 <p>Coloque valor para o <em>Center</em> e <em>Size</em> como na figura, com a opção <code>`Resize search volume options</code>. Reposicione a caixa até envolver o ligante como um todo. Não crie uma caixa muito grande, pois o ligante pode parar fora do local desejado. Não crie uma caixa muito pequena, ou ligante é vai ficar espremido no sítio de ligação.</p>
 <p>Anote os valores e complete o arquivo de configuração:</p>
 <pre><code>receptor = recep.pdbqt
@@ -212,7 +234,7 @@ size_z = 17.5384
 <pre><code>vina --config config.cfg --out docked.pdbqt
 </code></pre>
 <p>Para ver o resultado, vamos abrir o arquivo <code>2P7U.pdb</code> e utilizar a ferramenta <strong>ViewDock</strong> no UCSF Chimera. Pela figura ao lado vemos que o procedimento de <em>redocking</em> foi muito ruim. Esse é um dos grandes problemas do <em>docking</em>, certamente em alguns casos será coincidente, mas a metodologia tem muitas falhas (Melhor ficar ciente). O Resultado do SwissDock foi bem melhor que do Autodock-Vina. Revelando a fragilidade do Vina neste sistema em particular.</p>
-<p><img alt="Chimera-Autodock 3" src="https://drive.google.com/uc?id=1v_7XvVuYhhnTxg2Q1P9Hg_8wThO9deAV" /></p>
+<p><img alt="Chimera-Autodock 3" src="../str18-fig7.png" /></p>
 <h1 id="posicionamento-manual-do-ligante">Posicionamento manual do ligante</h1>
 <h2 id="docking-manual"><em>Docking manual</em></h2>
 <p>Muitas vezes, as energias da função de avaliação do <em>docking</em> não são o objetivo principal do seu estudo, e sim obter uma conformação inicial para realizar por uma dinâmica molecular. Eu gravei um procedimento para docking manual no YouTube:</p>
@@ -221,6 +243,10 @@ size_z = 17.5384
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR17-EGB2/" class="btn btn-neutral float-left" title="Análise conformacional"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR19-EGB4/" class="btn btn-neutral float-right" title="Posicionamento Manual">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -242,6 +268,10 @@ size_z = 17.5384
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../STR17-EGB2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR19-EGB4/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

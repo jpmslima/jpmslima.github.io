@@ -111,11 +111,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
                   </li>
@@ -165,21 +167,20 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="triagem-virtual">Triagem Virtual</h1>
-<p><strong>Autoria</strong> Euzébio Guimarães – DFAR – BioME - UFRN</p>
-<p><strong>Revisores</strong> Pedro Igor Câmara de Oliveira (PPgBioinfo) e Estela Mariana Guimarães Lourenço (PPgCF).</p>
+<p>Prof. Euzébio Guimarães – DFAR – BioME - UFRN</p>
 <h2 id="introducao">Introdução</h2>
 <p>A triagem virtual usa métodos baseados em computador para descobrir novos ligantes na base de estruturas biológicas. A triagem virtual é dividida em triagem baseada na estrutura (<em>docking</em>) e triagem usando compostos ativos como moldes (Triagem virtual baseada em ligantes). As técnicas de rastreio baseadas em ligantes concentram-se principalmente na comparação de análises de similaridade molecular de compostos com partes conhecidas e desconhecidas, independentemente dos métodos do algoritmo utilizado. <em>Docking</em>, como já dito, é utilizada para prever geometrias de interação de ligantes de proteínas e afinidades de ligação. O fluxograma abaixo define as etapas abordadas nesta apostila.</p>
-<p><img alt="Fluxograma Triagem Virtual" src="https://drive.google.com/uc?id=1knus5-PdhKcm3i48AR-Hx2diCOYR7vUZ" /></p>
+<p><img alt="Fluxograma Triagem Virtual" src="../str21-fig1.png" /></p>
 <h2 id="tutorial-9">Tutorial 9</h2>
 <h3 id="triagem-virtual-baseada-em-ligantes">Triagem virtual baseada em ligantes</h3>
 <p>Moléculas similares geralmente têm atividades biológicas similares. Esse é o princípio da triagem virtual baseada em ligantes. Vamos supor que você tenha uma molécula extraída de uma fonte natural e deseja saber qual seria a possível atividade desta molécula. A maneira mais simples é buscar em servidores como o PubChem moléculas similares. Vamos usar para isso a molécula abaixo:</p>
 <pre><code class="language-none">COC1=C(NC(=O)C=C)C=C2C(N)=C(C=NC2=C1)C#N
 </code></pre>
-<p><img alt="Triagem Virtual Molecule" src="https://drive.google.com/uc?id=1HP8Z1aHBK2_uUhXj9oIlFqBz6nt6eCtO" /></p>
+<p><img alt="Triagem Virtual Molecule" src="../str21-fig2.png" /></p>
 <p>Vamos buscar por moléculas com contenham esse núcleo base no <a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>:</p>
-<p><img alt="Triagem Virtual - PubChem" src="https://drive.google.com/uc?id=1gYKyi7mA7eZF9KYDVgaXVNmdLgX9KMNu" /></p>
+<p><img alt="Triagem Virtual - PubChem" src="../str21-fig3.png" /></p>
 <p>Encontramos uma possibilidade de interação com este alvo para um composto bastante similar.</p>
-<p><img alt="Triagem Virtual - PubChem 2" src="https://drive.google.com/uc?id=1HmhesgbM5xmDRNv3cga7Xb6EX77X6_w2" /></p>
+<p><img alt="Triagem Virtual - PubChem 2" src="../str21-fig4.png" /></p>
 <p>O servidor utilizou sua molécula com a molécula padrão e fez uma busca contra todo o banco de dados de moléculas já ativas (ou não).</p>
 <p>Outro servidor interessante é o <a href="http://www.swisssimilarity.ch/">SwissSimilarity</a> (<a href="https://pubs.acs.org/doi/10.1021/acs.jcim.6b00174">Zoete et al. 2016</a>). Você fornece o SMILES da estrutura e escolhe qual banco de dados quer confrontar. Vamos escolher o PDB (Ligands from the PDB), pois teremos na resposta final alvos já elucidados.</p>
 <h2 id="tutorial-10">Tutorial 10</h2>
@@ -192,7 +193,7 @@
 <p>No caso de 2 pode ser um banco de moléculas qualquer: Moléculas disponíveis no seu laboratório, análogos virtuais da trimetoprima, etc. Quanto maior seu banco de moléculas mais caro será o procedimento.</p>
 <p>Um servidor web que faz esse trabalho é o <a href="http://istar.cse.cuhk.edu.hk/idock/">iDOCK</a>. Basta dar o <em>upload</em> na estrutura e criar uma caixa de busca e pronto. Você poderá filtrar os resultados para reduzir o número de compostos a serem buscados. O número total de compostos é de 8 milhões. Não é uma tarefa fácil.</p>
 <p>Vamos fazer o teste localmente com um banco de moléculas pré-selecionadas por mim. Este banco foi criado apenas como critério didático e é composto por moléculas que se ligam a DHFR. Estas informações foram retiradas do BindingDB com 1086 moléculas.</p>
-<p><img alt="BindDB" src="https://drive.google.com/uc?id=1DmA2pwcWOsnwR4n6KS-Dlr1Fgg1SBFic" /></p>
+<p><img alt="BindDB" src="../str21-fig5.png" /></p>
 <p>Antes de fazer o procedimento de triagem, vamos primeiramente tratar a proteína para a triagem virtual:</p>
 <ol>
 <li>Excluir umas das cadeias presentes.</li>
@@ -202,7 +203,7 @@
 </ol>
 <pre><code class="language-none">python /opt/UCSF/Chimera64-1.13rc/lib/python2.7/site-packages/AutoDockTools/Utilities24/prepare_receptor4.py -r recep.pdb -o recep.pdbqt
 </code></pre>
-<p><img alt="Chimera" src="https://drive.google.com/uc?id=1VuuWtTvwzaeW2iR_wtjvhE0nkSOiKMSc" /></p>
+<p><img alt="Chimera" src="../str21-fig6.png" /></p>
 <p>Agora temos todos os dados para o receptor e a caixa onde será realizada a busca.</p>
 <p>Vamos agora criar um script em <em>shell</em> que fará o seguinte trabalho:</p>
 <ol>
@@ -212,7 +213,7 @@
 <li>Colocar os resultados do <em>docking</em> em um arquivo de <em>Score</em> para depois fazer o ranqueamento.</li>
 </ol>
 <p>O <em>script</em> ficaria assim:</p>
-<pre><code class="language-none">#!/bin/bash
+<pre><code class="language-shell">#!/bin/bash
 echo &quot;MOL_ID  NAME ENERGIA&quot; &gt; TRIAGEM_log.txt
 for i in `seq 1  1086` # loop até a molécula 1086
 do

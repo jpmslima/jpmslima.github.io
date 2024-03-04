@@ -111,6 +111,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Modelos de Pequenas Moléculas</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#introducao">Introdução</a>
@@ -163,7 +165,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../STR18-EGB3.md">Docking Automático</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
                   </li>
@@ -197,12 +199,11 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="modelos-computacionais-de-moleculas-pequenas">Modelos computacionais de moléculas pequenas</h1>
-<p><strong>Autoria</strong> Euzébio Guimarães – DFAR – BioME - UFRN</p>
-<p><strong>Revisores</strong> Pedro Igor Câmara de Oliveira (PPgBioinfo) e Estela Mariana Guimarães Lourenço (PPgCF).</p>
+<p>Prof. Euzébio Guimarães – DFAR – BioME - UFRN</p>
 <h2 id="introducao">Introdução</h2>
 <p>O presente tutorial terá como foco moléculas orgânicas mais comuns. Tais moléculas são constituídas principalmente de Carbono (<em>C</em>), Oxigênio (O), Nitrogênio (N) e Hidrogênio (H). Halogênios também são muito comuns, assim como a presença de átomos de Enxofre (S), dentre outros. Fármacos, pesticidas, substratos enzimáticos etc. são moléculas que possuem esta constituição. Não daremos atenção a compostos organometálicos.</p>
 <p>Traremos primeiramente métodos para estudar tais moléculas conforme o fluxograma* abaixo partindo de uma molécula de interesse.</p>
-<p><img alt="Fluxograma" src="https://drive.google.com/uc?id=11DDGRCTYqrxISoboW0_mIZlWpc_1PT0S" /></p>
+<p><img alt="Fluxograma" src="../str16-fig1.png" /></p>
 <blockquote>
 <p><em>Construído com o programa DIA.</em></p>
 </blockquote>
@@ -222,10 +223,10 @@
 <li><a href="https://www.ebi.ac.uk/chembl/">ChEMBL</a></li>
 </ul>
 <p>Para nosso primeiro tutorial usaremos o servidor ZINC.</p>
-<p><img alt="ZINC" src="https://drive.google.com/uc?id=1H2N5ZC2uf2zITivyrRPLUKIJ4MnAV4-3" /></p>
+<p><img alt="ZINC" src="../str16-fig2.png" /></p>
 <p>Basta buscar <strong><em>ascorbic acid</em></strong> na barra de busca rápida.</p>
 <p>Como mostrado na figura baixo você conseguirá o código SMILES para a Vitamina C. Com a linha de SMILES você pode desenhar com facilidade este composto utilizando programas como o Marvin.</p>
-<p><img alt="SMILES" src="https://drive.google.com/uc?id=11jR2qJWap7AwPg9I0aoYvqdNXetlv_Gl" /></p>
+<p><img alt="SMILES" src="../str16-fig3.png" /></p>
 <p>Mas podemos baixar as estruturas já em formato 3D: <code>MOL2</code> ou <code>SDF</code>.</p>
 <p>A dinâmica é muito similar com os outros servidores.</p>
 <h4 id="desenhar-manualmente-o-composto">Desenhar manualmente o composto.</h4>
@@ -239,7 +240,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N-idU05G9YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <p>Contudo, uma vez que você já possui o código SMILE basta copiar e colar diretamente no Marvin:</p>
-<p><img alt="Desenhando Molécula" src="https://drive.google.com/uc?id=1dlib6naGKxDpUfgLOMq6ketiQEumQgbx" /></p>
+<p><img alt="Desenhando Molécula" src="../str16-fig4.png" /></p>
 <h2 id="tutorial-2">Tutorial 2</h2>
 <h3 id="criando-uma-estrutura-3d-para-a-vitamina-c">Criando uma estrutura 3D para a Vitamina C</h3>
 <p>Para realizar simulações mais complexas, as estruturas 2D são insuficientes. É necessária a obtenção de modelos 3D. Existem 4 maneiras para se conseguir tais modelos:</p>
@@ -251,7 +252,7 @@
 </ul>
 <h4 id="baixar-estruturas-3d-prontas-de-servidores">Baixar estruturas 3D prontas de servidores</h4>
 <p>Você pode encontrar as estruturas prontas em servidores como já foi demostrado. Para baixar, por exemplo, a estrutura da vitamina C do PubChem proceda como se segue:</p>
-<p><img alt="PubChem" src="https://drive.google.com/uc?id=1jayYyyJv06mqrllX9XUOo4tdjls-mD22" /></p>
+<p><img alt="PubChem" src="../str16-fig5.png" /></p>
 <p>Abaixo está um trecho do arquivo SDF, muito utilizado para representar as coordenadas dos átomos moleculares.</p>
 <pre><code class="language-none">54670067
   -OEChem-06301813333D
@@ -274,7 +275,7 @@
 <p>Podemos observar as coordenadas <em>x, y e z</em>, assim o tipo de átomo neste pequeno trecho do arquivo. Este arquivo tem qualidade bastante alta e possivelmente já está pronto para as próximas etapas deste tutorial.</p>
 <h4 id="converter-formatos-smiles-2d-em-3d">Converter formatos SMILES 2D em 3D</h4>
 <p>Para proceder com uma transformação podemos desenhar o composto no msketch e converter para um formato de 3D.</p>
-<p><img alt="SMILES" src="https://drive.google.com/uc?id=11ASR9T8qTUbpiLD6HvvaNPvrWzBtqUKs" /></p>
+<p><img alt="SMILES" src="../str16-fig6.png" /></p>
 <p>Vá em: <strong><em>Calculation &gt; Conformation &gt; Conformers</em></strong> Selecione a opção: <code>Return only the lowest energy conformer found</code>.</p>
 <p>Basta agora salvar como <code>.sdf</code> ou qualquer outro formato.</p>
 <p>Um procedimento para obtenção da estrutura 3D pode ser feito com o UCSF Chimera apenas com o código SMILE da estrutura.</p>
@@ -282,7 +283,7 @@
 <p><em>Sempre use a opção Isomeric SMILES quando disponível, pois é conservada a informação de esteroquímica.</em></p>
 </blockquote>
 <p>Para isso, siga os menus no UCSF Chimera: <strong><em>Tools &gt; Structure Editing &gt; Build Structure</em></strong></p>
-<p><img alt="Construindo Moléculas no UCSF Chimera" src="https://drive.google.com/uc?id=1KbZ913nnpdD8NA_5fx3N3RhS5xCteH12" /></p>
+<p><img alt="Construindo Moléculas no UCSF Chimera" src="../str16-fig7.png" /></p>
 <p>Basta colar o SMILES no local indicado e clicar em <code>Apply</code>, assim sua estrutura 2D será convertida para 3D.</p>
 <h4 id="desenhar-a-molecula-diretamente-em-3d">Desenhar a molécula diretamente em 3D</h4>
 <p>Como o uso do programa Avogadro, você vai poder desenhar a molécula diretamente em 3D. Contudo fique bem atento, pois o erro humano é um fator preponderante quando você escolher criar seus modelos assim.</p>
@@ -293,7 +294,7 @@
 <ul>
 <li>Salve os SMILES que você possui em um arquivo de texto único. No nosso caso temos uma molécula apenas.</li>
 </ul>
-<p><img alt="Salvando SMILES em arquivo de trxto" src="https://drive.google.com/uc?id=1zx2O8iFYNaG51hKC6G6xxnBpX3fw_BvN" /></p>
+<p><img alt="Salvando SMILES em arquivo de trxto" src="../str16-fig8.png" /></p>
 <blockquote>
 <p><em>Aqui vai uma dica importante: Nunca use, ao nomear seus arquivos, caracteres especiais ou espaços.</em></p>
 <p><em>Exemplo: Evite: Vitamina C.smi ou Ácido Ascóbico.smi, ao invés use vitC.smi ou AC.smi.</em></p>
@@ -309,9 +310,9 @@
 <p><em>IMPORTANTE: Sempre simule sua molécula como se ela estivesse no pH de um possível teste biológico ou ensaio.</em></p>
 </blockquote>
 <p>Exemplo da ciprofloxacina:</p>
-<p><img alt="Ciprofloxacina" src="https://drive.google.com/uc?id=1THwDmYF8jcDK73cJgb6JqFdu_ugyFzcu" /></p>
+<p><img alt="Ciprofloxacina" src="../str16-fig9.png" /></p>
 <p>Para estimar todos os estados de protonação e suas respectivas populações:</p>
-<p><img alt="Ciprofloxacina" src="https://drive.google.com/uc?id=1-rBwFtxFela5SAF17XsZalhzqgMBp-8Q" /></p>
+<p><img alt="Ciprofloxacina" src="../str16-fig10.png" /></p>
 <p>A tautomeria é a mais ignorada de todos estes fatores. Em anexo a esta apostila está um paper bastante intrigante sobre tal fenômeno: <a href="https://www.ncbi.nlm.nih.gov/pubmed/19842045">J Comput Aided Mol Des (2009) 23:693–704. Let’s not forget tautomers de Yvonne Connolly Martin.</a>. O trecho abaixo foi retirado dele:</p>
 <blockquote>
 <p><em>“Tautomerization equilibria present a continuing challenge to computer-aided molecular design, affecting everything from library design to SAR to docking and scoring protein-ligand interactions. The absence of experimental data and validated computational methods make tautomerization easy to ignore but overwhelming to consider.”</em></p>
@@ -329,15 +330,15 @@
 <p><em>Nesse exemplo utilizamos o pH 7,40</em></p>
 </blockquote>
 <p>Os resultados do babel são muito inferiores aos do Marvin:</p>
-<p><img alt="Marvin" src="https://drive.google.com/uc?id=1x0SfFNtYEL4EdkUqsu1JDhkgIYaz21bA" /></p>
+<p><img alt="Marvin" src="../str16-fig11.png" /></p>
 <h2 id="tutorial-4">Tutorial 4</h2>
 <h3 id="consideracoes-sobre-otimizacao-de-geometria">Considerações sobre otimização de geometria</h3>
-<p><img alt="Geometria" src="https://drive.google.com/uc?id=1BV9ETFO_ckMdqAoEBsvydWx5qvRuAflA" /></p>
+<p><img alt="Geometria" src="../str16-fig12.png" /></p>
 <p>A estrutura 3D que você obteve passou por otimizações com campos de força, os quais trataremos mais adiante no curso. Os campos de força hoje em dia já foram muito bem refinados e automatizados. Anteriormente, eles eram muito difíceis de implementar corretamente para fornecerem resultados exatos. Os melhores resultados de otimização de geometria para moléculas orgânicas vêm de cálculos com mecânica quântica <em>ab initio</em> ou <em>funcional da densidade</em>. Recomendo os funcionais de densidade M052X com as funções de base 6-31G** implementados no programa <a href="http://psicode.org/">PSI4</a> para moléculas orgânicas. Contudo estes cálculos são bastante caros computacionalmente (Demoram muito tempo para o cálculo da geometria 3D otimizadas). Uma versão de mecânica quântica semi-empírica é o PM7 implementado no programa MOPAC (já instalado em sua máquina). O PM7 é muito bem parameterizado e garante geometrias para moléculas orgânicas de boa qualidade.</p>
 <p>Vamos ver como otimizar sua molécula. Utilize o programa GABEDIT para criar os <em>inputs</em>:</p>
-<p><img alt="GABEDIT" src="https://drive.google.com/uc?id=1ZkodZg9v3aS-7h-a-ZWmHfAp2r86jHN-" /></p>
+<p><img alt="GABEDIT" src="../str16-fig13.png" /></p>
 <p>Ao visualizar a molécula, feche a janela e clique no botão para criar o input para o MOPAC2016.</p>
-<p><img alt="GABEDIT" src="https://drive.google.com/uc?id=10uF9c4WuZ_L5SbDRjqvqa6prhPBMJUtk" /></p>
+<p><img alt="GABEDIT" src="../str16-fig14.png" /></p>
 <p>Coloque a carga da molécula (pode estar ionizada). <em>Spin</em> quase sempre vai aparecer 1. Caso apareça 2, você fez algo errado. Nas outras opções, coloque:</p>
 <ul>
 <li><code>Job Type</code> - <em>Equilibrium structure search</em>.</li>
@@ -354,17 +355,17 @@
 <pre><code class="language-none">gabedit vitC.mop
 </code></pre>
 <p>Desenhe a molécula otimizada em <code>Draw</code> e salve como <code>vitC_opt.mol</code> na janela subsequente.</p>
-<p><img alt="GABEDIT" src="https://drive.google.com/uc?id=10Lyj7AmSjB-xtxbZbTpHECoO47sllEY8" /></p>
+<p><img alt="GABEDIT" src="../str16-fig15.png" /></p>
 <p>Veja abaixo a comparação da molécula feita com campos de força e a otimizada. Neste caso não houve uma grande modificação, mas algumas vezes a mudança é substancial.</p>
 <blockquote>
 <p><em>Sempre otimize suas moléculas pelo menos com um método semi-empírico (Sugestão PM7).</em></p>
 </blockquote>
-<p><img alt="Comparando as moléculas no UCSF Chimera" src="https://drive.google.com/uc?id=1PKTJZu2RzBmedGwpqidYMBD0CNXmXaqk" /></p>
+<p><img alt="Comparando as moléculas no UCSF Chimera" src="../str16-fig16.png" /></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../STR15-VS1/" class="btn btn-neutral float-left" title="Virtual Screening"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR23-MDIntro/" class="btn btn-neutral float-left" title="Introdução a Dinâmica Molecular"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../STR17-EGB2/" class="btn btn-neutral float-right" title="Análise conformacional">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -388,7 +389,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../STR15-VS1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../STR23-MDIntro/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../STR17-EGB2/" style="color: #fcfcfc">Next &raquo;</a></span>
