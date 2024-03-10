@@ -10,3 +10,14 @@ wget 'https://drive.google.com/uc?export=download&id=19gmRJIgx2WTOU1S0-gc9LqNmG8
 wget 'https://drive.google.com/uc?export=download&id=1wng4x0-xBMCg5na2Nd-yTcMOeOdeNWBi' -O str14-fig8.png
 wget 'https://drive.google.com/uc?export=download&id=1qmJylaFP-Xc01KRt279PNv9esrOFoOmP' -O str14-fig9.png
 wget 'https://drive.google.com/uc?export=download&id=1JJJMdjehypHqB2mVeczabKHzpDFBr9gz' -O str14-fig10.png
+
+[dock1](str14-fig1.png)
+[dock2](str14-fig2.png)
+[dock3](str14-fig3.png)
+[dock4](str14-fig4.png)
+[dock5](str14-fig5.png)
+[dock6](str14-fig6.png)
+[dock7](str14-fig7.png)
+[dock8](str14-fig8.png)
+[dock9](str14-fig9.png)
+[dock10](str14-fig10.png)
