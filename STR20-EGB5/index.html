@@ -83,6 +83,10 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
@@ -135,6 +139,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -177,6 +183,9 @@
 <p>Apague o ligante após salva-lo. Agora salve o receptor com <code>recep.pdb</code> e converta para os arquivos necessários para o <strong>Gromacs</strong>, com o seguinte comando:</p>
 <pre><code class="language-shell">gmx pdb2gmx -f recep.pdb -ignh
 </code></pre>
+<blockquote>
+<p><em>Verifique a saída do comando acima. A carga da proteína estará especificada.</em></p>
+</blockquote>
 <p>Quando perguntado, você vai ter que escolher o campo de força.</p>
 <ul>
 <li>
@@ -187,11 +196,15 @@
 </li>
 </ul>
 <p>Serão criados vários arquivos: <code>posre.itp</code> (Restrições de Posições) <code>conf.gro</code> (Coordenadas da proteína) e <code>topol.top</code> (Topologia do campo de força).</p>
-<p>A topologia do ligante será criada no servidor <a href="https://atb.uq.edu.au/">Automated Topology Builder (ATB) and Repository</a> (Ver <a href="https://sites.google.com/imd.ufrn.br/biomemodel/p%C3%A1gina-inicial/programas-e-ferramentas">Programas e Ferramentas</a>). A qualidade da topologia é muito alta. Basta submeter aos cálculos. Demora cerca de um dia. Se você quiser utilizar um método diferente basta verificar o <a href="https://www.youtube.com/watch?v=PCn5jMiJP3M&amp;list=PLRLpdK3kOpA-6cijGtyNnFFesPcPj0P2o">meu Canal no YouTube</a></p>
+<p>A topologia do ligante será criada no servidor <a href="https://atb.uq.edu.au/">Automated Topology Builder (ATB) and Repository</a>. A qualidade da topologia é muito alta. Basta submeter aos cálculos. Demora cerca de um dia. Se você quiser utilizar um método diferente basta verificar o <a href="https://www.youtube.com/watch?v=PCn5jMiJP3M&amp;list=PLRLpdK3kOpA-6cijGtyNnFFesPcPj0P2o">meu Canal no YouTube</a></p>
 <p>Esse arquivo já existe: <a href="https://atb.uq.edu.au/molecule.py?molid=268633#panel-md">https://atb.uq.edu.au/molecule.py?molid=268633#panel-md</a></p>
 <p><img alt="Gromacs Files" src="../str20-fig2.png" /></p>
 <p>Edite estes arquivos trocando o nome dos átomos do que aparecer para <strong>LIG</strong>.</p>
-<p>Confira se o <code>lig.pdb</code> está posicionado no sítio receptor assim como o ligante cristalografado. Neste caso não está, então eu faria um <em>docking</em> manual, pois o que interessa é apenas a conformação inicial e não a avaliação pela função de escore.</p>
+<p><strong>Importante</strong>
+Verifique se na página do ATB possui uma mensagem como a abaixo:</p>
+<p><img alt="ATB Message" src="../str20-fig9.png" /></p>
+<p>Caso possua tal aviso para o campo de força que irás utilizar, você precisa baixar esses arquivos para a versão do Gromacs da sua máquina. Descompacte o arquivo e coloque a pasta original dentro da pasta do Gromacs, usualmente <code>/usr/share/gromacs/top/</code>. Depois você terá de modificar seu arquivo de topologia (veremos isso mais adiante).</p>
+<p>Confira se o <code>lig.pdb</code> está posicionado no sítio receptor assim como o ligante cristalografado. Neste caso não está, então faça um <em>docking</em> manual, pois o que interessa é apenas a conformação inicial e não a avaliação pela função de escore.</p>
 <p><img alt="Chimera" src="../str20-fig3.png" /></p>
 <p>Após mudar a posição salve com <code>lig2.pdb</code> novamente e não se esqueça de escolher a opção <code>Save relative to model</code>: Escolha o <code>recep.pdb</code>. Feito isso basta converter para o formato <code>.gro</code> com o comando:</p>
 <pre><code class="language-shell">gmx editconf -f lig2.pdb -o lig2.gro
@@ -210,6 +223,9 @@
 Protein_chain_A     1
 LIG                         1
 </code></pre>
+<blockquote>
+<p><em>Algumas linhas acima estão repetidas, basta adicionar o que está diferente.</em></p>
+</blockquote>
 <p>Neste ponto, o fluxo de trabalho vamos definir a célula unitária e preenchê-la com água:</p>
 <pre><code class="language-shell">gmx editconf -f conf.gro -o box.gro -bt triclinic -d 1.0 -princ
 </code></pre>
@@ -220,7 +236,7 @@ LIG                         1
 <pre><code class="language-shell">vmd box_sol.gro
 </code></pre>
 <p><img alt="VMD 1" src="../str20-fig4.png" /></p>
-<p>Agora temos um sistema solvatado. A saída de pdb2gmx nos disse que a proteína tem uma carga líquida de +6 (com base na composição de aminoácidos). Se você perdeu esta informação na saída pdb2gmx. Desta forma, devemos acrescentar íons ao nosso sistema.</p>
+<p>Agora temos um sistema solvatado. A saída do comando <code>pdb2gmx</code> nos disse que a proteína tem uma carga líquida de +6 (com base na composição de aminoácidos). Se você perdeu esta informação na saída pdb2gmx. Desta forma, devemos acrescentar íons ao nosso sistema.</p>
 <p>Use grompp para criar um arquivo <code>.tpr</code>, usando qualquer arquivo <code>.mdp</code>. Baixe o arquivo necessário <a href="https://drive.google.com/uc?export=download&amp;id=1xbKUJ_CTKvM9Ry3iMQolytnbJ7cBErug">AQUI</a></p>
 <pre><code class="language-shell">gmx grompp -f ions.mdp -c box_sol.gro -p topol.top -o ions.tpr
 </code></pre>
