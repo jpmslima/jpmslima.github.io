@@ -193,8 +193,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><img alt="UChile" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/b601c8a4acfda6f5d8f942ce1d888f4c75c29a8b.png" /></p>
-<h1 id="analysis-of-substitution-saturation">Analysis of Substitution Saturation</h1>
+                <p><img alt="UChile" src="../UChile.png" /></p>
+<h1 id="analysisuchile">Analysisuchile</h1>
 <p>The substitutionhttp://www.postgradoquimica.cl/informacion-diplomado-en-bioinformatica-y-biologia-computacional/ saturation estimation is an <strong>essential</strong> analysis to check if the alignment sequences still maintain a phylogenetic signal. Saturation is much more common in nucleotide sequences. There are two methods: one extremely simple and qualitative and the other quantitative, with associated probability (the Xia method, 2009). Both are implemented in the program <a href="http://dambe.bio.uottawa.ca/DAMBE/dambe.aspx">DAMBE</a> (<a href="https://www.ncbi.nlm.nih.gov/pubmed/29669107">Xia, 2018</a>).</p>
 <p><a href="http://dambe.bio.uottawa.ca/DAMBE/dambe.aspx">DAMBE</a> (<a href="https://www.ncbi.nlm.nih.gov/pubmed/29669107">Xia, 2018</a>) is a suite with several phylogenetic and sequence analysis applications. Additionally, it is multi-platform (except if you run MacOS Catalina, as it is not completely 64 bits - Feb 2020) and simple to use. To our knowledge, it is the only phylogenetic analysis program that performs these tests.</p>
 <h2 id="the-qualitative-method">The Qualitative Method</h2>
@@ -203,29 +203,29 @@
 <ul>
 <li>Open the DAMBE program. Click on <em>File</em> and then on <em>Open Standard Sequence File</em>.</li>
 </ul>
-<p><img alt="DAMBE 1" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/b04026d2814751c3da16f1381eb1315b02b6a200.png" /></p>
+<p><img alt="DAMBE 1" src="../SS-fig1.png" /></p>
 <ul>
 <li>Select the <em>dataset</em> <a href="https://drive.google.com/uc?export=download&amp;id=1sPodmXGkPCxWu7t8CIZzHmumYS_0kX18">VertCOI.fas</a>. Click <code>Open</code>.</li>
 <li>In the dialog box that appears, called <em>SequenceInfo</em>, check the option <em>Protein-coding Nuc-Seq</em>. In this same window, in the Genetic Code options, choose the number 2 (from the Vertebrate mitochondria).</li>
 </ul>
-<p><img alt="DAMBE 2" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/495093da0efe4dad876c718518c13c9c075321e5.png" /></p>
+<p><img alt="DAMBE 2" src="../SS-fig2.png" /></p>
 <ul>
 <li>In the main window, the alignment will appear in Clustal format. </li>
 </ul>
-<p><img alt="DAMBE 3" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/99c9b606a07c6b8d3ac1a01922a3683d51d849ea.png" /></p>
+<p><img alt="DAMBE 3" src="../SS-fig3.png" /></p>
 <p>On DAMBE's main menu, go to <em>Graphics</em> and click on <strong>*transition and transversion versus divergence</strong>. </p>
-<p><img alt="DAMBE 4" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/a13fdd3dbbee8d23c4ff38d0820c73a3ad7d8d88.png" /></p>
+<p><img alt="DAMBE 4" src="../SS-fig4.png" /></p>
 <p>A new dialog box will appear. In it, the default values can be used. However, we will change the genetic distance (<em>Genetic distance</em> field) to TN93, as shown in the figure below:</p>
-<p><img alt="DAMBE 5" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/bd427ef6a615f864c4e0f61b1c5a84008ea5ed90.png" /></p>
+<p><img alt="DAMBE 5" src="../SS-fig5.png" /></p>
 <ul>
 <li>Click on <code>Go</code> and watch the resulting graph. To make the visualization easier, leave the options as below:</li>
 </ul>
-<p><img alt="DAMBE 6" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/64c2cab16c7181eaac705c6c97a5bd526ce665ca.png" /></p>
+<p><img alt="DAMBE 6" src="../SS-fig6.png" /></p>
 <blockquote>
 <p>The letter "s" refers to the transitions and the letter "v" to the transversions*.</p>
 </blockquote>
 <p>Compare the graph above with the figure below and draw your conclusions about the saturation of these sequences.</p>
-<p><img alt="Figure3-3 - DAMBE7" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/d5916226aac29760f70721c26a47a7bbd5de0ec7.png" /></p>
+<p><img alt="Figure3-3 - DAMBE7" src="../SS-fig7.png" /></p>
 <h2 id="the-quantitative-method">The quantitative method</h2>
 <p>The Xia method is a quantitative method, based on entropy, that
 assigns a significant value to the saturation of substitutions. It returns two criteria: Iss and Iss.c. The first is the substitution saturation index. The second is the critical substitution saturation index, which is the value of Iss at which sequences can no longer return the correct tree. When an observed Iss value is significantly lower than Iss.c (Iss &lt; Iss.c), substitution saturation is not a problem for the <em>dataset</em> in question. The steps to perform this method are:</p>
@@ -236,7 +236,7 @@ assigns a significant value to the saturation of substitutions. It returns two c
 <li>In the main window, the alignment will appear in Clustal format. Before continuing, the proportion of invariable sites (Pinvar) should be calculated for this <em>dataset</em>. This parameter is crucial for sequences with very different substitution rates along with the sites. </li>
 <li>To do this, follow the path: <em>Seq.Analysis</em> &gt; <em>Substitution rates over site</em> &gt; <em>Estimate proportion of invariant sites</em>.</li>
 </ul>
-<p><img alt="DAMBE 7" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/e97167390b6a6fc1657df9331f8822daee679a19.png" /></p>
+<p><img alt="DAMBE 7" src="../SS-fig8.png" /></p>
 <ul>
 <li>In the dialog box that follows, check the "<em>Use a new tree</em>" option. In the new window, choose the <em>Neighbor-Joining</em> method, choose the appropriate <em>outgroup</em> (for this example, we will use <em>Alligator mississippis</em>) and keep the rest of the options the way it is. Click on <code>Run</code> and then click on <code>Go</code>. At the end of the text output, Pinvar will be described, as below:</li>
 </ul>
@@ -282,11 +282,11 @@ P(invariant) = 0.51555
 <ul>
 <li>Click on "<em>Seq.Analysis</em> &gt; <em>Measure substitution saturation</em> &gt; <em>Test by Xia et al.</em>".</li>
 </ul>
-<p><img alt="DAMBE 8" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/06eb0d894466adc7b8a912f6c776cb6057c7ab8e.png" /></p>
+<p><img alt="DAMBE 8" src="../SS-fig9.png" /></p>
 <ul>
 <li>In the window, just put the Pinvar value calculated and then click Go.</li>
 </ul>
-<p><img alt="DAMBE 9" src="/home/jpmslima/.var/app/com.github.marktext.marktext/config/marktext/images/30b25c003ab30b0625034b0612bb5dde8aa83a0f.png" /></p>
+<p><img alt="DAMBE 9" src="../SS-fig10.png" /></p>
 <ul>
 <li>Analyze the results (further comments will be made during the
   practice).</li>
