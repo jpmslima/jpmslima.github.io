@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/ModelTest_ENG/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>ModelTest ENG - Tutoriais BioinfoX</title>
+    <title>Test of the Best-Fit Models - Tutoriais BioinfoX</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "ModelTest ENG";
+        var mkdocs_page_name = "Test of the Best-Fit Models";
         var mkdocs_page_input_path = "ModelTest_ENG.md";
         var mkdocs_page_url = "/tutoriais/ModelTest_ENG/";
       </script>
@@ -137,8 +137,48 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UC_slides/">Slides</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Material/">Files and References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../First_Tutorial_ENG/">First Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Substitution_saturation_ENG/">Analysis of Substitution Saturation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Test of the Best-Fit Models</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-mega-x">Using MEGA X</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-jmodeltest">Using jModelTest</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-prottest">Using ProtTest</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-resultados">Comparing resultados</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modeltest-ng">ModelTest-NG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#final-remarks">Final remarks</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MEGAX_ENG/">Using MEGAX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1st_BEAST/">Using BEAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BEAST%2BEBSP_ENG/">Phylodynamics using EBSP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../IQTree/">Using IQ-Tree</a>
                   </li>
               </ul>
       </div>
@@ -155,7 +195,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">ModelTest ENG</li>
+          <li class="breadcrumb-item">Diplomado - UChile</li>
+      <li class="breadcrumb-item active">Test of the Best-Fit Models</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -164,8 +205,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a href="http://www.postgradoquimica.cl/informacion-diplomado-en-bioinformatica-y-biologia-computacional/"><img alt="UChile" src="https://drive.google.com/uc?id=1xeSo8MOvqmgO4q_6lyidauaKOjdTPu3t" /></a></p>
-<h1 id="choosing-an-appropriate-substitution-model">Choosing an appropriate substitution Model</h1>
+                <h1 id="choosing-an-appropriate-substitution-model">Choosing an appropriate substitution Model</h1>
 <h2 id="introduction">Introduction</h2>
 <p>The objective of this tutorial is to show the different ways to evaluate and estimate a nucleotide (and amino acid) replacement model suitable for your <em>dataset</em> for later phylogenetic analysis.</p>
 <p>As highlighted during the course, the step of estimating a replacement model is not necessarily mandatory in any phylogenetic analysis. When the working sequences and the characteristics of the obtained alignment are well known, the researcher can directly choose a single mathematical model. However, as there are numerous models available, such a choice can be challenging for beginners. In the worst case, ignorance can lead to the choice of a model that underestimates important alignment characteristics, leading to less accurate estimates. On the other hand, including many parameters increases the variance and consequently the accuracy of the analyses (and, sometimes, can also increase computational power requirements).</p>
@@ -177,39 +217,39 @@
 <li>Run the MEGAX program.</li>
 <li>Open the alignment by clicking on the <code>TA</code> button and then on <em>Open a File/Session...</em>, according to the picture below:</li>
 </ul>
-<p><img alt="MegaX" src="https://drive.google.com/uc?id=1FJSEHkqgypK-v62xTtaN0D-9-Y_50Ih0" /></p>
+<p><img alt="MegaX" src="../MTENG-fig1.png" /></p>
 <ul>
 <li>In the next pop-up window, click on <em>Analyze</em> (these sequences are already aligned):</li>
 </ul>
-<p><img alt="Analyze" src="https://drive.google.com/uc?id=1Y3fe37o7GmCXhcgr5VWJo3Y60vQUXYFy" /></p>
+<p><img alt="Analyze" src="../MTENG-fig2.png" /></p>
 <ul>
 <li>MEGA will ask you the following questions: whether they are nucleotide sequences. Click Ok.</li>
 </ul>
-<p><img alt="Nucleotide sequences" src="https://drive.google.com/uc?id=1UxoBNG69mCqcMvWmynlKkMYYYMN5rGGh" /></p>
+<p><img alt="Nucleotide sequences" src="../MTENG-fig3.png" /></p>
 <ul>
 <li>They are protein-coding sequences. Answer <em>Yes</em>.</li>
 </ul>
-<p><img alt="Coding sequences" src="https://drive.google.com/uc?id=1LP3I1oxJERBUTshJ78gMljzi0Iq2FHRa" /></p>
+<p><img alt="Coding sequences" src="../MTENG-fig4.png" /></p>
 <ul>
 <li>When answering, you will need to select the specific genetic code. Click <em>Vertebrate Mitochondrial</em>:</li>
 </ul>
-<p><img alt="Select genetic code" src="https://drive.google.com/uc?id=1UdZJ6ywkOrnEQLTIexLHCD30sARuyAGD" /></p>
+<p><img alt="Select genetic code" src="../MTENG-fig5.png" /></p>
 <ul>
 <li>With the file open, click on <code>Models</code>,</li>
 </ul>
-<p><img alt="Models in MEGA X" src="https://drive.google.com/uc?id=1JzEoxIAKVW1aL2YzbPyjcQ3a0BrbByyc" /></p>
+<p><img alt="Models in MEGA X" src="../MTENG-fig6.png" /></p>
 <ul>
 <li>And select the first item, <em>Find Best DNA/Protein Models (ML)...</em>:</li>
 </ul>
-<p><img alt="best-fit model in Mega X" src="https://drive.google.com/uc?id=1-cdQ7NmejYsU9sTHdo2CMX15zuczWaH8" /></p>
+<p><img alt="best-fit model in Mega X" src="../MTENG-fig7.png" /></p>
 <ul>
 <li>Answer yes in the dialog box that appears right after, to use the open dataset:</li>
 </ul>
-<p><img alt="" src="https://drive.google.com/uc?id=1_b3jhh81Pr92Tg1YA_17BbHTPVEIFDVY" /></p>
+<p><img alt="" src="../MTENG-fig8.png" /></p>
 <ul>
 <li>After confirmation, the following box will appear:</li>
 </ul>
-<p><img alt="" src="https://drive.google.com/uc?id=1wrzx8j5wxKeLwnvpC9TvpML361SytAzg" /></p>
+<p><img alt="" src="../MTENG-fig9.png" /></p>
 <ul>
 <li>Let us look at the options (as shown in the figure above):</li>
 <li>We will use an automatic <em>Neighbor-Joining</em> tree as the initial hypothesis for this data.</li>
@@ -218,7 +258,7 @@
 <li>Leave the number of <em>Threads</em> in the pattern that appeared on the computer you are using.</li>
 <li>Finally, click Ok. The process will take a while, depending on the available computing resources. The results will appear as the table below:</li>
 </ul>
-<p><img alt="Best-fit models results" src="https://drive.google.com/uc?id=1DIKllj-vrTKGndev704GabyUCiUypE_K" /></p>
+<p><img alt="Best-fit models results" src="../MTENG-fig10.png" /></p>
 <p>The results appear in a list of the best model to the least suitable for the data used. In MEGA X the information criterion used is Bayesian (BIC). By it, we can verify that the GTR model (<em>General Time-reversible</em>) plus gamma correction (+G) was the model chosen by the Bayesian criterion. However, it is not the model with the least likelihood (<em>lnL</em>). The rest of the information in this table will be discussed during the remote meeting.</p>
 <blockquote>
 <p><em>Do not forget to save this table in one of the formats that MEGA X provides, from the icons present in the upper left corner of the screen.</em></p>
@@ -248,13 +288,13 @@
 <ul>
 <li>The window below will appear:</li>
 </ul>
-<p><img alt="jmodeltest1" src="https://drive.google.com/uc?id=1n4wrA3n2OUeRWj8OhJTE-K1kZsEnUF9j" /></p>
+<p><img alt="jmodeltest1" src="../MTENG-fig11.png" /></p>
 <ul>
 <li>Click <em>File &gt; Load DNA alignment</em> and open the data set vert-aligned.fasta file.</li>
 <li>Click <em>Analysis &gt; Compute likelihood scores</em> to start the analysis.</li>
 <li>A dialog box will appear that allows you to specify the number of probability settings, including the number of models to be tested. The other settings are different base frequencies (+F); the proportion of invariable sites (+I), and gamma distribution (+G) (variation in rate across sites). In this dialog box, leave the options as in the figure below.</li>
 </ul>
-<p><img alt="jmodeltest2" src="https://drive.google.com/uc?id=1DNIz-P1pUrCLcrxmFvii1fJci_qI0YOO" /></p>
+<p><img alt="jmodeltest2" src="../MTENG-fig12.png" /></p>
 <ul>
 <li>Click on <code>Compute Likelihoods</code> and wait (or go for a coffee, because depending on the <em>dataset</em> this step will take longer than the one performed on MEGA X). For the alignment used here and with these options, this step will take between 1 and 4 min.</li>
 </ul>
@@ -266,22 +306,22 @@
 <li>Now click again on the <em>Analysis</em> menu. You will see that the AIC, BIC, and DT calculations are now available, while the hLRT calculations are grayed out (because in the previous step, we chose to have optimized tree topologies).</li>
 <li>Now click on <em>Results &gt; Show results table</em>. A window will appear, showing the calculated probabilities for each model.</li>
 </ul>
-<p><img alt="jmodeltest-table1" src="https://drive.google.com/uc?id=1D-NDW3rMqy_9TFVwLpqc08s39yY0gOwy" /></p>
+<p><img alt="jmodeltest-table1" src="../MTENG-fig13.png" /></p>
 <ul>
 <li>Now click on the top of the "LnL" column. This action will sort the models according to likelihood. The table will then look like this:</li>
 </ul>
-<p><img alt="jmodeltest-table2" src="https://drive.google.com/uc?id=1QkzhxR5sS8WJwsfOY0bTKAbCsijsFCwj" /></p>
+<p><img alt="jmodeltest-table2" src="../MTENG-fig14.png" /></p>
 <ul>
 <li>It can show the partition schemes, the number of parameters included the observed base frequencies, and the transition and transversion rates. Note that the tables for AIC, AICc, BIC, and DT results are in grey. For that, the table can be closed, and from the <em>Analysis</em> menu click on <em>Do BIC calculations...</em> and on <em>Do DT calculations...</em>, confirming each dialog box that will appear later, as can be verified in the figure below:</li>
 </ul>
-<p><img alt="BIC and DT calculations" src="https://drive.google.com/uc?id=1Ly0zoycGXVGezQ7Eac2YiVD_zpS7HsSx" /></p>
+<p><img alt="BIC and DT calculations" src="../MTENG-fig15.png" /></p>
 <blockquote>
 <p><em>Make sure that the options Calculate parameter imports and Do model averaging are always selected</em></p>
 </blockquote>
 <ul>
 <li>Then, we will go to <em>Analysis</em> &gt; <em>Do AIC calculations...</em>. In the backbox, check the option <em>Use AICc correction</em>, as shown in the figure below:</li>
 </ul>
-<p><img alt="AICc correction" src="https://drive.google.com/uc?id=1uUADsFXUimHtZZ6w9nC0tFW_Ebvbhe-x" /></p>
+<p><img alt="AICc correction" src="../MTENG-fig16.png" /></p>
 <blockquote>
 <p><em>You can also do the Akaike calculation without the correction for comparison purposes. Just do not select the above option</em></p>
 </blockquote>
@@ -299,13 +339,13 @@
 <p><em>MEGA X also has the function to calculate the best amino acid substitution model. To do this, just start the analyses with an amino acid alignment and in the dialog box choose the correct option.</em></p>
 </blockquote>
 <p>To demonstrate ProtTest's operation, we will use the amino acid alignment <a href="https://drive.google.com/uc?export=download&amp;id=1d1KpZNgn7atWSkc8_PQOh4zKJuu45rhY">COX2_PF0016</a>, one of the examples provided with the program itself.</p>
-<p><img alt="ProtTest" src="https://drive.google.com/uc?id=1fZffIhyU_F3ksB7FLFN7CEWZiw2H4KEE" /></p>
+<p><img alt="ProtTest" src="../MTENG-fig17.png" /></p>
 <ul>
 <li>Click on <em>File &gt; Load alignment</em> and open the downloaded <a href="https://drive.google.com/uc?export=download&amp;id=1d1KpZNgn7atWSkc8_PQOh4zKJuu45rhY">COX2_PF0016</a> file above. See the information that appeared in the application console.</li>
 <li>Then go to <em>Analysis &gt; Compute likelihood scores</em> to start the analysis. A dialog will appear that allows you to specify the number and models to be tested in addition to some other settings.</li>
 <li>In <em>Starting Topology</em> choose <em>Maximum likelihood tree</em> or leave the default (<em>Fixed BioNJ JTT</em>).</li>
 </ul>
-<p><img alt="ProtTest" src="https://drive.google.com/uc?id=1fZffIhyU_F3ksB7FLFN7CEWZiw2H4KEE" /></p>
+<p><img alt="ProtTest" src="../MTENG-fig17.png" /></p>
 <ul>
 <li>Click <em>Compute</em> and wait for the calculations to finish.</li>
 </ul>
@@ -315,23 +355,23 @@
 <ul>
 <li>When finished, just click the <em>Selection</em> menu and click <em>Results</em>. The results table will appear.</li>
 </ul>
-<p><img alt="ProtTest 3 Results" src="https://drive.google.com/uc?id=1sxsIhnyHaNWQWMC3sGtVjJqUQPp9Nt4C" /></p>
+<p><img alt="ProtTest 3 Results" src="../MTENG-fig18.png" /></p>
 <p>A notable difference between ProtTest and jModelTest is that the calculations of the information criteria are within the results table. Analyze the table. More information will be given in the classroom.</p>
 <h3 id="comparing-resultados">Comparing resultados</h3>
 <p>Compare the results obtained for the COX2_PF0016 alignment in both ProtTest and MEGA X. To use this alignment on MEGA, use <a href="https://drive.google.com/uc?export=download&amp;id=1UDI0QtUgUxnmTpvd3ulvWZ1Mz01M2sU1">this file</a>. Below is a table with the results.</p>
-<p><img alt="MEGAX" src="https://drive.google.com/uc?id=1oVHLNFqlcMN2qnhRZJykXx0Eu1Rv2KfF" /></p>
+<p><img alt="MEGAX" src="../MTENG-fig19.png" /></p>
 <h2 id="modeltest-ng">ModelTest-NG</h2>
 <p>ModelTest-NG is a new improved and faster version of jModelTest, which serves both DNA and protein sequences (<a href="https://academic.oup.com/mbe/article/37/1/291/5552155">Darriba et al. 2019</a>). Its performance for larger <em>datasets</em> is much better, and its calculations are more optimized. However, its installation on Windows and macOS systems is not yet accessible, especially for beginners. On Linux, the installation is relatively fast. For this reason, we will see just a quick demonstration. </p>
 <p>For this we will use the same file used previously: <a href="https://drive.google.com/uc?export=download&amp;id=12-vfD16vil2cTmNM2VOMfuj48LGo9iT2">vert-aligned.fasta</a>.</p>
 <ul>
 <li>Run ModelTest-NG:</li>
 </ul>
-<p><img alt="ModelTest-NG" src="https://drive.google.com/uc?id=1LnHJ7yq9Gw_32oD-FDgkjykcZxUl5CaU" /></p>
+<p><img alt="ModelTest-NG" src="../MTENG-fig20.png" /></p>
 <ul>
 <li>Click on <code>Load MSA</code> and choose the file above. The alignment characteristics will appear.</li>
 <li>Click the "Settings" tab, and you will see the test options, similar to previous programs.</li>
 </ul>
-<p><img alt="ModelTest-NG - Settings" src="https://drive.google.com/uc?id=15frRzX1yU1oELkI_az47-Bfpg6oO_6F9" /></p>
+<p><img alt="ModelTest-NG - Settings" src="../MTENG-fig21.png" /></p>
 <ul>
 <li>Do not forget to change the initial tree to one of <em>Maximum likelihood</em>. Once you have done that, you can click on <code>Run</code>.</li>
 </ul>
@@ -341,11 +381,11 @@
 <ul>
 <li>The results are almost the same as in jModelTest.</li>
 </ul>
-<p><img alt="ModelTest-NG Results" src="https://drive.google.com/uc?id=1N0n5ZXfrqGFUqvOuvUpClZdT1Un8cL23" /></p>
+<p><img alt="ModelTest-NG Results" src="../MTENG-fig22.png" /></p>
 <ul>
 <li>We will now click on Reset and repeat the previous steps for the alignment <a href="https://drive.google.com/uc?export=download&amp;id=1d1KpZNgn7atWSkc8_PQOh4zKJuu45rhY">COX2_PF0016</a>. Since this alignment is of amino acid sequences, do not forget to mark in the <em>Settings</em> tab the option <em>Protein</em>, because in our tests ModelTest-NG does not always correctly identify the type of sequence. Below is a preview of the result:</li>
 </ul>
-<p><img alt="ModelTest-NG protein" src="https://drive.google.com/uc?id=1-7tYNWASg4mjQJcMqTzFlpCe98QDa-01" /></p>
+<p><img alt="ModelTest-NG protein" src="../MTENG-fig23.png" /></p>
 <h2 id="final-remarks">Final remarks</h2>
 <p><strong><em>What criteria do I use to choose the replacement model?</em></strong></p>
 <p>That is not a trivial question. For Bayesian inferences, the BIC criterion tends to be more appropriate. AICc is more suitable for small <em>datasets</em> than AIC (no correction), however, the two tend to converge on more massive <em>datasets</em>, so we always recommend using AICc. The DT criterion (<em>decision theory</em>) should be used with caution, as the jModelTest manual itself recommends. Thus, AICc and BIC are the most reliable criteria. When they converge (and this often happens), the problem is solved. Even without convergence, you will be safe if you do phylogenetic analysis with both the model chosen by AICc and the one chosen by BIC.</p>
@@ -357,6 +397,10 @@
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Substitution_saturation_ENG/" class="btn btn-neutral float-left" title="Analysis of Substitution Saturation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../MEGAX_ENG/" class="btn btn-neutral float-right" title="Using MEGAX">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -378,6 +422,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../Substitution_saturation_ENG/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../MEGAX_ENG/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

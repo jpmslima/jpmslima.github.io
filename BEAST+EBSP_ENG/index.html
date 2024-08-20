@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/BEAST%2BEBSP_ENG/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>BEAST+EBSP ENG - Tutoriais BioinfoX</title>
+    <title>Phylodynamics using EBSP - Tutoriais BioinfoX</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "BEAST+EBSP ENG";
+        var mkdocs_page_name = "Phylodynamics using EBSP";
         var mkdocs_page_input_path = "BEAST+EBSP_ENG.md";
         var mkdocs_page_url = "/tutoriais/BEAST%2BEBSP_ENG/";
       </script>
@@ -137,8 +137,64 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UC_slides/">Slides</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Material/">Files and References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../First_Tutorial_ENG/">First Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Substitution_saturation_ENG/">Analysis of Substitution Saturation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ModelTest_ENG/">Test of the Best-Fit Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MEGAX_ENG/">Using MEGAX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1st_BEAST/">Using BEAST</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Phylodynamics using EBSP</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#diego-gomes-teixeira-phd-and-joao-paulo-m-s-lima-phd-associate-professor">Diego Gomes Teixeira (Ph.D.) and João Paulo M S Lima (Ph.D., Associate Professor)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beauti">BEAUTi</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#loading-the-nexus-file">Loading the NEXUS file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-the-sampling-date-of-the-sequences">Adding the sampling date of the sequences</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#selecting-the-model">Selecting the model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuring-the-priors">Configuring the Priors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuring-discrete-features">Configuring discrete features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuring-the-mcmc">Configuring the MCMC</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beast">BEAST</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tree-annotator">Tree Annotator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#figtree">FigTree</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tracer">TRACER</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#constructing-the-ebsp-plot">Constructing the EBSP Plot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-the-package-ebspanalyser">Using the package EBSPAnalyser</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#files-generated-after-the-beast-execution">Files generated after the BEAST execution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../IQTree/">Using IQ-Tree</a>
                   </li>
               </ul>
       </div>
@@ -155,7 +211,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">BEAST+EBSP ENG</li>
+          <li class="breadcrumb-item">Diplomado - UChile</li>
+      <li class="breadcrumb-item active">Phylodynamics using EBSP</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -164,8 +221,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a href="http://www.postgradoquimica.cl/informacion-diplomado-en-bioinformatica-y-biologia-computacional/"><img alt="UChile" src="https://drive.google.com/uc?id=1xeSo8MOvqmgO4q_6lyidauaKOjdTPu3t" /></a></p>
-<h1 id="phylogenetics-analysis-with-extended-bayesian-skyline-plots-ebsp-using-beast">Phylogenetics analysis with <em>Extended Bayesian Skyline Plots</em> (EBSP) using BEAST</h1>
+                <h1 id="phylogenetics-analysis-with-extended-bayesian-skyline-plots-ebsp-using-beast">Phylogenetics analysis with <em>Extended Bayesian Skyline Plots</em> (EBSP) using BEAST</h1>
 <h5 id="diego-gomes-teixeira-phd-and-joao-paulo-m-s-lima-phd-associate-professor">Diego Gomes Teixeira (Ph.D.) and João Paulo M S Lima (Ph.D., Associate Professor)</h5>
 <p><em><a href="http://bioinfo.imd.ufrn.br/">Bioinformatics Multidisciplinary Environment - BioME</a>,
 Universidade Federal do Rio Grande do Norte.</em></p>
@@ -176,52 +232,52 @@ Universidade Federal do Rio Grande do Norte.</em></p>
 <h2 id="beauti">BEAUTi</h2>
 <h3 id="loading-the-nexus-file">Loading the NEXUS file</h3>
 <p>To load the alignment, select the "<em>Import Alignment</em>" option from the "<em>File</em>" menu. The file <code>Zika.nexus_Tutorial</code> can be downloaded <a href="https://drive.google.com/uc?export=download&amp;id=1AmXKP7hkGh5lXUyx-LSoBjbfrPxDZ5y6">HERE</a> and contains an alignment of 23 Zika Virus sequences.</p>
-<p><img alt="Fig1_BEAST.png" src="https://drive.google.com/uc?id=1qgRaqfRJ5PdV-yee_ZZiu4EWIwhkB5TW" />  </p>
+<p><img alt="Fig1_BEAST.png" src="../BEBSP-fig1.png" />  </p>
 <h3 id="adding-the-sampling-date-of-the-sequences">Adding the sampling date of the sequences</h3>
 <p>In the top menu, select the <code>Tip Dates</code> tab and then check the Use tip date box. You will have the option to manually add each of the dates in the <strong>Date</strong> field, or you can upload a pre-assembled file containing the list of sequence names and the date, separated by a tab. In this example, we will use this list, clicking on the <code>Guess</code> button and then selecting the <code>read from file</code> field. Then, load the file <a href="https://drive.google.com/uc?export=download&amp;id=1t1rB0GRBd1O4etVYwe-rqYc2dKTyTZnE">Tutorial_ZIKA_tips.dat</a>.</p>
-<p><img alt="Fig2_BEAST.png" src="https://drive.google.com/uc?id=13HTXsm7j4-WhQosp5lN5hYZRh3wAoMm2" />  </p>
+<p><img alt="Fig2_BEAST.png" src="../BEBSP-fig2.png" />  </p>
 <h3 id="selecting-the-model">Selecting the model</h3>
 <p>In the top menu, select the tab <code>Site Model</code> and the field <strong>Subset Model</strong> change to the option <strong>GTR</strong>.</p>
-<p><img alt="Fig3_BEAST.png" src="https://drive.google.com/uc?id=1KDSuCo3qL8v-yQlBWyYf_h7hNp4UVXUw" />  </p>
+<p><img alt="Fig3_BEAST.png" src="../BEBSP-fig3.png" />  </p>
 <h3 id="configuring-the-priors">Configuring the Priors</h3>
 <p>In the <code>Priors</code> tab at <strong>Tree.t:Tutorial_ZIKA</strong> select the <strong><em>Coalescent Extended Bayesian Skyline</em></strong> option. Then click the <code>+</code> and select the option <strong>MRCA Prior</strong>. In the box that will appear, set the name of the taxon you want to work in the box <strong>Taxon set label</strong>. In this example, we will give the name of <span style="color:red"><strong>taxon A</strong></span> for the taxon that contains the sequences from South America plus the sequence from French Polynesia, and <span style="color:red"><strong>taxon B</strong></span> for the sequences from South America only.</p>
-<p><img alt="Fig4_BEAST.png" src="https://drive.google.com/uc?id=1odpz6cOixUwkgoUoc62ESLUxGHJaWzGY" /></p>
-<p><img alt="Fig5_BEAST.png" src="https://drive.google.com/uc?id=1Kwza7tTXMK1BZ-9MTRcIzvhGVEuwwlDL" />   </p>
+<p><img alt="Fig4_BEAST.png" src="../BEBSP-fig4.png" /></p>
+<p><img alt="Fig5_BEAST.png" src="../BEBSP-fig5.png" />   </p>
 <h3 id="configuring-discrete-features">Configuring discrete features</h3>
 <p>Back to the <code>Partitions</code> tab, let us click the <code>+</code> button located at the bottom of the BEAUTi window and select the option <strong>Add Discrete Trait</strong>. In the resulting box, we will set the name <strong>Locals</strong> in the box <strong>Trait Name</strong>. </p>
 <p>The next window will ask for the Trait name for each sequence. In that option, we will put the country of origin of each of the samples. Again we have the option to manually put the country name of one in one or to load a tabulated file containing the sequence name and the country name. In the <code>Guess</code> tab we will select the option <strong>Read from file</strong> and load the file <a href="https://drive.google.com/uc?export=download&amp;id=1k1z4MIelEWTt9nTI672DvAePcgWA3gvL">Tutorial_ZIKA_locals.dat</a></p>
-<p><img alt="Fig6_BEAST.png" src="https://drive.google.com/uc?id=1mNDeOxBKhp6oSeJRmbk8n1l26iQp4vCx" /></p>
-<p><img alt="Fig7_BEAST.png" src="https://drive.google.com/uc?id=1Sy9C-9dBLvlwZr7w0XrPpgZV7rsPvp7x" /></p>
+<p><img alt="Fig6_BEAST.png" src="../BEBSP-fig6.png" /></p>
+<p><img alt="Fig7_BEAST.png" src="../BEBSP-fig7.png" /></p>
 <h3 id="configuring-the-mcmc">Configuring the MCMC</h3>
 <p>In the <code>MCMC</code> tab we will set the <strong>Chain Length</strong> to 50,000,000 and change the values of <strong>Log Every</strong> in the boxes <strong>tracelog</strong>, <strong>treelog.t:Tutorial_ZIKA</strong>, <strong>treeWithTraitLogger.Locals</strong> and <strong>EBSPLogger</strong> to 5,000. </p>
 <blockquote>
 <p><em>Depending on your computer, this chain size can be considerable, and the program will take a long time running. However, it is necessary for EBSP. If you cannot run it, use the files already run at the end of this tutorial.</em></p>
 </blockquote>
 <p>After this step, go to <code>File &gt; Save</code> and save the .xml file.</p>
-<p><img alt="Fig8_BEAST.png" src="https://drive.google.com/uc?id=1ooD9kOhXw5jP_6ivrtY4PXOpheuE1vS1" /> </p>
+<p><img alt="Fig8_BEAST.png" src="../BEBSP-fig8.png" /> </p>
 <h2 id="beast">BEAST</h2>
 <blockquote>
 <p><em>Before running BEAST2, we have to install some additional extensions to perform these analyses. We will discuss these steps in a synchronous meeting.</em></p>
 </blockquote>
 <p>In the BEAST window, in the <strong>BEAST XML FILE</strong> field, we will load the .xml file created by BEAUTi and click Run.</p>
-<p><img alt="Fig9_BEAST.png" src="https://drive.google.com/uc?id=1T52C6LWdGNWUXl4NDL6DqhvhSkDnXhtp" />  </p>
+<p><img alt="Fig9_BEAST.png" src="../BEBSP-fig9.png" />  </p>
 <h2 id="tree-annotator">Tree Annotator</h2>
 <p>At this stage, we will discard the first trees generated by BEAST from the MCMC. In the <strong>Burnin percentage</strong> box, we will put for the program to remove 10% of the initial trees. In the <strong>Node heights</strong> option, we will select the <strong>Median heights</strong> option, and then we will load the BEAST output, the <code>Locals_tree_with_trait.trees</code>, in the <strong>Input Tree File</strong> field, and define the name of the output file in the <strong>Output File</strong> option.</p>
-<p><img alt="Fig10_BEAST.png" src="https://drive.google.com/uc?id=1rXJixtbJ0rFxtQi3qsvigV9Yjn214bna" /> </p>
+<p><img alt="Fig10_BEAST.png" src="../BEBSP-fig10.png" /> </p>
 <h2 id="figtree">FigTree</h2>
 <p>In FigTree, load the file <code>Local_tree_with_trait.tree</code>, then adjust the branches.</p>
-<p><img alt="Fig11_BEAST.png" src="https://drive.google.com/uc?id=1dU4CBNf3dzI_dzQafNSNj6uqgEDyfiLB" />  </p>
+<p><img alt="Fig11_BEAST.png" src="../BEBSP-fig11.png" />  </p>
 <h2 id="tracer">TRACER</h2>
 <p>In the Tracer program, we will load the BEAST log file to access some information from the analysis. Clicking on the <code>+</code> we will load the <code>zika_tutorial.log</code> file. Then, we will select, in the <code>Traces</code> tab, the variables <strong>mrcatime(A)</strong> and <strong>mrcatime(B)</strong>.</p>
-<p><img alt="Fig12_BEAST.png" src="https://drive.google.com/uc?id=184yMbPuM4QGTPBuJFKhPkIgVitTSJBMG" /></p>
-<p><img alt="Fig13_BEAST.png" src="https://drive.google.com/uc?id=17OsJ_6yzY8l35unGkn39GUSWUf6d6wEY" /></p>
+<p><img alt="Fig12_BEAST.png" src="../BEBSP-fig12.png" /></p>
+<p><img alt="Fig13_BEAST.png" src="../BEBSP-fig13.png" /></p>
 <p>Observe the results.</p>
 <h2 id="constructing-the-ebsp-plot">Constructing the EBSP Plot</h2>
 <p>Open RStudio (or other R environment) and enter the following code:</p>
 <pre><code>plotEBSP(“/File_Folder/EBSP.log&quot;, useHPD=FALSE, log=&quot;y&quot;, xlim=c(0,5))
 </code></pre>
 <p>Remember to switch the <strong>File_Folder</strong> to the location where you saved the <code>EBSP.log</code> file.</p>
-<p><img alt="Fig14_BEAST.png" src="https://drive.google.com/uc?id=1sksW5x23RxcYjJk49tK-ztsVgZ6jEYCf" /></p>
+<p><img alt="Fig14_BEAST.png" src="../BEBSP-fig14.png" /></p>
 <p>Compare the graph to the tree.</p>
 <h2 id="using-the-package-ebspanalyser">Using the package EBSPAnalyser</h2>
 <p>The EBSPAnalyser package produces a log file with columns time, mean, median, 95% upper and lower, which you can import in a spreadsheet or to your favorite plot software and use to draw a graph.</p>
@@ -252,6 +308,10 @@ Universidade Federal do Rio Grande do Norte.</em></p>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1st_BEAST/" class="btn btn-neutral float-left" title="Using BEAST"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../IQTree/" class="btn btn-neutral float-right" title="Using IQ-Tree">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -273,6 +333,10 @@ Universidade Federal do Rio Grande do Norte.</em></p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../1st_BEAST/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../IQTree/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

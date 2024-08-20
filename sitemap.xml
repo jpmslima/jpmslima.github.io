@@ -121,6 +121,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://jpmslima.github.io/tutoriais/IQTree/</loc>
+         <lastmod>2024-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://jpmslima.github.io/tutoriais/MEGAX/</loc>
          <lastmod>2024-08-20</lastmod>
          <changefreq>daily</changefreq>
@@ -297,6 +302,11 @@
     </url>
     <url>
          <loc>https://jpmslima.github.io/tutoriais/TutorialVS_MarkText/</loc>
+         <lastmod>2024-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jpmslima.github.io/tutoriais/UC_slides/</loc>
          <lastmod>2024-08-20</lastmod>
          <changefreq>daily</changefreq>
     </url>

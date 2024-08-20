@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/MEGAX_ENG/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>MEGAX ENG - Tutoriais BioinfoX</title>
+    <title>Using MEGAX - Tutoriais BioinfoX</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "MEGAX ENG";
+        var mkdocs_page_name = "Using MEGAX";
         var mkdocs_page_input_path = "MEGAX_ENG.md";
         var mkdocs_page_url = "/tutoriais/MEGAX_ENG/";
       </script>
@@ -137,8 +137,30 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UC_slides/">Slides</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Material/">Files and References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../First_Tutorial_ENG/">First Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Substitution_saturation_ENG/">Analysis of Substitution Saturation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ModelTest_ENG/">Test of the Best-Fit Models</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Using MEGAX</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#exercise">Exercise:</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1st_BEAST/">Using BEAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BEAST%2BEBSP_ENG/">Phylodynamics using EBSP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../IQTree/">Using IQ-Tree</a>
                   </li>
               </ul>
       </div>
@@ -155,7 +177,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">MEGAX ENG</li>
+          <li class="breadcrumb-item">Diplomado - UChile</li>
+      <li class="breadcrumb-item active">Using MEGAX</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -164,8 +187,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a href="http://www.postgradoquimica.cl/informacion-diplomado-en-bioinformatica-y-biologia-computacional/"><img alt="UChile" src="https://drive.google.com/uc?id=1xeSo8MOvqmgO4q_6lyidauaKOjdTPu3t" /></a></p>
-<h1 id="inferring-phylogenies-using-megax">Inferring Phylogenies using MEGAX</h1>
+                <h1 id="inferring-phylogenies-using-megax">Inferring Phylogenies using MEGAX</h1>
 <p>A <em>crash course</em>.</p>
 <p>Now we're going to use <a href="https://drive.google.com/uc?export=download&amp;id=13bsRE3MGmkKOL0mjT-DigvzerH0BDau6">this dataset</a> to construct the phylogenetic trees. For this we will use MEGAX.</p>
 <ul>
@@ -176,23 +198,23 @@
 <p>Test of the nucleotide substitution model.</p>
 </li>
 </ul>
-<p><img alt="MegaX" src="https://drive.google.com/uc?id=1wLm3EXhDCQmuHFz5Pb2uVDCoEuRpR7nu" /></p>
+<p><img alt="MegaX" src="../MEGAX-fig1.png" /></p>
 <blockquote>
 <p><em>The test of nucleotide substitution model sometimes gives as result models which are not present in MEGA options. In these cases, you have to choose a model that has the necessary parameters suitable to represent your sequence alignment. Although highly recommended, especially for beginners in phylogenetic analyses, this test is not critical.</em></p>
 </blockquote>
 <ul>
 <li>Examine the alignment statistics. Click in the TA icon on the right, to launch the Data Explorer.</li>
 </ul>
-<p><img alt="Alignment Statistics" src="https://drive.google.com/uc?id=1p-pnFBOtuax4tOSnje_9yRtk3NYWfUlb" /></p>
+<p><img alt="Alignment Statistics" src="../MEGAX-fig2.png" /></p>
 <ul>
 <li>Construct a Neighbor-joining Phylogenetic tree, with a bootstrap test. Use <em>Complete deletion</em> on this dataset. You can use Tamura-Nei 93, since GTR model does not exist for the Neighbor-Joining method. Don't forget to examine the gamma-shape parameter for the TN93 model and the proportion of invariant sites (if needed).</li>
 </ul>
-<p><img alt="NJ1" src="https://drive.google.com/uc?id=154bLdf-YWWWqh45jPsSMzB_evUTiqVAY" /></p>
-<p><img alt="NJ2" src="https://drive.google.com/uc?id=1bHzxYugGBK6osY08ftYZxSfxk2hmvxgK" /></p>
+<p><img alt="NJ1" src="../MEGAX-fig3.png" /></p>
+<p><img alt="NJ2" src="../MEGAX-fig4.png" /></p>
 <ul>
 <li>Construct a phylogenetic tree using Parsimony and also Maximum Likelihood. For the later, you can use the GTR model (General Time-reversible), selected by the test of the nucleotide substitution model. Also use <em>Complete deletion</em> on both methods.</li>
 </ul>
-<p><img alt="ML" src="https://drive.google.com/uc?id=1pJrWPVrGaixRwdUfih_wk_z5j4K665K2" /></p>
+<p><img alt="ML" src="../MEGAX-fig5.png" /></p>
 <blockquote>
 <p><em>In the ML method, you don't need to adjust a specific gamma-shape parameter, you just have to set to use Gamma</em> </p>
 </blockquote>
@@ -202,7 +224,7 @@
 <blockquote>
 <p><em>The tree demonstrated below is not rooted with the most plausible outgroup!</em></p>
 </blockquote>
-<p><img alt="Rooting the tree" src="https://drive.google.com/uc?id=1_OBQqcVeeVVAI6_qMFrtFGxhil7mql3S" /></p>
+<p><img alt="Rooting the tree" src="../MEGAX-fig6.png" /></p>
 <h3 id="exercise">Exercise:</h3>
 <ul>
 <li>
@@ -215,6 +237,10 @@
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ModelTest_ENG/" class="btn btn-neutral float-left" title="Test of the Best-Fit Models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../1st_BEAST/" class="btn btn-neutral float-right" title="Using BEAST">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -236,6 +262,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../ModelTest_ENG/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../1st_BEAST/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
