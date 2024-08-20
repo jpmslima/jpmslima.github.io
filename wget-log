@@ -1,6 +1,0 @@
---2024-03-03 10:46:32--  https://drive.google.com/uc?export=download
-Resolvendo drive.google.com (drive.google.com)... 142.250.219.142, 2800:3f0:4001:823::200e
-Conectando-se a drive.google.com (drive.google.com)|142.250.219.142|:443... conectado.
-A requisição HTTP foi enviada, aguardando resposta... 400 Bad Request
-2024-03-03 10:46:38 ERRO 400: Bad Request.
-
