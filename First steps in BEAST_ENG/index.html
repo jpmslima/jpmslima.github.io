@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/First%20steps%20in%20BEAST_ENG/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>First steps in BEAST ENG - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "First steps in BEAST ENG";
+        var mkdocs_page_input_path = "First steps in BEAST_ENG.md";
+        var mkdocs_page_url = "/tutoriais/First%20steps%20in%20BEAST_ENG/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">First steps in BEAST ENG</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a href="http://www.postgradoquimica.cl/informacion-diplomado-en-bioinformatica-y-biologia-computacional/"><img alt="UChile" src="https://drive.google.com/uc?id=1xeSo8MOvqmgO4q_6lyidauaKOjdTPu3t" /></a></p>
+<h1 id="first-steps-in-beast">First steps in BEAST</h1>
+<h2 id="aims">Aims</h2>
+<h3 id="geral"><em>Geral</em></h3>
+<ul>
+<li>Learn the first steps to perform an analysis with the BEAST phylogenetic analysis package.</li>
+</ul>
+<h3 id="specific"><em>Specific</em></h3>
+<ul>
+<li>Importing an alignment file.</li>
+<li>Choice of model</li>
+<li>Learn how to build the input XML files using BEAUti.</li>
+<li>Run BEAST for the first time.</li>
+<li>First steps of analyzing the output BEAST files.</li>
+</ul>
+<h3 id="remarks">Remarks:</h3>
+<ul>
+<li>This tutorial has been adapted to BEAST2 from <a href="http://beast.community/first_tutorial"><em>First tutorial</em></a> available in the BEAST online community, <strong>unique and exclusively for educational purposes</strong>. <span style="color:red"><strong>For any purpose, the original tutorial is the one to be cited or referenced.</strong></span></li>
+<li>Part of this tutorial can also be run with BEAST1.x. Differences between BEAST2 and BEAST1.x features and applications can be found <a href="http://www.beast2.org/beast-features/">HERE</a>.</li>
+<li>This tutorial requires a basic knowledge of molecular phylogeny concepts and some terminologies used in the field.</li>
+<li>Citation of the BEAST Program:</li>
+<li>Bouckaert R, Heled J, Kühnert D, et al. BEAST 2: A Software Platform for Bayesian Evolutionary Analysis. Prlic A, ed. PLoS Comput Biol. 2014;10(4):e1003537-6. doi:10.1371/journal.pcbi.1003537.</li>
+</ul>
+<blockquote>
+<p><em>BEAST1.x and BEAST2 are now independent projects. Read carefully the link above listed with the differences in the functions/analysis from both programs.</em></p>
+</blockquote>
+<h2 id="importing-the-alignment">Importing the alignment</h2>
+<p>The initial working data group will be an alignment of mitochondrial tRNA sequences of 6 primates (5 monkeys and 1 gibbon as outgroup), <a href="https://drive.google.com/uc?export=download&amp;id=1ChU5EcP_3-c78qUK6Y7VwiMe5bdtYKhm">apes.nex</a>. The nexus file is very common in phylogeny and several multiple sequence alignment programs have the ability to export the alignment in this format.</p>
+<p>The nexus file is represented below (with truncated lines):</p>
+<pre><code>#NEXUS
+
+BEGIN DATA;
+    DIMENSIONS NTAX=6 NCHAR=768;
+    FORMAT MISSING=? GAP=- DATATYPE=DNA;
+    MATRIX
+    human      AGAAATATGTCTGATAAAAGAGTTACTTTGATAGAGTAAATAATAGGAGC...
+    chimp      AGAAATATGTCTGATAAAAGAATTACTTTGATAGAGTAAATAATAGGAGT...
+    bonobo     AGAAATATGTCTGATAAAAGAATTACTTTGATAGAGTAAATAATAGGAGT...
+    gorilla    AGAAATATGTCTGATAAAAGAGTTACTTTGATAGAGTAAATAATAGAGGT...
+    orangutan  AGAAATATGTCTGACAAAAGAGTTACTTTGATAGAGTAAAAAATAGAGGT...
+    siamang    AGAAATACGTCTGACGAAAGAGTTACTTTGATAGAGTAAATAACAGGGGT...
+    ;
+END;
+</code></pre>
+<p>To use this alignment in analysis with BEAST, we will have to import it with the BEAUti tool. It is an interactive graphical application to outline your analysis and generate the control file (an XML file) used by BEAST to perform the analysis.</p>
+<blockquote>
+<p><img src="https://drive.google.com/uc?id=1-goHD5y1oNS5Ln0mzwdmMP2P1E6VxXQ0" width="50" height="50"> 
+This is the BEAUti icon. Just double-click it to execute it.</p>
+</blockquote>
+<p>Once BEAUti is executed, a window similar to the one below should appear:</p>
+<p><img alt="BEAUti" src="https://drive.google.com/uc?id=135HbHDF4L2F7z98dcoyiXUU_qE193z6f" /></p>
+<p>To load the nexus alignment file, you have two options:</p>
+<ul>
+<li>Click on "File" and then "Import Alignment".</li>
+<li>Click on the <code>+</code> symbol in the bottom left corner of the screen.</li>
+</ul>
+<p>BEAUti can also import fasta files (as long as the sequences are aligned) or BEAST XML files. However, in the latter case, only the data will be imported, not the race parameters and settings.</p>
+<p>Once loaded, the alignment will be displayed in table format in the main window:</p>
+<p><img alt="BEAUti" src="https://drive.google.com/uc?id=1qWK0rhBYcrH-gWJ5-wlHKVgc9UldPQKS" /></p>
+<p>By double-clicking on the table row, the alignment can be viewed (although not good):</p>
+<p><img alt="BEAUti" src="https://drive.google.com/uc?id=1gYNzK2tNL-16zVbbyJMbQ-McPHtDQZpR" /></p>
+<p>At the top of the main window, a series of "guides" can be observed:</p>
+<p><img alt="BEAUti" src="https://drive.google.com/uc?id=1O3GosOqVlEndcj9fheZ-ABVaP8zzoYkH" /></p>
+<p>Each of these tabs has settings and options. In general, you should always work with them from left to right. However, not all guides will be relevant for all analyses. After the Partitions tab, you can go to the tab called Tip Dates.</p>
+<h2 id="setting-the-tip-dates-when-applicable">Setting the <em>Tip Dates</em> (when applicable)</h2>
+<p>The <code>Tip Dates</code> tab is used to put dates for each of the <em>rates</em> in your analysis. In it, you will see a table with all the taxonomic groups you are analyzing. Taxon dates (<em>Tip dates</em>) are only important in some cases, for example when you are working with rapidly evolving viruses or DNA from old samples or fossils. In the case of this analysis of primates that we are performing in this tutorial, the tree represents millions of years of evolution, so the dates can be assumed to be zero. This is the pattern - all <em>rates</em> have a date of zero, and the use of the <em>Tip Dates</em> tab is not selected.</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1-j-oqRflaFWCDG3hN7fW6CfHITl68Ccd" /></p>
+<h2 id="setting-up-the-evolutionary-model">Setting up the evolutionary model</h2>
+<p>In the <code>Site Model</code> tab you can adjust the molecular evolution model (nucleotide and amino acid substitution model) to the sequence data you have loaded (apes.nex). The exact options will appear depending on the type of data you have loaded (nucleotides, amino acids or other form of data). The options that will appear after the ``apes.nex'' alignment data has been loaded are as follows:</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1ikJZMT79iJ8SDD3qhjAx8ZfA6px4KHaV" /></p>
+<p>This tutorial assumes that you have read or studied the different evolutionary models available. In this analysis, we will use the <a href="https://www.ncbi.nlm.nih.gov/pubmed/3934395">HKY</a> model.</p>
+<blockquote>
+<p><em>In previous versions of BEAST (1.7 or 1.8) it is easier to choose the codon positions to run the analysis (an alignment based on codons is required). If you need partition analysis, you have to use these versions. However, these data are from mitochondrial tRNAs, so this option would not apply.</em></p>
+</blockquote>
+<h2 id="configuring-the-molecular-clock-model-molecular-clock">Configuring the Molecular Clock Model (<em>Molecular Clock</em>)</h2>
+<p>In the next tab, <code>Clock Model</code>, we will determine the molecular clock model that will be used in the analysis. Unlike many other phylogenetic analysis programs, BEAST exclusively uses molecular clock models so that trees have a time scale (an inferred root and a direction in time). The simplest model is the "<em>Strict clock</em>" or restricted clock pattern. Such model assumes that all branches in the tree have the same rate of evolution. Other molecular clock models relax these assumptions in various ways, and other advanced tutorials can be used to verify their application.</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1JRMOeJjF8Wo8nJsHXbukh8G0LJRKsavr" /></p>
+<p>Select <em>Strict Clock</em> and switch to the <code>Priors</code> tab.</p>
+<h2 id="setting-the-priors">Setting the <em>priors</em></h2>
+<p>It is on this panel that the <em>priors</em> of Bayesian analysis will be determined. In the first checkbox, you can put the model that will provide a <em>priori</em> in the tree for the MCMC race.</p>
+<p>The <em>priori</em> of the tree (<em>Tree Prior</em>) has many possibilities, usually divided into coalescing models (<em>Coalescent</em>), which are generally suitable for populations, and speciation models (<em>Speciation</em>), which as the name suggests are directed to species-level data. As the alignment we have is of several species, we will select the model of <a href="http://rstb.royalsocietypublishing.org/content/213/402-410/21">Yule</a>, which is the simplest speciation model, where it is assumed that each lineage presented speciation at a fixed rate.</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1vWHcTG8DF8Ocb6cC16B2vEPOuLgHa31f" /></p>
+<p>For each <em>priori</em> model of the tree, the following specific parameters appear in the window. Each parameter in the model has operators, which specify how the parameters change as the MCMC rotates. For the Yule model, only two parameters are needed: <code>kappa</code>, which means the tendency of transitions-transversions in the HKY model; and the birth rate of new species <code>birthRate</code>.</p>
+<p>BEAST reasonably maintains the standard values for the <em>priors</em> of each model. Selecting the <em>priors</em> is one aspect of the BEAST analysis that should be taken most seriously. Only modify these parameters if you are sure of what you are doing, with specific knowledge of each one. In the rest of this tutorial, we will use these default values, so leave them as they are and move to the <code>MCMC</code> tab.</p>
+<h2 id="setting-the-mcmc-run-options">Setting the MCMC run Options</h2>
+<p>On this tab, we will have the settings to run the Bayesian analysis by BEAST.</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1S37NVxU7E-PUZK_DBRSatRmcveK2s6LT" /></p>
+<p>First we have the length of the chain (or referred to as the number of generations). This is the number of steps that the MCMC will do in the chain before finishing the process. How long it should depend on the size of the data set, the complexity of the model, and the quality of the required response. In this case, the default value is entirely arbitrary and must be adjusted according to the size of the data set that will be analyzed. To verify that the string size is adequate, the resulting log file (<em>log file</em>) can be analyzed using the <strong>Tracer</strong> program (we will verify this later). The goal of selecting an adequate chain size is to achieve a reasonable (<em>ESS - Effective Sample Size</em>). </p>
+<p><em>Ways to achieve an adequate ESS can be checked in other [BEAST community] tutorials (beast.community)</em>.</p>
+<p>The following options specify how much such parameters should be logged in the log file (<code>tracelog</code>) and shown on the screen (<code>screenlog</code>).</p>
+<p>For the <code>tracelog</code>, the value must be relative to the chain size's total value. Performing a very frequent sampling (value logging) will result in huge files with little extra benefit in terms of accuracy. On the other hand, sampling infrequently will result in a log file without sufficient information about the parameter distributions. Typically, 10,000 samplings is an adequate number, and to store this, just put a number that is the chain size / 10,000. The other options can be left at the default values (stressing again that in BEAST, the defaults are reasonable).</p>
+<p>For this data set (which is quite small), we will start the analysis with a chain size of 1,000,000, as this value will run very quickly on most computers today. Therefore, put the frequency record (sampling) in the log file for 100.</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1bRkR_SaD3LcK-REnibwZ6CxCUOb_zo7S" /></p>
+<p>The screen output is simply to monitor the progress of the BEAST race, so any value  can be placed (however, if you choose a too small value, the amount of information that will appear on the screen may slow down the program terminal).</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1PLWUMU1n0SRaV3wdSwHG4iljRgA0GSi6" /></p>
+<blockquote>
+<p><em>The frequency of screen log sampling and trace log can be different. In this case, our analysis will run very fast, so sampling the screen log for every 100 steps will cause a quick movement on the screen due to a large amount of information.</em></p>
+</blockquote>
+<p>For the <code>tree log</code> option, leave the same sampling number in <code>trace log</code>.</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1DFPPtQCUk_Q_-aZmbS7RGva1wqr5PKXT" /></p>
+<h2 id="saving-and-uploading-the-beauti-files">Saving and uploading the BEAUti files</h2>
+<p>By selecting <em>Save</em> from the <em>File</em> menu, a file in BEAUti format will be saved. Note that this is not the format that BEAST "understands" - BEAUti will only reopen it. This way, the settings and data can be saved and loaded later. Save the BEAUti files with the extension <code>.beauti</code>.  </p>
+<blockquote>
+<p><em>So as the BEAUti files cannot be read and "understood" by BEAST, you cannot open the BEAST XML files back directly in BEAUti. If necessary, they can be imported in the same way as FASTA or NEXUS files. The sequence data, the <code>Tip Dates</code> and other information will be imported.</em> </p>
+</blockquote>
+<h2 id="generating-the-beast-xml-file">Generating the BEAST XML file</h2>
+<p>The XML BEAST file can now be created. Select <em>Save as...</em> from the <em>File</em> menu and save it with an appropriate name. Do not forget to add the <code>.xml</code> extension when saving. On Computers 
+Now the file is ready to be run with BEAST.</p>
+<h2 id="running-beast">Running BEAST</h2>
+<p>Turn BEAST2 by clicking the following icon:</p>
+<p><img src="https://drive.google.com/uc?id=1jeQM6K1lnuN5yZy9vyb8xDzozp0Wk1yV" width="50" height="50"></p>
+<p>The following window will appear:</p>
+<p><img alt="BEAST2 Main Window" src="https://drive.google.com/uc?id=13Pe89udmeiJGR-RrFwlLaHqL20GQADwy" /></p>
+<p>From now on, all you need to do is click on <code>Choose File...</code>, select the XML file you saved in the previous steps and press <code>Run</code>.</p>
+<blockquote>
+<p><em>To speed up analysis with larger data sets and/or larger MCMC chain sizes, installing the BEAGLE library is strongly recommended, especially if you have a video card with CUDA (GPU) support. In BEAST1.x, the BEAGLE library can be run directly from this window. In version 2, it recommends installing JAVA JDK and running BEAST2 from the terminal command line (on computers with Unix-based systems). The beagle_SSE instruction setting also dramatically speeds up the analysis of computers with newer processors. An example of a general command to run BEAST2 from a terminal is:</em></p>
+<p><code>/bin/beast -beagle_CPU -beagle_SSE -threads 4 -instances 4 -overwrite file_name.xml</code></p>
+<p>The window to run on BEAST1.x versions is very similar.</p>
+</blockquote>
+<p>When running, BEAST (in any version) will load the XML file, configure the parsing and run it without additional interaction. It starts with the title and credits of the software. You will see the output screen, with various information, similar to the one below:</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1ir0GID_NPJCl3fKt1SXoFSLkHDVkQ927" /></p>
+<p>A little lower, in this same window you will be able to see the citations of the models used and the MCMC chain screen log, with an estimate of the time of the analysis (time unit / Millions of samples):</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1PdFozbOAYkwaw1-dBVF37NR8LGfeGEXb" /></p>
+<p>And at the end, a diagnosis of the adequacy of the analysis parameters to the data group:</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1wt1xlHU9ZQ53f38oI8rw8ngcNi4pTQ1O" /></p>
+<blockquote>
+<p>To learn more about the changes in these parameters, look for the BEAST documentation. Only change them with absolute certainty of what you are doing.*</p>
+</blockquote>
+<p>After the race, BEAST generates the following files that you will use later:</p>
+<ul>
+<li>File <code>.log</code> (with the Bayesian MCMC analysis log).</li>
+<li>File <code>.trees</code> (with all trees generated and logged).</li>
+</ul>
+<h2 id="analyzing-the-log-file-with-tracer">Analyzing the log file with TRACER</h2>
+<p>Tracer](http://tree.bio.ed.ac.uk/software/tracer/) is a program to analyze the files generated by Bayesian MCMC races (that is, the continuous values of the parameters sampled from the chain. The analysis with Tracer is very detailed. For simplicity purposes in this tutorial, we will comment only on the actual sample size parameters to check if there is a greater need for sampling or larger chain size.</p>
+<p>Run TRACER by clicking on the icon:</p>
+<p><img src="https://drive.google.com/uc?id=1iYlcwyrzThXa2w5kA6Tw0Xxqvqev6VWK" width="50" height="50"></p>
+<p>When opened, Tracer will show the following window:</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1RSJynytfITmXwESaqzxaZkl5KLYvgqH2" /></p>
+<p>To open the MCMC trace log file (file <code>.log</code>), click the <code>+</code> symbol just below <code>Trace Files:</code> (indicated by the arrow on the figure above). After this step, a window like this should be displayed:</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1fAMqyqprEqHteJXS_92YVvJm09wxnSQL" /></p>
+<p>Note that the <span style="color:red"><strong><em>Arrow 1</em></strong></span> shown in the figure above is indicating that Tracer assigns 10% to <strong>Burn-In</strong>. This is the number of steps at the beginning of the chain that is discarded from the analysis, which tends to present a greater variation in the parameters.</p>
+<blockquote>
+<p><em>The discard or burn-in of 10% of the total chain size is the recommended one. However, this can be changed. This value can be increased in races with larger MCMC chain sizes.</em> </p>
+</blockquote>
+<p>Observe the parameters highlighted by the red frame. In all, the values in the <strong>ESS</strong> column (<em>Effective Sample Size</em>) must be in black. This demonstrates that the values are suitable for analysis. When they are not, they are marked in the colors <span style="color:orange">orange</span>, which indicates that they are partially adequate, or <span style="color:red">red</span>, which indicates that they are not adequate. The parameters that should be analyzed initially are <em>posterior</em>, <em>likelihood</em>, and the model's statistical parameters as <em>prior</em> or <em>YuleModel</em>.</p>
+<p>To match the parameter statistics that the ESS is marked in red, you can increase the size of the string, and depending on the parameter, changes in <em>priors</em> in the XML file with BEAUti should be performed. The analysis of these parameters and the BEAST diagnostic indications at the end of each race are strongly recommended.</p>
+<p>Click on <span style="color:red"><strong><em>Arrow 2</em></strong></span> and the <strong><em>Trace</em></strong> of the race can be observed. The gray part in Trace demonstrates exactly the <strong><em>Burn-In</em></strong> employed in the analysis, as can be seen in the figure below:</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1KowUS5SECRAxBJJqm1q_4ZrJbEwXcS8v" /></p>
+<p><em>This same burn-in will also be used when summarizing the trees of Bayesian analysis.</em></p>
+<p>Finally, select the statistics of the <em>posterior</em> and <em>likelihood</em> parameters (using the <code>ctrl</code> key on your keyboard) and click on <span style="color:red"><strong><em>Arrow 3</em></strong></span>. Tracer will return you a graph of the point distribution of the 2 parameters, similar to the figure below:</p>
+<p><img alt="" src="https://drive.google.com/uc?id=15tcoklNEVin_u-hEyuySkrFCffA0x-vi" /></p>
+<p>For further details on the analysis with Tracer and its other functions, in-depth readings on Bayesian Inference, the Tracer manual/readme and the BEAST community are recommended.</p>
+<h2 id="summarization-and-viewing-of-generated-trees">Summarization and Viewing of Generated Trees</h2>
+<p>Now we will work with the <code>.trees</code> file, generated by BEAST. As described previously, this file has each tree generated and recorded by MCMC analysis. Since we had a chain size of 1,000,000 and asked to make records every 100 (the same as <em>trace log</em>), we will have a file with 10,000 trees.</p>
+<p>We have to summarize all these trees, in one, with the <em>a posteriori</em> (PP) probability values in each node of the tree. For that, we will use a program provided with the BEAST, called TreeAnnotator. To run it, click on its respective icon:</p>
+<p><img src="https://drive.google.com/uc?id=1ZjQuNHkoCbHu9p9eI5xSnRSab8V5XeNn" width="50" height="50"></p>
+<p>A window similar to the one below will appear:</p>
+<p><img alt="" src="https://drive.google.com/uc?id=1dhiQ2L4H-Z0tcLh3T0LSHXtNmbKgnEcT" /></p>
+<p>In the <strong>Burnin percentage</strong> box, you will put the <em>burn-in</em> percentage of this analysis, that is, the first generated trees that will be discarded from the analysis because they are at the beginning of the chain.</p>
+<p>The <strong><em>Posterior probability limit</em></strong> option serves to avoid solving tree nodes below the PP limit entered in this field. For example, if you place the limit of 50, nodes with less than 50 PP will not be solved.</p>
+<p>In the options <strong><em>Target tree type</em></strong> and <strong><em>Node heights</em></strong> choose the options demonstrated in the picture above, from <strong><em>Maximum clade credibility tree</em></strong> and <strong>*Common Ancestor heights</strong>, respectively.</p>
+<p>In the <strong><em>Input Tree File</em></strong> field, you will click on <code>Choose File...</code> and add the <code>.trees</code> generated in the analysis. And in the <strong><em>Output File</em></strong> field, you will also click on <code>Choose File...</code>, in which case, you will name the file and insert it in the folder of your choice. Do not forget to put the extension <code>.tree</code> at the end of the file name so that the tree visualization programs will more easily recognize it.</p>
+<p>A recommended program for tree visualization is the FigTree program, which can be obtained <a href="http://tree.bio.ed.ac.uk/software/figtree/">HERE</a>.</p>
+<p>The file <code>.trees</code> can also be viewed with the <strong>DensiTree</strong> program. This program makes a schematic representation with all the trees, facilitating the analysis of inconsistencies. <strong><em>DensiTree</em></strong> can be executed by the icon:</p>
+<p><img src="https://drive.google.com/uc?id=1aJEA5k9523QxBTpj0cTIqZb0T73Sm02r" width="50" height="50"> </p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

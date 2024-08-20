@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR13-Dock1/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Autodock (básico) - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Autodock (b\u00e1sico)";
+        var mkdocs_page_input_path = "STR13-Dock1.md";
+        var mkdocs_page_url = "/tutoriais/STR13-Dock1/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Autodock (básico)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#primeira-parte-preparando-o-receptor">Primeira Parte: preparando o receptor.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#segunda-parte-preparando-o-ligante">Segunda Parte: preparando o Ligante.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#terceira-parte-preparando-e-executando-o-dock">Terceira Parte: preparando e executando o Dock</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quarta-parte-inspecionando-os-resultados">Quarta Parte: inspecionando os resultados</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Autodock (básico)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="docking-proteina-ligante-basico"><em>Docking</em> Proteína-Ligante - Básico</h1>
+<p><em>Utilizando o Chimera como uma interface para atracamento utilizando o Autodock Vina (1).</em></p>
+<p><strong>Observações:</strong> Adaptado e traduzido a partir do tutorial "<em>VINA with UCSF Chimera</em>" construído por José R. Valverde, disponível <a href="http://www.free-bit.org/course/2014-SriLanka/pdf/034-chimera_vina.pdf">AQUI</a>, apenas para fins didáticos nas disciplinas de bioinformática na graduação e pós-graduação do IMD/UFRN.</p>
+<h2 id="primeira-parte-preparando-o-receptor">Primeira Parte: preparando o receptor.</h2>
+<ul>
+<li>Abrir o programa UCSF Chimera. Clique em Fetch e em pdb, coloque o código 1GVN. A estrutura é imediatamente visualizada após o download.</li>
+<li>A etapa de preparação é crucial para o processo de atracamento. Primeiro faremos a preparação da proteína receptora. Para isso vá no menu e siga os passos abaixo:<ul>
+<li><em>Tools &gt; Surface/Binding Analysis &gt; Dock Prep.</em></li>
+</ul>
+</li>
+<li>Vamos remover o solvente e ajeitar os resíduos não-padrões, utilizados para o processo de cristalização. Adicionalmente os átomos de hidrogênio e as cargas serão adicionadas. Para isso marque as opções:<ul>
+<li><em>Delete Solvent.</em></li>
+<li><em>Change: Marque todas as caixas.</em></li>
+<li><em>Add Hydrogens.</em></li>
+<li><em>Add Charges.</em></li>
+<li><em>Write Mol2 file.</em></li>
+</ul>
+</li>
+<li>Uma caixa de diálogo abre logo depois para a adição de hidrogênios. Nesta caixa, deixe as opções padrões:<ul>
+<li><em>Method: also consider H—bonds.</em></li>
+<li><em>Protonation states for: Residue-name-based para todos os resíduos.</em></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em>Você pode especificar o estado de protonação para resíduos específicos se necessário.</em></p>
+</blockquote>
+<ul>
+<li>Após a adição dos H, uma outra caixa, chamada <em>Assign charges for Dock Prep</em> aparecerá. Nesta atribuiremos as cargas da proteína utilizando um campo de força AMBER. Este campo de força, no entanto, não contém carga para a maioria dos átomos não-proteicos. Para estes, temos 2 opções:<ul>
+<li>AM1-BCC - <em>Baseado em mecânica quântica, semi-empírico. Preciso. Lento.</em></li>
+<li>Gasteiger - <em>Regras empíricas. Rápido.</em></li>
+</ul>
+</li>
+<li>Agora vamos especificar as cargas líquidas. Após a adição dos H, uma caixa de diálogo aparece, contendo <em>Specify Net Charges</em>. </li>
+<li>Para moléculas não-proteicas no modelo (se incluídas):<ul>
+<li>Especifique a carga líquida esperada para todas as moléculas ou especifique como computar as as cargas para cada átomo nas moléculas.</li>
+<li>Geralmente, para resíduos proteicos e moléculas não-proteicas, o chimera irá checar que a soma das cargas atômicas levará a um número inteiro que coincide com a carga esperada.</li>
+</ul>
+</li>
+<li>Salve o receptor <em>“preparado"</em> como um arquivo .mol2: <code>1gvn.mol2</code>.</li>
+</ul>
+<h2 id="segunda-parte-preparando-o-ligante">Segunda Parte: preparando o Ligante.</h2>
+<p>O ligante que iremos trabalhar é a molécula de uridina-difosfato-N-acetilglucosamina (UNAG ou ND1). A estrutura deste ligante pode ser obtida nos seguintes bancos de dados:</p>
+<ul>
+<li><a href="https://www3.rcsb.org/ligand/UD1">PDB</a></li>
+<li><a href="http://zinc.docking.org/substance/53683876">ZINC</a></li>
+<li><a href="https://pubchem.ncbi.nlm.nih.gov/compound/445675#section=Top">PubChem</a></li>
+</ul>
+<p>O arquivo do ligante pode ser obtido a partir do arquivo .mol2 do banco de dados do ZINC, ou pode ser construído no próprio UCSF Chimera, usando o SMILES (<em>simplified-molecular input-entry system</em>), seguindo os passos abaixo:</p>
+<ul>
+<li><em>Tools &gt; Structure Editing &gt; Build Structure.</em></li>
+<li>No diálogo, clicar em <code>SMILES string</code>. Colar o código e dar um nome a molécula (UNAG).</li>
+<li>Clicar em <code>Apply</code>.</li>
+</ul>
+<blockquote>
+<p><em>O arquivo .mol2 pode também ser aberto diretamente no UCSF Chimera.</em></p>
+</blockquote>
+<h2 id="terceira-parte-preparando-e-executando-o-dock">Terceira Parte: preparando e executando o Dock</h2>
+<ul>
+<li>Ir no menu: <ul>
+<li><em>Tools &gt; Surface/Binding Analysis &gt; AutoDock Vina</em> </li>
+</ul>
+</li>
+</ul>
+<p>Agora vamos selecionar as moléculas e atribuir o que é cada uma. Primeiro vamos dar um nome base para todos os arquivos gerados do dock. (Ex. 1gvn+unag).</p>
+<ul>
+<li>Especificar o receptor e o ligante:<ul>
+<li>Receptor: <strong>1GVN</strong>.</li>
+<li>Ligante: <strong>UNAG</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>Depois de especificados receptor e ligante, iremos agora selecionar uma área para exploração. A fronteira será delimitada na forma de um paralelepípedo para a procura. Marcar e preencher da seguinte forma:</p>
+<ul>
+<li>Clique em <code>Enclose the active site using the mouse</code> e preencha os valores abaixo:<ul>
+<li><em>Center:</em> —15 / 35 / 60 </li>
+<li><em>Size:</em> 25 / 25 / 25</li>
+</ul>
+</li>
+</ul>
+<p>Observe agora as (clicando em expandir) as opções do Receptor e do Ligante. Expanda as opções avançadas (<em>Advanced options</em>):</p>
+<ul>
+<li>Selecione o número de modos de ligação para serem gerados: 9.</li>
+<li>Selecione a intensidade da busca: valores mais baixos irão ser processados mais rapidamente, mas serão menos exatos.</li>
+<li>Selecione o limiar de corte para ser reportado. Posicionamentos com escores fora desta faixa de kcal/mol em relação ao melhor serão descartados.</li>
+</ul>
+<p>Agora expanda o menu <code>Executable location</code>. Você usar a opção <code>Opal web service</code>, onde o <em>dock</em> será executado remotamente. Você pode também baixar os executáveis do AutoDock Vina a partir do site do programa: <a href="http://vina.scripps.edu">http://vina.scripps.edu</a>. </p>
+<blockquote>
+<p><em>Use o que melhor convir. A instalação local do recomenda-se a instalação do Autodock Vina é sempre recomendada, principalmente se estiveres usando uma máquina com sistema baseado em UNIX.</em></p>
+</blockquote>
+<p>Assegure-se de tudo está correto, com o seguinte <em>cheklist</em>:</p>
+<ul>
+<li>Receptor é <strong>1GVN</strong>, Ligante é <strong>UNAG</strong>. </li>
+<li>A caixa verde engloba completamente o sítio ativo.</li>
+<li>As opções do receptor e do ligante estão corretas.</li>
+<li>A exatidão, limiar e posicionamento estão da maneira que você quer.</li>
+<li>O executável correto do Autodock Vina foi escolhido.</li>
+</ul>
+<p>Depois de conferido, clique em <code>OK</code> e espere o processo terminar.</p>
+<h2 id="quarta-parte-inspecionando-os-resultados">Quarta Parte: inspecionando os resultados</h2>
+<p>Após o término do processo, o Chimera irá abrir a interface <code>View Dock</code>. Nesta teremos um resultado tabular dos posicionamentos selecionados. A partir dela, você poderá:</p>
+<ul>
+<li>Modificar a ordem de classificação.</li>
+<li>Computar as propriedades e adicioná-las a tabela.</li>
+<li>Organizar os posicionamentos em:<ul>
+<li>Viáveis.</li>
+<li>Apagados.</li>
+<li>Excluídos.</li>
+</ul>
+</li>
+</ul>
+<p>Agora iremos verificar as ligações de H entre o ligante e o receptor, que é uma etapa importante de avaliação do processo de docking. </p>
+<ul>
+<li>Clique em: <em>HBonds &gt; Add counter to entire receptor.</em></li>
+<li>Apenas queremos as ligações de H entre o ligante e o receptor, portanto clique na opção <code>Inter-model</code>.</li>
+<li>Queremos distinguir as ligações de H inexatas: <code>Color H­bonds not meeting precise criteria differently</code>.</li>
+<li>Não queremos ligações intramoleculares ou intra-resíduos.</li>
+<li>Nós queremos ver todas: <code>If endpoint atom hidden, show endpoint residue</code>. </li>
+</ul>
+<p>Agora inspecione as ligações de H. Elas contribuem de forma significativa para a estabilidade da ligação. Você pode classificar os confôrmeros de acordo com as ligações de H formadas.</p>
+<p>Compare com uma estrutura de referência: <a href="https://drive.google.com/uc?export=download&amp;id=1F6Tcn0yeC1sHZshbSq6_uxB5DQqvITPU">1gvn+unag.pdb</a> (também inserida no SIGAA).</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR12-Memb/" class="btn btn-neutral float-left" title="Proteínas de Membrana"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR14-Dock2/" class="btn btn-neutral float-right" title="Docking">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR12-Memb/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR14-Dock2/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

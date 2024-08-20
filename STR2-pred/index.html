@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR2-pred/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Informações a partir da estrutura primária - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Informa\u00e7\u00f5es a partir da estrutura prim\u00e1ria";
+        var mkdocs_page_input_path = "STR2-pred.md";
+        var mkdocs_page_url = "/tutoriais/STR2-pred/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Informações a partir da estrutura primária</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#objetivos">Objetivos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#primeiros-passos">Primeiros passos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#obtendo-informacoes-a-partir-da-sequencia_1">Obtendo informações a partir da sequência</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#psipred">PSIPRED</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#iniciando-a-predicao">Iniciando a predição</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#analisando-os-resultados">Analisando os resultados</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exercicio">Exercício</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#signalp">SignalP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#interpretando-os-resultados">Interpretando os resultados:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#buscando-peptideos-de-transito-ou-outras-sequencias-de-enderecamento">Buscando peptídeos de trânsito ou outras sequências de endereçamento</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#confirmando-regioes-de-membrana">Confirmando regiões de membrana</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Informações a partir da estrutura primária</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="obtendo-informacoes-a-partir-da-sequencia">Obtendo informações a partir da sequência</h1>
+<h2 id="objetivos">Objetivos</h2>
+<ul>
+<li>Obter o máximo de informação utilizando apenas a estrutura primária da proteína (sequência de aminoácidos) como entrada.</li>
+<li>Identificar e anotar as estruturas secundárias a partir da sequência.</li>
+<li>Verificar possíveis regiões transmembranas, regiões desordenadas, <em>folds</em> e domínios proteicos.</li>
+<li>Realizar predição de regiões clivadas da proteína final (Ex.: peptídeo sinal, regiões de pré ou pró proteínas, etc.), que não devem ser utilizadas para modelagem.</li>
+</ul>
+<h2 id="primeiros-passos">Primeiros passos</h2>
+<p>Obtenha o máximo de informações sobre as sequências abaixo. Elas codificam para proteínas diferentes. Utilize o BLAST ou alguma de suas versões para verificar quais diferenças elas apresentam entre si?</p>
+<pre><code>&gt;tSPIOL
+AAAAAACGCGTGGTTGGCGCACTTCTTCCTGTAATCCTTCAAAACCAGTAGTGTCAGGAGAGAGAAAAAC
+CACCCAATCTCACTCACTTTCTCTCTCTATATTTTCAAACCACCACCCCGCAACCAATGACTGATCGTCT
+AGCAATGGCATCCTTCACTACCACCACCGCCGCCGCTGCATCTCGTCTGCTTCCTTCTTCTTCCTCCTCC
+ATCTCTCGACTTTCTCTCTCCTCTTCTTCCTCCTCCTCCTCCTCACTCAAATGTCTCCGATCATCTCCAC
+TCGTCTCTCACCTCTTCCTTCGACAGAGAGGAGGTTCAGCTTATGTGACGAAGACGAGGTTTAGCACGAA
+ATGCTACGCTTCTGATCCTGCGCAGCTGAAGAATGCTAGGGAAGATATTAAAGAGCTTCTTCAATCTAAG
+TTCTGTCATCCTATTATGGTTCGCTTAGGTTGGCACGATGCCGGTACTTATAATAAGGACATTAAAGAAT
+GGCCACAAAGAGGTGGAGCCAATGGCAGTCTGAGGTTTGATGTTGAGCTCAAGCATGGAGCTAATGCAGG
+TCTTGTTAATGCCCTGAAACTTCTACAGCCCATAAAAGACAAGTACTCTGGAGTTACATATGCAGATCTA
+TTCCAGCTGGCTAGTGCTACTGCAATAGAGGAGGCTGGTGGTCCAACAATACCCATGAAGTATGGAAGAG
+TGGATGCCACAGGGCCGGAGCAGTGCCCAGAAGAAGGAAGGCTTCCTGATGCTGGACCTCCTTCACCTGC
+TCAACATCTACGTGATGTTTTCTACAGAATGGGTCTTGATGATAAGGATATAGTAGCATTATCTGGAGCA
+CATACGTTGGGAAGGTCTAGACCTGAACGCAGTGGTTGGGGCAAGCCAGAGACTAAATACACGAAAGATG
+GACCTGGAGCTCCAGGAGGGCAGTCATGGACTGCGGAGTGGTTGAAGTTTGATAATTCCTATTTCAAGGA
+CATCAAAGAAAAGAGAGATGCAGATTTGCTTGTTTTGCCAACTGATGCTGCTCTTTTCGAAGATCCGTCT
+TTCAAGGTATATGCAGAGAAATATGCAGCTGACCAAGAAGCATTTTTCAAGGATTACGCTGAAGCCCATG
+CCAAACTCAGCAACCAAGGAGCCAAATTTGACCCTGCTGAGGGTATCACTCTTAATGGAACCCCTGCCGG
+AGCAGCTCCAGAGAAGTTTGTAGCAGCCAAGTACTCATCTAACAAGAGATCAGAGCTTTCGGATTCTATG
+AAGGAAAAGATTCGCGCTGAATATGAAGGTTTTGGAGGTAGCCCTAATAAGCCTCTACCAACAAACTACT
+TCCTAAACATTATGATTGTGATTGGAGTTTTGGCAGTTCTATCATATCTTGCGGGAAATTGATTTGTGGT
+TTGATGAGTTTTTTTCCATTTATAAATATAACGGCAGTTGATTATATGAAATTTCTTCTTGAAAATCGTC
+CATTCA
+
+&gt;sSPIOL
+AAAAAACGCGTGGTTGGCGCACTTCTTCCTGTAATCCTTCAAAACCAGTAGTGTCAGGAGAGAGAAAAAC
+CACCCAATCTCACTCACTTTCTCTCTCTATATTTTCAAACCACCACCCCGCAACCAATGACTGATCGTCT
+AGCAATGGCATCCTTCACTACCACCACCGCCGCCGCTGCATCTCGTCTGCTTCCTTCTTCTTCCTCCTCC
+ATCTCTCGACTTTCTCTCTCCTCTTCTTCCTCCTCCTCCTCCTCACTCAAATGTCTCCGATCATCTCCAC
+TCGTCTCTCACCTCTTCCTTCGACAGAGAGGAGGTTCAGCTTATGTGACGAAGACGAGGTTTAGCACGAA
+ATGCTACGCTTCTGATCCTGCGCAGCTGAAGAATGCTAGGGAAGATATTAAAGAGCTTCTTCAATCTAAG
+TTCTGTCATCCTATTATGGTTCGCTTAGGTTGGCACGATGCCGGTACTTATAATAAGGACATTAAAGAAT
+GGCCACAAAGAGGTGGAGCCAATGGCAGTCTGAGGTTTGATGTTGAGCTCAAGCATGGAGCTAATGCAGG
+TCTTGTTAATGCCCTGAAACTTCTACAGCCCATAAAAGACAAGTACTCTGGAGTTACATATGCAGATCTA
+TTCCAGCTGGCTAGTGCTACTGCAATAGAGGAGGCTGGTGGTCCAACAATACCCATGAAGTATGGAAGAG
+TGGATGCCACAGGGCCGGAGCAGTGCCCAGAAGAAGGAAGGCTTCCTGATGCTGGACCTCCTTCACCTGC
+TCAACATCTACGTGATGTTTTCTACAGAATGGGTCTTGATGATAAGGATATAGTAGCATTATCTGGAGCA
+CATACGTTGGGAAGGTCTAGACCTGAACGCAGTGGTTGGGGCAAGCCAGAGACTAAATACACGAAAGATG
+GACCTGGAGCTCCAGGAGGGCAGTCATGGACTGCGGAGTGGTTGAAGTTTGATAATTCCTATTTCAAGGA
+CATCAAAGAAAAGAGAGATGCAGATTTGCTTGTTTTGCCAACTGATGCTGCTCTTTTCGAAGATCCGTCT
+TTCAAGGTATATGCAGAGAAATATGCAGCTGACCAAGAAGCATTTTTCAAGGATTACGCTGAAGCCCATG
+CCAAACTCAGCAACCAAGGAGCCAAATTTGACCCTGCTGAGGGTATCACTCTTAATGGAACCCCTGCCGG
+AGCAGCTCCAGAGAAGTTTGTAGCAGCCAAGTACTCATCTAACAAGGATTAAAGAAAAAAAGAAAACTCA
+AAAGAATCATGTTTTCATGTGACTTTTGTCTTTTTTTTAATAAGCAAGATGAAGCTATTTTCTTGTGTAG
+TCAGTCACATCTAAAACATGGTGGAGAAGAATAAAATTCAAACGAGTGTGTTGTGTTGCTTATTTGAATT
+TGCAGAGATCAGAGCTTTCGGATTC
+</code></pre>
+<h2 id="obtendo-informacoes-a-partir-da-sequencia_1">Obtendo informações a partir da sequência</h2>
+<p>Um problema bastante comum em modelagem de proteínas é se deparar com sequências de aminoácidos que apresentam baixa similaridade com sequências depositadas em bancos de dados biológicos. Embora os métodos de modelagem comparativa, como por exemplo a modelagem por homologia, ainda consigam produzir bons resultados em níveis de identidade da sequência de aminoácidos em torno de 25%, é importante que predições adicionais sejam realizadas a partir da sequência de aminoácidos. Tais predições são:</p>
+<ul>
+<li>Predição de estrutura secundária.</li>
+<li>Predição de regiões desordenadas ou naturalmente desordenadas.</li>
+<li>Predição de <em>folds</em> e de domínios proteicos.</li>
+<li>Predição de regiões clivadas da proteína final (Ex.: peptídeo sinal, regiões de pré ou pró proteínas, etc.).</li>
+<li>Predição de regiões transmembrana.</li>
+</ul>
+<p>A realização de tais predições é extremamente recomendável. Em proteínas com alta similaridade com proteínas presentes em bancos de dados, estas informações podem ser facilmente obtidas a partir dos bancos discutidos no tutorial de <strong>Bancos de dados de informação proteica</strong> e podem ser repassadas a sequência alvo. Quanto menor a similaridade, mais dependente serás de métodos que detectem o que chamamos de <em>"homologia distante"</em>, como por exemplo métodos de perfis proteicos, matrizes posição-específica e HMMs (também discutidos antes).</p>
+<p>Nos passos que seguem, você verá ferramentas capazes de lhe ajudar na tarefa de:</p>
+<ul>
+<li>Obter informações sobre as prováveis regiões de estrutura secundária de uma sequência de aminoácidos.</li>
+<li>Verificar regiões não estruturadas, domínios de ligação a outras moléculas (Ex. regiões de reconhecimento de anticorpo) e domínios transmembrana.</li>
+<li>Reconhecer <em>folds</em> e domínios a partir da sequência com base em buscas com o PSI-BLAST e HMMs.</li>
+<li>Reconhecer regiões clivadas ou de sinalização de endereçamento da proteína.</li>
+</ul>
+<p>Os exemplos abaixo estão guiados a partir da comparação de duas proteínas muito similares, mas com diferenças fundamentais em relação a sua localização subcelular e função.</p>
+<h3 id="psipred">PSIPRED</h3>
+<p>O grupo de Bioinformática do Departamento de Ciências Computacionais da <em>University College London</em> (UCL) mantem um servidor que unifica várias ferramentas de predição de estrutura, chamado <a href="http://bioinf.cs.ucl.ac.uk/psipred/">PSIPRED</a>. Nele qualquer usuário pode submeter uma sequência de aminoácidos e obter diversas informações estruturais. Estas são retornadas na forma de um relatório bem detalhado. O servidor <em>online</em> tem limitações no tamanho da sequência de entrada, não aceitando sequências maiores que 1500 resíduos.</p>
+<p>A principais ferramentas do servidor são:</p>
+<ul>
+<li><strong>PSIPRED:</strong> Predição de estrutura secundária utilizando estratégia de redes neurais em resultados de buscas de similaridade utilizando o PSI-BLAST.</li>
+<li><strong>MEMSAT3 e MEMSATSVM:</strong> Predição de topologia e de hélices transmembrana.</li>
+<li><strong>pGenTHREADER:</strong> Ferramenta para reconhecimento de <em>folds</em> e identificação de <em>homólogos distantes</em>.</li>
+<li><strong>pDomTHREADER:</strong> Ferramenta para reconhecimento de domínios. Ela faz uma classificação baseada em discriminação de superfamílias, combinando informações tanto de sequência como de estruturas, para produzir alinhamentos de domínios.</li>
+<li><strong>DISOPRED3:</strong> Ferramenta para predição de regiões proteicas intrinsicamente desordenadas.</li>
+</ul>
+<p>A descrição completa das ferramentas do PSIPRED podem ser encontradas <a href="http://bioinf.cs.ucl.ac.uk/index.php?id=779">AQUI</a>.</p>
+<h4 id="iniciando-a-predicao">Iniciando a predição</h4>
+<p>Iremos utilizar a sequência abaixo:</p>
+<pre><code>&gt;O46921_SPIOL
+MASFTTTTAAAASRLLPSSSSSISRLSLSSSSSSSSSLKCLRSSPLVSHLFLRQRGGSAY
+VTKTRFSTKCYASDPAQLKNAREDIKELLQSKFCHPIMVRLGWHDAGTYNKDIKEWPQRG
+GANGSLSFDVELRHGANAGLVNALKLLQPIKDKYSGVTYADLFQLASATAIEEAGGPTIP
+MKYGRVDATGPEQCPEEGRLPDAGPPSPAQHLRDVFYRMGLDDKDIVALSGAHTLGRSRP
+ERSGWGKPETKYTKDGPGAPGGQSWTAEWLKFDNSYFKDIKEKRDADLLVLPTDAALFED
+PSFKVYAEKYAADQEAFFKDYAEAHAKLSNQGAKFDPAEGITLNGTPAGAAPEKFVAAKY
+SSNKRSELSDSMKEKIRAEYEGFGGSPNKPLPTNYFLNIMIVIGVLAVLSYLAGN
+</code></pre>
+<p><strong>Etapas:</strong></p>
+<ul>
+<li>Abra a página do <a href="http://bioinf.cs.ucl.ac.uk/psipred/">PSIPRED</a>. Cole a sequência no espaço indicado.</li>
+<li>Cole a sequência, escolha as ferramentas, insira o seu email (não há necessidade de ser um email institucional) e edite se precisar o nome do trabalho (<em>Job name</em> - o cabeçalho fasta é automaticamente importado).</li>
+</ul>
+<p><img alt="Realizando uma busca no PSIPRED" src="../str2-fig1.png" /></p>
+<ul>
+<li>Clique em <code>Predict</code> e espere os resultados.</li>
+</ul>
+<blockquote>
+<p><em>O tempo de obtenção dos resultados varia de acordo com tamanho da sequência e a quantidade de ferramentas escolhidas, mas normalmente eles demoram mais de 30 minutos.</em></p>
+</blockquote>
+<h4 id="analisando-os-resultados">Analisando os resultados</h4>
+<p>Logo após o seu término, o link da página com os resultados do PSIPRED são enviados ao email cadastrado (se você tiver incluído). A página contém uma série de "caixas", cada uma relativa aos resultados encontrados por cada uma das ferramentas selecionadas.</p>
+<p>Os resultados também podem ser acompanhados por este <em>link</em>:</p>
+<p><a href="http://bioinf.cs.ucl.ac.uk/psipred/&amp;uuid=5b12e0da-d485-11e9-aaf5-00163e100d53">Resultados PSIPRED - O46921_SPIOL</a></p>
+<p>Os arquivos da predição podem ser baixados <a href="https://drive.google.com/uc?export=download&amp;id=1YNQHX1XVZJ09WMqoBEvJ-R90FMxIVp_n">AQUI</a>, caso o <em>link</em> expire.</p>
+<blockquote>
+<p><em>O link expira em 5 dias, por isso o recomendável é fazer logo o download dos resultados. O link para download fica na coluna direita, chamada Downloads.</em></p>
+</blockquote>
+<p>A primeira parte dos resultados retorna um diagrama da sequência (o mapa), com todos os resíduos e as atribuições encontradas para cada um deles.</p>
+<p>Acima deste mapa, três botões aparecem, com os seguintes resultados:</p>
+<ul>
+<li><code>Show psipred</code> - Mostra os resultados da predição de estrutura secundária.</li>
+</ul>
+<p><img alt="Resultado Geral - PSIPRED" src="../str2-fig2.png" /></p>
+<p>Pela análise da figura acima, pode-se perceber que o início da sequência possui uma grande região desordenada (<span style="color:blue">quadrados azuis</span>), até o resíduo 66 (Phe). É provável que existam regiões clivadas neste início, o que será confirmado depois.</p>
+<p>Ainda pela análise da figura acima, percebe-se que a proteína O46921_SPIOL possui um grande número de alfa-hélices e apenas algumas poucas regiões de fitas beta.</p>
+<ul>
+<li><code>Show memsat</code> - Mostra os resultados da predição de regiões transmembranas.</li>
+</ul>
+<p><img alt="Resultado Geral - MemSAT" src="../str2-fig3.png" /></p>
+<p>Uma nova cor aparecerá na grande parte da sequência, mostrando a parte que "<em>seria extracelular</em>". Isso indica que há pelo menos uma hélice transmembrana nesta sequência, a qual pode ser identificada pela cor cinza, na porção C-terminal da proteína. Veremos depois em mais detalhes o posicionamento desta hélice.</p>
+<blockquote>
+<p><em>Esta é uma proteína do cloroplasto. Ela está ancorada por esta hélice C-terminal na membrana do tilacóide, e toda a porção extracelular está na verdade no estroma do cloroplasto. O programa reconhece a hélice e sua orientação em uma membrana, mas não chega a predizer que é a membrana do tilacóide. Este é seu papel durante a revisão bibliográfica ou busca de informações em bancos de dados de proteínas</em></p>
+</blockquote>
+<ul>
+<li><code>Show aatypes</code> - Mostra o tipo de aminoácidos, de acordo com a característica química da cadeia lateral.</li>
+</ul>
+<p><img alt="Resultado Geral - AA Type" src="../str2-fig4.png" /></p>
+<h5 id="psipred-cartoon">PSIPRED Cartoon</h5>
+<p>Clique em <code>+</code> na próxima caixa abaixo e você verá a seguinte figura:</p>
+<p><img alt="PSIPRED Cartoon" src="../str2-fig5.png" /></p>
+<p>Este é o diagrama da estrutura secundária em toda a extensão da sequência. </p>
+<blockquote>
+<p><em>Esse é o diagrama retornado quando se executa a versão local do PSIPRED.</em></p>
+</blockquote>
+<h5 id="pgenthreader-table-e-pdomthreader-results">pGenTHREADER Table e pDomTHREADER Results</h5>
+<p>O resumo dos resultados da predição de domínios (pDomThreader) e de <em>folds</em> (pGemThreader) ficam nas "caixas" abaixo. Nestas tabelas, cada linha corresponde a um modelo pdb, que possui <em>fold</em> ou domínio semelhante a proteína que foi utilizada na consulta.</p>
+<ul>
+<li>Resultados do pDomThreader:</li>
+</ul>
+<p><img alt="Resultados do pDomThreader" src="../str2-fig6.png" /></p>
+<ul>
+<li>Resultados do pGemThreader:</li>
+</ul>
+<p><img alt="Resultados do pGemThreader" src="../str2-fig7.png" /></p>
+<p>Você selecionar tanto os domínios, como os <em>folds</em> ao lado direito de cada linha e construir um modelo, clicando em <code>Build Model</code>.</p>
+<blockquote>
+<p><em>Faremos a construção dos modelos em um outro tutorial mais a frente.</em></p>
+</blockquote>
+<p>Em ambas tabelas de resultados, você poderá verificar:</p>
+<ul>
+<li>As regiões alinhadas e seus respectivos <em>matches</em> e escores de alinhamento.</li>
+<li>Um <em>link</em> para o alinhamento <strong><em>proteína alvo-match</em></strong>.</li>
+<li><em>Links</em> para os registros do bancos <a href="http://scop2.mrc-lmb.cam.ac.uk">SCOP</a> e <a href="http://www.cathdb.info">CATH</a>.</li>
+</ul>
+<blockquote>
+<p><em>Estes são os principais bancos de classificação estrutural de proteínas.</em></p>
+</blockquote>
+<h5 id="memsat-svm">MEMSAT-SVM</h5>
+<p>Agora, clique na caixa <code>MEMSAT-SVM</code>. Você terá um resultado parecido com o abaixo:</p>
+<p><img alt="Diagrama do MEMSAT-SVM" src="../str2-fig8.png" /></p>
+<p>Nota-se nos resultados que aquela grande região desordenada inicial possui uma sequência de peptídeo-sinal entre os resíduos 1-40. Esta sequência é clivada e não entra na protéina final. Portanto, ela deve ser retirada em uma eventual modelagem por homologia. Note que a grande maioria dos PDBs retornados nas buscas do pGEM e do pDOMThreader não possuem cobertura em toda esta região.</p>
+<blockquote>
+<p><em>Discutiremos ainda neste tutorial como prever estas sequências.</em></p>
+</blockquote>
+<h5 id="disopred">DISOPRED</h5>
+<p>De fato, ao clicarmos na aba <code>DISOPRED</code>, teremos o seguinte resultado:</p>
+<p><img alt="Gráfico do Disopred" src="../str2-fig9.png" /></p>
+<p>No gráfico acima, temos no eixo X a posição na sequência de aminoácidos e no eixo Y o escore de confidência em relação a desordem daquela região (ou sítio). Vemos na região inicial um sinal alto que representa o de estado desordenado. Como era de se esperar, o estado desordenado é baixo nas regiões que apresentam estrutura secundária. A predição de uma região de ligação ou de reconhecimento por proteínas pode estar relacionada ao peptídeo sinal, já que este deve ser reconhecido pela proteína SRP (partícula de reconhecimento do sinal).</p>
+<p>Veja na lateral direita (ou nos arquivos baixados) os resultados do DISOPRED, no formato de texto.</p>
+<h3 id="exercicio">Exercício</h3>
+<p>Compare os resultados obtidos do PSIPRED para a proteína <a href="https://www.uniprot.org/uniprot/O46921">O46921_SPIOL</a> com o da proteína abaixo:</p>
+<pre><code>&gt;Q7GDV4_SPIOL
+MASFTTTTAAAASRLLPSSSSSISRLSLSSSSSSSSSLKCLRSSPLVSHLFLRQRGGSAY
+VTKTRFSTKCYASDPAQLKNAREDIKELLQSKFCHPIMVRLGWHDAGTYNKDIKEWPQRG
+GANGSLSFDVELRHGANAGLVNALKLLQPIKDKYSGVTYADLFQLASATAIEEAGGPTIP
+MKYGRVDATGPEQCPEEGRLPDAGPPSPAQHLRDVFYRMGLDDKDIVALSGAHTLGRSRP
+ERSGWGKPETKYTKDGPGAPGGQSWTAEWLKFDNSYFKDIKEKRDADLLVLPTDAALFED
+PSFKVYAEKYAADQEAFFKDYAEAHAKLSNQGAKFDPAEGITLNGTPAGAAPEKFVAAKY
+SSNKD
+</code></pre>
+<ul>
+<li>Você consegue ligar os resultados do PSIPRED a outras informações biológicas sobre as proteínas <a href="https://www.uniprot.org/uniprot/O46921">O46921_SPIOL</a> e <a href="https://www.uniprot.org/uniprot/Q7GDV4">Q7GDV4_SPIOL</a>?</li>
+</ul>
+<p>Resultados do PSIPRED para a proteína Q7GDV4_SPIOL:
+Os arquivos da predição podem ser baixados <a href="https://drive.google.com/uc?export=download&amp;id=1pgHYxfdevx7Am0fy05oWqWeCQgzOsjcH">AQUI</a>, caso o <em>link</em> expire.</p>
+<h3 id="signalp">SignalP</h3>
+<p>É muito comum iniciantes na área de modelagem de proteínas obterem modelos que apresentam grandes regiões desordenadas, comumente na região N-terminal. Estas regiões não apresentam alinhamento com a sequência da proteína molde (<em>template</em>), porque modelos obtidos experimentalmente são normalmente obtidos com a proteína madura. Por isso é importante verificar se estas não são regiões de peptídeo sinal, que é a parte N-terminal de uma proteína que é direcionada para a via secretória. Estas regiões geralmente estão presentes em muitas sequências de bancos de dados proteicos, principalmente aquelas que são traduzidas a partir de registro de mRNAs ou de sequenciamento genômico.</p>
+<p>O servidor <a href="http://www.cbs.dtu.dk/services/SignalP/">SignalP</a> é uma ferramenta para predição presença e a localização dos sítios de clivagem do peptídeo sinal nas sequências de aminoácidos de diferentes organismos: procariontes (Gram-positivos e Gram-negativos) e eucariontes. O método incorpora uma previsão de locais de clivagem e uma predição com base numa combinação de várias redes neurais artificiais.</p>
+<p>Iremos realizar um exemplo com a <em>Endoplasmic reticulum resident protein 44</em> (Uniprot: <a href="https://www.uniprot.org/uniprot/Q9BS26">Q9BS26</a>). Esta proteína segue a via secretória e possui um conhecido peptídeo sinal.</p>
+<pre><code>&gt;ERP44_HUMAN
+MHPAVFLSLPDLRCSLLLLVTWVFTPVTTEITSLDTENIDEILNNADVALVNFYADWCRF
+SQMLHPIFEEASDVIKEEFPNENQVVFARVDCDQHSDIAQRYRISKYPTLKLFRNGMMMK
+REYRGQRSVKALADYIRQQKSDPIQEIRDLAEITTLDRSKRNIIGYFEQKDSDNYRVFER
+VANILHDDCAFLSAFGDVSKPERYSGDNIIYKPPGHSAPDMVYLGAMTNFDVTYNWIQDK
+CVPLVREITFENGEELTEEGLPFLILFHMKEDTESLEIFQNEVARQLISEKGTINFLHAD
+CDKFRHPLLHIQKTPADCPVIAIDSFRHMYVFGDFKDVLIPGKLKQFVFDLHSGKLHREF
+HHGPDPTDTAPGEQAQDVASSPPESSFQKLAPSEYRYTLLRDRDEL
+</code></pre>
+<ul>
+<li>Abra a página do <a href="http://www.cbs.dtu.dk/services/SignalP/">SignalP</a>.</li>
+</ul>
+<p><img alt="SignalP" src="../str2-fig10.png" /></p>
+<ul>
+<li>Cole a sequência no local indicado.</li>
+<li>Marque o correto grupo de organismos. Neste caso, como a proteína é humana, marque <code>Eukarya</code>. Esta opção é bem importante e não pode ser deixada no valor padrão.</li>
+</ul>
+<h4 id="interpretando-os-resultados">Interpretando os resultados:</h4>
+<p>Segue abaixo a página de resultados do SignaP:</p>
+<p><img alt="Resultados SignalP" src="../str2-fig11.png" />
+A figura acima mostra o resultado do SignalP para a proteína ERP44. Os escores indicam que há um provável sítio de clivagem entre as posições 29 e 30.</p>
+<p>O resultado do SignalP é gráfico e extremamente objetivo, com um gráfico e uma tabela. Nesta, logo acima do gráfico, apenas a notação de maior probabilidade é atribuída. A proteína pode ter uma das opções abaixo:</p>
+<ul>
+<li>Peptídeo sinal Sec (Sec/SPI).</li>
+<li>Peptídeo sinal de lipoproteína (Sec/SPII).</li>
+<li>Peptídeo sinal Tat (Tat/SPI).</li>
+<li>Nenhum peptídeo sinal nenhum (Outros - Other).</li>
+</ul>
+<p>Três probabilidades são relatadas no gráfico:</p>
+<ul>
+<li>A linha vermelha representa a probabilidade do peptídeo sinal (ou seja, SP (Sec/SPI)/LIPO (Sec/SPII)/TAT (Tat/SPI), dependendo do tipo de peptídeo sinal previsto).</li>
+<li>A linha verde tracejada, CS, corresponde ao sítio de clivagem (o que deve ser utilizado).</li>
+<li>E a linha amarela, que representa a probabilidade de que a sequência não possua nenhum tipo de peptídeo sinal, OTHER.</li>
+</ul>
+<p>Portanto, a partir do resultado evidencia-se que existe um peptídeo sinal do tipo Sec/SPI (secretório), com probabilidade 0.8645 e com sítio de clivagem entre as posições 29 e 30, com probabilidade de 0.6938.</p>
+<blockquote>
+<p><em>Nem toda proteína que possui peptídeo-sinal é secretada. Esta é um exemplo disso.</em></p>
+</blockquote>
+<p>A região de peptídeo-sinal, por ser clivada, deve ser retirada da sequência antes do alinhamento para a modelagem. <strong>Você deve retirá-la manualmente</strong> antes de seguir qualquer etapa de modelagem.</p>
+<p>O exemplo mostrado acima é um resultado de peptídeo-sinal típico. No entanto, há variações nestes resultados. Alguns não são tão <em>straightforward</em> e necessitam de interpretações mais detalhadas e aprofundadas. Para um exemplo mais complicado, faça a predição com o SignalP com a sequência da proteína <a href="https://www.uniprot.org/uniprot/O46921">O46921_SPIOL</a>, abaixo:</p>
+<pre><code>&gt;O46921_SPIOL
+MASFTTTTAAAASRLLPSSSSSISRLSLSSSSSSSSSLKCLRSSPLVSHLFLRQRGGSAY
+VTKTRFSTKCYASDPAQLKNAREDIKELLQSKFCHPIMVRLGWHDAGTYNKDIKEWPQRG
+GANGSLSFDVELRHGANAGLVNALKLLQPIKDKYSGVTYADLFQLASATAIEEAGGPTIP
+MKYGRVDATGPEQCPEEGRLPDAGPPSPAQHLRDVFYRMGLDDKDIVALSGAHTLGRSRP
+ERSGWGKPETKYTKDGPGAPGGQSWTAEWLKFDNSYFKDIKEKRDADLLVLPTDAALFED
+PSFKVYAEKYAADQEAFFKDYAEAHAKLSNQGAKFDPAEGITLNGTPAGAAPEKFVAAKY
+SSNKRSELSDSMKEKIRAEYEGFGGSPNKPLPTNYFLNIMIVIGVLAVLSYLAGN
+</code></pre>
+<h3 id="buscando-peptideos-de-transito-ou-outras-sequencias-de-enderecamento">Buscando peptídeos de trânsito ou outras sequências de endereçamento</h3>
+<p>Use as duas sequências acima no servidor <a href="https://services.healthtech.dtu.dk/service.php?TargetP-2.0">TargetP</a> e veja se as cAPXs possuem e anotem as regiões de peptídeo de trânsito para o cloroplasto.</p>
+<h3 id="confirmando-regioes-de-membrana">Confirmando regiões de membrana</h3>
+<p>Alguns programas podem dar resultados contrastantes em relação predição de regiões de membrana em proteínas. Por isso é sempre recomendável a utilização de mais de um algoritmo de predição para estas regiões.</p>
+<p>O servidor TMHMM é um dos melhores, pois utiliza abordagem de modelos escondidos de Markov (<em>Hidden Markov Models</em>). A sua utilização é simples e seus resultados fáceis de serem interpretados.</p>
+<p>Neste exemplo, vamos também utilizar as proteínas <a href="https://www.uniprot.org/uniprot/O46921">O46921_SPIOL</a> e <a href="https://www.uniprot.org/uniprot/Q7GDV4">Q7GDV4_SPIOL</a>.</p>
+<ul>
+<li>Abra a página do <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM server</a>.</li>
+</ul>
+<p><img alt="TMHMM server" src="../str2-fig12.png" /></p>
+<ul>
+<li>Cole as duas sequências no formato fasta no local indicado.</li>
+<li>Mantenha a opção <code>Extensive, with graphics</code> selecionada.</li>
+<li>Clique no botão <code>Submit</code>.</li>
+</ul>
+<p>Os resultados serão os seguintes:</p>
+<p><img alt="Resultados do TMHMM" src="../str2-fig13.png" /></p>
+<p>Você pode verificar que a proteína <a href="https://www.uniprot.org/uniprot/Q7GDV4">Q7GDV4_SPIOL</a>, que é do estroma do cloroplasto não apresenta região transmembrana, enquanto a proteína <a href="https://www.uniprot.org/uniprot/O46921">O46921_SPIOL</a> apresenta uma hélice transmembrana, responsável por sua ancoragem a membrana do tilacóide.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR1-Visualizacao/" class="btn btn-neutral float-left" title="Visualização Computacional de Moléculas"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR22-Epitopos/" class="btn btn-neutral float-right" title="Predição de Epítopos">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR1-Visualizacao/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR22-Epitopos/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

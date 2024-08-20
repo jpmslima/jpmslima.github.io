@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR23-MDIntro/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Introdução a Dinâmica Molecular - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introdu\u00e7\u00e3o a Din\u00e2mica Molecular";
+        var mkdocs_page_input_path = "STR23-MDIntro.md";
+        var mkdocs_page_url = "/tutoriais/STR23-MDIntro/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Introdução a Dinâmica Molecular</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#primeira-parte-lisozima-em-solucao-aquosa">Primeira Parte: Lisozima em solução aquosa.</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#instalacao-do-gromacs">Instalação do Gromacs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trabalhando-com-a-estrutura-alvo">Trabalhando com a estrutura alvo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gerando-a-topologia">Gerando a topologia</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#solvatacao">Solvatação</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adicionando-ions">Adicionando íons</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#minimizacao-de-energia">Minimização de energia</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#equilibracao">Equilibração</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#executando-a-dinamica">Executando a dinâmica</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#usando-gpus">Usando GPUs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#analise-dos-resultados-da-md">Análise dos resultados da MD</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conclusao">Conclusão</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Introdução a Dinâmica Molecular</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introducao-a-dinamica-molecular">Introdução a Dinâmica Molecular</h1>
+<ul>
+<li>Observações:</li>
+</ul>
+<p><em>Este tutorial foi traduzido com pequenas modificações a partir dos tutoriais do Gromacs desenvolvidos por </em><em>Justin A. Lemkul</em><em> (Ph.D. - </em>Virginia Tech Department of Biochemistry<em>), </em>que podem ser obtidos no seu idioma original em <a href="http://www.mdtutorials.com/gmx/">GROMACS Tutorials</a>. A tradução foi realizada apenas para <strong>fins didáticos</strong>. <em>Qualquer citação deverá ser realizada a página e ao autor original.</em></p>
+<h2 id="primeira-parte-lisozima-em-solucao-aquosa">Primeira Parte: Lisozima em solução aquosa.</h2>
+<p>Este exemplo guiará um(a) iniciante no processo de criação de um sistema de simulação molecular contendo uma proteína (lisozima) em uma caixa de água, com íons. Cada etapa conterá uma explicação dos arquivos de entrada e saída, utilizando configurações padrões, para uso geral. Este tutorial assume que você está usando uma versão GROMACS na série 2018.x ou superior.</p>
+<h3 id="instalacao-do-gromacs">Instalação do Gromacs</h3>
+<p>Você precisará de um computador ou servidor com acesso a um terminal Linux. Isso pode ser realizado diretamente utilizando máquinas com sistemas operacionais (OS) Linux ou MacOS. Para usuários de OS Windows, recomendamos fortemente a utilização (e instalação, se necessário) do Subsistema Windows para Linux, WSL.</p>
+<p>No terminal Linux/Unix, digite as seguintes linhas:</p>
+<pre><code class="language-shell">sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install gromacs gromacs-data libgromacs7
+</code></pre>
+<blockquote>
+<p><em>Você precisará da senha de administrador/root para esta instalação. A versão da libgromacs pode ser diferente. Em distribuições 22.04 LTS, a versão é a libgromacs6.</em></p>
+</blockquote>
+<p>Com o lançamento da versão 5.0 do GROMACS, todas as ferramentas são essencialmente módulos de um binário chamado "gmx". Este é um desvio das versões anteriores, onde cada uma das ferramentas era invocada como seu próprio comando. No 5.0, isto ainda funciona através de links simbólicos, mas eles irão embora em versões futuras, portanto é melhor se acostumar à nova maneira de fazer as coisas. Para obter informações de ajuda sobre qualquer módulo GROMACS, você pode invocar qualquer um dos seguintes comandos:</p>
+<pre><code class="language-shell">gmx help (module)
+</code></pre>
+<p>ou</p>
+<pre><code class="language-shell">gmx (module) -h
+</code></pre>
+<p>Lembre-se que (module) deve ser substituído pelo nome real do comando que você está tentando usar. As informações serão retornadas no terminal, incluindo os algoritmos disponíveis, opções, formatos de arquivo necessários, bugs e limitações conhecidas, etc. Para novos usuários do GROMACS, consultar a informação de ajuda para comandos comuns é uma ótima maneira de aprender sobre o que cada comando pode fazer. Para apenas verificar se o GROMACS foi instalado, apenas execute:</p>
+<pre><code class="language-shell">gmx
+</code></pre>
+<p>Nada será executado, apenas uma saída padrão será mostrada na tela.</p>
+<h3 id="trabalhando-com-a-estrutura-alvo">Trabalhando com a estrutura alvo</h3>
+<p>Devemos baixar o arquivo da estrutura-alvo que iremos trabalhar. Para este tutorial, utilizaremos a lisozima da clara de ovo de galinha (código PDB <a href="www.rcsb.org/structure/1AKI">1AKI</a>). Acesse o banco <a href="www.rcsb.org">PDB</a> e faça o download do arquivo pdb para a estrutura cristalizada dessa proteína. Se você estiver numa interface de linha de comando (CLI) você também utilizar os comandos linux <code>curl</code> ou <code>wget</code>:</p>
+<pre><code class="language-shell">curl https://files.rcsb.org/download/1AKI.pdb &gt; 1AKI.pdb
+</code></pre>
+<p>ou</p>
+<pre><code class="language-shell">wget https://files.rcsb.org/download/1AKI.pdb
+</code></pre>
+<blockquote>
+<p><em>Ao usar o wget não é necessário colocar a saída para o arquivo ( &gt; 1AKI.pdb, como observado no comando curl.</em></p>
+</blockquote>
+<p>Uma vez baixada a estrutura, você pode visualizar a estrutura usando um programa de visualização como VMD, UCSF uimera, PyMOL, etc. Uma vez que você tenha dado uma olhada na molécula, você vai querer tirar as moléculas de águas que foram cristalizadas. Para apagar as moléculas de água (resíduo "HOH" no arquivo PDB), use um editor de texto simples como vi, nano, emacs (Linux/Mac), ou Notepad (Windows). Alternativamente, você pode usar o grep para apagar estas linhas muito facilmente:</p>
+<pre><code class="language-shell">grep -v HOH 1AKI.pdb &gt; 1AKI_clean.pdb
+</code></pre>
+<blockquote>
+<p><em>Não use software de processamento de texto!</em></p>
+</blockquote>
+<p>Observe que tal procedimento não é universalmente apropriado (por exemplo, o caso de uma molécula de água de local ativo firmemente ligada ou de outra forma funcional). Para nossas intenções aqui, não precisamos dessas moléculas de água cristalizadas.</p>
+<p>Verifique sempre seu arquivo <code>.pdb</code> para as entradas listadas sob o comentário <code>MISSING</code>, pois estas entradas indicam átomos ou resíduos inteiros que não estão presentes na estrutura cristalizada. Regiões terminais podem estar ausentes, e podem não apresentar problemas de dinâmica. Sequências internas incompletas ou quaisquer resíduos de aminoácidos que tenham átomos ausentes causarão a falha do módulo <code>pdb2gmx</code>. Esses átomos/resíduos ausentes devem ser modelados usando outros pacotes de software. Observe também que o módulo <code>pdb2gmx</code> não é um mágico. Ele não pode gerar topologias para moléculas arbitrárias, apenas os resíduos definidos pelo campo de força (nos arquivos <code>*.rtp</code> - geralmente proteínas, ácidos nucléicos e uma quantidade muito finita de cofatores, como NAD(H) e ATP).</p>
+<p>Agora que as moléculas águas cristalizadas foram retiradas e verificamos que todos os átomos necessários estão presentes, o arquivo PDB deve conter apenas átomos de proteínas e assim está pronto para ser introduzido no primeiro módulo GROMACS, <code>pdb2gmx</code>. O objetivo do <code>pdb2gmx</code> é gerar três arquivos:</p>
+<ol>
+<li>
+<p>A topologia para a molécula.</p>
+</li>
+<li>
+<p>Um arquivo de restrição de posição.</p>
+</li>
+<li>
+<p>Um arquivo de estrutura pós-processado.</p>
+</li>
+</ol>
+<p>A topologia (<code>topol.top</code> por padrão) contém todas as informações necessárias para definir a molécula dentro de uma simulação. Esta informação inclui parâmetros não ligados (tipos de átomos e cargas), bem como parâmetros ligados (ligações, ângulos e diedrais). Analisaremos mais detalhadamente a topologia, uma vez que ela tenha sido gerada.</p>
+<p>Agora, executar o módulo <code>pdb2gmx</code> com o seguinte comando:</p>
+<pre><code class="language-shell">gmx pdb2gmx -f 1AKI_clean.pdb -o 1AKI_processed.gro -water spce
+</code></pre>
+<p>A estrutura será processada pelo módulo <code>pdb2gmx</code>, e você será solicitado a escolher um campo de força. Abaixo está representada a tela para esta escolha:</p>
+<pre><code class="language-shell">Select the Force Field:
+From '/usr/local/gromacs/share/gromacs/top':
+ 1: AMBER03 protein, nucleic AMBER94 (Duan et al., J. Comp. Chem. 24, 1999-2012, 2003)
+ 2: AMBER94 force field (Cornell et al., JACS 117, 5179-5197, 1995)
+ 3: AMBER96 protein, nucleic AMBER94 (Kollman et al., Acc. Chem. Res. 29, 461-469, 1996)
+ 4: AMBER99 protein, nucleic AMBER94 (Wang et al., J. Comp. Chem. 21, 1049-1074, 2000)
+ 5: AMBER99SB protein, nucleic AMBER94 (Hornak et al., Proteins 65, 712-725, 2006)
+ 6: AMBER99SB-ILDN protein, nucleic AMBER94 (Lindorff-Larsen et al., Proteins 78, 1950-58, 2010)
+ 7: AMBERGS force field (Garcia &amp; Sanbonmatsu, PNAS 99, 2782-2787, 2002)
+ 8: CHARMM27 all-atom force field (CHARM22 plus CMAP for proteins)
+ 9: GROMOS96 43a1 force field
+10: GROMOS96 43a2 force field (improved alkane dihedrals)
+11: GROMOS96 45a3 force field (Schuler JCC 2001 22 1205)
+12: GROMOS96 53a5 force field (JCC 2004 vol 25 pag 1656)
+13: GROMOS96 53a6 force field (JCC 2004 vol 25 pag 1656)
+14: GROMOS96 54a7 force field (Eur. Biophys. J. (2011), 40,, 843-856, DOI: 10.1007/s00249-011-0700-9)
+15: OPLS-AA/L all-atom force field (2001 aminoacid dihedrals)
+</code></pre>
+<p>O campo de força conterá as informações que serão escritas para a topologia. Esta é uma escolha muito importante! Você deve sempre ler atentamente sobre cada campo de força e decidir qual é o mais aplicável à sua situação. Para este tutorial, usaremos o campo de força <strong><em>OPLS all-atom</em></strong>, portanto digite <code>15</code> no prompt de comando, seguido de <code>Enter</code>. A mensagem abaixo irá aparecer:</p>
+<pre><code class="language-shell">--------- PLEASE NOTE ------------
+
+You have successfully generated a topology from: 1AKI_clean.pdb.
+
+The Oplsaa force field and the spce water model are used.
+
+--------- ETON ESAELP ------------
+</code></pre>
+<p>Há muitas outras opções que podem ser passadas para pdb2gmx. Algumas das opções mais usadas estão listadas aqui:</p>
+<ul>
+<li><code>-ignh</code>: Ignore os átomos H no arquivo PDB; especialmente útil para estruturas NMR. Caso contrário, se os átomos H estiverem presentes, eles devem estar no nome exatamente como os campos de força no GROMACS esperam que estejam.</li>
+</ul>
+<blockquote>
+<p><em>Existem diferentes convenções, portanto, lidar com os átomos H pode ocasionalmente ser uma dor de cabeça! Se você precisa preservar as coordenadas H iniciais, mas é necessário renomear, então o comando sed Linux é seu amigo.</em></p>
+</blockquote>
+<ul>
+<li>
+<p><code>-ter</code>: Atribua interativamente estados de carga para o N- e o C-terminal.</p>
+</li>
+<li>
+<p><code>-inter</code>: Atribua interativamente estados de carga para Glu, Asp, Lys, Arg, e His; escolha quais Cys estão envolvidos em ligações de dissulfeto.</p>
+</li>
+</ul>
+<p>Agora você gerou três novos arquivos: <code>1AKI_processed.gro</code>, <code>topol.top</code>, e <code>posre.itp</code>. <code>1AKI_processed.gro</code> é um arquivo de estrutura com formato GROMACS que contém todos os átomos definidos dentro do campo de força (ou seja, átomos H foram adicionados aos aminoácidos da proteína). O arquivo <code>topol.top</code> é a topologia do sistema. O arquivo <code>posre.itp</code> contém informações usadas para restringir as posições de átomos pesados (mais sobre isso nos próximos tópicos).</p>
+<blockquote>
+<p><strong><em>Uma nota final:</em></strong> <em>muitos usuários assumem que um arquivo .gro é obrigatório. Isto não é verdade. O GROMACS pode lidar com muitos formatos diferentes de arquivo, sendo o .gro simplesmente o padrão para comandos que escrevem arquivos de coordenadas. É um formato muito compacto, mas tem precisão limitada. Se você preferir usar, por exemplo, o formato PDB, tudo que você precisa fazer é especificar um nome de arquivo apropriado com extensão .pdb como sua saída. A finalidade do pdb2gmx é produzir uma topologia compatível com o campo de força; a estrutura de saída é em grande parte um efeito colateral desta finalidade e é destinada à conveniência do usuário. O formato pode ser praticamente tudo que você desejar (veja o manual do GROMACS para diferentes formatos).</em></p>
+</blockquote>
+<h3 id="gerando-a-topologia">Gerando a topologia</h3>
+<p>Vejamos o que está na topologia de saída (<code>topol.top</code>). Novamente, usando um editor de texto simples, inspecione seu conteúdo. Após várias linhas de comentário (precedidas por <code>;</code>), você deverá encontrar o seguinte:</p>
+<pre><code class="language-shell">#include &quot;oplsaa.ff/forcefield.itp&quot;
+</code></pre>
+<p>Esta linha chama os parâmetros dentro do campo de força OPLS-AA. Ela está no início do arquivo, indicando que todos os parâmetros subsequentes são derivados deste campo de força. A próxima linha importante é [ <code>moleculetype</code> ], abaixo da qual você encontrará:</p>
+<pre><code class="language-shell">; Name       nrexcl
+Protein_A    3
+</code></pre>
+<p>O nome <strong>"Protein_A"</strong> define o nome da molécula, com base no fato de que a proteína foi rotulada como cadeia A no arquivo PDB. Há 3 exclusões para os vizinhos colados. Mais informações sobre exclusões podem ser encontradas no manual do GROMACS.</p>
+<p>A próxima seção define os [<code>atoms</code>] na proteína. As informações são apresentadas como colunas:</p>
+<pre><code class="language-shell">[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue   1 LYS rtp LYSH q +2.0
+     1   opls_287      1   LYS       N      1       -0.3    14.0067   ; qtot -0.3
+     2   opls_290      1   LYS      H1      1       0.33      1.008   ; qtot 0.03
+     3   opls_290      1   LYS      H2      1       0.33      1.008   ; qtot 0.36
+     4   opls_290      1   LYS      H3      1       0.33      1.008   ; qtot 0.69
+     5  opls_293B      1   LYS      CA      1       0.25     12.011   ; qtot 0.94
+     6   opls_140      1   LYS      HA      1       0.06      1.008   ; qtot 1
+</code></pre>
+<p>A interpretação destas informações é a seguinte:</p>
+<ul>
+<li>
+<p><strong>nr</strong>: Número do átomo.</p>
+</li>
+<li>
+<p><strong>type</strong>: Tipo de átomo.</p>
+</li>
+<li>
+<p><strong>resnr</strong>: Número de resíduos de aminoácidos.</p>
+</li>
+<li>
+<p><strong>residues</strong>: O nome do resíduo de aminoácido.
+  <em>Observe que este resíduo era "LYS" no arquivo PDB; o uso da entrada .rtp "LYSH" indica que o resíduo é protonado (o estado predominante em pH neutro).</em></p>
+</li>
+<li>
+<p><strong>atom</strong>: Nome do átomo.</p>
+</li>
+<li>
+<p><strong>cgnr</strong>: Número do grupo de carga.
+  <em>Os grupos de carga definem unidades de carga inteira; eles ajudam a acelerar os cálculos</em>.</p>
+</li>
+<li>
+<p><strong>charge</strong>: Auto-explicativo.
+  <em>O descritor "qtot" é um total corrente da carga sobre a molécula</em>.</p>
+</li>
+<li>
+<p><strong>mass</strong>: Também auto-explicativa.</p>
+</li>
+<li>
+<p><strong>typeB, chargeB, massB</strong>: Usado para perturbação de energia livre (não discutido aqui).</p>
+</li>
+</ul>
+<p>As seções subseqüentes incluem [<code>bonds</code> ], [<code>pairs</code> ], [ <code>angles</code>], e [ <code>dihedrals</code> ].</p>
+<p>O restante do arquivo envolve a definição de algumas outras topologias úteis/necessárias, começando com as restrições de posição. O arquivo "posre.itp" foi gerado pelo pdb2gmx; ele define uma constante de força usada para manter os átomos no lugar durante o equilíbrio (mais sobre isso mais adiante).</p>
+<pre><code class="language-shell">; Include Position restraint file
+#ifdef POSRES
+#include &quot;posre.itp&quot;
+#endif
+</code></pre>
+<p>Isto termina a definição do tipo de molécula "Proteína_A". O restante do arquivo de topologia é dedicado à definição de outras moléculas e ao fornecimento de descrições em nível de sistema. O próximo tipo de molécula (por padrão) é o solvente, neste caso, SPC/E água. Outras escolhas típicas para água incluem SPC, TIP3P, e TIP4P. Escolhemos isto passando "- water spce" para pdb2gmx.</p>
+<pre><code class="language-shell">; Include water topology
+#include &quot;oplsaa.ff/spce.itp&quot;
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+</code></pre>
+<p>Como você pode ver, a água também pode ser contida na posição, usando uma constante de força (kpr) de 1000 kJ mol<sup>-1</sup> nm<sup>-2</sup>.</p>
+<p>Os parâmetros de íons estão incluídos a seguir:</p>
+<pre><code class="language-shell">; Include generic topology for ions
+#include &quot;oplsaa.ff/ions.itp&quot;
+</code></pre>
+<p>Finalmente vêm as definições em nível de sistema. A diretiva <code>[ system ]</code> dá o nome do sistema que será escrito nos arquivos de saída durante a simulação. A diretriz <code>[ molecules ]</code> lista todas as moléculas do sistema.</p>
+<pre><code class="language-shell">[ system ]
+; Name
+LYSOZYME
+
+[ molecules ]
+; Compound        #mols
+Protein_A           1
+</code></pre>
+<p>Algumas observações sobre a diretriz <code>[ molecules ]</code>:</p>
+<ol>
+<li>
+<p>A ordem das moléculas listadas deve corresponder exatamente à ordem das moléculas no arquivo de coordenadas (neste caso, .gro).</p>
+</li>
+<li>
+<p>Os nomes listados devem corresponder ao nome <code>[moleculetype]</code> para cada espécie, não nomes de resíduos ou qualquer outra coisa.</p>
+</li>
+</ol>
+<p>Se você não conseguir satisfazer estes requisitos concretos a qualquer momento, você receberá erros fatais do grompp (discutido mais tarde) sobre nomes inadequados, moléculas não encontradas, ou um número de outras.</p>
+<p>Agora que examinamos o conteúdo de um arquivo de topologia, podemos continuar construindo o sistema.</p>
+<h3 id="solvatacao">Solvatação</h3>
+<p>Agora que você está familiarizado com o conteúdo da topologia do GROMACS, é hora de continuar construindo o sistema. Neste exemplo, estaremos simulando um sistema aquoso simples. É possível simular proteínas e outras moléculas em diferentes solventes, desde que bons parâmetros estejam disponíveis para todas as espécies envolvidas.</p>
+<p>Há duas etapas para definir a caixa e preenchê-la com solvente:</p>
+<ol>
+<li>
+<p>Definir as dimensões da caixa usando o módulo <code>editconf</code>.</p>
+</li>
+<li>
+<p>Encher a caixa com água usando o módulo <code>solvate</code> (anteriormente chamado <code>genbox</code>).</p>
+</li>
+</ol>
+<p>Agora você tem a escolha de como tratar a célula da unidade. Para este tutorial inicial, usaremos uma caixa cúbica simples como a célula da unidade. A medida que você se torna mais confortável com condições de contorno periódicas e tipos de caixa, recomenda-se o dodecaedro rômbico, pois seu volume é ~71% da caixa cúbica da mesma distância periódica, economizando assim no número de moléculas de água que precisam ser adicionadas para solvatar a proteína.</p>
+<p>Vamos definir a caixa usando <code>editconf</code>:</p>
+<pre><code class="language-shell">gmx editconf -f 1AKI_processed.gro -o 1AKI_newbox.gro -c -d 1.0 -bt cubic
+</code></pre>
+<p>O comando acima centra a proteína na caixa (-c), e a coloca a pelo menos 1,0 nm da borda da caixa (-d 1,0). O tipo de caixa é definido como um cubo (-bt cubic). A distância até a borda da caixa é um parâmetro importante. Como utilizaremos condições de contorno periódicas, devemos satisfazer a convenção mínima de imagem. Ou seja, uma proteína nunca deve ver sua imagem periódica, caso contrário, as forças calculadas serão inexpressivas. Especificar uma distância de 1,0 nm da caixa de soluto significará que há pelo menos 2,0 nm entre quaisquer duas imagens periódicas de uma proteína. Esta distância será suficiente para praticamente qualquer esquema de corte comumente usado em simulações.</p>
+<p>Agora que já definimos uma caixa, podemos preenchê-la com solvente (água). A solvatação é realizada usando <code>solvate</code>:</p>
+<pre><code class="language-shell">gmx solvate -cp 1AKI_newbox.gro -cs spc216.gro -o 1AKI_solv.gro -p topol.top
+</code></pre>
+<p>A configuração da proteína (-cp) está contida na saída da etapa <code>editconf</code> anterior, e a configuração do solvente (-cs) faz parte da instalação padrão do GROMACS. Estamos utilizando <code>spc216.gro</code>, que é um modelo genérico equilibrado de solvente de 3 pontos. Você pode usar <code>spc216.gro</code> como configuração de solvente para SPC, SPC/E, ou TIP3P água, já que todos eles são modelos de três pontos de água. A saída é chamada <code>1AKI_solv.gro</code>, e direcionamos o comando solvate ao nome do arquivo de topologia (<code>topol.top</code>) para que ele possa ser modificado. Observe as mudanças na diretiva <code>[molecules]</code> do arquivo <code>topol.top</code>:</p>
+<pre><code class="language-shell">[ molecules ]
+; Compound  #mols
+Protein_A       1 
+SOL         10832
+</code></pre>
+<p>O que o <code>solvate</code> fez foi manter um registro de quantas moléculas de água acrescentou e depois escreve para sua topologia para refletir as mudanças que foram feitas. Note que se você usar qualquer outro solvente (não aquoso), o solvate não fará essas mudanças em sua topologia! Sua compatibilidade com a atualização de moléculas de água é codificada de forma rígida.</p>
+<h3 id="adicionando-ions">Adicionando íons</h3>
+<p>Agora temos um sistema solvado que contém uma proteína carregada. A saída de <code>pdb2gmx</code> nos descreve que a proteína tem uma carga líquida de +8e (com base em sua composição de aminoácidos). Se você perdeu esta informação na saída de pdb2gmx, veja a última linha de sua diretiva <code>[ atoms ]</code> em <code>topol.top</code>; ela deve ler (em parte) "qtot 8". Como a vida não existe em uma carga líquida, devemos acrescentar íons ao nosso sistema.</p>
+<p>A ferramenta para adicionar íons dentro do GROMACS é chamada de <code>genion</code>. O que <code>genion</code> faz é ler a topologia e substituir as moléculas de água pelos íons que o usuário especifica. A entrada é chamada de arquivo <code>run input</code>, que tem uma extensão de <code>.tpr</code>; este arquivo é produzido pelo módulo GROMACS <code>grompp</code> (pré-processador GROMACS), que também será usado mais tarde quando executarmos nossa primeira simulação. O que o <code>grompp</code> faz é processar o arquivo de coordenadas e a topologia (que descreve as moléculas) para gerar uma entrada de nível atômico (<code>.tpr</code>). O arquivo <code>.tpr</code> contém todos os parâmetros para todos os átomos do sistema.</p>
+<p>Para produzir um arquivo <code>.tpr</code> com o <code>grompp</code>, precisaremos de um arquivo de entrada adicional, com a extensão <code>.mdp</code> (arquivo de parâmetros de dinâmica molecular); o <code>grompp</code> montará os parâmetros especificados no arquivo <code>.mdp</code> com as coordenadas e informações de topologia para gerar um arquivo <code>.tpr</code>.</p>
+<p>Um arquivo <code>.mdp</code> é normalmente usado para executar uma minimização de energia ou uma simulação MD, mas neste caso é simplesmente usado para gerar uma descrição atômica do sistema. Um exemplo de arquivo <code>.mdp</code> (aquele que vamos usar) pode ser baixado <a href="http://www.mdtutorials.com/gmx/lysozyme/Files/ions.mdp">aqui</a>. Se estiver em uma CLI, pode usar diretamente o comando abaixo:</p>
+<pre><code class="language-shell">wget http://www.mdtutorials.com/gmx/lysozyme/Files/ions.mdp
+</code></pre>
+<p>Na realidade, o arquivo <code>.mdp</code> usado nesta etapa pode conter qualquer combinação legítima de parâmetros. Normalmente usamos um script de minimização de energia, porque eles são muito básicos e não envolvem nenhuma combinação complicada de parâmetros. </p>
+<blockquote>
+<p><em>Observe que os arquivos fornecidos com este tutorial são destinados apenas para uso com o campo de força OPLS-AA. As configurações, particularmente as configurações de interação sem vínculos, serão diferentes para outros campos de força.</em></p>
+</blockquote>
+<p>Monte seu arquivo <code>.tpr</code> com o seguinte comando:</p>
+<pre><code class="language-shell">gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr
+</code></pre>
+<p>Agora temos uma descrição a nível atômico do sistema no arquivo binário <code>ions.tpr</code>. Vamos passar este arquivo para o módulo <code>genion</code>:</p>
+<pre><code class="language-shell">gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -neutral
+</code></pre>
+<p>Quando solicitado, escolha o grupo 13 "SOL" para a incorporação de íons. Você não quer substituir partes de sua proteína por íons.</p>
+<p>No comando <code>genion</code>, fornecemos o arquivo estrutura/estado (-s) como entrada, geramos um arquivo <code>.gro</code> como saída (-o), processamos a topologia (-p) para refletir a remoção de moléculas de água e adição de íons, definimos nomes de íons positivos e negativos (-pnome e -nome, respectivamente) e dizemos ao <code>genion</code> para adicionar apenas os íons necessários para neutralizar a carga líquida sobre a proteína adicionando o número correto de íons negativos (-neutro, que neste caso adicionará 8 íons Cl<sup>-</sup> para compensar a carga de +8 na proteína). Você também pode usar <code>genion</code> para adicionar uma concentração específica de íons além de simplesmente neutralizar o sistema especificando as opções -neutro e -conc em conjunto. Digite <code>genion man</code> para obter informações sobre como usar estas opções.</p>
+<p>Os nomes dos íons especificados com -pnome e -nome eram específicos do campo de força nas versões anteriores do GROMACS, mas foram padronizados na versão 4.5. Os nomes dos íons especificados são sempre o símbolo elementar em todas as letras maiúsculas, que é o nome [ moleculetype ] que é então escrito para a topologia. Os nomes de resíduo ou átomo podem ou não anexar o sinal da carga (+/-), dependendo do campo de força. Não utilize nomes de átomos ou resíduos no comando <code>genion</code>, ou você encontrará erros nas etapas subseqüentes.</p>
+<p>Sua diretriz <code>[molecules]</code> deve estar agora parecida com a descrição abaixo:</p>
+<pre><code class="language-shell">[ molecules ]
+; Compound      #mols
+Protein_A         1
+SOL           10636
+CL                8
+</code></pre>
+<p><img alt="md1" src="../system_solv_ions.jpg" /></p>
+<h3 id="minimizacao-de-energia">Minimização de energia</h3>
+<p>O sistema solvatado e eletroneutro está agora montado. Antes de iniciar a dinâmica, devemos assegurar que o sistema não tenha choques estéreos ou geometria inadequada. A estrutura é relaxada por meio de um processo chamado minimização de energia (EM).</p>
+<p>O processo para o EM é muito parecido com a adição de íons. Vamos mais uma vez usar o <code>grompp</code> para montar a estrutura, topologia e parâmetros de simulação em um arquivo binário de entrada (<code>.tpr</code>), mas desta vez, em vez de passar o <code>.tpr</code> para o <code>genion</code>, vamos executar a minimização de energia por meio do algorítmo de dinâmica molecular do GROMACS, <code>mdrun</code>.</p>
+<p>Monte a entrada binária usando o <code>grompp</code>, usando <a href="http://www.mdtutorials.com/gmx/lysozyme/Files/minim.mdp">este arquivo</a> de parâmetros de entrada. Numa CLI baixe o arquivo:</p>
+<pre><code class="language-shell">wget http://www.mdtutorials.com/gmx/lysozyme/Files/minim.mdp
+</code></pre>
+<p>e depois execute o <code>gmx grompp</code>:</p>
+<pre><code class="language-shell">gmx grompp -f minim.mdp -c 1AKI_solv_ions.gro -p topol.top -o em.tpr
+</code></pre>
+<p>Certifique-se de ter atualizado seu arquivo <code>topol.top</code> ao executar o <code>genbox</code> e o <code>genion</code>, ou então você receberá muitas mensagens de erro desagradáveis (<em>number of coordinates in coordinate file does not match topology, etc.</em>).</p>
+<p>Estamos agora prontos para usar o <code>mdrun</code> para executar a EM:</p>
+<pre><code class="language-shell">gmx mdrun -v -deffnm em
+</code></pre>
+<p>O argumento <strong>-v</strong> é para os impacientes: ela roda o <code>mdrun</code> no modo <em>verbose</em>, mostrando o seu progresso em cada passo. O argumento <strong>-deffnm</strong> irá definir os nomes dos arquivos de entrada e saída. Portanto, se você não nomeou sua saída <code>grompp</code> <code>em.tpr</code>, você terá que especificar explicitamente seu nome com a bandeira <code>mdrun -s</code>. No caso desse tutorial, obteremos os seguintes arquivos:</p>
+<ul>
+<li>
+<p><code>em.log</code>: arquivo de log <code>em.tpr</code> ASCII do processo de EM.</p>
+</li>
+<li>
+<p><code>em.edr</code>: Arquivo binário de energia.</p>
+</li>
+<li>
+<p><code>em.trr</code>: Trajetória binária de precisão total.</p>
+</li>
+<li>
+<p><code>em.gro</code>: Estrutura minimizada.</p>
+</li>
+</ul>
+<p>Há dois fatores muito importantes a serem avaliados para determinar se a EM foi bem sucedida. O primeiro é a energia potencial (impressa no final do processo do EM, mesmo sem -v). A <em>E<sub>pot</sub></em> deve ser negativa, e (para uma simples proteína na água) na ordem de 10<sup>5</sup>-10<sup>6</sup>, dependendo do tamanho do sistema e do número de moléculas de água. </p>
+<p>A segunda característica importante é a força máxima, <em>F<sub>max</sub></em>, cuja meta foi definida em <code>minim.mdp - "emtol = 1000.0"</code> - indicando uma meta <em>Fmax</em> não superior a 1000 kJ mol<sup>-1</sup> nm<sup>-1</sup>. É possível chegar a uma <em>Epot</em> razoável com <strong><em>F<sub>max</sub> &gt; emtol</em></strong>. Se isto acontecer, seu sistema pode não estar suficientemente estável para a simulação. Avalie porque isso está acontecendo e talvez mude seus parâmetros de minimização (integrador, <code>emstep</code>, etc.).</p>
+<p>Vamos fazer um pouco de análise. O arquivo <code>em.edr</code> contém todos os termos de energia que o GROMACS coleta durante a EM. Você pode analisar qualquer arquivo <code>.edr</code> usando o módulo <em>energy</em> do GROMACS:</p>
+<pre><code class="language-shell">gmx energy -f em.edr -o potential.xvg
+</code></pre>
+<p>No prompt, digite "10 0" para selecionar Potencial (10); zero (0) encerra a entrada. Será mostrada a média do <em>E<sub>pot</sub></em>, e um arquivo chamado <code>potencial.xvg</code> será escrito. Para plotar estes dados, você precisará da ferramenta tipo <strong><em>Xmgrace</em></strong> ou <strong><em>ggplot2</em></strong> do R. O gráfico resultante deverá ser parecido com o abaixo, demonstrando a convergência constante da <em>E<sub>pot</sub></em>:</p>
+<p><img alt="md2" src="../plot_lyso_em_potential.png" /></p>
+<p>Agora que nosso sistema está <em>minimizado</em>, podemos iniciar uma verdadeira dinâmica.</p>
+<h3 id="equilibracao"><em>Equilibração</em></h3>
+<p>A EM garante uma estrutura de partida razoável, em termos de geometria e orientação de solvente. Para iniciar uma dinâmica real, devemos equilibrar o solvente e os íons em torno da proteína. Se tentarmos uma dinâmica desenfreada neste ponto, o sistema pode entrar em colapso. A razão é que o solvente é em sua maioria otimizado dentro de si mesmo, e não necessariamente com o soluto. Ele precisa ser levado à temperatura que desejamos simular e estabelecer a orientação adequada sobre o soluto (a proteína). Após chegarmos à temperatura correta (baseada em energias cinéticas), aplicaremos pressão no sistema até que ele atinja a densidade adequada.</p>
+<p>Lembra-se daquele arquivo <code>posre.itp</code> que o módulo do GROMACS <code>pdb2gmx</code> gerou há muito tempo? Vamos usá-lo agora. O objetivo do <code>posre.itp</code> é aplicar uma força de contenção de posição nos átomos pesados da proteína (qualquer coisa que não seja um hidrogênio). O movimento é permitido, mas somente após a superação de uma penalidade energética substancial. A utilidade das restrições de posição é que elas nos permitem equilibrar nosso solvente em torno de nossa proteína, sem a variável adicional de mudanças estruturais na proteína. A origem das restrições de posição (as coordenadas nas quais o potencial de restrição é zero) é fornecida por meio de um arquivo de coordenadas passado para a opção -r do <code>grompp</code>.</p>
+<p>A <em>equilibração</em> é freqüentemente conduzida em duas fases. A primeira fase é conduzida sob um conjunto NVT (número constante de partículas, volume e temperatura). Este conjunto também é referido como "isotérmico-isócórico" ou "canônico". O prazo para tal procedimento depende do conteúdo do sistema, mas em NVT, a temperatura do sistema deve atingir um patamar no valor desejado. Se a temperatura ainda não tiver estabilizado, será necessário um tempo adicional. Tipicamente, 50-100 ps devem ser suficientes, e para este exercício realizaremos um equilíbrio de 100 ps do NVT. Dependendo de sua máquina, isto pode demorar um pouco (pouco menos de uma hora se funcionar em paralelo em 16 núcleos ou mais). Obtenha o arquivo .<code>mdp</code> <a href="http://www.mdtutorials.com/gmx/lysozyme/Files/nvt.mdp">aqui</a> ou pelo wget:</p>
+<pre><code class="language-shell">wget http://www.mdtutorials.com/gmx/lysozyme/Files/nvt.mdp
+</code></pre>
+<p>Execute <code>grompp</code> e <code>mdrun</code> exatamente como na etapa de EM:</p>
+<pre><code class="language-shell">gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr
+
+gmx mdrun -deffnm nvt
+</code></pre>
+<p>Uma explicação completa dos parâmetros utilizados pode ser encontrada no manual do GROMACS, além dos comentários fornecidos. Anote alguns parâmetros no arquivo <code>.mdp</code>:</p>
+<ul>
+<li>
+<p><em>gen_vel = yes</em>: Inicia a geração de velocidade. O uso de diferentes sementes aleatórias (gen_seed) dá diferentes velocidades iniciais, e assim múltiplas (diferentes) simulações podem ser conduzidas a partir da mesma estrutura inicial.</p>
+</li>
+<li>
+<p>tcoupl = V-rescale: O termostato de redimensionamento de velocidade é uma melhoria em relação ao método de acoplamento fraco de Berendsen, que não reproduziu um conjunto cinético correto.</p>
+</li>
+<li>
+<p><em>pcoupl = no</em>: O acoplamento por pressão não é aplicado.</p>
+</li>
+</ul>
+<p>Vamos analisar a progressão da temperatura, novamente usando energia:</p>
+<pre><code class="language-shell">gmx energy -f nvt.edr -o temperature.xvg
+</code></pre>
+<p>Digite "16 0" no <em>prompt</em> para selecionar a temperatura do sistema e sair. O gráfico resultante deve ser parecido com o abaixo:</p>
+<p><img alt="md3" src="../plot_lyso_nvt_temperature.png" /></p>
+<p>A partir do gráfico, fica claro que a temperatura do sistema atinge rapidamente o valor alvo (300 K), e permanece estável durante o restante do equilíbrio. Para este sistema, um período de equilíbrio mais curto (na ordem de 50 ps) pode ser adequado.</p>
+<p>A etapa anterior, o equilíbrio da NVT, estabilizou a temperatura do sistema. Antes da coleta de dados, devemos também estabilizar a pressão (e, portanto, também a densidade) do sistema. A <em>equilibração </em>da pressão é realizada sob um conjunto NPT, no qual o Número de partículas, Pressão e Temperatura são todos constantes. O conjunto também é chamado de conjunto "isotérmico-isobárico", e mais se assemelha às condições experimentais.</p>
+<p>O arquivo <code>.mdp</code> usado para um equilíbrio de 100 ps NPT pode ser encontrado <a href="http://www.mdtutorials.com/gmx/lysozyme/Files/npt.mdp">aqui</a>. Ele não é drasticamente diferente do arquivo de parâmetros usado para o equilíbrio do NVT. Observe a adição da seção de acoplamento de pressão, usando o barostato Parrinello-Rahman.</p>
+<p>Algumas outras mudanças:</p>
+<ul>
+<li>
+<p><em>continuation = yes</em>: Continuamos a simulação a partir da fase de equilíbrio do NVT.</p>
+</li>
+<li>
+<p><em>gen_vel = no</em>: As velocidades são lidas a partir da trajetória (ver abaixo)</p>
+</li>
+</ul>
+<p>Chamaremos <code>grompp</code> e <code>mdrun</code> exatamente como fizemos para o equilíbrio da NVT. Note que agora estamos incluindo o argumento -t para incluir o arquivo do ponto de verificação do equilíbrio NVT; este arquivo contém todas as variáveis de estado necessárias para continuar nossa simulação. Para conservar as velocidades produzidas durante a NVT, devemos incluir este arquivo. O arquivo de coordenadas (-c) é a saída final da simulação do NVT.</p>
+<pre><code class="language-shell">gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr
+
+gmx mdrun -deffnm npt
+</code></pre>
+<p>Vamos analisar a progressão da pressão, novamente em função da energia:</p>
+<pre><code class="language-shell">gmx energy -f npt.edr -o pressure.xvg
+</code></pre>
+<p>Digite "18 0" no prompt para selecionar a pressão do sistema e sair. O gráfico resultante deve ser parecido com o abaixo:</p>
+<p><img alt="md4" src="../plot_lyso_npt_pressure.png" /></p>
+<p>O valor da pressão flutua muito ao longo da fase de equilíbrio de 100 ps, mas este comportamento não é inesperado. A média de funcionamento destes dados está plotada como a linha vermelha no gráfico. Durante o curso do equilíbrio, o valor médio da pressão é de 7,5 ± 160,5 bar. Note que a pressão de referência foi ajustada para 1 bar, então este resultado é aceitável? A pressão é uma quantidade que flutua amplamente durante o curso de uma simulação MD, como está claro a partir da grande flutuação do desvio padrão (160,5 bar). Portanto, estatisticamente falando, não se pode distinguir uma diferença entre a média obtida (7,5 ± 160,5 bar) e o valor alvo/referência (1 bar).</p>
+<p>Vamos dar uma olhada também na densidade, desta vez usando energia e digitando "24 0" no prompt.</p>
+<pre><code class="language-shell">gmx energy -f npt.edr -o density.xvg
+</code></pre>
+<p><img alt="md5" src="../plot_lyso_npt_density.png" /></p>
+<p>Assim como com a pressão, a média da densidade também está plotada em vermelho. O valor médio ao longo de 100 ps é 1019±3 kg . m<sup>-3</sup>, próximo ao valor experimental de 1000 kg . m<sup>-3</sup> e à densidade esperada do modelo SPC/E de 1008 kg . m<sup>-3</sup>. Os parâmetros para o modelo SPC/E da água reproduzem de perto os valores experimentais para a água. Os valores de densidade são muito estáveis ao longo do tempo, indicando que o sistema está bem calibrado agora em relação à pressão e densidade.</p>
+<blockquote>
+<p><em>Por favor, observe: é comum ter dúvidas sobre por que os valores de densidade obtidos não correspondem aos resultados. Os termos relacionados à pressão são lentos para convergir e, portanto, você pode ter que executar o equilíbrio do NPT em um tempo mais longo do que o especificado aqui.</em></p>
+</blockquote>
+<h3 id="executando-a-dinamica">Executando a dinâmica</h3>
+<p>Após a conclusão das duas fases de equilíbrio, o sistema está agora bem calibrado na temperatura e pressão desejadas. Estamos agora prontos para liberar as restrições de posição e executar a MD para a coleta de dados. O processo é exatamente como já vimos antes, pois faremos uso do arquivo do ponto de controle (que neste caso agora contém informações sobre o acoplamento de pressão preservada) para o módulo <code>grompp</code>. Executaremos uma simulação MD de 1 ns, cujo <em>script</em> pode ser encontrado <a href="http://www.mdtutorials.com/gmx/lysozyme/Files/md.mdp">aqui</a>.</p>
+<pre><code class="language-shell">gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_0_1.tpr
+</code></pre>
+<p>O <code>grompp</code>retornará uma estimativa para a carga PME, que ditará quantos processadores devem ser dedicados ao cálculo PME, e quantos para os cálculos PP. Consulte a publicação GROMACS 4 e o manual para obter detalhes.</p>
+<pre><code class="language-shell">Estimate for the relative computational load of the PME mesh part: 0.22
+</code></pre>
+<p>Para uma caixa cúbica, a configuração ideal terá uma carga PME de 0,25 (3:1 PP:PME - estamos muito próximos do ideal!); para uma caixa dodecahedral, a carga PME ideal é de 0,33 (2:1 PP:PME). Ao executar o <code>mdrun</code>, o programa deve determinar automaticamente o melhor número de processadores a serem designados para os cálculos de PP e PME. Assim, certifique-se de indicar um número apropriado de <em>threads</em>/núcleos para o cálculo (o valor de -nt X), para que você possa obter o melhor desempenho.</p>
+<p>Agora, execute o <code>mdrun</code>:</p>
+<pre><code class="language-shell">gmx mdrun -deffnm md_0_1
+</code></pre>
+<h4 id="usando-gpus">Usando GPUs</h4>
+<p>A partir da versão 4.6, o GROMACS suporta o uso de GPUs para executar simulações MD. Com o lançamento da versão 2018, as interações não ligadas e PMEs são calculadas na GPU, com apenas forças ligadas calculadas nos núcleos da CPU. Ao construir o GROMACS (ver www.gromacs.org para instruções de instalação), o hardware da GPU será automaticamente detectado, se presente. Os requisitos mínimos para usar a aceleração da GPU são as bibliotecas CUDA e SDK, e uma GPU com uma capacidade de computação de &gt;= 2,0. Uma boa lista de algumas das GPUs mais comuns e suas especificações pode ser encontrada aqui.</p>
+<p>Supondo que você tenha uma GPU disponível, o comando <code>mdrun</code> para fazer uso dela é tão simples quanto:</p>
+<pre><code class="language-shell">gmx mdrun -deffnm md_0_1 -nb gpu
+</code></pre>
+<blockquote>
+<p><em>Se você tiver mais de uma GPU disponível, ou precisar de personalização de como o trabalho é dividido através do esquema de paralelização híbrido disponível no GROMACS, consulte o manual e a página do GROMACS. Tais detalhes técnicos estão além do escopo deste tutorial.</em></p>
+</blockquote>
+<h3 id="analise-dos-resultados-da-md">Análise dos resultados da MD</h3>
+<p>Agora que simulamos a proteína, devemos fazer algumas análises sobre o sistema. Que tipos de dados são importantes? Esta é uma pergunta importante a ser feita antes de executar a simulação, portanto você deve ter algumas idéias sobre os tipos de dados que você vai querer coletar em seus próprios sistemas. Para este tutorial, algumas ferramentas básicas serão introduzidas.</p>
+<p>A primeira é o trjconv, que é usado como uma ferramenta de pós-processamento para retirar coordenadas, corrigir a periodicidade ou alterar manualmente a trajetória (unidades de tempo, freqüência de quadros, etc.). Para este exercício, usaremos o trjconv para contabilizar qualquer periodicidade no sistema. A proteína se difundirá através da célula da unidade, e pode parecer "quebrada" ou pode "pular" para o outro lado da caixa. Para contabilizar tais comportamentos, emita o seguinte:</p>
+<pre><code class="language-shell">gmx trjconv -s md_0_1.tpr -f md_0_1.xtc -o md_0_1_noPBC.xtc -pbc mol -center
+</code></pre>
+<p>Selecione 1 ("Proteína") como o grupo a ser centralizado e 0 ("Sistema") para a saída. Conduziremos todas as nossas análises sobre esta trajetória "corrigida". Vamos analisar primeiro a estabilidade estrutural. O GROMACS tem um utilitário incorporado para cálculos RMSD chamado <code>rms</code>. Para usar o <code>rms</code>, emita este comando:</p>
+<pre><code class="language-shell">gmx rms -s md_0_1.tpr -f md_0_1_noPBC.xtc -o rmsd.xvg -tu ns
+</code></pre>
+<p>Escolha 4 ("<em>Backbone</em>") tanto para o ajuste dos mínimos quadrados quanto para o grupo de cálculo RMSD. O argumento <strong><em>-tu</em></strong> produzirá os resultados em termos de ns, mesmo que a trajetória tenha sido escrita em ps. Isto é feito para clareza da saída (especialmente se você tiver uma simulação longa - 1e+05 ps não parece tão agradável quanto 100 ns). O gráfico de saída mostrará o RMSD em relação à estrutura presente no sistema minimizado e equilibrado:</p>
+<p>Se quisermos calcular o RMSD em relação à estrutura de cristal, podemos emitir o seguinte:</p>
+<pre><code class="language-shell">gmx rms -s em.tpr -f md_0_1_noPBC.xtc -o rmsd_xtal.xvg -tu ns
+</code></pre>
+<p>Plotados juntos, os resultados serão parecidos com:</p>
+<p><img alt="md6" src="../plot_lyso_md_rmsd.png" /></p>
+<p>Ambas as séries temporais mostram os níveis de RMSD em ~0,1 nm (1 Å), indicando que a estrutura é muito estável. As diferenças sutis entre os gráficos indicam que a estrutura em t = 0 ns é ligeiramente diferente desta estrutura de cristal. Isto é de se esperar, já que foi minimizado em termos energéticos e porque as restrições de posição não são 100% perfeitas, como discutido anteriormente.</p>
+<p>O raio de giro de uma proteína é uma medida de sua compactação. Se uma proteína for dobrada de forma estável, ela provavelmente manterá um valor relativamente estável de Rg. Se uma proteína se desdobrar, seu Rg irá mudar com o tempo. Vamos analisar o raio de giro da lisozima em nossa simulação:</p>
+<pre><code class="language-shell">gmx gyrate -s md_0_1.tpr -f md_0_1_noPBC.xtc -o gyrate.xvg
+</code></pre>
+<p>Escolha o grupo 1 (Proteína) para análise.</p>
+<p><img alt="md7" src="../plot_lyso_md_rg.png" /></p>
+<p>Podemos ver pelos valores de Rg razoavelmente invariantes que a proteína permanece muito estável, em sua forma compacta (dobrada) ao longo de 1 ns a 300 K. Este resultado não é inesperado, mas ilustra uma capacidade avançada de análise GROMACS que vem embutida.</p>
+<h3 id="conclusao">Conclusão</h3>
+<p>Agora você conduziu uma simulação de dinâmica molecular com o GROMACS, e analisou alguns dos resultados. Este tutorial não deve ser visto como abrangente. Há muito mais tipos de simulações que se pode conduzir com o GROMACS (cálculos de energia livre, MD não-equilibrio, e análise de modos normais, só para citar alguns). Você também deve rever a literatura e o manual do GROMACS para ajustes nos arquivos <code>.mdp</code> fornecidos aqui para fins de eficiência e precisão.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR15-VS1/" class="btn btn-neutral float-left" title="Virtual Screening"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR16-EGB1/" class="btn btn-neutral float-right" title="Modelos de Pequenas Moléculas">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR15-VS1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR16-EGB1/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

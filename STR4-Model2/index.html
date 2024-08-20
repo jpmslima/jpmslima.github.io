@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR4-Model2/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Modelagem 102 - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Modelagem 102";
+        var mkdocs_page_input_path = "STR4-Model2.md";
+        var mkdocs_page_url = "/tutoriais/STR4-Model2/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Modelagem 102</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#objetivos">Objetivos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#proteina-alvo">Proteína Alvo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aida">AIDA</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resultados">Resultados</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#phyre2">PHYRE2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#passos-para-a-submissao">Passos para a submissão</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resultados_1">Resultados</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#sumario-dos-resultados">Sumário dos resultados</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#questionamentos">Questionamentos</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#i-tasser">I-TASSER</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quark">Quark</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Modelagem 102</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modelagem-comparativa-de-proteinas-2">Modelagem Comparativa de Proteínas 2</h1>
+<p>Utilizando outros servidores e ferramentas para a modelagem de proteínas.</p>
+<h3 id="objetivos">Objetivos</h3>
+<ul>
+<li>Demonstrar outros servidores para obtenção de modelos 3D de proteínas, utilizando abordagens multifuncionais.</li>
+</ul>
+<h3 id="proteina-alvo">Proteína Alvo</h3>
+<p>Usaremos nestes exemplos a proteína <a href="https://www.uniprot.org/uniprot/O46921">O46921_SPIOL</a>:</p>
+<pre><code>&gt;O46921_SPIOL
+LRSSPLVSHLFLRQRGGSAYVTKTRFSTKCYASDPAQLKNAREDIKELLQSKFCHPIMVR
+LGWHDAGTYNKDIKEWPQRGGANGSLSFDVELRHGANAGLVNALKLLQPIKDKYSGVTYA
+DLFQLASATAIEEAGGPTIPMKYGRVDATGPEQCPEEGRLPDAGPPSPAQHLRDVFYRMG
+LDDKDIVALSGAHTLGRSRPERSGWGKPETKYTKDGPGAPGGQSWTAEWLKFDNSYFKDI
+KEKRDADLLVLPTDAALFEDPSFKVYAEKYAADQEAFFKDYAEAHAKLSNQGAKFDPAEG
+ITLNGTPAGAAPEKFVAAKYSSNKRSELSDSMKEKIRAEYEGFGGSPNKPLPTNYFLNIM
+IVIGVLAVLSYLAGN
+</code></pre>
+<p>Escolhemos esta proteína para verificar se estas outras abordagens conseguem atribuir de forma não supervisionada alguma estrutura a porção C-terminal da tAPX.</p>
+<h2 id="aida">AIDA</h2>
+<p>O <em>Ab Initio Domain Assembly Server</em> - <a href="http://aida.godziklab.org">AIDA</a> é um servidor para obtenção de modelos que se baseia no conhecimento do potencial <em>ab initio</em>. Ele procurar os melhores arranjos para os domínios, mantendo a conectividade das cadeias. As estruturas são mantidas rígidas durante a simulação de minimização de energia, tratando apenas as regiões de <em>link</em> como completamente flexíveis. A grande vantagem do servidor AIDA é a capacidade de trabalhar com proteínas contendo domínios descontínuos, fixando suas posições relativas. Adicionalmente, ele também procura por domínios de sequência e ao achá-los divide-os iterativamente para alinhar com o modelo de PDB encontrado pelo programa de reconhecimento de <em>folds</em> FFAS-3D (Retirado do próprio site do AIDA).</p>
+<p>A sua utilização é simples, e os seus resultados saem de forma rápida. Note que ele não é um programa de <em>ab initio</em> puro, embora utilize esta abordagem como parte de sua estratégia de modelagem.</p>
+<p>Faremos a utilização do AIDA da forma mais simples, seguindos os passos abaixo:</p>
+<ul>
+<li>Abra a página do AIDA:</li>
+</ul>
+<p><img alt="AIDA server" src="../str4-fig1.png" /></p>
+<ul>
+<li>Cole a sequência acima no espaço indicado.</li>
+<li>Insira o seu email e clique em <code>Submit</code></li>
+</ul>
+<h3 id="resultados">Resultados</h3>
+<p>Após algus minutos, o AIDA retornará os resultados. A página de resultados está dividida da seguinte forma:</p>
+<p><strong>Primeira Parte:</strong> Arquitetura dos domínios encontrados</p>
+<ul>
+<li>Funciona como um preditor de estrutura secundária. Nela um diagrama da sequência é descrito, com a posição de cada resíduo, o tipo de estrutura secundária e escore de confidência da predição.</li>
+</ul>
+<p><img alt="Resultados do AIDA 1" src="../str4-fig2.png" /></p>
+<blockquote>
+<p><em>Na figura acima os resultados não estão mostrados por inteiro.</em></p>
+</blockquote>
+<ul>
+<li>Logo abaixo deste diagrama temos a lista dos domínios, com o PDB similar e o Z-score.</li>
+<li>Perceba que a predição encontrou um domínio para a região C-terminal da O46921_SPIOL (a qual está ligada a membrana do tilacóide), com similaridade a cadeia B da estrutura <a href="https://www.rcsb.org/structure/3BO0">3BO0</a>.</li>
+</ul>
+<p><strong>Segunda Parte:</strong> O modelo construído</p>
+<ul>
+<li>Uma figura interativa da estrutura predita, com <em>link</em> para download do arquivo.</li>
+</ul>
+<p><img alt="Modelo do AIDA" src="../str4-fig3.png" /></p>
+<p><strong>Terceira Parte:</strong> As estruturas isoladas de cada domínio</p>
+<ul>
+<li>Figuras interativas da estrutura predita da região de cada domínio.</li>
+</ul>
+<p><img alt="Domínios AIDA" src="../str4-fig4.png" /></p>
+<ul>
+<li>Verifique no Domínio 2, a predição da estrutura da hélice transmembrana presente na região C-terminal da O46921_SPIOL.</li>
+<li>O arquivo PDB gerado pode ser baixado <a href="https://drive.google.com/uc?export=download&amp;id=1gXHdmU0Mlq797q8yDUux4ykaKFYhMPiO">AQUI</a>.</li>
+<li>Abra o arquivo utilizando o UCSF Chimera e o inspecione.</li>
+</ul>
+<blockquote>
+<p><em>Não esqueça de fazer o download e salvar os resultados do AIDA</em>.</p>
+</blockquote>
+<h2 id="phyre2">PHYRE2</h2>
+<p>O <a href="http://www.sbg.bio.ic.ac.uk/phyre2/html/page.cgi?id=index">Phyre2</a> é um conjunto de ferramentas disponíveis na web para prever e analisar a estrutura das proteínas (<a href="https://www.nature.com/articles/nprot.2015.053">Kelley et al. 2015</a>). Ele usa múltiplas abordagens (homologia, <em>threading</em> e refinamentos de <em>loops</em> via <em>ab initio</em>) para obter modelos de forma fácil e não supervisionada. As grandes vantagens do servidor Phyre2 são:</p>
+<ul>
+<li>Fácil de usar e rápido.</li>
+<li>Resultados confiáveis, principalmente com proteínas que possuam homologia com proteínas conhecidas.</li>
+<li>Autoexplicativo.</li>
+<li>Bons resultados quando buscas por homologia distante são necessárias.</li>
+</ul>
+<p>O Phyre possui dois modos: normal e intensivo. Os mantenedores recomendam utilizar primeiro o modo normal, para depois passar para o intensivo.</p>
+<h3 id="passos-para-a-submissao">Passos para a submissão</h3>
+<ul>
+<li>Abra a página do <a href="http://www.sbg.bio.ic.ac.uk/phyre2/html/page.cgi?id=index">Phyre2</a>.</li>
+</ul>
+<p><img alt="Phyre2" src="../str4-fig5.png" /></p>
+<ul>
+<li>Cole a sequência fasta da <code>O46921_SPIOL</code> no local indicado.</li>
+<li>Coloque o email de destino dos resultados.</li>
+<li>Selecione o modo <code>Normal</code>.</li>
+<li>Clique em <code>Phyre search</code> e espere os resultados (demoram cerca de 30 minutos a 2 horas).</li>
+</ul>
+<h3 id="resultados_1">Resultados</h3>
+<p>Os resultados das análises com Phyre2 podem ser baixados ou ficam com um link disponível por 30 dias.</p>
+<p>COs arquivos gerados para a modelagem da <code>O46921_SPIOL</code>  podem ser diretamente baixados <a href="https://drive.google.com/uc?export=download&amp;id=1rP5B6VoDER6hji9OrRAMeGjny6dsotjs">AQUI</a>.</p>
+<p>Os resultados do Phyre2 são mostrados na forma de um relatório, contendo os seguintes elementos:</p>
+<h4 id="sumario-dos-resultados">Sumário dos resultados</h4>
+<ul>
+<li>Nesta parte podem ser observados uma figura com o modelos, os <em>links</em> para <em>download</em> dos resultados, e outras informações sobre a modelagem. A parte que contem <strong><em>Confidence Summary</em></strong> é muito informativa, pois nela você saberá a confiança da modelagem ao longo da extensão da sequência.</li>
+</ul>
+<p><img alt="Sumário Phyre2" src="../str4-fig6.png" /></p>
+<ul>
+<li>Logo abaixo, pode ser evidenciado a predição de estrutura secundária:</li>
+</ul>
+<p><img alt="Predição de estrutura secundária - Phyre2" src="../str4-fig7.png" /></p>
+<ul>
+<li>E depois a predição de domínios e listagem dos <em>templates</em>:</li>
+</ul>
+<p><img alt="Phyre2 - templates" src="../str4-fig8.png" /></p>
+<ul>
+<li>Sempre confira também a seção <strong><em>Multi-template and ab initio information</em></strong>. Nela você terá a informação de quantos resíduos tiveram de ser modelados por <em>ab initio</em>.</li>
+</ul>
+<p><img alt="Phyre2 - Multi-template information" src="../str4-fig9.png" /></p>
+<h4 id="questionamentos">Questionamentos</h4>
+<p>Compare os resultados do Phyre2, com os outros resultados obtidos até agora. Houve discrepância? Qual?</p>
+<h2 id="i-tasser">I-TASSER</h2>
+<p>O <a href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/">I-TASSER</a> (<em>Iterative Threading ASSEmbly Refinement</em>) é uma abordagem hierárquica para a predição da estrutura de proteínas e previsão de suas respectivas funções. Ele também utiliza uma abordagem múltipla (comparativa utilizando homologia, <em>threading</em> e <em>ab initio</em>). Ele foi classificado como o melhor servidor para previsão de estrutura de proteínas em experimentos <a href="http://predictioncenter.org/casp13/index.cgi">CASP</a> e sempre utiliza algoritmos de última geração. A estratégia completa do programa pode ser vista <a href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/about.html">AQUI</a>.</p>
+<p>Devido a qualidade dos seus resultados, podemos afirmar que ele é um dos melhores preditores automáticos de estrutura proteica, principalmente em níveis mais baixos de similaridade. Sua utilização é <em>Free</em> para usuários acadêmicos cadastrados (requer email institucional). Além do servidor, uma versão <em>stand-alone</em> (Linux apenas) pode ser baixada para rodar em suas próprias máquinas. No entanto, o tamanho do banco de dados é grande, além do custo computacional, o que pode ser impraticável para muitos computadores.</p>
+<p>Para submeter uma predição no i-TASSER, siga os passos abaixo:</p>
+<ul>
+<li>Abra a <a href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/registration.html">página de registro do i-TASSER</a> e preencha o formulário com um email institucional.</li>
+</ul>
+<blockquote>
+<p><em>Você não precisará fazer isto durante este tutorial, pois os resultados já foram obtidos para a proteína O46921_SPIOL.</em></p>
+</blockquote>
+<ul>
+<li>Após receber a confirmação por email, vá até a página do <a href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/">I-TASSER</a>.</li>
+</ul>
+<p><img alt="i-TASSER server" src="../str4-fig10.png" /></p>
+<ul>
+<li>Cole a sequência no espaço indicado e preencha as informações de login.</li>
+<li>Clique em <code>Run I-TASSER</code>.</li>
+</ul>
+<p>Os resultados demoram cerca de 48 h e enquanto eles estiverem na fila ou sendo executados você não poderá enviar outro trabalho.</p>
+<p>Para fins de exemplo, durante a predição da estrutura da O46921_SPIOL, algumas modificações foram realizadas e testadas. A opção III, de especificar a estrutura secundária para alguns resíduos foi ativada. Nela colocamos a predição de estrutura secundária apenas para a alfa-hélice transmembrana predita pelo PSIPRED. O formato do arquivo de especificação é simples, e ele está denotado abaixo na íntegra:</p>
+<pre><code>355 Y H
+356 F H
+357 L H
+358 N H
+359 I H
+360 M H
+361 I H
+362 V H
+363 I H
+364 G H
+365 V H
+366 L H
+367 A H
+368 V H
+369 L H
+370 S H
+371 Y H
+372 L H
+373 A H
+</code></pre>
+<blockquote>
+<p><em>Se você quiser repetir a análise, basta salvar o texto acima em um arquivo de texto puro e submeter na opção III do servidor do I-TASSER.</em></p>
+</blockquote>
+<p>Os resultados para esta predição podem ser evidenciados no <em>link</em> abaixo:</p>
+<p><a href="https://drive.google.com/uc?export=download&amp;id=1HsSRsvrBomRCyBUNUD4rcpcVOYwk2IWy">AQUI</a> </p>
+<h2 id="quark">Quark</h2>
+<p>O <a href="https://zhanglab.ccmb.med.umich.edu/QUARK/">QUARK</a> (que foi desenvolvido pelo mesmo grupo de pesquisa do i-TASSER) é um algoritmo de computador para previsão de estrutura de proteínas usando a abordagem <em>ab initio</em> e folding de peptídeos, visando construir um correto modelo 3D de proteína apenas a partir da sequência de aminoácidos. O uso do Quark é bem similar ao do i-TASSER, e uma conta criada a partir de um e-mail institucional é necessária.</p>
+<blockquote>
+<p><em>Você pode fazer o pedido a partir de sua conta .edu.ufrn.br. Para a sequência abaixo você não irá precisar rodar o Quark, pois os arquivos de saída já estarão prontos. O pedido de conta para o i-TASSER e o QUARK são diferentes e separados.</em></p>
+</blockquote>
+<p>Para o Quark, iremos apenas modelar por <em>ab initio</em> a região de âncora a membrana, predita tanto pelo PSIPRED como pelo TMHMM (no tutorial de obtenção de informações a partir da sequência). Vamos aos passos:</p>
+<ul>
+<li>Abra a página inicial do <a href="https://zhanglab.ccmb.med.umich.edu/QUARK/">QUARK</a>:</li>
+</ul>
+<p><img alt="Quark submission" src="../str4-fig11.png" /></p>
+<ul>
+<li>Cole a sequência abaixo no campo para a sequência:</li>
+</ul>
+<pre><code>&gt;O46921_SPIOL-TM
+PTNYFLNIMIVIGVLAVLSYLAG
+</code></pre>
+<blockquote>
+<p><em>Note que existem alguns aminoácidos a mais do que a sequência colocada como hélice no i-TASSER.</em></p>
+</blockquote>
+<ul>
+<li>Coloque seus dados de Login e deixe o restante das opções como está.</li>
+<li>Depois de algumas horas, você receberá no e-mail cadastrado um link para a página com os resultados da predição. A página será similar a mostrada abaixo:</li>
+</ul>
+<p><img alt="Página com resultados do Quark" src="../str4-fig12.png" /></p>
+<ul>
+<li>Não esqueça de fazer o download dos arquivos, pois a página só fica no ar durante tempo limitado.</li>
+<li>Os resultados para esta modelagem poderão ser baixados <a href="https://drive.google.com/uc?export=download&amp;id=1vCEJZsqkE-KCtlpd6zoZewo6w7ns50ak">AQUI</a>.</li>
+</ul>
+<p>Observe nos resultados que o Quark modelou a hélice e categorizou os aminoácidos de acordo com a sua acessibilidade ao solvente:</p>
+<p><img alt="Previsão Quark acessibilidade" src="../str4-fig13.png" /></p>
+<p>Os resíduos com valores 0 (zero) estão completamente "enterrados" (não acessíveis ao solvente), pois estão dentro da membrana. Tais dados podem lhe ajudar a colocar a membrana nesta posição, posteriormente.</p>
+<p>Colocaremos agora o Quark para rodar com toda a sequência não alinhada da O46921_SPIOL (tAPX) a sua isoforma Q7GDV4_SPIOL (sAPX), de acordo com a figura abaixo:</p>
+<p><img alt="Alinhamento sAPX X tAPX" src="../str4-fig14.png" /></p>
+<p>Portanto, a sequência que será realizada a modelagem agora será a descrita abaixo:</p>
+<pre><code>&gt;O46921_SPIOL-TM
+RSELSDSMKEKIRAEYEGFGGSPNKPLPTNYFLNIMIVIGVLAVLSYLAGN
+</code></pre>
+<p>A página com os resultados será parecida com a seguinte:</p>
+<p><img alt="Resultados Quark TM-ALL" src="../str4-fig15.png" /></p>
+<p>Verifique os resultados (que também podem ser obtidos <a href="https://drive.google.com/uc?export=download&amp;id=1C2fclg7qdK01RVvZoWLE-tfvD4kXjxtK">AQUI</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR3-Model1/" class="btn btn-neutral float-left" title="Modelagem 101"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR5-Model3/" class="btn btn-neutral float-right" title="Modeller-CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR3-Model1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR5-Model3/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
