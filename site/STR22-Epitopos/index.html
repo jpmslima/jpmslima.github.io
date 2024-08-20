@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR22-Epitopos/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Predição de Epítopos - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Predi\u00e7\u00e3o de Ep\u00edtopos";
+        var mkdocs_page_input_path = "STR22-Epitopos.md";
+        var mkdocs_page_url = "/tutoriais/STR22-Epitopos/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Predição de Epítopos</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#epitopos-de-celulas-t">Epítopos de células T</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mhci">MHCI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mhcii">MHCII</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#epitopos-de-celulas-b">Epítopos de células B</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vamos-a-um-primeiro-teste">Vamos a um primeiro teste?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#procurando-pela-doenca">Procurando pela doença</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#predicao-de-alergenicidade">Predição de Alergenicidade</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#perguntas">Perguntas</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Predição de Epítopos</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="predicao-de-epitopos-para-celulas-do-tipo-b-e-t">Predição de Epitopos para células do tipo B e T</h1>
+<p>A partir da identificação de proteínas de superfície de patógenos e utilizando buscas de similaridades pode-se inferir epitopos de células B e T para qualquer sequência. Para isso, a <em>knowledge database</em> (Banco de conhecimentos) do <em>Immune Epitope Database and Analysis Resource</em> (<a href="http://www.iedb.org">IEDB</a>) é uma ferramenta essencial para estudos de antigenicidade e imunogenicidade.</p>
+<p><img alt="Página Inicial do IEDB" src="../str22-fig1.png" /></p>
+<p>Neste exemplo, utilizaremos uma sequência de tropomiosina camarão <em>Litopenaeus vannamei</em>:</p>
+<pre><code>&gt;Lit v 1 tropomyosin [Litopenaeus vannamei]
+MDAIKKKMQAMKLEKDNAMDRADTLEQQNKEANNRAEKSEEEVHNLQKRMQQLENDLDQVQESLLKANIQ
+LVEKDKALSNAEGEVAALNRRIQLLEEDLERSEERLNTATTKLAEASQAADESERMRKVLENRSLSDEER
+MDALENQLKEARFLAEEADRKYDEVARKLAMVEADLERAEERAETGESKIVELEEELRVVGNNLKSLEVS
+EEKANQREEAYKEQIKTLTNKLKAAEARAEFAERSVQKLQKEVDRLEDELVNEKEKYKSITDELDQTFSE
+LSGY
+</code></pre>
+<h2 id="epitopos-de-celulas-t">Epítopos de células T</h2>
+<p>Vamos primeiro verificar quais regiões desta proteína podem ser possíveis epitopos de células T (No quadro mais a esquerda <strong><em>Epitope Analysis Resource</em></strong>).</p>
+<h3 id="mhci">MHCI</h3>
+<ul>
+<li>Clique em <strong><em>MHC I Binding</em></strong>.</li>
+<li>Na página seguinte, copie e cole a sequência acima.</li>
+<li>Deixe a opção recomendada para o método de predição (<em>Prediction Method</em>).</li>
+<li>Para fins de simplificação, analisaremos apenas o alelo humano <strong>HLA-A-01:01</strong>. Na caixa ao lado, colocar <em>All lengths</em> (Para todos os tamanhos de epitopos).</li>
+<li>Observe a tabela resultante, que deverá ser similar a abaixo:</li>
+</ul>
+<p><img alt="MHC-I" src="str22-fig2.png6" /></p>
+<p>Na tabela acima, ele demonstra o Alelo, a posição na sequência, o tamanho e a sequência do peptídeo, e na última coluna o <em>Percentile Rank</em>. Segundo o método, quanto menor for este percentil, melhor será a ligação com o MHCI. Selecione a caixa <code>Check to expand the result</code>. A tabela será expandida com os seguintes resultados:</p>
+<p><img alt="MHC-II" src="../str22-fig3.png" /></p>
+<p>Um outro resultado importante é relatado: IC<sub>50</sub> (nM). É concentração em nanomolar necessária para ligar a metade das moléculas. </p>
+<p><em>Portanto, um número menor indica maior afinidade. Como diretriz aproximada, peptídeos com valores de IC<sub>50</sub>&lt;50 nM são considerados alta afinidade, IC<sub>50</sub>&lt;500 nM de afinidade intermediária e IC<sub>50</sub>&lt;5000 nM de baixa afinidade. Os epítopos mais conhecidos têm afinidade alta ou intermediária. Alguns epítopos têm baixa afinidade, mas nenhum epítopo de célula T conhecido tem um valor de IC<sub>50</sub> maior que 5000</em> (Retirado e traduzido do <a href="http://tools.iedb.org/mhci/help/">MHC-I help</a> do IEDB).</p>
+<h3 id="mhcii">MHCII</h3>
+<ul>
+<li>Clique em <strong><em>MHC II Binding</em></strong>.</li>
+<li>Na página seguinte, copie e cole a sequência acima.</li>
+<li>
+<ul>
+<li>Para fins de simplificação, analisaremos apenas o alelo humano <strong>DRB1*01:01</strong>.</li>
+</ul>
+</li>
+<li>Observe a tabela resultante (figura abaixo), que será de similar interpretação a tabela obtida para o MHC-I.</li>
+</ul>
+<p><img alt="MHC-II" src="../str22-fig4.png" /></p>
+<blockquote>
+<p><em>A escolha do(s) alelo(s) é de extrema importância neste tipo de análise. Neste tutorial apenas um alelo foi utilizado para fins de simplificação, mas quando se trabalha com </em><em>imunoinformática</em><em>, recomenda-se uma pesquisa bem aprofundada sobre o conjunto de alelos que será utilizado.</em></p>
+</blockquote>
+<h2 id="epitopos-de-celulas-b">Epítopos de células B</h2>
+<p>Agora vamos verificar quais regiões desta proteína podem ser possíveis epitopos de células B. </p>
+<p>Volte a página inicial do IEDB. Procure o quadro mais a esquerda, as opções: <strong><em>Epitope Analysis Resource</em></strong>, clicar em <em>Antigen Sequence Properties</em>, abaixo de <strong><em>B Cell Epitope Prediction</em></strong>).</p>
+<p><img alt="IEDB - Células B" src="../str22-fig5.png" /></p>
+<p>Na página seguinte, siga os passos:</p>
+<ul>
+<li>Cole a sequência no campo maior. Retire o cabeçalho fasta (como na figura baixo).</li>
+<li>Deixe a opção marcada por padrão (<strong><em>Bepipred Linear Epitope Prediction</em></strong>).</li>
+<li>Clique em <strong><em>Submit</em></strong>.</li>
+<li>Observe os resultados.</li>
+</ul>
+<p><img alt="IEDB - Células B" src="../str22-fig6.png" /></p>
+<p>No gráfico apresentado como resultados, as regiões em amarelo representam regiões da sequência submetida com alta possibilidade de serem epitopos de células B. Verifique as sequências destas regiões.</p>
+<p><img alt="IEDB-Results" src="../str22-fig7.png" /></p>
+<h2 id="vamos-a-um-primeiro-teste">Vamos a um primeiro teste?</h2>
+<p>Verifique se regiões da proteína abaixo, de Zika vírus, podem ser utilizadas para uma possível vacina. Para isso, realize a busca por epitopos de células B e T da forma como apresentado acima.</p>
+<pre><code>&gt;Proteina Zika
+GKAFEATVRGAKRMAVLGDTAWDFGSVGGALNSLGKGIHQIFGAAFKSLFGGMSWFSQILIGTLLMWLGLNTKNGSISLMCLALGGVLIFLSTAVSA
+</code></pre>
+<h2 id="procurando-pela-doenca">Procurando pela doença</h2>
+<p>Na página inicial do IEDB você também pode procurar por epítopos já conhecidos (por predição, validados experimentalmente ou utilizados em kits disponíveis) a partir do nome da doença (Ex. Covid-19), como mostrado na figura abaixo:</p>
+<p><img alt="Buscando a partir da doença - IEDB" src="../str22-fig8.png" /></p>
+<p>Clique em <code>Search</code> e analise os resultados.</p>
+<p>Todos os epítopos e antígenos já catalogados para as proteínas do agente causador estarão listadas na tabela resultante. Nela você também tem acesso a várias informações associadas a cada sequência de epítopo. Essa ferramenta é muito útil para você verificar se determinado epítopo não foi identificado antes.</p>
+<h2 id="predicao-de-alergenicidade">Predição de Alergenicidade</h2>
+<p>Proteínas alergênicas são aquelas que tem potencial de provocar alergias em seres humanos. A verificação da alergenicidade é um dos primeiros passos para se avaliar o potencial biotecnológico de uma determinada proteína. Por exemplo, regiões desta proteína podem ser utilizadas como vacinas, mas se provocarem alergias, o potencial de aplicação diminui consideravelmente. A predição de alergenicidade é também estritamente necessária no caso da implantação comercial de produtos transgênicos, sejam para fins alimentícios ou cosméticos.</p>
+<p>Para predição do potencial alergênico de uma determinada proteína, também utilizaremos a sequência acima de tropomiosina camarão. Existem vários bancos de dados que podem ser utilizados para encontrar similaridades com proteínas já comprovadamente alergênicas, como:</p>
+<ul>
+<li><a href="http://www.allergenonline.org">AllergenOnline</a></li>
+<li><a href="https://fermi.utmb.edu">SDAP - Structural Database of Allergenic Proteins</a></li>
+<li><a href="http://www.allermatch.org">AllerMatch</a></li>
+</ul>
+<blockquote>
+<p><em>Sempre verifique se os bancos que você está utilizando estão sendo atualizados. Isto é fundamental importância, pois uma nova proteína alergênica pode ter sido identificada mais recentemente. Por exemplo, o AllerMatch não recebe atualizações há um tempo.</em> </p>
+</blockquote>
+<p>Utilizaremos o banco <a href="http://www.allergenonline.org">AllergenOnline</a>, mantido pela Universidade de Nebraska. Nele você pode procurar pelo nome, código e também pela sequência. Vamos fazer a consulta pela sequência:</p>
+<p><img alt="Página Inicial do AllergenOnline" src="str22-fig9.pngJ" /></p>
+<ul>
+<li>Abra a página do <a href="http://www.allergenonline.org">AllergenOnline</a>.</li>
+<li>Na lateral esquerda, clique na opção <strong><em>Sequence Search Allergen Database</em></strong>.</li>
+<li>Cole a sequência na caixa <strong><em>Sequence Entry</em></strong>.</li>
+<li>No método de procura, existem 3 opções:</li>
+<li><em>Full fasta</em>: para verificar similaridade inteira da proteína <em>query</em>. Usamos este caso para verificar similaridade geral.</li>
+<li><em>Sliding 80mer Window</em>: faz a procura em "janelas" a cada 80 aminoácidos, com sobreposição. Neste caso é para verificar se a proteína <em>query</em> possui regiões internas similares com proteínas alergênicas conhecidas.</li>
+<li><em>8mer Exact Match</em>: faz procurar de regiões de 8 aminoácidos exata. Usamos para saber se a proteína tem regiões menores exatas que possam ser alergênicas.</li>
+<li>Clique em <em>Sliding 80mer Window</em>, e depois em <strong><em>Submit</em></strong> para iniciar a procura.</li>
+<li>Verifique os resultados.</li>
+</ul>
+<p>Vamos repetir a análise com o SDAP:</p>
+<ul>
+<li>Abra a página do <a href="https://fermi.utmb.edu">SDAP</a>.</li>
+<li>Na lateral esquerda, clique em <strong><em>FASTA Search in SDAP</em></strong>.</li>
+<li>Na nova página, cole a sequência da tropomiosina de camarão e clique em <strong><em>Search</em></strong></li>
+<li>Verifique os resultados.</li>
+</ul>
+<p>O <a href="http://www.iedb.org">IEDB</a> tem também uma ferramenta para verificar conservação de antígenos, o que é bem válido para verificar potencial de alergenicidade também.</p>
+<ul>
+<li>Abra a página do <a href="http://www.iedb.org">IEDB</a>.</li>
+<li>Na caixa <strong><em>Epitope Analysis Tools</em></strong>, clique na opção <strong><em>Conservation Across Antigens</em></strong></li>
+<li>Na nova página, coloque no primeiro quadro (<strong><em>Step 1. Epitope Sequence(s)</em></strong>) umas das sequências obtidas na busca por epitopos de células B (no item anterior), por exemplo a sequência curta abaixo (uma das que é encontrada na busca):</li>
+</ul>
+<pre><code>QQLENDLDQV
+</code></pre>
+<ul>
+<li>Na segunda caixa (<strong><em>Step 2. Protein Sequence(s)</em></strong>), cole a sequência abaixo:</li>
+</ul>
+<pre><code>&gt;AIO08865.1 Der f 10 allergen, partial [Dermatophagoides farinae]
+MEAIKKKMQAMKLEKDNAIDRAEIAEQKARDANLRAEKSEEEVRALQKKIQQIENELDQVQEQLSAANTK
+LEEKEKALQTAEGDVAALNRRIQLIEEDLERSEERLKIATAKLEEASQSADESERMRKMLEHRSITDEER
+MDGLENQLKEARMMAEDADRKYDEVARKLAMVEADLERAEERAETGESKIVELEEELRVVGNNLKSLEVS
+EEKAQQREEAYEQQIRIMTAKLKEAEARAEFAERSVQKLQKEVDRLEDELVHEKEKYKSISDELDQTFAE
+LTG
+</code></pre>
+<ul>
+<li>Em <strong><em>Sequence identity threshold:</em></strong>, marque a opção de 60%, para procurarmos sequência com no mínimo 60% de similaridade.</li>
+<li>Deixe o resto das opções na forma padrão e clique em <strong><em>Submit</em></strong>.</li>
+<li>Na tabela resultante, veja o resultado e clique em <strong><em>Go</em></strong>.</li>
+</ul>
+<p>A sequência de <em>Dermatophagoides farinae</em> (ácaro comum) apresenta um epítopo conservado em relação a do camarão. Portanto, é provável que ela também é alergênica.</p>
+<h2 id="perguntas">Perguntas</h2>
+<p>Verifique se a sequência abaixo é alergênica:</p>
+<pre><code>&gt;Der f 1
+RPASIKTFEEFKKAFNKNYATVEEEEVARKNFLESLKYVEANKGAINHLSDLSLDEFKNR
+YLMSAEAFEQLKTQFDLNAETSACRINSVNVPSELDLRSLRTVTPIRMQGGCGSCWAFSG
+VAATESAYLAYRNTSLDLSEQELVDCASQHGCHGDTIPRGIEYIQQNGVVEERSYPYVAR
+EQQCRRPNSQHYGISNYCQIYPPDVKQIREALTQTHTAIAVIIGIKDLRAFQHYDGRTII
+QRDNGYQPNYHAVNIVGYGSTQGVDYWIVRNSWDTT
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR2-pred/" class="btn btn-neutral float-left" title="Informações a partir da estrutura primária"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR3-Model1/" class="btn btn-neutral float-right" title="Modelagem 101">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR2-pred/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR3-Model1/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

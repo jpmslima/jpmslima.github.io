@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/First%20Tutorial/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>First Tutorial - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "First Tutorial";
+        var mkdocs_page_input_path = "First Tutorial.md";
+        var mkdocs_page_url = "/tutoriais/First%20Tutorial/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">First Tutorial</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a href="http://www.postgradoquimica.cl/informacion-diplomado-en-bioinformatica-y-biologia-computacional/"><img alt="UChile" src="https://drive.google.com/uc?id=1xeSo8MOvqmgO4q_6lyidauaKOjdTPu3t" /></a></p>
+<h1 id="first-tutorial">First Tutorial</h1>
+<h2 id="1st-part-knowing-your-sequences">1st Part - Knowing your sequences</h2>
+<p>To execute a phylogenetic analysis, the first thing you're going to have to do is to find a suitable marker (nucleotide or protein sequence). Then, you will construct the dataset (i.e., a Multiple Sequence Alignment - MSA) to use in the subsequent phylogeny pipeline.</p>
+<p>In this example, you're going to start from sequences below, using the .fasta file.</p>
+<p>The first thing to do is to identify this sequence using BLAST searches. For this, you can use BLASTn or BLASTx.</p>
+<pre><code>&gt;HomoSapiens
+AUGACCCCAAUACGCAAAAUUAACCCCCUAAUAAAAUUAAUUAACCACUCAUUCAUCGAC
+CUCCCCACCCCAUCCAACAUCUCCGCAUGAUGAAACUUCGGCUCACUCCUUGGCGCCUGC
+CUGAUCCUCCAAAUCACCACAGGACUAUUCCUAGCCAUACACUACUCACCAGACGCCUCA
+ACCGCCUUUUCAUCAAUCGCCCACAUCACUCGAGACGUAAAUUAUGGCUGAAUCAUCCGC
+UACCUUCACGCCAAUGGCGCCUCAAUAUUCUUUAUCUGCCUCUUCCUACACAUCGGGCGA
+GGCCUAUAUUACGGAUCAUUUCUCUACUCAGAAACCUGAAACAUCGGCAUUAUCCUCCUG
+CUUGCAACUAUAGCAACAGCCUUCAUAGGCUAUGUCCUCCCGUGAGGCCAAAUAUCAUUC
+UGAGGGGCCACAGUAAUUACAAACUUACUAUCCGCCAUCCCAUACAUUGGGACAGACCUA
+GUUCAAUGAAUCUGAGGAGGCUACUCAGUAGACAGUCCCACCCUCACACGAUUCUUUACC
+UUUCACUUCAUCUUACCCUUCAUUAUUGCAGCCCUAGCAGCACUCCACCUCCUAUUCUUG
+CACGAAACGGGAUCAAACAACCCCCUAGGAAUCACCUCCCAUUCCGAUAAAAUCACCUUC
+CACCCUUACUACACAAUCAAAGACGCCCUCGGCUUACUUCUCUUCCUUCUCUCCUUAAUG
+ACAUUAACACUAUUCUCACCAGACCUCCUAGGCGACCCAGACAAUUAUACCCUAGCCAAC
+CCCUUAAACACCCCUCCCCACAUCAAGCCCGAAUGAUAUUUCCUAUUCGCCUACACAAUU
+CUCCGAUCCGUCCCUAACAAACUAGGAGGCGUCCUUGCCCUAUUACUAUCCAUCCUCAUC
+CUAGCAAUAAUCCCCAUCCUCCAUAUAUCCAAACAACAAAGCAUAAUAUUUCGCCCACUA
+AGCCAAUCACUUUAUUGACUCCUAGCCGCAGACCUCCUCAUUCUAACCUGAAUCGGAGGA
+CAACCAGUAAGCUACCCUUUUACCAUCAUUGGACAAGUAGCAUCCGUACUAUACUUCACA
+ACAAUCCUAAUCCUAAUACCAACUAUCUCCCUAAUUGAAAACAAAAUACUCAAA
+</code></pre>
+<p>Often the target sequence is obtained by DNA sequencing (in genome or transcriptome designs), as these methods are usually more accessible than methods of obtaining amino acid sequences. To search for similarity from the nucleotide coding sequence, you have two options:</p>
+<ul>
+<li>Translate the nucleotide sequence into the 3 frames (open reading frames - ORFs) and to use the resulting sequences as input in BLASTp similarity searches. This translation can be done using tools from <a href="https://web.expasy.org/cgi-bin/translate/dna2aa.cgi">EXPASY</a> or <a href="https://www.ebi.ac.uk/Tools/st/">EBI</a>.</li>
+<li>Use <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&amp;PAGE_TYPE=BlastSearch&amp;BLAST_SPEC=&amp;LINK_LOC=blasttab&amp;LAST_PAGE=blastn&amp;QUERY=AB823629.1">BLASTx</a>. This variation of BLAST translates the input nucleotide sequence (Query) and compares it to protein banks.</li>
+</ul>
+<p>To be more straightforward, you could use <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&amp;PAGE_TYPE=BlastSearch&amp;BLAST_SPEC=&amp;LINK_LOC=blasttab&amp;LAST_PAGE=blastn&amp;QUERY=AB29">BLASTx</a>.</p>
+<p><strong>Steps:</strong></p>
+<ul>
+<li>Open the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI-BLAST</a> site.</li>
+</ul>
+<p><img alt="BLAST" src="https://drive.google.com/uc?id=1CZ0GD_Ad0QpCj34uw0F6Vv_RZdh2eEa4" /></p>
+<ul>
+<li>Click in blastx. The following page will open. Paste your sequence in the indicated field and choose the nr database. Then you can click <code>BLAST</code> button.</li>
+</ul>
+<p><img alt="BLASTx" src="https://drive.google.com/uc?id=1au3i82_mPv438f9MPmhx80AmgYONDwSg" /></p>
+<ul>
+<li>After a few moments, the BLAST search result will appear, as below:</li>
+</ul>
+<p><img alt="BLASTx" src="https://drive.google.com/uc?id=1z_pYNKMou0TSJxU91ODerO1qKsnl3xul" /></p>
+<ul>
+<li>Click in Alignments and analyze the results.</li>
+</ul>
+<p><img alt="BLASTx" src="https://drive.google.com/uc?id=1fewCtlD82mHeDIoYGY4FZZRXPgJCcXn8" /></p>
+<blockquote>
+<p>You can also translate the sequence using the frame +1 and perform a BLASTp search with the resulting amino acid sequence.</p>
+</blockquote>
+<h3 id="questions">Questions</h3>
+<p>1- Which do protein this sequence codes?
+2- What is the function of this protein?</p>
+<h2 id="2nd-part-sequence-alignment">2nd Part - Sequence Alignment</h2>
+<p>Let us suppose that you want to infer phylogeny, using the above sequence. And using BLAST searches, you retrieved homologous sequences from other vertebrate species. All you have to do is to find homologous sequences using BLAST searches. However, sometimes it is better to restrict the search database, excluding the species <em>Homo sapiens</em>, using the option <code>Organism</code> from the initial BLAST page.</p>
+<blockquote>
+<p><em>We're going to give you these sequences, to save you time from getting them.</em></p>
+</blockquote>
+<p>So, for example, you've got the following sequences:</p>
+<pre><code>&gt;Masturus_lanceolatus
+AUGGCAAGCCUGCGUAAAACCCACCCACUAUUAAAAAUUGCAAACGACGCACUAGUCGAC
+CUCCCCACCCCUUCAAACAUCUCCGCCUGAUGGAAUUUUGGCUCCCUACUUGGACUCUGC
+CUAAUUAUCCAAAUUCUUACUGGACUAUUCCUCGCAAUACAUUACACCUCCGAUAUCGCU
+ACUGCAUUCUCAUCCGUGGCACAUAUUUGCCGAGAUGUAAACUACGGCUGACUCAUCCGC
+AACCUGCAUGCUAACGGAGCAUCUUUCUUCUUUAUUUGUAUUUAUAUGCACAUCGCCCGA
+GGCCUAUACUAUGGCUCCUACCUCUAUAAAGAAACCUGAAACGUCGGAGUAGUCCUAUUA
+CUCUUGGUCAUGGCGACCGCUUUCGUAGGCUACGUACUUCCCUGAGGACAAAUAUCUUUC
+UGGGGCGCUACUGUUAUUACUAACCUCUUCUCCGCCGUCCCCUAUGUGGGCGAUGCCCUC
+GUACAAUGGAUCUGAGGAGGAUUCUCAGUUGACAACGCCACAUUAACACGAUUCUUUGCC
+UUCCAUUUCCUCCUCCCCUUCAUCGUUACAGCAGUCACCCUAAUCCAUUUACUAUUCCUC
+CACGAAACAGGCUCAAAUAACCCCCUGGGGCUAAGUUCAAACACGGACAAAAUCUCUUUC
+CACCCUUACUUCUCCUACAAAGAUCUCUUAGGCUUCACAAUCAUGCUUAUUGCCCUCACA
+UCCCUAGCACUCUUCUCCCCCAACCUCCUGGGAGACCCUGACAACUUCACCCCCGCCAAC
+CCCCUUGUCACCCCACCCCACAUCAAGCCCGAGUGAUACUUCCUGUUCGCUUACGCCAUU
+CUUCGCUCCAUCCCAAAUAAAUUAGGAGGAGUCCUUGCCUUGCUGGCCUCCAUCCUAGUC
+CUAAUAGUCGUACCGCUUCUCCACACAUCCAAACAGCGAGGCCUCACGUUCCGCCCCCUU
+ACCCAAUUCCUAUUUUGAACCUUAAUUGCCAACAUUAUUAUUCUAACAUGAAUUGGAGGA
+AUACCCGUAGAACACCCAUUCGUGAUCAUCGGCCAAAUCGCCUCCGUCCUUUACUUCUCC
+CUAUUCCUAGUCUUCAUCCCCCUCACAGGCUGACUAGAAAACAAAGCCCUUGAAUGGUCC
+&gt;Homo_sapiens
+AUGACCCCAAUACGCAAAAUUAACCCCCUAAUAAAAUUAAUUAACCACUCAUUCAUCGAC
+CUCCCCACCCCAUCCAACAUCUCCGCAUGAUGAAACUUCGGCUCACUCCUUGGCGCCUGC
+CUGAUCCUCCAAAUCACCACAGGACUAUUCCUAGCCAUACACUACUCACCAGACGCCUCA
+ACCGCCUUUUCAUCAAUCGCCCACAUCACUCGAGACGUAAAUUAUGGCUGAAUCAUCCGC
+UACCUUCACGCCAAUGGCGCCUCAAUAUUCUUUAUCUGCCUCUUCCUACACAUCGGGCGA
+GGCCUAUAUUACGGAUCAUUUCUCUACUCAGAAACCUGAAACAUCGGCAUUAUCCUCCUG
+CUUGCAACUAUAGCAACAGCCUUCAUAGGCUAUGUCCUCCCGUGAGGCCAAAUAUCAUUC
+UGAGGGGCCACAGUAAUUACAAACUUACUAUCCGCCAUCCCAUACAUUGGGACAGACCUA
+GUUCAAUGAAUCUGAGGAGGCUACUCAGUAGACAGUCCCACCCUCACACGAUUCUUUACC
+UUUCACUUCAUCUUACCCUUCAUUAUUGCAGCCCUAGCAGCACUCCACCUCCUAUUCUUG
+CACGAAACGGGAUCAAACAACCCCCUAGGAAUCACCUCCCAUUCCGAUAAAAUCACCUUC
+CACCCUUACUACACAAUCAAAGACGCCCUCGGCUUACUUCUCUUCCUUCUCUCCUUAAUG
+ACAUUAACACUAUUCUCACCAGACCUCCUAGGCGACCCAGACAAUUAUACCCUAGCCAAC
+CCCUUAAACACCCCUCCCCACAUCAAGCCCGAAUGAUAUUUCCUAUUCGCCUACACAAUU
+CUCCGAUCCGUCCCUAACAAACUAGGAGGCGUCCUUGCCCUAUUACUAUCCAUCCUCAUC
+CUAGCAAUAAUCCCCAUCCUCCAUAUAUCCAAACAACAAAGCAUAAUAUUUCGCCCACUA
+AGCCAAUCACUUUAUUGACUCCUAGCCGCAGACCUCCUCAUUCUAACCUGAAUCGGAGGA
+CAACCAGUAAGCUACCCUUUUACCAUCAUUGGACAAGUAGCAUCCGUACUAUACUUCACA
+ACAAUCCUAAUCCUAAUACCAACUAUCUCCCUAAUUGAAAACAAAAUACUCAAA
+&gt;Bos_taurus
+AUGACUAACAUUCGAAAGUCCCACCCACUAAUAAAAAUUGUAAACAAUGCAUUCAUCGAC
+CUUCCAGCCCCAUCAAACAUUUCAUCAUGAUGAAAUUUCGGUUCCCUCCUGGGAAUCUGC
+CUAAUCCUACAAAUCCUCACAGGCCUAUUCCUAGCAAUACACUACACAUCCGACACAACA
+ACAGCAUUCUCCUCUGUUACCCAUAUCUGCCGAGACGUGAACUACGGCUGAAUCAUCCGA
+UACAUACACGCAAACGGAGCUUCAAUGUUUUUUAUCUGCUUAUAUAUGCACGUAGGACGA
+GGCUUAUAUUACGGGUCUUACACUUUUCUAGAAACAUGAAAUAUUGGAGUAAUCCUUCUG
+CUCACAGUAAUAGCCACAGCAUUUAUAGGAUACGUCCUACCAUGAGGACAAAUAUCAUUC
+UGAGGAGCAACAGUCAUCACCAACCUCUUAUCAGCAAUCCCAUACAUCGGCACAAAUUUA
+GUCGAAUGAAUCUGAGGCGGAUUCUCAGUAGACAAAGCAACCCUUACCCGAUUCUUCGCU
+UUCCAUUUUAUCCUUCCAUUUAUCAUCAUAGCAAUUGCCAUAGUCCACCUACUAUUCCUC
+CACGAAACAGGCUCCAACAACCCAACAGGAAUUUCCUCAGACGUAGACAAAAUCCCAUUC
+CACCCCUACUAUACCAUUAAGGACAUCUUAGGGGCCCUCUUACUAAUUCUAGCUCUAAUA
+CUACUAGUACUAUUCGCACCCGACCUCCUCGGAGACCCAGAUAACUACACCCCAGCCAAU
+CCACUCAACACACCCCCUCACAUCAAACCCGAGUGAUACUUCUUAUUUGCAUACGCAAUC
+UUACGAUCAAUCCCCAACAAACUAGGAGGAGUACUAGCCCUAGCCUUCUCUAUCCUAAUU
+CUUGCUCUAAUCCCCCUACUACACACCUCCAAACAACGAAGCAUAAUAUUCCGACCACUC
+AGCCAAUGCCUAUUCUGAGCCCUAGUAGCAGACCUACUGACACUCACAUGAAUUGGAGGA
+CAACCAGUCGAACACCCAUAUAUCACCAUCGGACAACUAGCAUCUGUCCUAUACUUUCUC
+CUCAUCCUAGUGCUAAUACCAACGGCCGGCACAAUCGAAAACAAAUUACUAAAAUGA
+&gt;Balaenoptera_musculus
+AUGACCAACAUCCGAAAAACACACCCACUAAUAAAAAUCAUCAACGAUGCAUUCAUUGAU
+CUCCCUACCCCAUCAAACAUCUCCUCAUGAUGAAACUUCGGCUCCCUACUCGGCCUCUGC
+UUAAUUGUACAAAUCCUAACAGGCCUAUUCCUAGCAAUACACUAUACACCAGACACAAUA
+ACCGCCUUCUCAUCAGUCACACAUAUUUGCCGAGACGUAAACUAUGGCUGAGUUAUUCGG
+UACUUACAUGCAAACGGAGCCUCCAUAUUCUUCAUCUGCCUCUACGCCCACAUGGGACGA
+GGUCUAUACUACGGCUCCCACGCUUUUCGAGAAACAUGAAAUAUUGGAGUUAUUCUACUA
+UUCACGGUCAUAGCCACUGCAUUCGUAGGCUACGUCCUGCCCUGAGGACAAAUAUCAUUC
+UGAGGCGCAACCGUCAUCACCAACCUCCUAUCAGCAAUCCCAUACAUUGGUACUACCCUA
+GUCGAAUGAAUCUGAGGCGGUUUUUCUGUGGAUAAAGCAACACUAACACGCUUCUUUGCC
+UUCCACUUCAUUCUCCCCUUCAUCAUUAUAGCAUUAGCAAUCGUCCACCUCAUCUUCCUU
+CACGAAACAGGAUCCAACAACCCCACAGGUAUCCCAUCUGACAUAGAUAAAAUUCCAUUC
+CACCCCUACUACACAAUUAAAGACAUUCUAGGCGCCCUACUACUAAUCCUAACCCUACUA
+AUAUUAACUCUAUUUGCACCCGACUUACUCGGAGACCCAGACAACUACACCCCAGCAAAC
+CCACUCAGUACCCCAGCACACAUUAAACCAGAGUGAUAUUUCCUAUUUGCAUAUGCAAUC
+CUACGAUCAAUCCCCAACAAAUUAGGCGGAGUCUUAGCCCUACUACUCUCAAUCCUAGUC
+CUAGCUCUAAUCCCAAUACUCCACACAUCCAAACAACGAAGCAUAAUAUUCCGACCCUUU
+AGCCAAUUCCUGUUUUGAGUACUGGUCGCAGACCUACUCACCCUAACGUGGAUCGGCGGC
+CAACCCGUAGAACACCCCUAUGUAAUUGUAGGCCAACUCGCAUCCAUCCUCUACUUCCUC
+UUAAUUCUAGUGUUAAUACCAGUAACUAGUCUUAUCGAAAAUAAACUUAUAAAAUGA
+&gt;Pongo_pygmaeus
+AUGACCCCAAUACGCAAAACCAACCCACUAAUAAAAUUAAUUAACCACUCACUCAUCGAC
+CUCCCCACCCCAUCAAACAUCUCUGCAUGAUGGAACUUCGGCUCACUUCUAGGCGCCUGC
+UUAAUCAUCCAAACCAUCACUGGACUAUUCCUAGCCAUACAUUACUCACCAGACGCCACU
+ACCGCCUUUUCAUCAAUCGCCCAUAUUACUCGAGAUGUAAACUACGGCUGAAUAAUCCGC
+CACCUUCACGCUAACGGCGCCUCAAUGCUCUUUAUCUGCCUCUUCCUACACAUUGGCCGA
+GGCUUAUACUAUGGCUCAUUCACCCACUUAGAAACCUGAAACAUUGGUAUUAUCCUACUG
+UUUAUAACCAUAAUAACAGCCUUCAUAGGCUACGUCCUCCCAUGAGGCCAAAUAUCCUUC
+UGAGGAGCCACAGUAAUUACAAACCUAUUAUCCGCCGUCCCAUACAUUGGAACAGACCUA
+GUCCAAUGGGUCUGAGGGGGCUACUCAGUAAAUAGCCCCACUCUAACACGAUUCUUUACC
+CUUCACUUCAUACUACCUUUCAUCAUUACAGCUCUAACAACCCUUCACCUCCUAUUCCUU
+CACGAAACAGGAUCAAAUAACCCCCUGGGAAUCCCCUCCCACUCCGAUAAAAUCACUUUC
+CACCCCUACUAUACAAUUAAAGACAUCCUAGGCCUACUCCUUUUUCUCCUCGCCCUAAUA
+ACAUUAACACUACUCUCACCAGACCUCCUAAGCGACCCAGACAACUACACCUUAGCUAAC
+CCCCUAAGCACCCCACCCCACAUUAAGCCCGAAUGAUACUUCCUAUUCGCCUACGCAAUC
+CUACGAUCCGUCCCCAACAAACUAGGAGGUGUAAUAGCCCUCAUGCUAUCUAUCCUAAUC
+CUAACAACAAUCCCCGCUCUCCACACAUCCAAGCAACAGAGCAUAACAUUCCGCCCAUUA
+AGCCAAUUCCUAUACUGACUCUUAAUCACCGACCUCCUAGUUCUCACCUGAAUUGGAGGA
+CAACCAGUAAGCUACCCCUUUAUUACUAUUGGCCAAGUAGCAUCCGUACUAUACUUUACC
+ACUAUCCUACUCCUUAUACCAACCUCUUCCCUGAUCGAAAACUACAUACUCAAAUGAACC
+&gt;Pan_troglodytes
+AUGACCCCGACACGCAAAAUUAACCCACUAAUAAAAUUAAUUAAUCACUCAUUUAUCGAC
+CUCCCCACCCCAUCCAACAUUUCCGCAUGAUGGAACUUCGGCUCACUUCUCGGCGCCUGC
+CUAAUCCUUCAAAUUACCACAGGAUUAUUCCUAGCUAUACACUACUCACCAGACGCCUCA
+ACCGCCUUCUCGUCGAUCGCCCACAUCACCCGAGACGUAAACUAUGGUUGGAUCAUCCGC
+UACCUCCACGCUAACGGCGCCUCAAUAUUUUUUAUCUGCCUCUUCCUACACAUCGGCCGA
+GGUCUAUAUUACGGCUCAUUUCUCUACCUAGAAACCUGAAACAUUGGCAUUAUCCUCUUG
+CUCACAACCAUAGCAACAGCCUUUAUGGGCUAUGUCCUCCCAUGAGGCCAAAUAUCCUUC
+UGAGGAGCCACAGUAAUUACAAACCUACUGUCCGCUAUCCCAUACAUCGGAACAGACCUG
+GUCCAGUGAGUCUGAGGAGGCUACUCAGUAGACAGCCCUACCCUUACACGAUUCUUCACC
+UUCCACUUUAUCUUACCCUUCAUCAUCACAGCCCUAACAACACUUCAUCUCCUAUUCUUA
+CACGAAACAGGAUCAAAUAACCCCCUAGGAAUCACCUCCCACUCCGACAAAAUUACCUUC
+CACCCCUACUACACAAUCAAAGAUAUCCUUGGCUUAUUCCUUUUCCUCCUUAUCCUAAUG
+ACAUUAACACUAUUCUCACCAGGCCUCCUAGGCGAUCCAGACAACUAUACCCUAGCUAAC
+CCCCUAAACACCCCACCCCACAUUAAACCCGAGUGAUACUUUCUAUUUGCCUACACAAUC
+CUCCGAUCCAUCCCCAACAAACUAGGAGGCGUCCUCGCCCUACUACUAUCUAUCCUAAUC
+CUAACAGCAAUCCCUGUCCUCCACACAUCCAAACAACAAAGCAUAAUAUUUCGCCCACUA
+AGCCAACUGCUUUACUGACUCCUAGCCACAGACCUCCUCAUCCUAACCUGAAUCGGAGGA
+CAACCAGUAAGCUACCCCUUCAUCACCAUCGGACAAAUAGCAUCCGUAUUAUACUUCACA
+ACAAUCCUAAUCCUAAUACCAAUCGCCUCUCUAAUCGAAAACAAAAUACUUGAAUGAACC
+&gt;Gallus_gallus
+AUGGCACCCAACAUUCGAAAAUCCCACCCCCUACUAAAAAUAAUUAACAACUCCCUAAUC
+GACCUCCCAGCCCCAUCCAACAUCUCUGCUUGAUGAAAUUUCGGCUCCCUAUUAGCAGUC
+UGCCUCAUGACCCAAAUCCUCACCGGCCUACUACUAGCCAUGCACUACACAGCAGACACA
+UCCCUAGCCUUCUCCUCCGUAGCCCACACUUGCCGGAACGUACAAUACGGCUGACUCAUC
+CGGAAUCUCCACGCAAACGGCGCCUCAUUCUUCUUCAUCUGUAUCUUCCUUCACAUCGGA
+CGAGGCCUAUACUACGGCUCCUACCUCUACAAGGAAACCUGAAACACAGGAGUAAUCCUC
+CUCCUCACACUCAUAGCCACCGCCUUUGUGGGCUAUGUUCUCCCAUGGGGCCAAAUAUCA
+UUCUGAGGGGCCACCGUUAUCACAAACCUAUUCUCAGCAAUUCCCUACAUUGGACACACC
+CUAGUAGAGUGAGCCUGAGGGGGAUUCUCAGUCGACAACCCAACCCUUACCCGAUUCUUC
+GCCUUACACUUCCUCCUCCCCUUUGCAAUCGCAGGUAUUACUAUCAUCCACCUCACCUUC
+CUACACGAAUCAGGCUCAAACAACCCCCUAGGCAUCUCAUCCGACUCUGACAAAAUUCCA
+UUUCACCCAUACUACUCCUUCAAAGACAUUCUGGGCUUAACUCUCAUACUCACCCCAUUC
+CUAACACUAGCCCUAUUCUCCCCCAACCUCCUAGGAGACCCAGAAAACUUCACCCCAGCA
+AACCCACUAGUAACCCCCCCACAUAUCAAACCAGAAUGAUAUUUUCUAUUCGCCUAUGCC
+AUCCUACGCUCCAUCCCCAACAAACUUGGAGGUGUACUAGCCCUAGCAGCCUCAGUCCUC
+AUCCUCUUCCUAAUCCCCUUCCUCCACAAAUCUAAACAACGAACAAUAACCUUCCGACCA
+CUCUCCCAAACCUUAUUCUGACUUCUAGUAGCCAACCUUCUUAUCCUAACCUGAAUCGGA
+AGCCAACCAGUAGAACACCCCUUCAUCAUCAUUGGCCAAAUAGCAUCCCUCUCUUACUUC
+ACCAUCCUACUUAUCCUCUUCCCCACAAUCGGAACACUAGAAAACAAAAUACUCAACUAC
+&gt;Alligator_mississippiensis
+AUGACCCACCAACUACGAAAAUCCCACCCAAUCAUUAAACUCAUCAACCGCUCCCUAAUU
+GACCUACCAACACCCUCAAACAUCUCCGCUUGAUGAAACUUUGGAUCACUACUAGGCCUA
+ACCCUAUUAAUUCAGAUUCUAACAGGAUUCUUCUUAAUAAUGCACUUUUCAUCAAGCGAU
+ACUCUAGCAUUUUCAUCUGUAUCCUACACCUCCCGCGAAGUCUGAUUUGGAUGACUCAUC
+CGCAACCUCCACACAAAUGGGGCCUCCCUGUUCUUUAUAUUUAUCUUUCUUCACAUCGGA
+CGAGGCCUAUACUACACAUCAUAUCUUCACGAAAGCACAUGAAAUAUUGGAGUAAUCAUA
+CUUCUACUCCUAAUAGCCACAGCAUUUAUAGGCUAUGUUCUCCCAUGAGGACAAAUAUCA
+UUCUGAGGAGCAACCGUAAUCACGAAUCUACUUUCUGCCACACCCUACGUUGGAAGCACU
+GUCGUGCCAUGAAUUUGAGGCGGCCCCUCUGUUGACAACGCAACACUUACACGCUUCACU
+GCCCUACACUUCCUCCUUCCAUUCGCCCUAUUGGCUUCACUCAUCACCCACCUGAUCUUC
+CUCCAUGAACGAGGAUCAUUUAACCCCCUAGGAAUUAGCCCAAAUGCUGACAAAAUCCCA
+UUCCACCCCUACUUCACCAUAAAAGACGCCCUAGGAGCAGCACUAGCUGCCUCCUCACUA
+CUCAUCUUAGCUCUCUACCUACCAGCCCUAUUAGGGGACCCUGAAAACUUCACCCCAGCA
+AAUUCCAUAAUUACCCCAACACACAUCAAACCCGAAUGGUACUUCCUAUUUGCUUAUGCC
+AUUCUACGAUCUAUUCCAAAUAAGUUAGGAGGAGUACUAGCAAUAUUCUCAUCCAUUUUA
+GUCCUAUUCCUAAUACCCGCCCUACACACAGCAAAACAACAACCAAUAUCAAUACGCCCU
+AUAUCUCAGCUUCUAUUUUGAGCCCUUACCCUGGACUUCCUCUUACUCACAUGAAUCGGA
+GGCCAACCAGUAAACCCCCCAUAUAUUUUAAUUGGCCAAACUGCCUCCCUAUUCUACUUC
+AUCAUCAUCCUAAUCCUCAUACCAAUAGCAGGCCUCUUAGAGAACAAAAUAGUUGAACCC
+ACCUAUGUUACCCCUAAG
+</code></pre>
+<p>You can also download this multifasta file <a href="https://drive.google.com/uc?export=download&amp;id=1F4dGdNna7oQQuOF4t1FaSyjuMk_Pc3g0">HERE</a>.</p>
+<p>The <code>tsv</code> file with the NCBI taxonomy ID (TxID) can be obtained <a href="https://drive.google.com/uc?export=download&amp;id=1Rxj5WVgWXKGUVjYmVVMVGsOm_FdqOqKy">HERE</a>.</p>
+<blockquote>
+<p><em>Later, we are going to use this file to annotate the tree using <a href="http://bioinfo.icb.ufmg.br/taxontree/#x">TaxOnTree</a>. This step is very useful, especially if you are not familiar with the complete taxonomic classification of the OTUs you are currently working.</em> </p>
+</blockquote>
+<p>The next step on this tutorial is to align these sequences to get our dataset ready. Since these sequences are not difficult to align, we can use the Clustal program. You can use either the installed programs <a href="http://www.jalview.org/">Jalview</a> or MEGAX. In this example, we'll show the alignment steps using Jalview.</p>
+<blockquote>
+<p><em>MEGAX also aligns nucleotides and proteins sequences, using the programs Clustal or Muscle. If you want to use MEGA for the alignment, I recommend you to use Clustal program.</em></p>
+</blockquote>
+<p><strong>Steps:</strong></p>
+<ul>
+<li>Open Jalview. Close all example windows.</li>
+<li>Open the multifasta file, following the menu, shown in the figure below:</li>
+</ul>
+<p><img alt="Jalview" src="https://drive.google.com/uc?id=1IEaubZlhl6s0cQpJR1uAFxsGO4zw2zRi" /></p>
+<ul>
+<li>Then, put some color in the alignment, using the following options:</li>
+</ul>
+<p><img alt="Jalview" src="https://drive.google.com/uc?id=1_0U_iLyKqx2TFMkfz5WwAMue8YBCfGWU" /></p>
+<ul>
+<li>After that, you can start the alignment process, using Clustal, as demonstrated in the figure below:</li>
+</ul>
+<p><img alt="Jalview" src="https://drive.google.com/uc?id=18Hlz0XOhP1s029UPhPW20LNrQiqAx4iI" /></p>
+<ul>
+<li>The aligned sequences will appear right after the job is done. Again, put some color and inspect the alignment.</li>
+<li>Now we're going to save this alignment. However, first, we have to change some options in Jalview. In Jalview main window, go to the menu <code>Tools</code> and after that, press <code>Preferences</code>. The following window will appear:</li>
+</ul>
+<p><img alt="Jalview" src="https://drive.google.com/uc?id=1dBm8dDWdTwoUrV8uA3QZaUrGWXW2hhqT" /></p>
+<ul>
+<li>Press the right arrow until you find the <code>Output</code> options. Make sure the options are the same as the above figure. Press <code>OK</code>.</li>
+<li>After that, you can save your alignment, following the menu File &gt; Save as...</li>
+<li>Save your alignment in fasta format.</li>
+</ul>
+<blockquote>
+<p><em>If you want the exported alignment to show the start-end sites for each sequence, you do not need to execute the above steps. However, keep in mind that this information can (and in most cases, will) bring incompatibilities with some programs and tools.</em></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

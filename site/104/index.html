@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/104/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Buscas de Similaridade - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Buscas de Similaridade";
+        var mkdocs_page_input_path = "104.md";
+        var mkdocs_page_url = "/tutoriais/104/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Buscas de Similaridade</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#objetivos">Objetivos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blastp">BLASTp</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blastx">BLASTx</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#psi-blast">PSI-BLAST</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#phi-blast">PHI-BLAST</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutoriais Iniciais de Bioinformática</li>
+      <li class="breadcrumb-item active">Buscas de Similaridade</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="buscas-de-similaridade-a-partir-de-sequencias-proteicas">Buscas de similaridade a partir de sequências proteicas</h1>
+<p><strong>Observação:</strong></p>
+<ul>
+<li>Este tutorial foi construído <strong><em>apenas para fins didáticos</em></strong>. <span style="color:red"><strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida.</strong></span></li>
+</ul>
+<h2 id="objetivos">Objetivos</h2>
+<p>Nos passos que seguem, você deverá aprender:</p>
+<ul>
+<li>Busca de similaridades entre sequências utilizando as diferentes versões do BLAST.</li>
+<li>Descobrir informações sobre uma proteína a partir da sequência.</li>
+<li>Buscar proteínas homólogas que possuam baixa similaridade em suas sequências.</li>
+</ul>
+<p><strong>Observação:</strong></p>
+<ul>
+<li>Este tutorial foi adaptado a partir dos tutoriais do BLAST disponíveis no NCBI. O conteúdo original foi traduzido e modificado em parte sua estrutura <strong><em>apenas para fins didáticos</em></strong>. <span style="color:red"><strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida.</strong></span></li>
+</ul>
+<h2 id="blastp">BLASTp</h2>
+<p>Utilize o <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLASTp</a>, para executar uma busca contra o banco <strong>nr</strong> (<em>non redundant protein database</em>) para encontrar proteínas de vertebrados homólogas a proteína abaixo:</p>
+<pre><code>&gt;C.elegans protein
+MFHPGMTSQPSTSNQMYYDPLYGAEQIVQCNPMDYHQANILCGMQYFNNSHNRYPLLPQMPPQFTNDHPY
+DFPNVPTISTLDEASSFNGFLIPSQPSSYNNNNISCVFTPTPCTSSQASSQPPPTPTVNPTPIPPNAGAV
+LTTAMDSCQQISHVLQCYQQGGEDSDFVRKAIESLVKKLKDKRIELDALITAVTSNGKQPTGCVTIQRSL
+DGRLQVAGRKGVPHVVYARIWRWPKVSKNELVKLVQCQTSSDHPDNICINPYHYERVVSNRITSADQSLH
+VENSPMKSEYLGDAGVIDSCSDWPNTPPDNNFNGGFAPDQPQLVTPIISDIPIDLNQIYVPTPPQLLDNW
+CSIIYYELDTPIGETFKVSARDHGKVIVDGGMDPHGENEGRLCLGALSNVHRTEASEKARIHIGRGVELT
+AHADGNISITSNCKIFVRSGYLDYTHGSEYSSKAHRFTPNESSFTVFDIRWAYMQMLRRSRSSNEAVRAQ
+AAAVAGYAPMSVMPAIMPDSGVDRMRRDFCTIAISFVKAWGDVYQRKTIKETPCWIEVTLHRPLQILDQL
+LKNSSQFGSS
+</code></pre>
+<p>Após alguns minutos, você deverá ter um resultado como o descrito abaixo. Clique no local indicado para trocar para a página tradicional de resultados do BLAST:</p>
+<p><img alt="Exemplo de um resultado do BLASTn entre 2 sequências" src="../BLAST2SEQ-NEW.png" /></p>
+<blockquote>
+<p><em>Na página tradicional, os resultados ficam mais acessíveis, no entanto, fique a vontade para usar a versão mais nova.</em></p>
+</blockquote>
+<ul>
+<li>Basedo no <em>hit</em> idêntico a <em>C. elegans</em>, qual é a identidade desta proteína?</li>
+</ul>
+<p>Acima do sumário gráfico da busca BLAST existe o link <strong><em>Taxonomy Report</em></strong> (Veja a figura abaixo). Clique e observe a nova página aberta.</p>
+<p><img alt="Taxonomy Report" src="../txrep.png" /></p>
+<ul>
+<li>O que você observa nesta nova página?</li>
+<li>Procure nesta páginas os registros de proteínas homólogas de espécies de aves.</li>
+<li>Procure o hit com a espécie <em>Xenopus laevis</em> e verifique os parâmetros de alinhamento BLAST entre essas sequências.</li>
+</ul>
+<p>Voltando para a página dos resultados do BLAST, clique no primeiro hit, que leva a entrada do GenBank da sequência <a href="https://www.ncbi.nlm.nih.gov/protein/1173454?report=genbank&amp;log$=protalign&amp;blast_rank=1&amp;RID=CGVGAKX301N">P45897.1</a>. Este código é referente ao UniprotKB. Quando a entrada do GenBank é uma proteína do Uniprot, o NCBI já traz resultados pré-compilados do BLAST para ela. Para verificar estes resultados, basta clicar no link <strong>BLink</strong> que fica na lateral direita, logo abaixo de <strong><em>Related information</em></strong>.</p>
+<p>A saída (<em>output</em>) do BLink mostra um gráfico denotando a extensão do alinhamento com a <em>Query</em> (P45897):</p>
+<ul>
+<li>O escore BLAST é relacionado ao alinhamento Blast 2 sequences.</li>
+<li>O número de acesso está ligado ao registro no Entrez.</li>
+<li>Os números de distribuição taxonômica nas caixas coloridas indicam que esta via de sinalização é provavelmente restrita a animais multicelulares (Metazoa).</li>
+<li>Em <em>display options</em> você reformatar a visualização dos resultados.</li>
+<li>Os botões acima, em <em>Other views (reports)</em> mostram outras visualizações possíveis.</li>
+<li>Qual o nome da espécie de porco-espinho (<em>hedgehog</em>) que tem uma proteína relacionada a esta?</li>
+</ul>
+<blockquote>
+<p><em>Depois voltaremos a esta proteína no exemplo de PSI-BLAST.</em></p>
+</blockquote>
+<h2 id="blastx">BLASTx</h2>
+<p>Muitas vezes a obtenção de uma sequência alvo é realizada por meio de sequenciamento de DNA (em projetos genomas ou transcriptomas), pois normalmente estes métodos são mais acessíveis do que métodos de obtenção de sequências de aminoácidos. Para fazer a busca por similaridade a partir da sequência codificante de nucleotídeos, você tem duas opções:</p>
+<ul>
+<li>Traduzir a sequência de nucleotídeos nos 3 <em>frames</em> (janelas de leituras) e submeter as sequências resultantes a buscas de similaridade utilizando o BLASTp. Esta tradução pode ser realizada utilizando ferramentas do <a href="https://web.expasy.org/cgi-bin/translate/dna2aa.cgi">EXPASY</a> ou do <a href="https://www.ebi.ac.uk/Tools/st/">EBI</a>.</li>
+<li>Utilizar o <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&amp;PAGE_TYPE=BlastSearch&amp;BLAST_SPEC=&amp;LINK_LOC=blasttab&amp;LAST_PAGE=blastn&amp;QUERY=AB823629.1">BLASTx</a>. Este variação do BLAST traduz a sequência de nucleotídeos de entrada (<em>Query</em>) e a compara com bancos de proteínas.</li>
+</ul>
+<p>Para sermos mais práticos e diretos, utilizaremos a busca <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&amp;PAGE_TYPE=BlastSearch&amp;BLAST_SPEC=&amp;LINK_LOC=blasttab&amp;LAST_PAGE=blastn&amp;QUERY=AB823629.1">BLASTx</a>, com a sequência no formato <code>fasta</code> abaixo:</p>
+<pre><code>&gt;AB823629.1
+GAATGCATACATGGCTTCCTCCAACTTACTCTCCCTAGCCCTCTTCCTTGTGCTTCTCACCCACGCAAAC
+TCAGCCAGCCAAACCTCCTTCAGCTTCCAAAGGTTCAACGAAACCAACCTTATCCTCCAACGCGATGCCA
+CCGTCTCATCCAAAGGCCAGTTACGACTAACCAATGTTAATGACAACGGAGAACCCACGTTGAGCTCTCT
+GGGCCGTGCCTTCTACTCCGCCCCCATCCAAATCTGGGACAACACCACCGGCGCCGTGGCCAGCTTCGCC
+ACCTCCTTCACATTCAATATCGACGTTCCCAACAATTCAGGACCCGCCGATGGCCTTGCCTTTGTTCTCC
+TCCCCGTGGGCTCTCAGCCCAAAGACAAAGGCGGTCTTCTAGGTCTGTTCAACAACTACAAATACGACAG
+CAATGCCCATACTGTGGCTGTGGAGTTCGACACCCTCTACAACGTTCACTGGGACCCCAAACCGCGTCAT
+ATTGGCATCGACGTGAACTCCATCAAGTCTATCAAAACGACGACGTGGGATTTTGTCAAAGGAGAAAACG
+CGGAGGTTCTGATCACCTATGACTCCTCCACGAAGCTCTTGGTGGCTTCTCTGGTTTACCCTTCTCTGAA
+AACAAGCTTCATCGTCTCTGACACAGTGGACCTGAAGAGCGTTCTTCCCGAGTGGGTGATCGTTGGGTTC
+ACTGCCACCACTGGGATTACTAAAGGGAACGTTGAAACGAACGACATCCTCTCTTGGTCTTTTGCTTCCA
+AGCTCTCCGATGGCACCACATCTGAAGCTTTGAATCTTGCCAACTTCGCCCTCAACCAAATCCTCTAG
+</code></pre>
+<p>Agora vamos ver quais outras proteínas semelhantes a esta já possuem estrutura 3D resolvida. Para isso iremos utilizar um <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&amp;PAGE_TYPE=BlastSearch&amp;BLAST_SPEC=&amp;LINK_LOC=blasttab&amp;LAST_PAGE=blastn&amp;QUERY=AB823629.1">BLASTx</a>. Na página de busca do BLASTx, não esquecer de mudar o campo <em>Database</em> para <strong><em>Protein Data Bank (pdb)</em></strong>. No entanto, não queremos receber <em>hits</em> do gênero <em>Phaseolus</em>. Para isso, no campo <em>Organism</em>, colocamos o nome <em>Phaseolus</em> (taxid: 3883) e clicamos em <em>Exclude</em> (Veja a figura abaixo).</p>
+<p><img alt="BlastX" src="../blastx-ex.png" /></p>
+<p>Clique em BLAST e espere os resultados.</p>
+<ul>
+<li>Qual é a porcentagem de identidade da sequência de aminoácidos que possui estrutura no pdb mais similar a esta sequência?</li>
+</ul>
+<h2 id="psi-blast">PSI-BLAST</h2>
+<p>A proteína Sma-4 de <em>C. elegans</em> que usamos anteriormente pertence a uma grande família de proteínas envolvidas na sinalização mediada por TGF-beta. (Volte para a pesquisa do BLASTp do início deste tutorial). Alguns membros desta família não são prontamente identificados numa pesquisa blastp normal, pois já apresentam muitas modificações ao longo do tempo evolutivo em suas sequências. No entanto, outros homólogos mais distantes de Sma-4 podem ser encontrados utilizando o PSI-BLAST mais específico sensível à posição específica dos aminoácidos nas proteínas. </p>
+<p>Inicie uma pesquisa PSI-BLAST com o número de acesso para a proteína <em>C. elegans</em> Sma-4, <strong>P45897.1</strong>, como consulta. Para usar o PSI-BLAST, você inicia como um BLASTp comum e seleciona embaixo a opção PSI-BLAST (observe a figura abaixo):</p>
+<p><img alt="PSI-BLAST" src="../psiblast.png" /></p>
+<p>Observe a primeira saída de resultados. Ela não difere muito da saída de um BLASTp normal, exceto por ser formatada de forma diferente. As sequências já vêm marcadas/selecionadas. Em alguns casos, existe uma linha entre os resultados correspondentes ao limiar de inclusão PSI-BLAST de 0,005. As informações específicas de posição de um alinhamento múltiplo das sequências acima desta linha são usadas para gerar uma matriz de pontuação específica de posição (PSSM) na próxima iteração.</p>
+<p>Agora iremos fazer uma nova rodada de iterações. Nesta o programa irá calcular uma nova matriz de posicionamento de aminoácidos e irá procurar por proteínas que possuam sequências menos similares, mas que ainda respeitem a matriz de posicionamento calculada. Agora clique no botão <em>Go</em> ao lado de <em>Run PSI-BLAST iteration 2</em>. </p>
+<p>Os hits não encontrados na busca anterior aparecerão destacados em amarelo.</p>
+<ul>
+<li>Qual o primeiro <em>hit</em> amarelo encontrado? Qual a similaridade de sequência?</li>
+</ul>
+<p>Você pode continuar realizando novas etapas de iteração. Depois de mais algumas iterações não serão mais encontradas sequências novas. Neste ponto é dito que a pesquisa atingiu convergência.</p>
+<blockquote>
+<p><em>Nos últimos anos o NCBI lançou a ferramenta Delta-BLAST, que traz resultados semelhantes ao PSI-BLAST, no entanto de forma mais rápida e mais integrada ao BLASTp comum.</em></p>
+</blockquote>
+<h2 id="phi-blast">PHI-BLAST</h2>
+<p>O PHI-BLAST ele procura sequências que possuam um determinado padrão ou assinatura. Vamos fazer inicialmente uma busca BLASTp, utilizando a sequência abaixo:</p>
+<pre><code>&gt;Protein_X
+MCPANIAPVCCYGYSTGSYTTPNVCLCKCVLDTFVLYEGLCRITHDKFKPPRDDILCLQVYDPVCCRIHGVVVTESNGCFCYVRGGTVVPGTCSSMFPPPFASPQIS
+</code></pre>
+<ul>
+<li>Quantos <em>hits</em> foram encontrados?</li>
+</ul>
+<p>Embora apenas estas sequências tenham sido encontradas, pode ser que existam outras proteínas que possuam uma assinatura de sequência similar a estas proteínas. A partir de um alinhamento múltiplo das proteínas obtidas, a seguinte assinatura de sequência foi montada:</p>
+<pre><code>C-x(5)-PVCC-x(1,4)-G-x(1,6)-T-x(2)-N-x(1)-C-x(7,14)-G-x(1)-C-x(1,5)-[HN]-x(4)-P
+</code></pre>
+<blockquote>
+<p><em>Não mostraremos este procedimento agora. O que pode ser descrito é que eles correspondem a regiões que apresentam aminoácidos iguais, separadas por outras bem diferentes. Esta assinatura tem de ser construída no formato do banco de dados do <a href="http://prosite.expasy.org">PROSITE</a>.</em></p>
+</blockquote>
+<p>Agora vamos utilizar este padrão, como um padrão de busca no PHI-BLAST. Na página inicial do BLASTp, selecione <strong>PHI-BLAST</strong> (fica logo abaixo do PSI-BLAST - veja a figura abaixo). A clicar em PSI-BLAST, uma caixa abaixo é aberta. Nela você insere a assinatura acima. Clique em BLAST e espere os resultados (Pode demorar bastante!!!).</p>
+<p><img alt="PHI-BLAST" src="../phiblast.png" /></p>
+<ul>
+<li>Novas proteínas apareceram nesta busca?</li>
+<li>Qual a similaridade destas novas proteínas?</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../103/" class="btn btn-neutral float-left" title="Introdução ao GenBank"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../105/" class="btn btn-neutral float-right" title="Alinhamento entre pares de sequências">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../103/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../105/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR6-AlphaFold/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Métodos baseados em IA - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00e9todos baseados em IA";
+        var mkdocs_page_input_path = "STR6-AlphaFold.md";
+        var mkdocs_page_url = "/tutoriais/STR6-AlphaFold/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Métodos baseados em IA</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introducao">Introdução</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#obtendo-modelos-prontos-do-alphafold">Obtendo modelos prontos do AlphaFold</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modelando-a-proteina-alvo-com-o-deepmindalphafold-no-ambiente-googlecolab">Modelando a proteína-alvo com o DeepMind/AlphaFold no ambiente GoogleColab</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pelo-googlecolab">Pelo GoogleColab</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interpretando-as-predicoes-do-alphafold">Interpretando as predições do AlphaFold</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usando-o-colabfold">Usando o ColabFold</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outras-fontes">Outras Fontes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usando-a-interface-do-ucsf-chimerax">Usando a Interface do UCSF ChimeraX</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">Métodos baseados em IA</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modelagem-computacional-de-proteinas-por-metodos-usando-inteligencia-artificial-ai">Modelagem Computacional de Proteínas por Métodos usando Inteligência Artificial (AI)</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Os recursos de aprendizado de máquina e inteligência artificial (<em>Artificial Inteligence</em> - AI)  já vêm sendo utilizados há um tempo para otimização de soluções automáticas e não-supervisionadas à área de Bioinformática. Mais recentemente, técnicas de aprendizado profundo (<em>Deep learning</em>) vêm apresentando uma notável performance em outras áreas científicas e aplicadas (<a href="https://www.frontiersin.org/articles/10.3389/fgene.2019.00214/full">Tang <em>et al.</em> 2019</a>), o que intensificou a exploração do potencial dessas técnicas para uso na área de bioinformática estrutural por grupos acadêmicos.</p>
+<p>Em 2020, o interesse e o massivo investimento de uma empresa não-acadêmica e com finalidades comerciais nessas duas áreas, <em>Deep Learning</em> e Biologia Estrutural, chamou a atenção da comunidade científica, ao vencer de maneira incontestável, um desafio bienal da área, o CASP (<a href="https://predictioncenter.org/casp14/"><em>Critical Assessment of Structure Prediction</em></a>), feito que normalmente era atingido por grupos acadêmicos. Tal empresa, a <a href="https://deepmind.com/"><em>DeepMind</em></a>, uma ramificação de AI do Google/Alphabet, construiu uma rede que levou a um fenomenal avanço na predição da estrutura 3D de proteínas a partir de sua sequência de aminoácidos (Callaway, <a href="https://www.nature.com/articles/d41586-020-03348-4">2020</a>), chamada de <a href="https://github.com/deepmind/alphafold"><strong>AlphaFold2</strong></a>.</p>
+<p>Após uma intensa espera por parte da comunidade científica, a publicação do artigo do AlphaFold2 (<a href="https://www.nature.com/articles/s41586-021-03819-2">Jumper <em>et al.</em> 2021</a>) veio com uma grata surpresa: a liberação do código do programa e do modelo utilizado (este último sob a licença <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC BY-NC 4.0</a>). No entanto, os recursos computacionais necessários para instalação e execução da ferramenta de forma local não são tão acessíveis, principalmente a grupos acadêmicos e <em>startups</em> da área de bioinformática. Não demorou muito para que tal avanço fosse avaliado e melhorado pela comunidade acadêmica/científica da área, o que expandiu sua acessibilidade e trazendo uma verdadeira popularização da utilização do AlphaFold2 (<a href="https://www.nature.com/articles/d41586-021-01968-y">Callaway, 2021</a>).</p>
+<p>No presente tutorial iremos demonstrar como modelos 3D de proteínas podem ser obtidos de forma rápida a partir da sequência de aminoácidos pelas duas ferramentas melhor classificadas no CASP14 e que usam AI em suas abordagens: o AlphaFold2 (<a href="https://www.nature.com/articles/s41586-021-03819-2">Jumper <em>et al.</em> 2021</a>) e o RoseTTAFold (<a href="https://www.science.org/doi/10.1126/science.abj8754">Baek <em>et al.</em> 2021</a>). O objetivo aqui é como obter tais modelos, sejam de forma pronta, ou executar a modelagem a partir da sequência, utilizando os recursos do GoogleColab.</p>
+<blockquote>
+<p><strong>IMPORTANTE:</strong> <em>Lembro-lhes que apenas obter computacionalmente um modelo ou a predição da estrutura de uma proteína não é necessariamente um problema científico por si. A obtenção da estrutura é normalmente uma etapa dentro de uma pergunta científica maior. Como sempre ressaltamos, o mais importante em qualquer problema de Bioinformática Estrutural é a pergunta científica que será respondida.</em></p>
+</blockquote>
+<h2 id="obtendo-modelos-prontos-do-alphafold">Obtendo modelos prontos do AlphaFold</h2>
+<p>Como ressaltado anteriormente, a comunidade científica e grandes grupos de Bioinformática do mundo começaram a utilizar o AlphaFold2 e a executar a predição em massa da estrutura 3D de proteínas de diversos organismos modelos. Portanto, o primeiro passo neste tutorial é responder a seguinte pergunta:</p>
+<p><em>"A proteína-alvo que estou interessado em fazer a predição estrutural já foi modelada pelo AlphaFold2?"</em></p>
+<p>A DeepMind, <em>European Molecular Biology Laboratory</em> (<a href="https://www.embl.org/">EMBL</a>) e o <em>European Bioinformatics Institute</em> (<a href="https://www.ebi.ac.uk/">EBI</a>) disponibilizaram em parceria um banco de dados para consultas de proteínas preditas do proteoma completo de diversas espécies-modelos. Tal banco é o <a href="https://alphafold.com/"><strong>AlphaFold Protein Structure Database</strong></a>:</p>
+<p><img alt="AlphaFold-DB" src="../st6-fig1.png" /></p>
+<p>Ao clicar em <a href="https://alphafold.com/download"><em>Downloads</em></a> no canto superior direito você terá a lista das espécies-modelo que já tiveram o seu proteoma com predição estrutural completa. Vale a pena verificar se a sua proteína-alvo já está modelada. Assim você pode baixar o arquivo <code>.pdb</code> ou <code>.cif</code> e utilizar tal estrutura para prosseguir no seu estudo. Ressalta-se, no entanto, que como o método é automatizado, a sequência da proteína é modelada por completo e regiões clivadas (endereçamento ou de pré/pro-proteínas) ou rearranjos (tipo permutação circular em proteínas do tipo lectinas) podem não ser devidamente identificados. Fique atento a isso.</p>
+<p>Clique no primeiro exemplo que aparece <a href="https://alphafold.com/entry/O15552"> <em>Free fatty acid receptor 2</em></a> de humanos e vamos verificar a descrição. Na primeira parte, temos a descrição da proteína e os links para download dos arquivos da predição:</p>
+<p><img alt="AlphaFoldDB-Description 1" src="../st6-fig2.png" /></p>
+<p>Na segunda parte, temos o navegador da sequência de aminoácidos sincronizado com a visualização da estrutura 3D predita. Esta é descrita em cores, de acordo com o pLDDT que é o escore de confiança por cada resíduos (pLDDT), que varia entre 0 e 100, para pior e melhor confiança, respectivamente. Lembrando que, regiões com pLDDT abaixo de 50 devem ser interpretadas com cautela.</p>
+<p><img alt="AlphaFoldDB-description 2" src="../st6-fig3.png" /></p>
+<blockquote>
+<p><em>Os arquivos de estruturas gerados pelo AlphaFold2 inserem os valores de pLDDT na coluna referente ao B-Factor ou fator de temperatura. Lembre-se sempre disso, pois a interpretação desses dois parâmetros é em sentido inverso. Maiores valores de pLDDT denotam maior qualidade da predição daquele resíduo. Por outro lado, menores valores de B-Factor correspondem a resíduos onde há uma maior certeza da sua adequação a nuvem eletrônica.</em></p>
+</blockquote>
+<p>Seguindo um pouco mais abaixo na página temos o <em>Predicted Aligned error</em>, que indica indica o erro de posição esperado do AlphaFold no resíduo "x", quando as estruturas previstas e verdadeiras estão alinhadas no resíduo "y".</p>
+<p><img alt="AlphaFoldDB - description 3" src="../st6-fig4.png" /></p>
+<p>Como a própria página descreve, tal parâmetro "<em>é útil para avaliar a exatidão inter-domínios</em>" de uma proteína. Você pode obter mais informações clicando no tutorial logo abaixo.</p>
+<p>O AlphaFoldDB está também interligado com o banco <a href="https://uniprot.org">Uniprot</a>. Portanto, você pode fazer a busca por sua proteína no próprio Uniprot e caso a estrutura relativa aquele registro já tenha sido predita, é só ir na seção <em>Structure</em> na página do registro. Veja, por exemplo, o registro da proteína acima <a href="https://www.uniprot.org/uniprot/O15552">O15552</a>. A vantagem de verificar este registro no Uniprot é que na seção <em>PTM/Processing</em> as regiões clivadas já podem estar descritas.</p>
+<h2 id="modelando-a-proteina-alvo-com-o-deepmindalphafold-no-ambiente-googlecolab">Modelando a proteína-alvo com o DeepMind/AlphaFold no ambiente GoogleColab</h2>
+<p>Como descrito anteriormente, o AlphaFold2 foi melhorado pela comunidade científica, recebendo, principalmente, melhorias na forma de realização do alinhamento múltiplo. Isto significa que você pode rodar a versão original do DeepMind ou as versões com contribuições da comunidade. Todas as versões dispensam instalação local do programa, o que pode ser impossível dependendo da infraestrutura computacional a quem tens acesso, e são acessíveis pela plataforma do <a href="https://colab.research.google.com">Google Colaboratory</a>, conhecido como GoogleColab. Uma descrição e introdução inicial do GoogleColab pode ser acessada <a href="https://www.alura.com.br/artigos/google-colab-o-que-e-e-como-usar">nesta página</a>, que funciona de forma semelhante ao <a href="https://jupyter.org/">Jupyter</a>, usando os recursos do Google.</p>
+<p>A plataforma tem uso gratuito limitado, tanto por tempo, como por recursos computacionais, e para o seu uso basta ter uma conta do Google. A plataforma tem também a opção de planos pagos que aumentam a memória e o tempo processamento, e também pode rodar localmente (dependendo do código).</p>
+<p>Na página do <a href="https://github.com/deepmind/alphafold">GitHub - deepmind/alphafold</a> você encontrará o link para uma versão simplificada do programa para rodar no GoogleColab. Essa é a mesma versão que roda pelo <a href="https://www.cgl.ucsf.edu/chimerax/">UCSF ChimeraX</a> (que veremos mais adiante). A exceução entre a versão direta no navegador ou pelo ChimeraX é praticamente a mesma, a diferença fica por conta da visualização posterior.</p>
+<h3 id="pelo-googlecolab">Pelo GoogleColab</h3>
+<p>Como proteína-alvo utilizaremos a mesma proteína dos tutoriais anteriores, a enzima L-Ascorbato peroxidase de <em>Spinacea oleracea</em> (APX do espinafre). A sequência a ser utilizada será a da isoforma ligada a membrana do tilacóide (Tb-APX), nos cloroplastos (<a href="https://www.uniprot.org/uniprot/O46921">O46921</a>). Segue a sequência no formato fasta.</p>
+<pre><code class="language-fasta">&gt;O46921_SPIOL
+MASFTTTTAAAASRLLPSSSSSISRLSLSSSSSSSSSLKCLRSSPLVSHLFLRQRGGSAY
+VTKTRFSTKCYASDPAQLKNAREDIKELLQSKFCHPIMVRLGWHDAGTYNKDIKEWPQRG
+GANGSLSFDVELRHGANAGLVNALKLLQPIKDKYSGVTYADLFQLASATAIEEAGGPTIP
+MKYGRVDATGPEQCPEEGRLPDAGPPSPAQHLRDVFYRMGLDDKDIVALSGAHTLGRSRP
+ERSGWGKPETKYTKDGPGAPGGQSWTAEWLKFDNSYFKDIKEKRDADLLVLPTDAALFED
+PSFKVYAEKYAADQEAFFKDYAEAHAKLSNQGAKFDPAEGITLNGTPAGAAPEKFVAAKY
+SSNKRSELSDSMKEKIRAEYEGFGGSPNKPLPTNYFLNIMIVIGVLAVLSYLAGN
+</code></pre>
+<p><a href="https://drive.google.com/uc?export=download&amp;id=1NAbn-0YDHTLG5YivUT49uGGLC6mX6N3H">Clique aqui para baixar o arquivo .fasta</a>.</p>
+<p>Vamos agora aos passos:</p>
+<ol>
+<li>
+<p>Abra a página do <a href="https://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb">GoogleColab - DeepMind</a>.</p>
+</li>
+<li>
+<p>Faça o login no Google.</p>
+</li>
+<li>
+<p>Vá em <em>Ambiente de Execução</em> &gt; <em>Alterar o tipo de ambiente de execução</em>, de acordo com as setas abaixo.</p>
+</li>
+</ol>
+<p><img alt="DP-Colab1" src="../st6-fig5.png" /></p>
+<ol>
+<li>
+<p>Altere o tipo de ambiente para GPU. Isto fará com que a execução seja mais rápida e os próprios desenvolvedores recomendam o uso de GPUs, ao invés de CPUs.</p>
+</li>
+<li>
+<p>Role o <em>notebook</em> do Colab até a seção <strong><em>Make a Prediction</em></strong>. Nesta você verificará umas caixas para colar a sua sequência. Cole apenas a sequência acima da Tm-APX no campo <strong>"sequence_1"</strong>, sem adicionar a linha de cabeçalho fasta (a que começa com <code>&gt;</code>).</p>
+</li>
+</ol>
+<p><img alt="DP-Af-2" src="../st6-fig6.png" /></p>
+<ol>
+<li>
+<p>Se sua proteína-alvo for de um organismo procarionte, marque a opção <strong>is_prokaryote</strong>.</p>
+</li>
+<li>
+<p>Na seção <strong>Run AlphaFold and download prediction</strong> marque a caixa de seleção "<strong>run_relax</strong>".</p>
+</li>
+<li>
+<p>Clique em <code>Conectar</code> no canto superior direito da página. Logo após vá ao menu <em>Ambiente de execução</em> e clique em <em>Executar tudo</em>.</p>
+</li>
+<li>
+<p>Na caixa de diálogo que aparecer, clique em executar mesmo assim e espere os resultados, sem fechar a página do Colab*, senão seu trabalho será perdido.</p>
+</li>
+</ol>
+<blockquote>
+<p><em>Para o caso de você usar a versão grátis ou o ColabPro. Na versão mais cara, você pode fechar o navegador.</em></p>
+</blockquote>
+<h2 id="interpretando-as-predicoes-do-alphafold">Interpretando as predições do AlphaFold</h2>
+<p>O principal escore de avaliação do AlphaFold é o pLDDt</p>
+<p>Um equívoco comum ao se interpretar o pLDDt é presumir que a alta qualidade nos domínios de forma individual equivale a uma alta qualidade na predição do seu posicionamento, o que não é o caso. Para avaliar a posição de cada domínio a métrica recomendada é o <em>Predicted Aligned Error</em> (PAE). De forma resumida, essa métrica é a predição de um erro posicional em um resíduo X, se as estruturas predita e verdadeira estiverem alinhadas em um resíduo Y. O seu objetivo é mensurar a confiança na posição relativa de pares de resíduos. Ela é útil tanto para avaliar as posições relativas dos domínios da proteína, como em qualquer onde a confiança par a par é relevante (por exemplo, em resíduos essenciais à atividade no sítio ativo)</p>
+<p>Por isso valores muito cuidado deve ser aplicado a utilização de valores de RMSD para avaliar as estruturas provenientes desse programa.</p>
+<h2 id="usando-o-colabfold">Usando o ColabFold</h2>
+<p>Após a liberação do código do AlphaFold2 e o seu acesso pela comunidade científica, notou-se que os recursos computacionais para rodar o programa eram muito altos. Para permitir que grupos de pesquisa com poucos recursos pudessem utilizar o programa, a comunidade desenvolveu um novo notebook para o GoogleColab, utilizando o programa MMSeqs2, que é cerca de 40 a 60 vezes mais rápido em achar proteínas homólogas do que a estratégia utilizando o HMMer. Esse novo notebook foi desenvolvido por <a href="https://www.nature.com/articles/s41592-022-01488-1">Mirdita <em>et al.</em> (2022)</a> e pode ser acessado em <a href="https://github.com/sokrypton/ColabFold">https://github.com/sokrypton/ColabFold</a>. Além do AlphaFold2, o <a href="https://github.com/sokrypton/ColabFold">ColabFold</a> permite também a utilização do <a href="https://github.com/RosettaCommons/RoseTTAFold/">RoseTTAFold2</a> (<a href="https://www.science.org/doi/10.1126/science.abj8754">Baek <em>et al.</em> 2021</a>) do <a href="https://www.bakerlab.org/">Baker's Lab</a>, do <a href="https://github.com/facebookresearch/esm">ESMFold</a> ([Lin <em>et al.</em> 2022])(https://www.biorxiv.org/content/10.1101/2022.07.20.500902v1) da META/Facebook, e do <a href="https://github.com/HeliXonProtein/OmegaFold">OmegaFold</a> (<a href="https://www.biorxiv.org/content/10.1101/2022.07.21.500999v1">Wu <em>et al.</em> 2022</a>). Estes dois últimos surgiram depois do AlphaFold2/RoseTTAFold2 e do CASP14.</p>
+<p>O GitHub do ColabFold é bem auto-explicativo e está em constante evolução/atualização. As estratégias e aplicações de cada notebook estão descritas numa tabela que fica logo na página inicial:</p>
+<p><img alt="ColabFold" src="../str6-fig12.png" /></p>
+<p>A utilização deles é bem similar a descrita acima, usando um notebook Jupyter do GoogleColab.</p>
+<h2 id="outras-fontes">Outras Fontes</h2>
+<p>Todos os programas acima podem ser instalados em suas máquinas/servidores próprios, no entanto, o espaço e o tempo computacional necessários não são muito animadores. Há também formas de rodar os notebooks localmente. No servidor <a href="https://robetta.bakerlab.org/">Robetta</a> você pode usar a versão clássica do Rosetta ou optar pelo RoseTTAFold.</p>
+<p>O ESMFold pode ser utilizado diretamente pela sua API. Seus resultados são rápidos para proteínas com menos de 400 resíduos de aminoácidos.</p>
+<h2 id="usando-a-interface-do-ucsf-chimerax">Usando a Interface do UCSF ChimeraX</h2>
+<p>O UCSF ChimeraX, além de ter mantido a modelagem via Modeller, incorporou desde 2021 a modelagem utilizando o AlphFold. O processo usa o GoogleColab, mas integra os resultados diretamente no ChimeraX para manipulação/utilização posterior. As etapas para esta modelagem estão bem descritas no vídeo abaixo:</p>
+<p><a href="https://www.youtube.com/watch?v=le7NatFo8vI">Modelando com o AlphaFold no ChimeraX</a></p>
+<p>Adicionalmente, a modelagem de complexos proteicos e ligação proteína-proteína também pode ser realizada diretamente no ChimeraX. Os vídeos abaixo demonstram como esse processo pode ser realizado:</p>
+<p><a href="https://www.youtube.com/watch?v=6lXeCPuTePs&amp;t=7s">Running AlphaFold to Predict Protein Complexes from ChimeraX</a></p>
+<p><a href="https://www.youtube.com/watch?v=TMcjEecFHaI&amp;t=14s">Evaluating AlphaFold protein-protein binding with ChimeraX</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR5-Model3/" class="btn btn-neutral float-left" title="Modeller-CLI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR7-MDA/" class="btn btn-neutral float-right" title="MDA">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR5-Model3/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR7-MDA/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

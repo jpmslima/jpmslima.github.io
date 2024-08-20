@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/TutorialVS_MarkText/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>TutorialVS MarkText - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "TutorialVS MarkText";
+        var mkdocs_page_input_path = "TutorialVS_MarkText.md";
+        var mkdocs_page_url = "/tutoriais/TutorialVS_MarkText/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">TutorialVS MarkText</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><img alt="Biome" src="https://drive.google.com/uc?id=1Rgh88avopwh7YtUKsD5hXMwF3BFH5-Kj" /></p>
+<h1 id="tutorial-triagem-molecular-virtual-sbvs">Tutorial - Triagem Molecular Virtual (SBVS)</h1>
+<h2 id="acoplamento-de-inumeros-ligantes-em-um-alvo-biologico"><em>Acoplamento de inúmeros ligantes em um alvo biológico</em></h2>
+<p>Observações:</p>
+<ul>
+<li>Este tutorial foi construído pela discente de doutorado do PPg-Bioinfo, M.Sc. Jéssika Viana, especificamente para as disciplinas de Bioinformática Estrutural, como parte das atividades do Estágio em Docência da UFRN. O tutorial foi revisado pelo professor da disciplina, João Paulo Matos (DBQ/CB e PPg-Bioinfo/BioME). Este tutorial foi construído <strong><em>apenas para fins didáticos</em></strong>. <strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida pelo professor do curso e pela docente em estágio.</strong></li>
+</ul>
+<h2 id="introducao">Introdução</h2>
+<p>Neste tutorial iremos utilizar o software <a href="http://vina.scripps.edu/">AutoDock Vina</a>, também visto no tutorial passado sobre atracamento molecular. Também iremos utilizar o Shell e a triagem virtual baseada na estrutura do receptor. O objetivo do estudo é avaliar se ligantes com características químicas similares ao inibidor <a href="">3WL</a> (total de 100 ligantes) apresentam interação similar, maior ou menor com a proteína <a href="">3CLpro do SARS-CoV-2</a>. </p>
+<p>Este tutorial será dividido em seis partes:</p>
+<ul>
+<li>Otimização do receptor e geração do formato pdbqt</li>
+<li>geração da estrutura 3D dos ligantes</li>
+<li>criação de um arquivo de configurações</li>
+<li>criação do arquivo executor sh</li>
+<li>realização do VS baseado em docking</li>
+<li>análise dos resultados. </li>
+</ul>
+<h2 id="1-otimizacao-do-receptor-e-geracao-do-formato-pdbqt">1) Otimização do receptor e geração do formato pdbqt</h2>
+<p>Primeiramente, crie uma pasta/diretório para que todos os dados e resultados da triagem sejam alocados nela. Dentro deste novo diretório insira apenas a estrutura do receptor no formato PDBQT (você gerou este arquivo automaticamente no tutorial passado sobre docking no AutoDock Vina, como visto na figura abaixo). Nesta nova pasta o arquivo deve ser chamado de: <em>dock.receptor.pdbqt</em></p>
+<p><img title="" src="file:///C:/Users/viana/Documents/estagioDocenciaII2020.2/minhasaulas/tutorial_vs/figura1.png" alt="" width="271" data-align="center"></p>
+<h2 id="2-criacao-do-arquivo-de-configuracoes">2) Criação do arquivo de configurações</h2>
+<p>A seguir criaremos o arquivo de configurações no bloco de notas (ou Notepad++). Este arquivo, que deverá ser chamado de <strong>dock.conf</strong> e conterá as seguintes informações: </p>
+<p>receptor = dock.receptor.pdbqt</p>
+<p>center_x = 116.00
+center_y = -15.00
+center_z = 67.00</p>
+<p>size_x = 18.00</p>
+<p>size_y = 18.00</p>
+<p>size_z = 18.00</p>
+<p>energy_range = 3</p>
+<p>exhaustiveness = 8</p>
+<p>num_modes = 9</p>
+<p>A linha 1 contém a descrição “receptor”, que indica o arquivo do receptor em formato .pdbqt. Da linha 2-7 traz as coordenadas do sítio ativo, sendo estas marcadas pelo <em>center</em> (posição da caixa em x, y e z) e pelo <em>size</em> (tamanho da caixa em x, y e z). A linha 8, chamada de <em>num_modes</em>, identifica o número de poses/conformações existentes para cada molécula. </p>
+<p><img alt="" src="C:\Users\viana\Documents\estagioDocenciaII2020.2\minhasaulas\tutorial_vs\figura2.png" /></p>
+<h2 id="3-geracao-da-estrutura-3d-dos-ligantes">3) Geração da estrutura 3D dos ligantes</h2>
+<p>Copie a lista de códigos SMILE disponível neste link do drive: </p>
+<p><a href="https://drive.google.com/file/d/1M6yco6WaT0dG01OcKA1fEpv4dmvbuhp9/view?usp=sharing">ligantes.smi - Google Drive</a></p>
+<p>e salve um arquivo como <em>moleculas.smi</em></p>
+<p>Veja abaixo que este arquivo contém, em cada linha, o formato SMILE (1D) da estrutura de uma molécula. É com este código que iremos criar as estruturas tridimensionais das moléculas.</p>
+<p><img title="" src="file:///C:/Users/viana/Documents/estagioDocenciaII2020.2/minhasaulas/tutorial_vs/figura3.png" alt="" width="563" data-align="center"></p>
+<p>Em seguida, no terminal siga até o caminho de encontro a sua pasta/diretório. Nele, que já contém o arquivo dock.receptor.pdbqt, você irá inserir as estruturas das moléculas 3D. Para isso, no terminal, execute os seguintes comandos:</p>
+<pre><code class="language-sh">obabel -ismi moleculas.smi -omol2 -0ant*.mol2 --gen3D 
+obabel ant*.mol2 -O lig*.pdbqt
+</code></pre>
+<p>Utilizando o comando ls veja que foram criados os ligantes com o nome ligant1, ligant2... em formato PDBQT. Basicamente o que o comando realizou foi converter as estruturas que estavam em formato smi (SMILE) em estruturas em formato 3D no formato mol2. No segundo comando convertemos do formato mol2 3D para em formato PDBQT. Este último formato é essencial para a realização do docking no Autodock Vina sob linha de comando.</p>
+<p><img alt="" src="C:\Users\viana\Documents\estagioDocenciaII2020.2\minhasaulas\tutorial_vs\figura4.png" /></p>
+<h2 id="4-criacao-do-arquivo-executor-sh">4) Criação do arquivo executor .sh</h2>
+<p>Em seguida, crie um arquivo chamado vina_screen_local.sh, que será o nosso script para execução do docking. Para isso, baixe o link através do <a href="http://vina.scripps.edu/vina_screen_local.sh">Manual Virtual Screening</a> do AutoDock Vina. </p>
+<p>Note que o Script do AutoDock Vina contém uma nomeação diferente para alguns arquivos. Desta forma, altere a 3ª linha de ligand para <strong>ligant</strong> e a 7ª linha altere o conf.txt por <strong>dock.conf</strong>, como demonstrado na seguinte imagem:</p>
+<p><img alt="" src="C:\Users\viana\Documents\estagioDocenciaII2020.2\minhasaulas\tutorial_vs\figura5.png" /></p>
+<p>Neste script é possível observar uma série de comandos que culminará no cálculo da interação de cada ligante com receptor selecionado. Na 6ª linha é possível observar a execução do programa Vina, que chamará os arquivos de configuração do sítio ativo (que contém também a referencia do receptor) e os ligantes em pdbqt. Como dados de saída são gerados dois arquivos, que veremos no tópico seguinte.</p>
+<p>A partir deste ponto você deverá ter em seu diretório: o arquivo de coordenadas do sítio ativo (<strong>dock.conf</strong>), o arquivo do receptor (<strong>dock.receptor.pdbqt</strong>), os arquivos de cada ligante (<strong>ligant1, ligant2...</strong>) e o arquivo executor (<strong>vina_screen_local.sh</strong>). Neste caso executarei o VS do docking para os dois primeiros ligantes, mas faça para todos os ligantes em pdbqt!</p>
+<h5 id="nao-se-esqueca-de-verificar-antes">Não se esqueça de verificar antes!</h5>
+<p><img alt="" src="C:\Users\viana\Documents\estagioDocenciaII2020.2\minhasaulas\tutorial_vs\figura6.png" /></p>
+<h2 id="5-realizacao-do-vs-baseado-em-docking">5) Realização do VS baseado em docking</h2>
+<p>No terminal do Linux, vá para seu diretório e digite o comando de execução do script abaixo:</p>
+<pre><code class="language-sh">chmod +x vina_screen_local.sh
+./vina_screen_local.sh
+</code></pre>
+<p>No terminal será executado o processamento do docking para cada ligante. Pode demorar um pouco, e vai variar pela quantidade de ligantes utilizados. Em nosso caso pode-se demorar cerca de 30 minutos.</p>
+<p><img alt="" src="C:\Users\viana\Documents\estagioDocenciaII2020.2\minhasaulas\tutorial_vs\figura7.png" /></p>
+<p>Observe que é gerado na tela do terminal um pequeno resumo do docking em cada ligante, contendo o valor de energia para cada conformação do ligante analisado. </p>
+<p>Ao final de todo o processamento, verifique seu diretório. Observe que foram criadas pastas para cada ligante do estudo. Em cada pasta conterá um arquivo log.txt e um arquivo out.pdbqt.</p>
+<p>O arquivo log.txt conterá as informações de energia (afinidade de ligação) e o RMSD de cada conformação com relação ao composto de melhor energia. O arquivo out.pdbqt conterá os valores de energia e as coordenadas X, Y e Z de cada conformação gerada no docking. É com ele que veremos nossos resultados dentro do UCSF Chimera.</p>
+<h2 id="6-analise-dos-resultados">6) Análise dos resultados</h2>
+<p>Após finalizado a VS baseado em docking, criaremos um arquivo chamado de <em>vina_screen_get_top.py</em>.
+O script do seguinte arquivo está apresentado <a href="http://vina.scripps.edu/vina_screen_get_top.py">nesta página</a>. Copie os dados, cole em um bloco de notas (ou notepad++) e salve com o nome: <em>vina_screen_get_top.py</em></p>
+<p><img title="" src="file:///C:/Users/viana/Documents/estagioDocenciaII2020.2/minhasaulas/tutorial_vs/figura8.png" alt="" width="546" data-align="center"></p>
+<p>Em seguida, no terminal, execute o seguinte comando:</p>
+<pre><code class="language-sh">python2 vina_screen_get_top.py 10
+</code></pre>
+<p>Note que ao final do comando digitamos o valor 10. Esse valor, chamado de argumento, demonstra que o script deve selecionar os 10 ligantes de melhor interação (ou seja, os 10 ligantes que apresentaram os valores mais negativos de energia). Na tela ele mostrará o número de arquivos encontrados, a pasta referente ao ligante e o arquivo que contém o valor de energia (out.pdbqt). Ao fazer isso, vá em cada pasta do ligante selecionado e verifique o valor de energia (através do arquivo log.txt ou do out.pdbqt).</p>
+<p><img src="file:///C:/Users/viana/Documents/estagioDocenciaII2020.2/minhasaulas/tutorial_vs/figura9.png" title="" alt="" data-align="center"></p>
+<p>Para visualizar o resultado no UCSF Chimera: </p>
+<blockquote>
+<p>Tools &gt; Surface/Binding Analysis &gt; View Dock &gt; arquivo out.pdbqt</p>
+</blockquote>
+<h2 id="_1"></h2>
+<h2 id="atividade">Atividade</h2>
+<p>Agora observe seus resultados da triagem virtual e responda as seguintes indagações: </p>
+<p>Quais ligantes apresentaram os 10 melhores valores de interação com a enzima 3CLpro? E quais os valores de energia desses ligantes? Descreva-os criando uma tabela. </p>
+<p>Qual o flavonoide que apresentou a pior interação com a enzima 3CLpro? </p>
+<p>No Chimera, observe as diferenças das ligações de hidrogênio (veja o tutorial passado de docking). Quantas ligações de hidrogênio foram identificadas no composto de maior energia? </p>
+<p>Observe as poses (as várias conformações de cada ligante) para cada ligante. Quais diferenças você pode notar sobre a estrutura dos flavonoides? Em qual fragmento molecular é possível identificar maior movimentação na estrutura? </p>
+<p><strong>Instalando os programas no Linux através do terminal:</strong></p>
+<p>OpenBabel       | sudo apt install openbabel       |</p>
+<p>AutoDock Vina | sudo apt install autodock-vina |</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

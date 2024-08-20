@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/proteins%20databases/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Protein databases - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Protein databases";
+        var mkdocs_page_input_path = "proteins databases.md";
+        var mkdocs_page_url = "/tutoriais/proteins%20databases/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Protein databases</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="protein-databases">Protein databases</h1>
+<h2 id="aims">Aims</h2>
+<ul>
+<li>Use the different protein information databases.</li>
+<li>Characterize unknown proteins using not only sequence, but profiles, motifs and domains.</li>
+<li>Obtain information about the family of a particular protein.</li>
+<li>Obtain specific alignments and positioning matrices for a protein family.</li>
+<li>Check for protein allergenicity.</li>
+<li>Check for regions of a given protein that might be epitopes for B and T cells.</li>
+</ul>
+<p><strong>Note:</strong>
+- This tutorial is <strong><em>only for didactic purposes</em></strong>. <span style="color:red"><strong>Its reproduction for any other purpose is neither permitted nor consented to by the course instructors.</strong></span></p>
+<h2 id="using-uniprot">Using UniPROT</h2>
+<p>UniProt is a reference knowledge base for obtaining protein information, with <em>links</em> and cross-referenced information to many other databases. It is usually where the first information on a particular protein is obtained.</p>
+<h3 id="when-should-i-use-uniprot">When should I use Uniprot?</h3>
+<ul>
+<li>For general information about a protein.</li>
+<li>It usually has the most complete annotation record for single proteins.</li>
+<li>SwissProt: annotated and reviewed proteins, with human intervention.</li>
+<li>To perform similarity search with known proteins.</li>
+<li>To find curated and already experimentally confirmed homologues.</li>
+<li>To find data related to natural mutants and variations associated with diseases or altered phenotype.</li>
+<li>To obtain information on structure and residues important for activity/function.</li>
+</ul>
+<p>Similarity searches using BLAST can also be performed directly on the UniProt site. Let's see an example?</p>
+<ul>
+<li>
+<p>Open the UNIPROT Home Page: <a href="http://www.uniprot.org">http://www.uniprot.org</a></p>
+</li>
+<li>
+<p>Click on the <strong>BLAST</strong> link (upper left corner).</p>
+</li>
+</ul>
+<p><img alt="Uniprot" src="https://drive.google.com/uc?id=1O2WrhLUAyvZQcyikfaMCvPR7lSCs-jnY" /></p>
+<ul>
+<li>Copy and paste the sequence below into the <em>Query</em> field:</li>
+</ul>
+<pre><code>&gt;Seq5
+MASFTTTTAAAASRLLPSSSSSISRLSLSSSSSSSSSLKCLRSSPLVSHLFLRQRGGSAYVTKTRFSTKC
+YASDPAQLKNAREDIKELLQSKFCHPIMVRLGWHDAGTYNKDIKEWPQRGGANGSLSFDVELRHGANAGL
+VNALKLLQPIKDKYSGVTYADLFQLASATAIEEAGGPTIPMKYGRVDATGPEQCPEEGRLPDAGPPSPAQ
+HLRDVFYRMGLDDKDIVALSGAHTLGRSRPERSGWGKPETKYTKDGPGAPGGQSWTAEWLKFDNSYFKDI
+KEKRDADLLVLPTDAALFEDPSFKVYAEKYAADQEAFFKDYAEAHAKLSNQGAKFDPAEGITLNGTPAGA
+APEKFVAAKYSSNKRSELSDSMKEKIRAEYEGFGGSPNKPLPTNYFLNIMIVIGVLAVLSYLAGN
+</code></pre>
+<ul>
+<li>
+<p>Click on BLAST, and after the results appear, analyze the table of hits (Similar or same sequences present in the database).</p>
+</li>
+<li>
+<p>Check the first 6 <em>hits</em>.</p>
+</li>
+<li>
+<p>Click on the first <em>hit</em> and check the structure of the information contained in Uniprot.</p>
+</li>
+</ul>
+<h2 id="getting-protein-structure-information-from-uniprot">Getting Protein Structure Information from UniProt:</h2>
+<ul>
+<li>Open the <a href="http://www.uniprot.org">UniProt</a> website again:</li>
+<li>In the Query field, enter the term <strong>PGH2_MOUSE</strong>.</li>
+<li>Observe the results.</li>
+<li>In another browser window/tab, on the same page as above, search for the term <strong>GYS2_HUMAN</strong>.</li>
+<li>Observe the results and see how much information is present for these proteins.</li>
+</ul>
+<h3 id="important">Important</h3>
+<p>UniProt has two ways to specify the record for a protein: the <a href="https://www.uniprot.org/help/entry_name"><em>Entry name</em></a> and the <a href="https://www.uniprot.org/help/accession_numbers"><em>Accession number</em></a>. The former is a quick way to remember a particular entry, but it is not stable. The second is stable and is the record that should be used in publications or scientific papers. We used the <em>entry name</em> above. More information on how the information in a UniProt record is organized can be found in its <a href="https://www.uniprot.org/help/uniprotkb_manual">Manual</a>.</p>
+<h2 id="exploring-the-protein-data-bank">Exploring the Protein Data Bank</h2>
+<p>The RCSB PDB is the main bank of experimentally resolved protein structures. This is where we get the template proteins for comparative modeling.</p>
+<p><img alt="Protein Data bank" src="https://drive.google.com/uc?id=1Fs3d5KEBhjurPznpbB4e0WEz8l9HI4vp" /></p>
+<h4 id="when-should-i-use-the-pdb-database">When should I use the PDB database?</h4>
+<ul>
+<li>To get experimentally resolved protein structures.</li>
+<li>To get structural information about a protein.</li>
+<li>To check and find homologous protein structures.</li>
+<li>To get information about important sites for enzyme activity.</li>
+<li>To obtain information about protein ligands.</li>
+</ul>
+<p>Let's now check an entry in the PDB database:
+- Open the Protein Data Bank (PDB) Home Page: <a href="www.rcsb.org">www.rcsb.org</a>
+- In the field "PDB ID or Text" enter the term: 3HTB
+- From the opened page, obtain the following information:
+  - Protein ID.
+  - Source Organism.
+  - Number of Polypeptide Chains.
+  - Experimental Method by which the model was obtained.
+  - Other related structures.
+  - Mutations found (if any).
+  - Click on the structure and observe the 3D model using the Jmol tool.</p>
+<p>The record of a structure in the PDB bank is always linked to an <em>Accession number</em> of this protein in UniProt. Therefore, when opening the record from the PDB code, a direct link to the record in UniProt will be described below the <em>Macromolecules</em> part. You can also use Uniprot <a href="https://www.uniprot.org/id-mapping">ID Mapping</a> to search among entries from different databases for the same protein.</p>
+<blockquote>
+<p><em>There is a file that is frequently updated, which indexes between the Uniprot Accession number and the PDB code of a protein in the Protein Databank. The name of this file is pdbtosp.txt and it can be obtained at the <a href="ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/docs/pdbtosp.txt">Uniprot FTP</a>. </em>Using scripting languages or even "Find/Find" commands in text editing programs, you quickly survey the experimentally resolved structures of a protein with the Uniprot Accession number.*</p>
+</blockquote>
+<h2 id="identifying-the-domains-of-a-protein">Identifying the domains of a protein</h2>
+<p>Let's now identify the architecture of the domains that this protein below has and the family it belongs to. </p>
+<pre><code>&gt;1smd
+GRTSIVHLFEWRWVDIALECERYLAPKGFGGVQVSPPNENVAIHNPFRPWWERYQPVSYK
+LCTRSGNEDEFRNMVTRCNNVGVRIYVDAVINHMCGNAVSAGTSSTCGSYFNPGSRDFPA
+VPYSGWDFNDGKCKTGSGDIENYNDATQVRDCRLSGLLDLALGKDYVRSKIAEYMNHLID
+IGVAGFRIDASKHMWPGDIKAILDKLHNLNSNWFPEGSKPFIYQEVIDLGGEPIKSSDYF
+GNGRVTEFKYGAKLGTVIRKWNGEKMSYLKNWGEGWGFMPSDRALVVVDNHDNQRGHGAG
+GASILTFWDARLYKMAVGFMLAHPYGFTRVMSSYRWPRYFENGKDVNDWGPPNDNGVTK
+EVTINPDTTCGNDWVCEHRWRQIRNMVNFRNVVDGQPFTNWYDNGSNQVVAFGRGNRGFIV
+FNNDDWTFSLTLQTGLPAGTYCDVISGDKINGNCTGIKIYVSDDGKAHFSISNSAEDPFI
+AIHAESKL
+</code></pre>
+<p>For this, we will first use the <a href="https://www.ncbi.nlm.nih.gov/Structure/cdd/cdd.shtml">CDD</a> database (<em>Conserved Domain Databases</em>), which is linked to the NCBI. The tool that does this identification is <a href="https://www.ncbi.nlm.nih.gov/sparcle">SPARCLE</a> (<em>Subfamily Protein Architecture Labeling Engine</em>), which is a resource that functionally characterizes and labels protein sequences that have been grouped by their conserved domain architecture. A domain architecture is defined as the sequence order of conserved domains in a protein sequence (CDD-NCBI).</p>
+<h3 id="when-should-i-use-cdd">When should I use CDD?</h3>
+<ul>
+<li>To search for conserved domains of proteins.</li>
+<li>To find information about protein families.</li>
+<li>Including superfamilies and subfamilies.</li>
+<li>To obtain specific PSSM arrays for each protein family <sup>1</sup>.</li>
+<li>To obtain multiple sequence alignments from representatives of each family, and from the most distant and the most representative.</li>
+<li>To verify proximity relationships between protein families.</li>
+</ul>
+<p>Using SPARCLE can be done in two ways: from an amino acid sequence or by a keyword. To use from sequence we will use <a href="https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi">CD-Search</a>:
+- Open <a href="https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi">CD-Search</a>.
+- Copy the sequence fasta <code>1smd</code> into the query box, as indicated in the figure below:</p>
+<p><img alt="CD-Search" src="https://drive.google.com/uc?id=1gZN4gt1dg691yccE_LYKPoV9SMHsvHdd" /></p>
+<ul>
+<li>Leave the options already checked in the <strong><em>Options</em></strong> field.</li>
+<li>Click on <strong><em>Submit</em></strong>.</li>
+</ul>
+<p>The first result that is returned is a screen like the following:</p>
+<p><img alt="CD-Search" src="https://drive.google.com/uc?id=10_Mk0lN62Mao7wuH-80GD5Q7P5ZVV0oo" /></p>
+<p>In this, the following can be identified:</p>
+<ul>
+<li>The protein classification (<em>Protein Classification</em>), with the link to the domain architecture ID (from SPARCLE).</li>
+<li>The superfamily (<em>Superfamilies</em>) and the specific hits (<em>Specific hits</em>) within this superfamily.</li>
+<li>The identified domains (<em>Domain hits</em>).</li>
+</ul>
+<blockquote>
+<p><strong>Question</strong>: <em>How many domains does this protein have?</em></p>
+</blockquote>
+<p>In the list of domains click on the first one and see the description of the family that contains this domain. It is a screen like the one shown below:</p>
+<p><img alt="Domain cd11317" src="https://drive.google.com/uc?id=1n5dLGgolp4x8cWcfg3LgP0dTRRRC0fkM" /></p>
+<p>Scroll down this page until the alignment of proteins belonging to this CD is shown. The default option is to align the <em>most diverse members</em>, i.e. those with the least similar sequences.</p>
+<p>Three residues (DED triad) are important for the catalytic activity of this protein and can be highlighted by clicking the <em>Catalytic Site</em> tab. They will be highlighted in the alignment obtained further down this page.</p>
+<blockquote>
+<p><strong><em>Can we say that the marked residues are indeed characteristic of this family?</em></strong></p>
+<p><em>Yes. This can be verified by clicking on</em> <strong><em>catalytic site</em>*, in the </strong><em>Conserved Features/Sites</em>** box.</p>
+<p><sup>1</sup><em>The PSSM viewer and links are not available at CDD/NCBI anymore. So, do not worry if you can follow the steps below.</em></p>
+</blockquote>
+<p>The Position-Specific Score Matrix (PSSM) for this family can be obtained from the <strong><em>Statistics</em></strong> box on the left side. Click on the link indicated by the arrow, as represented in the figure below:</p>
+<p><img alt="Obtenção da PSSM" src="https://drive.google.com/uc?id=1d_CVkuQy7OqLq-87RJNU4VINVpLyRDzg" /></p>
+<p>On the newly opened page, the PSSM matrix can be seen. </p>
+<p><img alt="PSSM description page" src="https://drive.google.com/uc?id=1q4PH2yFhyDMbZLH1MwcaqQt3X_nTtwry" /></p>
+<p>For each position in the sequence of the proteins in this family, the possibility of changes between the amino acids is denoted:</p>
+<ul>
+<li>In the first part, the probability that that position contains each amino acid is represented in the form of stacked bars.</li>
+<li>Below, we have the amino acids present in the consensus sequence, that is, the residue that occurs most often in that position, when considering all proteins in this family.</li>
+<li>Just below, we have the <em>master</em> sequence. The master sequence is the first sequence listed in the CD alignment. It is a real protein, and it is the sequence to which all the other sequences in the CD alignment are aligned. Whenever possible, the master sequence will be a sequence with a resolved 3D structure (a PDB). In the case of NCBI-curated CDs, a CD or one of its top CDs will always have a master sequence with a resolved 3D structure.</li>
+</ul>
+<p>Under the <code>Download Table File</code> button (indicated by a red box in the figure above), the PSSM can be downloaded, to be used in a search using PSI-BLAST (Tutorial 105). For example, if the next step is to check for distant homologs of the sequence <code>1smd</code>, present in sequences of metagenome samples (for possible biotechnology applications), by means of a PSI-BLAST, we will do it like this (also follow the pictures):</p>
+<p><img alt="PSI-BLAST with 1smd" src="https://drive.google.com/uc?id=1IQ15CkIH6ODaV9g66wE_YHXt6ePRHZMQ" /></p>
+<blockquote>
+<p><em>Unfortunately, it seems that PSSM viewer and the download link are not available anymore.</em></p>
+</blockquote>
+<ul>
+<li>Use <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLASTp</a>, to run a search against the <strong>env_nr</strong> bank (<em>Metagenomic proteins</em>). Don't forget to paste the sequence ``1smd``` into the search field.</li>
+<li>In the <strong><em>Program Selection</em></strong> section, select PSI-BLAST. </li>
+<li>Click on <strong><em>Algorithm parameters</em></strong>.</li>
+</ul>
+<p><img alt="Choosing the PSSM in PSI-BLAST" src="https://drive.google.com/uc?id=127lj9XPqUs0WgbScpvJ99f1k5EXS62eT" /></p>
+<ul>
+<li>
+<p>In the <strong><em>PSI/PHI/DELTA BLAST</em></strong> section, there is a <strong><em>Upload PSSM</em></strong> option. Click to select the file and choose the previously saved PSSM file, which has the name <code>cd11317_res.txt</code> that was saved earlier (can also be obtained from the link).</p>
+</li>
+<li>
+<p>Click BLAST and check the results.</p>
+</li>
+</ul>
+<h2 id="using-pfam-and-interpro">Using Pfam and InterPro</h2>
+<p><a href="http://pfam.xfam.org">Pfam</a> is another bank for obtaining functional information on protein families and domains. From it, it is also possible to obtain multiple alignments of protein sequences from the same family (like the CDD) and obtain profiles (<em>profiles</em>) of <em>Hidden Markov Models</em> (HMMs). Such profiles are demonstrated in a graphical form, called <em>HMM Logos</em>.</p>
+<blockquote>
+<p><strong><em>HMMs:</em></strong> * <em>It is a statistical model for any system that can be represented as a succession of transitions between discrete states.</em></p>
+</blockquote>
+<h3 id="when-should-i-use-pfam">When should I use Pfam?</h3>
+<ul>
+<li>
+<p>To obtain information on protein families and domains.</p>
+</li>
+<li>
+<p>To obtain functional information.</p>
+</li>
+<li>
+<p>To obtain multiple alignments of protein sequences from the same family.</p>
+</li>
+<li>
+<p>To obtain profiles and <em>Hidden Markov Models</em>:</p>
+</li>
+<li>
+<p>This is a statistical model for any system that can be represented as a succession of transitions between discrete states.</p>
+</li>
+</ul>
+<p>In this part we will also use the sequence <code>1smd</code>. To do this follow the steps below:</p>
+<p><img alt="Performing a query on Pfam" src="https://drive.google.com/uc?id=1uNWnTKC6MRxhXbFGLDowUGM3wQMAr3O4" /></p>
+<ul>
+<li>Open the <a href="http://pfam.xfam.org">Pfam</a> page.</li>
+<li>Click on <strong><em>Sequence Search</em></strong>.</li>
+<li>Copy the sequence of the protein <code>1smd</code> into the given field.</li>
+<li>Wait for the results.</li>
+</ul>
+<p>The first page of results will be as follows:</p>
+<p><img alt="Pfam Results - 1smd" src="https://drive.google.com/uc?id=1_s3MRUG96IkRq8DFUsXltJPqZrEwTTPt" /></p>
+<ul>
+<li>Now click on the link corresponding to the alpha-amylase family.</li>
+<li>Look at all the results by clicking on the navigation menu on the right.</li>
+</ul>
+<blockquote>
+<p><em>See mainly the items</em> <strong><em>Domain organization</em></strong>, <strong><em>HMM Logo</em></strong> <em>and</em> <strong><em>Alignments</em></strong>.</p>
+</blockquote>
+<p><img alt="Clan CL0058" src="https://drive.google.com/uc?id=17LI_2R-73k5PoEIDroub96LVV5guKXCp" /></p>
+<p>In the <strong><em>Summary</em></strong> part there is a tab indicating the <a href="http://www.ebi.ac.uk/interpro/"><strong>InterPro</strong></a> code for this protein family, which is <a href="http://www.ebi.ac.uk/interpro/entry/IPR006047">IPR006047</a>.</p>
+<p>In InterPro similar information is also available and sequence searches can also be performed.</p>
+<h3 id="when-should-i-use-interpro">When should I use InterPro?</h3>
+<ul>
+<li>To get general information about a protein.</li>
+<li>To obtain information about the structure and residues important for activity.</li>
+<li>To obtain information linked with other biological databases.</li>
+</ul>
+<blockquote>
+<p><strong><em>Which database to use?</em></strong></p>
+<p>*This is not a trivial question. It is important that you explore the information available in each bank and extract as much information about the protein of interest as possible. As you can see, although there is a redundancy in the available information, each bank has its own specificity and particularity.</p>
+</blockquote>
+<h2 id="using-prosite">Using PROSITE</h2>
+<p>The <a href="http://prosite.expasy.org">PROSITE</a> database is another very useful database for obtaining functional and protein family and domain information. </p>
+<h3 id="when-should-i-use-prosite">When should I use PROSITE?</h3>
+<ul>
+<li>To get information on protein families and domains.</li>
+<li>To obtain functional information.</li>
+<li>To obtain the sequence signatures that characterize protein families.</li>
+<li>Use for similarity searches using PHI-BLAST.</li>
+</ul>
+<p>For this example, we will use the sequence below:</p>
+<pre><code>&gt;Enzyme_Test_1
+MVKIVTVKTQAYQDQKPGTSGLRKRVKVFQSSANYAENFIQSIISTVEPAQRQEATLVVGGDGRFYMKEAIQLIARIA
+AANGIGRLVIGQNGILSTPAVSCIIRKIKAIGGIILTASHNPGGPNGDFGIKFNISNGGPAPEAITDKIFQISKTIEE
+YAVCPDLKVDLGVLGKQFDLENKFKPFTVEIVDSVEAYATMLRSIFDFSALKELLSGPNRLKIRIDAMHGVVGPYVK
+KILCEELGAPANSAVNCVPLEDFGGHHPDPNLTYAADLVETMKSGEHDFGAAFDGDGDRNMILGKHGFFVNPSVAV
+IAANIFSIPYFQTGVRGFARSMPTSGALDRVASATKIALYETPTGWKFFGNLMDASKLSLCGEESFGTGSDHIREKD
+GLWAVLAWLSILATRKQSVEDILKDHWQKYGRNFFTRYDYEEVEAEGANKMMKDLEALMFDRSFVGKQFSANDKVYTV
+EKADNFEYSDPVDGSISRNQGLRLIFTDGSRIVFRLSGTGSAGATIRLYIDSYEKDVAKINQDPQVMLAPLISIALKV
+SQLQERTGRTAPTVIT
+</code></pre>
+<p><strong>Steps:</strong></p>
+<ul>
+<li>Open the <a href="http://prosite.expasy.org">PROSITE</a> home page.</li>
+<li>In the <strong><em>Quick Scan mode of ScanProsite</em></strong> box, paste the above sequence.</li>
+<li>Check the <strong><em>Exclude motifs with a high probability of occurrence from the scan</em></strong> option.</li>
+</ul>
+<blockquote>
+<p><em>This option is for excluding linear motifs in the protein sequence that are very common, in numerous proteins.</em></p>
+</blockquote>
+<ul>
+<li>Click <strong><em>Scan</em></strong>.</li>
+<li>Look at the results, which should look like the picture below:</li>
+</ul>
+<p><img alt="PROSITE Results" src="https://drive.google.com/uc?id=1aQoj0d_0dKAFTS6w96mEu1iSi8A-MSaO" /></p>
+<p>The results show that between positions 111 and 120 there is a signature of phosphoglucomutase and phosphomannomutase phosphoserine type enzymes. Click on the link indicated above (<a href="http://prosite.expasy.org/cgi-bin/prosite/nicedoc.pl?PS00710">PS00710</a>) and see the information on this motif.</p>
+<p>On this same page, further down, we have a table called <strong><em>PGM_PMM, PS00710; Phosphoglucomutase and phosphomannomutase phosphoserine signature (PATTERN)</em></strong>. In it we have the following standard consensus:</p>
+<pre><code>Consensus pattern:
+[GSA]-[LIVMF]-x-[LIVM]-[ST]-[PGA]-S-H-[NIC]-P
+</code></pre>
+<p>This is the PROSITE signature of this type of protein. It can be used in a PHI-BLAST search (see tutorial 105) to identify proteins that have this signature in similarity searches using BLAST. </p>
+<h3 id="lets-take-an-example">Let's take an example?</h3>
+<p>You want to check which proteins obtained from environmental metagenome samples have this phosphoglycomutase signature, for a possible biotechnological application. To do this, follow the steps below (also follow the picture):</p>
+<p><img alt="PHI-BLAST" src="https://drive.google.com/uc?id=1tasfVqBbRi7gBC_pZJNmWKAVC-MWcndw" /></p>
+<ul>
+<li>Use <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLASTp</a>, to run a search against the <strong>env_nr</strong> bank (<em>Metagenomic proteins</em>). Don't forget to paste the sequence <code>Enzyme_Test_1</code> in the search field.</li>
+<li>In the <strong><em>Program Selection</em></strong> section, select PHI-BLAST. When you click PSI-BLAST, a box below opens. Here you enter the PROSITE signature above. </li>
+<li>Click BLAST and wait for the results (It may take a while!!!).</li>
+<li>Check the results.</li>
+</ul>
+<blockquote>
+<p><em>Is there anything promising?</em></p>
+</blockquote>
+<h2 id="one-more-thing"><em>One More Thing</em></h2>
+<p>The <a href="http://jenalib.leibniz-fli.de/IMAGE.html">Jena Library</a> site aggregates known protein information from various databases (some seen in this tutorial itself).</p>
+<p><img alt="Jena Library" src="https://drive.google.com/uc?id=1YV9fzlWu6WllyUi0R9-kxQTAQwTy2LWf" /></p>
+<p>To do a test, put the code <code>1smd</code> in the <strong><em>QuickSearch</em></strong> field in the upper right corner of the page and click <strong><em>Go</em></strong>. On the next page, information present in other protein databases will be returned, with links to the specific page of the entry.</p>
+<h1 id="immunoinformatics-databases">Immunoinformatics Databases</h1>
+<h2 id="epitope-prediction-for-b-and-t-type-cells">Epitope prediction for B- and T-type cells</h2>
+<p>From the identification of pathogen surface proteins and using similarity searches one can infer B and T cell epitopes for any sequence. For this, the <em>knowledge database</em> of the <em>Immune Epitope Database and Analysis Resource</em> (<a href="http://www.iedb.org">IEDB</a>) is an essential tool for antigenicity and immunogenicity studies.</p>
+<p><img alt="IEDB Home Page" src="https://drive.google.com/uc?id=1EtDo5kafIm-OepZ7WUr6jnuqzhOURyiU" /></p>
+<p>In this example, we will use a shrimp tropomyosin sequence <em>Litopenaeus vannamei</em>:</p>
+<pre><code>&gt;Lit v 1 tropomyosin [Litopenaeus vannamei]
+MDAIKKKMQAMKLEKDNAMDRADTLEQQNKEANNRAEKSEEEVHNLQKRMQQLENDLDQVQESLLKANIQ
+LVEKDKALSNAEGEVAALNRRIQLLEEDLERSEERLNTATTKLAEASQAADESERMRKVLENRSLSDEER
+MDALENQLKEARFLAEEADRKYDEVARKLAMVEADLERAEERAETGESKIVELEEELRVVGNNLKSLEVS
+EEKANQREEAYKEQIKTLTNKLKAAEARAEFAERSVQKLQKEVDRLEDELVNEKEKYKSITDELDQTFSE
+LSGY
+</code></pre>
+<h3 id="t-cell-epitopes">T-cell epitopes</h3>
+<p>Let's first check which regions of this protein might be possible T-cell epitopes (In the leftmost <strong><em>Epitope Analysis Resource</em></strong> box).</p>
+<h4 id="mhci">MHCI</h4>
+<ul>
+<li>Click on <strong><em>MHC I Binding</em></strong>.</li>
+<li>On the next page, copy and paste the above sequence.</li>
+<li>Leave the recommended option for the prediction method (<em>Prediction Method</em>).</li>
+<li>For simplification purposes, we will analyze only the human allele <strong>HLA-A-01:01</strong>. In the box next to it, put <em>All lengths</em>.</li>
+<li>Note the resulting table, which should look similar to the one below:</li>
+</ul>
+<p><img alt="MHC-I" src="https://drive.google.com/uc?id=1I15nBppFgWhV2sMoktH9fGhuEF5agxD6" /></p>
+<p>In the table above, it shows the Allele, the position in the sequence, the size and sequence of the peptide, and in the last column the <em>Percentile Rank</em>. Segundo o método, quanto menor for este percentil, melhor será a ligação com o MHCI. Selecione a caixa <code>Check to expand the result</code>. A tabela será expandida com os seguintes resultados:</p>
+<p><img alt="MHC-II" src="https://drive.google.com/uc?id=1xxnUUunheMMG6EnOeQAZ77CvTVvFEK5J" /></p>
+<p>Another important result is reported: IC<sub>50</sub> (nM). It is the nanomolar concentration needed to bind half of the molecules.</p>
+<blockquote>
+<p><em>The predicted output is given in units of IC50nM. Therefore a lower number indicates higher affinity. As a rough guideline, peptides with IC50 values &lt;50 nM are considered high affinity, &lt;500 nM intermediate affinity and &lt;5000 nM low affinity. Most known epitopes have high or intermediate affinity. Some epitopes have low affinity, but no known T-cell epitope has an IC50 value greater than 5000.  While the output of the predictions is quantitative, there are systematic deviations from experimental IC50 values. For example, the makeup of the training data and the prediction methods used have a non-trivial impact on the range of predicted IC50 values. A detailed evaluation of the correlation between predicted IC50 and antigenicity of peptides is currently being conducted which will help to better interpret prediction results.  In addition to the IC50 values for each peptide, a percentile rank is generated by comparing the peptide's IC50 against those of a set of random peptides from SWISSPROT database. A small numbered percentile rank indicates high affinity. For the 'consensus' and 'IEDB recommended' methods, the median percentile rank of the methods used is reported as the representative percentile rank. (From <a href="http://tools.iedb.org/mhci/help/">MHC-I help</a> do IEDB).</em></p>
+</blockquote>
+<h4 id="mhcii">MHCII</h4>
+<ul>
+<li>Click on <strong><em>MHC II Binding</em></strong>.</li>
+<li>On the next page, copy and paste the sequence above.</li>
+<li>For simplification purposes we will analyze only the human allele <strong>DRB1*01:01</strong>.</li>
+<li>Note the resulting table (figure below), which will be of similar interpretation to the table obtained for MHC-I.</li>
+</ul>
+<p><img alt="MHC-II" src="https://drive.google.com/uc?id=1t49lmVGTIoPHgM0Pj1Rwcrr6-jF3am9W" /></p>
+<blockquote>
+<p><em>The choice of allele(s) is of extreme importance in this type of analysis. In this tutorial only one allele has been used for simplification purposes, but when working with </em><em>immunoinformatics</em><em>, a very thorough research on the set of alleles that will be used is recommended.</em></p>
+</blockquote>
+<h3 id="b-cell-epitopes">B-cell epitopes</h3>
+<p>Now let's check which regions of this protein could be possible B-cell epitopes. </p>
+<p>Go back to the IEDB home page. Look in the leftmost frame for the options: <strong><em>Epitope Analysis Resource</em></strong>, click on <em>Antigen Sequence Properties</em>, under <strong><em>B Cell Epitope Prediction</em></strong>).</p>
+<p><img alt="IEDB - B Cells" src="https://drive.google.com/uc?id=1G7xPAKyuzhsvOuVVtf4O_KNPx0KNmIRH" /></p>
+<p>On the next page, follow the steps:</p>
+<ul>
+<li>Paste the sequence into the larger field. Remove the fasta header (as in the picture below).</li>
+<li>Leave the option checked by default (<strong><em>Bepipred Linear Epitope Prediction</em></strong>).</li>
+<li>Click on <strong><em>Submit</em></strong>.</li>
+<li>Observe the results.</li>
+</ul>
+<p><img alt="IEDB - B-cells" src="https://drive.google.com/uc?id=13Gp5kIS87XQ7A6QL0PbYY_AqaD6HneWV" /></p>
+<p>In the graph shown as results, the regions in yellow represent regions of the submitted sequence with a high possibility of being B-cell epitopes. Check the sequences of these regions.</p>
+<p><img alt="IEDB-Results" src="https://drive.google.com/uc?id=1WlRyRhVO_GWgnfB6UI0K65p-WsTetydH" /></p>
+<h3 id="lets-do-a-first-test">Let's do a first test?</h3>
+<p>Check if regions of the protein below, from Zika virus, can be used for a possible vaccine. To do this, perform the search for B and T cell epitopes as shown above.</p>
+<pre><code>&gt;Proteina Zika
+GKAFEATVRGAKRMAVLGDTAWDFGSVGGALNSLGKGIHQIFGAAFKSLFGGMSWFSQILIGTLLMWLGLNTKNGSISLMCLALGGVLIFLSTAVSA
+</code></pre>
+<h3 id="searching-for-a-specific-disease">Searching for a specific disease</h3>
+<p>On the IEDB homepage you can also search for already known epitopes (by prediction, experimentally validated or used in available kits) from the disease name (e.g. Covid-19), as shown in the picture below:</p>
+<p><img alt="Searching from disease - IEDB" src="https://drive.google.com/uc?id=1UvBY48AtyWXNPRyclaSnQrYUCY2zYhjU" /></p>
+<p>Click on <code>Search</code> and analyze the results.</p>
+<p>All the epitopes and antigens already catalogued for the causative agent proteins will be listed in the resulting table. There you also have access to the various information associated with each epitope sequence. This tool is very useful for you to check if a certain epitope has not been identified before.</p>
+<h2 id="allergenicity-prediction">Allergenicity Prediction</h2>
+<p>Allergenic proteins are those that have the potential to cause allergies in humans. Allergenicity testing is one of the first steps in evaluating the biotechnological potential of a particular protein. For example, regions of this protein can be used as vaccines, but if they cause allergies, the potential for application diminishes considerably. Allergenicity prediction is also strictly necessary in the case of commercial deployment of transgenic products, whether for food or cosmetic purposes.</p>
+<p>For prediction of the allergenic potential of a particular protein, we will also use the above shrimp tropomyosin sequence. There are several databases that can be used to find similarities with already proven allergenic proteins, such as:</p>
+<ul>
+<li><a href="http://www.allergenonline.org">AllergenOnline</a></li>
+<li><a href="https://fermi.utmb.edu">SDAP - Structural Database of Allergenic Proteins</a></li>
+<li><a href="http://www.allermatch.org">AllerMatch</a></li>
+</ul>
+<blockquote>
+<p><em>Always check that the databases you are using are being updated. This is of fundamental importance, since a new allergenic protein may have been identified more recently. For example, AllerMatch has not received any updates for a while.</em></p>
+</blockquote>
+<p>We will use the database <a href="http://www.allergenonline.org">AllergenOnline</a>, maintained by the University of Nebraska. There you can search by name, code, and also by sequence. Let's query by sequence:</p>
+<p><img alt="AllergenOnline Home Page" src="https://drive.google.com/uc?id=1CvUtsJVu_MedCFEPhVjIi0IfHJpKZ9dJ" /></p>
+<ul>
+<li>Open the [AllergenOnline] home page (http://www.allergenonline.org).</li>
+<li>On the left side, click on <strong><em>Sequence Search Allergen Database</em></strong>.</li>
+<li>Paste the sequence into the <strong><em>Sequence Entry</em></strong> box.</li>
+<li>In the search method, there are 3 options:</li>
+<li><em>Full fasta</em>: to check for whole protein similarity <em>query</em>. We use this case to check overall similarity.</li>
+<li><em>Sliding 80mer Window</em>: does the search in "windows" every 80 amino acids, with overlap. In this case it is to check if the <em>query</em> protein has similar internal regions with known allergenic proteins.</li>
+<li>8mer Exact Match*: does a search for regions of 8 amino acids exactly. We use it to see if the protein has exact smaller regions that might be allergenic.</li>
+<li>Click <em>Sliding 80mer Window</em>, and then <strong><em>Submit</em></strong> to start the search.</li>
+<li>Check the results.</li>
+</ul>
+<p>Let's repeat the analysis with SDAP:</p>
+<ul>
+<li>Open the [SDAP] page(https://fermi.utmb.edu).</li>
+<li>On the left side, click on <strong><em>FASTA Search in SDAP</em></strong>.</li>
+<li>On the new page, paste the shrimp tropomyosin sequence and click <strong><em>Search</em></strong>.</li>
+<li>Check the results.</li>
+</ul>
+<p>The <a href="http://www.iedb.org">IEDB</a> also has a tool to check antigen conservation, which is quite valid for checking allergenicity potential as well.</p>
+<ul>
+<li>Open the <a href="http://www.iedb.org">IEDB</a> page.</li>
+<li>In the <strong><em>Epitope Analysis Tools</em></strong> box, click on the <strong><em>Conservation Across Antigens</em></strong> option</li>
+<li>On the new page, put in the first box (<strong><em>Step 1. Epitope Sequence(s)</em></strong>) one of the sequences obtained in the B-cell epitope search (in the previous item), for example the short sequence below (one of those found in the search):</li>
+</ul>
+<pre><code>QQLENDLDQV
+</code></pre>
+<ul>
+<li>In the second box (<strong><em>Step 2. Protein Sequence(s)</em></strong>), paste the sequence below:</li>
+</ul>
+<pre><code>&gt;AIO08865.1 Der f 10 allergen, partial [Dermatophagoides farinae]
+MEAIKKKMQAMKLEKDNAIDRAEIAEQKARDANLRAEKSEEEVRALQKKIQQQIENELDQVQEQLSAANTK
+LEEKEKALQTAEGDVAALNRRIQLIEEDLERSEERLKIATAKLEEASQSADESERMRKMLEHRSITDEER
+MDGLENQLKEARMMAEDADRKYDEVARKVLAMVEADLERAEERAETGESKIVELEEELRVVGNNLKSLEVS
+EEKAQQREEAYEQIRIMTAKLKEAEARAEFAERSVQKLQKEVDRLEDELVHEKEKYKSISDELDQTFAE
+LTG
+</code></pre>
+<ul>
+<li>In <strong><em>Sequence identity threshold:</em></strong>, check the 60% option, so that we look for sequence with at least 60% similarity.</li>
+<li>Leave the rest of the options as default and click <strong><em>Submit</em></strong>.</li>
+<li>In the resulting table, view the result and click <strong><em>Go</em></strong>.</li>
+</ul>
+<p>The sequence of <em>Dermatophagoides farinae</em> (common mite) shows a conserved epitope relative to that of shrimp. Therefore, it is likely that it is also allergenic.</p>
+<h3 id="exercise">Exercise</h3>
+<p>Check whether the sequence below is allergenic:</p>
+<pre><code>&gt;Der f 1
+RPASIKTFEEFKKAFNKNYATVEEEEVARKNFLESLKYVEANKGAINHLSDLSLDEFKNR
+YLMSAEAEAFEFEQLKTQFDLNAETSACRINSVNVPSELDLRSLRTVTPIRMQGGCGSCWAFSG
+VAATESAYLAYRNTSLDLSEQELVDCASQHGCHGDTIPRGIEYIQNGVVEERSYPYVAR
+EQCRRPNSQHYGISNYCQIYPPDVKQIREALTQTHTAIAVIIGIKDLRAFQHYDGRTII
+QRDNGYQPNYHAVNIVGYGSTQGVDYWIVRNSWDTT
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

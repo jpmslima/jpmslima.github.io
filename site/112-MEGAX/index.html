@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/112-MEGAX/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Primeiros Passos no MEGA - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Primeiros Passos no MEGA";
+        var mkdocs_page_input_path = "112-MEGAX.md";
+        var mkdocs_page_url = "/tutoriais/112-MEGAX/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Primeiros Passos no MEGA</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#primeiras-observacoes">Primeiras observações:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#objetivo">Objetivo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#obtendo-o-dataset-e-avaliando-suas-estatisticas">Obtendo o dataset e avaliando suas estatísticas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#teste-do-modelo-de-substituicao-nucleotidica">Teste do modelo de substituição nucleotídica</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#construindo-os-dendrogramas">Construindo os dendrogramas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#perguntas">Perguntas:</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutoriais Iniciais de Bioinformática</li>
+      <li class="breadcrumb-item active">Primeiros Passos no MEGA</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="inferindo-filogenias">Inferindo Filogenias</h1>
+<p><em>A crash course</em>.</p>
+<h2 id="primeiras-observacoes">Primeiras observações:</h2>
+<ul>
+<li>Este tutorial foi construído <strong><em>apenas para fins didáticos</em></strong>. <span style="color:red"><strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida.</strong></span> </li>
+<li>As etapas abaixo demonstram como obter dendrogramas pelos diferentes métodos usando a ferramenta <a href="www.megasoftware.net">MEGAX</a>. Lembre-se que a obtenção de Árvores Filogenéticas para estimar uma Filogenia é um problema muito complexo, que envolve teste de hipóteses e alterações na amostragem de sequências.</li>
+</ul>
+<h2 id="objetivo">Objetivo</h2>
+<p>O objetivo deste tutorial é familiarizar o usuário com a interface e as principais funções do programa MEGAX, relacionadas à obtenção de um dendrograma inicial para estimar uma filogenia.</p>
+<h2 id="obtendo-o-dataset-e-avaliando-suas-estatisticas">Obtendo o <em>dataset</em> e avaliando suas estatísticas</h2>
+<p>Nós utilizaremos <a href="https://drive.google.com/uc?export=download&amp;id=12-vfD16vil2cTmNM2VOMfuj48LGo9iT2">este <em>dataset</em></a> para a construção dos dendrogramas. Estas sequências já se encontram alinhadas. Siga os passos abaixo:</p>
+<ul>
+<li>
+<p>Abra o alinhamento com o MEGAX. Na janela seguinte, clique em <code>Analyze</code> e marque a opção <em>protein coding nucleotide sequences and the genetic code</em>.</p>
+</li>
+<li>
+<p>Examine as estatísticas de alinhamento. Clique no ícone TA na superior esquerda para abrir o <em>Data Explorer</em>.</p>
+</li>
+</ul>
+<p><img alt="Alignment Statistics" src="../Stats.png" /></p>
+<h2 id="teste-do-modelo-de-substituicao-nucleotidica">Teste do modelo de substituição nucleotídica</h2>
+<p>Nas suas primeiras versões o programa <a href="www.megasoftware.net">MEGA</a>  não possuía uma rotina para realização de testes do modelo de substituição. Mesmo assim, ele foi um dos primeiros programas a incluir nativamente esta função. O algoritmo é rápido, no entanto ele testa um número maior de modelos dos que estão disponíveis na própria ferramenta.</p>
+<ul>
+<li>Utilizaremos o arquivo de alinhamento múltiplo de sequências <a href="https://drive.google.com/uc?export=download&amp;id=12-vfD16vil2cTmNM2VOMfuj48LGo9iT2">vert-aligned.fasta</a>.</li>
+<li>Execute o programa MEGAX (nos computadores do curso o ícone estará na área de trabalho).</li>
+<li>Abra o alinhamento clicando no botão <code>TA</code> e em seguida em <em>Open a File/Session...</em>, de acordo com a figura abaixo:</li>
+</ul>
+<p><img alt="MegaX" src="../MEGA1.png" /></p>
+<ul>
+<li>Na janela <em>pop-up</em> seguinte, clique em <em>Analyze</em> (essas sequências já foram alinhadas anteriormente):</li>
+</ul>
+<p><img alt="Analyze" src="../modeltest-mega2.png" /></p>
+<ul>
+<li>O MEGA lhe fará as seguintes perguntas: se são sequências de nucleotídeos. Clique em Ok.</li>
+</ul>
+<p><img alt="Nucleotide sequences" src="../modeltest-mega3.png" /></p>
+<ul>
+<li>Se são sequências codificantes para proteínas. Responda <em>Yes</em>.</li>
+</ul>
+<p><img alt="Coding sequences" src="../modeltest-mega3.png" /></p>
+<ul>
+<li>Ao responder, você precisará selecionar o código genético específico. Clique em <em>Vertebrate Mitochondrial</em>:</li>
+</ul>
+<p><img alt="Select genetic code" src="../modeltest-mega5.png" /></p>
+<ul>
+<li>Com o arquivo aberto, agora você clicará em <code>Models</code>,</li>
+</ul>
+<p><img alt="Models in MEGA X" src="../modeltest-mega6.png" /></p>
+<ul>
+<li>E selecione o primeiro item, <em>Find Best DNA/Protein Models (ML)...</em>:</li>
+</ul>
+<p><img alt="best-fit model in Mega X" src="../modeltest-mega7.png" /></p>
+<ul>
+<li>E responda sim na caixa de diálogo que aparece logo depois, para usar o conjunto de dados que está aberto:</li>
+</ul>
+<p><img alt="Best-fit model in Mega" src="../modeltest-mega8.png" /></p>
+<ul>
+<li>Após a confirmação, a seguinte caixa irá aparecer:</li>
+</ul>
+<p><img alt="Ajustando os parâmetros" src="../modeltest-mega9.png" /></p>
+<ul>
+<li>Vamos as opções (da forma como apresentadas na figura acima):<ul>
+<li>Utilizaremos uma árvore automática de <em>Neighbor-Joining</em> como hipótese inicial para estes dados.</li>
+<li>Como as sequências desse alinhamento são de nucleotídeos, utilizaremos o tipo de substituições adequado.</li>
+<li>Nas opções dos subgrupos de dados, utilizaremos todos os sítios, todas as posições de códons e não utilizaremos filtros para troca de ramos (<em>Branch-swap filter</em>).</li>
+<li>Deixe o número de <em>Threads</em> no padrão que apareceu no computador que você está usando.</li>
+<li>Finalmente, clique em Ok. O processo irá demorar um pouco, dependendo dos recursos computacionais disponíveis. Os resultados aparecerão como a tabela abaixo:</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Best-fit models results" src="../modeltest-mega10.png" /></p>
+<p>Os resultados são descritos na forma de uma lista do melhor modelo para o menos adequado para os dados utilizados. No MEGA X o critério de informação utilizado é o Bayesiano (BIC). Por ele, podemos verificar que o modelo GTR (<em>General Time-reversible</em>) mais correção gamma (+G) foi o modelo escolhido pelo critério bayesiano, embora não seja o modelo com a menor verossimilhança (<em>lnL</em>). O restante das informações desta tabela serão discutidas presencialmente.</p>
+<blockquote>
+<p><em>Não esqueça de salvar esta tabela em um dos formatos que o MEGA X disponibiliza, a partir dos ícones presentes no canto superior esquerdo da tela.</em></p>
+<p><em>O MEGA X também possui a função de calcular o melhor modelo de substituição de aminoácidos. Para isso, basta iniciar as análises com um alinhamento de aminoácidos e na caixa de diálogo escolher a opção correta.</em></p>
+</blockquote>
+<h2 id="construindo-os-dendrogramas">Construindo os dendrogramas</h2>
+<ul>
+<li>Construa uma árvore filogenética de Neighbor-joining, com um teste de bootstrap. Use <em>Complete deletion</em> nesse conjunto de dados. Você pode usar o modelo Tamura-Nei 93, já que o modelo GTR não está disponível para o método Neighbor-Joining. Não se esqueça de examinar o parâmetro <em>gamma</em> (+G) para o modelo TN93 e a proporção de sítios invariantes (+I) (se necessário).</li>
+</ul>
+<p><img alt="NJ1" src="../MegaNJ1.png" /></p>
+<p><img alt="NJ2" src="../MegaNJ2.png" /></p>
+<ul>
+<li>Construa uma árvore filogenética usando <em>Parsimony</em> e também <em>Maximum Likelihood</em>. Para esse último, você pode usar o modelo GTR (General Time-reversible), selecionado pelo teste do modelo de substituição de nucleotídeos. Use também <em>Complete deletion</em> em ambos os métodos.</li>
+</ul>
+<p><img alt="ML" src="../ML.png" /></p>
+<blockquote>
+<p>No método ML, você não precisa ajustar um parâmetro específico de distribuição gamma, basta definir o uso de <em>Gamma</em> </p>
+</blockquote>
+<ul>
+<li>Não se esqueça de fazer o root das árvores quando necessário e de salvá-las.</li>
+</ul>
+<blockquote>
+<p><em>A árvore demonstrada abaixo não está enraizada com o grupo externo mais plausível!</em></p>
+</blockquote>
+<p><img alt="Enraizando a árvore" src="../Root.png" /></p>
+<h2 id="perguntas">Perguntas:</h2>
+<ul>
+<li>
+<p>Qual espécie você escolheria para ser o grupo externo do conjunto de dados acima? Explique.</p>
+</li>
+<li>
+<p>Compare as árvores obtidas e explique a filogenia, sempre procurando por valores de bootstrap favoráveis (ou não).</p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../111-Modelagem/" class="btn btn-neutral float-left" title="Modelagem Computacional de Proteínas"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../113-Genomes/" class="btn btn-neutral float-right" title="Navegando por Genomas">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../111-Modelagem/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../113-Genomes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

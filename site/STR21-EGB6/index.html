@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR21-EGB6/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>VS-2 - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "VS-2";
+        var mkdocs_page_input_path = "STR21-EGB6.md";
+        var mkdocs_page_url = "/tutoriais/STR21-EGB6/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">VS-2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introducao">Introdução</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-9">Tutorial 9</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#triagem-virtual-baseada-em-ligantes">Triagem virtual baseada em ligantes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-10">Tutorial 10</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#triagem-virtual-baseada-na-estrutura">Triagem virtual baseada na estrutura</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">VS-2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="triagem-virtual">Triagem Virtual</h1>
+<p>Prof. Euzébio Guimarães – DFAR – BioME - UFRN</p>
+<h2 id="introducao">Introdução</h2>
+<p>A triagem virtual usa métodos baseados em computador para descobrir novos ligantes na base de estruturas biológicas. A triagem virtual é dividida em triagem baseada na estrutura (<em>docking</em>) e triagem usando compostos ativos como moldes (Triagem virtual baseada em ligantes). As técnicas de rastreio baseadas em ligantes concentram-se principalmente na comparação de análises de similaridade molecular de compostos com partes conhecidas e desconhecidas, independentemente dos métodos do algoritmo utilizado. <em>Docking</em>, como já dito, é utilizada para prever geometrias de interação de ligantes de proteínas e afinidades de ligação. O fluxograma abaixo define as etapas abordadas nesta apostila.</p>
+<p><img alt="Fluxograma Triagem Virtual" src="../str21-fig1.png" /></p>
+<h2 id="tutorial-9">Tutorial 9</h2>
+<h3 id="triagem-virtual-baseada-em-ligantes">Triagem virtual baseada em ligantes</h3>
+<p>Moléculas similares geralmente têm atividades biológicas similares. Esse é o princípio da triagem virtual baseada em ligantes. Vamos supor que você tenha uma molécula extraída de uma fonte natural e deseja saber qual seria a possível atividade desta molécula. A maneira mais simples é buscar em servidores como o PubChem moléculas similares. Vamos usar para isso a molécula abaixo:</p>
+<pre><code class="language-none">COC1=C(NC(=O)C=C)C=C2C(N)=C(C=NC2=C1)C#N
+</code></pre>
+<p><img alt="Triagem Virtual Molecule" src="../str21-fig2.png" /></p>
+<p>Vamos buscar por moléculas com contenham esse núcleo base no <a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>:</p>
+<p><img alt="Triagem Virtual - PubChem" src="../str21-fig3.png" /></p>
+<p>Encontramos uma possibilidade de interação com este alvo para um composto bastante similar.</p>
+<p><img alt="Triagem Virtual - PubChem 2" src="../str21-fig4.png" /></p>
+<p>O servidor utilizou sua molécula com a molécula padrão e fez uma busca contra todo o banco de dados de moléculas já ativas (ou não).</p>
+<p>Outro servidor interessante é o <a href="http://www.swisssimilarity.ch/">SwissSimilarity</a> (<a href="https://pubs.acs.org/doi/10.1021/acs.jcim.6b00174">Zoete et al. 2016</a>). Você fornece o SMILES da estrutura e escolhe qual banco de dados quer confrontar. Vamos escolher o PDB (Ligands from the PDB), pois teremos na resposta final alvos já elucidados.</p>
+<h2 id="tutorial-10">Tutorial 10</h2>
+<h3 id="triagem-virtual-baseada-na-estrutura">Triagem virtual baseada na estrutura</h3>
+<p>Imagine agora que você deseja encontrar uma molécula para se ligar a um alvo específico do seu interesse. Por exemplo DHFR do <em>Mycobacterium tuberculosis</em>. Sua intenção é descobrir um possível inibidor. Para isso precisamos de dois dados:</p>
+<ol>
+<li>Dado do alvo de interesse, neste caso optamos pela estrutura <a href="http://www.rcsb.org/structure/4KM2">4KM2</a>.</li>
+<li>Um banco de dados de ligantes disponíveis para a compra.</li>
+</ol>
+<p>No caso de 2 pode ser um banco de moléculas qualquer: Moléculas disponíveis no seu laboratório, análogos virtuais da trimetoprima, etc. Quanto maior seu banco de moléculas mais caro será o procedimento.</p>
+<p>Um servidor web que faz esse trabalho é o <a href="http://istar.cse.cuhk.edu.hk/idock/">iDOCK</a>. Basta dar o <em>upload</em> na estrutura e criar uma caixa de busca e pronto. Você poderá filtrar os resultados para reduzir o número de compostos a serem buscados. O número total de compostos é de 8 milhões. Não é uma tarefa fácil.</p>
+<p>Vamos fazer o teste localmente com um banco de moléculas pré-selecionadas por mim. Este banco foi criado apenas como critério didático e é composto por moléculas que se ligam a DHFR. Estas informações foram retiradas do BindingDB com 1086 moléculas.</p>
+<p><img alt="BindDB" src="../str21-fig5.png" /></p>
+<p>Antes de fazer o procedimento de triagem, vamos primeiramente tratar a proteína para a triagem virtual:</p>
+<ol>
+<li>Excluir umas das cadeias presentes.</li>
+<li>Determinar o size e o center da caixa para criar o arquivo de configuração.</li>
+<li>Usar a ferramenta DockPrep para corrigir problemas da estrutura.</li>
+<li>Salvar e converter para o formato <code>.pdbqt</code> (<code>recep.pdb</code>).</li>
+</ol>
+<pre><code class="language-none">python /opt/UCSF/Chimera64-1.13rc/lib/python2.7/site-packages/AutoDockTools/Utilities24/prepare_receptor4.py -r recep.pdb -o recep.pdbqt
+</code></pre>
+<p><img alt="Chimera" src="../str21-fig6.png" /></p>
+<p>Agora temos todos os dados para o receptor e a caixa onde será realizada a busca.</p>
+<p>Vamos agora criar um script em <em>shell</em> que fará o seguinte trabalho:</p>
+<ol>
+<li>Converter a estrutura de sdf em 2D para 3D (oBabel e Balloon).</li>
+<li>Criar um arquivo <code>pdbqt</code> para o ligante (oBabel).</li>
+<li>Realizar o <em>docking</em> da molécula no sítio da DHFR.</li>
+<li>Colocar os resultados do <em>docking</em> em um arquivo de <em>Score</em> para depois fazer o ranqueamento.</li>
+</ol>
+<p>O <em>script</em> ficaria assim:</p>
+<pre><code class="language-shell">#!/bin/bash
+echo &quot;MOL_ID  NAME ENERGIA&quot; &gt; TRIAGEM_log.txt
+for i in `seq 1  1086` # loop até a molécula 1086
+do
+obabel 680A1AECE14635831BD5B5AC7D8BADC6ki.sdf -f 1 -l 1 -O ${i}.smi #converter cada molécula
+balloon -f /home/euzebiogb/Downloads/CURSO_BIOME/PROGRAMAS/Linux_64bit-Balloon/MMFF94.mff --nconfs 1 --noGA ${i}.smi ${i}.sdf # Criar uma conformação em 3D rapidamente
+obabel ${i}.sdf -O ${i}.pdbqt  # converter para a entrada do autodock-vina
+vina --ligand 1.pdbqt --config config.cfg --out ${i}_d.pdbqt # fazer o docking
+ENER=`head -2 ${i}_d.pdbqt | tail -1 |  awk '{ print $4 }'` # Extrair o score do vina
+ENER=$(bc &lt;&lt;&lt; &quot;scale=2;$ENER*-1&quot;) # tornar o valor positivo
+MOL=awk '{ print $2 }' ${i}.smi # Atribuir a uma variável
+echo &quot;${i}  $MOL $ENER&quot; &gt;&gt; TRIAGEM_log.txt # Criar o log.
+rm ${i}* # remover os arquivos desnecessários
+done
+</code></pre>
+<p>Os cálculos vão demorar bastante, provavelmente 32 horas. Quando terminar basta ranquear os resultados e visualizar no UCSF chimera as moléculas melhor ranqueadas.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR20-EGB5/" class="btn btn-neutral float-left" title="Dinâmica Molecular"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../comps/" class="btn btn-neutral float-right" title="Complements">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR20-EGB5/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../comps/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

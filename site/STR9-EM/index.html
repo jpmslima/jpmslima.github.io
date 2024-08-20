@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/STR9-EM/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>EM/CryoEM fitting - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "EM/CryoEM fitting";
+        var mkdocs_page_input_path = "STR9-EM.md";
+        var mkdocs_page_url = "/tutoriais/STR9-EM/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">EM/CryoEM fitting</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#protuberancias-do-hiv">Protuberâncias do HIV</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#datasets-necessarios">Datasets necessários</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parte-1-sobreposicao-de-estrutura-de-cristalografia-de-raios-x-a-mapa-da-protuberancia">Parte 1: sobreposição de estrutura de cristalografia de raios-x a mapa da protuberância</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sobrepor-a-estrutura-molecular-no-mapa">Sobrepor a estrutura molecular no mapa</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#otimizacao-da-sobreposicao">Otimização da Sobreposição</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#qualidade-do-fit">Qualidade do Fit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#coeficiente-de-correlacao">Coeficiente de Correlação</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#salvando-o-trabalho">Salvando o trabalho</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parte-2-fit-da-protuberancia-com-fab-b12-ligado-sem-cd4">Parte 2: fit da protuberância com FAB b12 ligado (sem CD4)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parte-3-fit-da-gp120-com-protuberancia-nao-ligada">Parte 3: fit da gp120 com protuberância não-ligada</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parte-4-fazendo-um-trimero">Parte 4: Fazendo um trímero</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformática Estrutural</li>
+      <li class="breadcrumb-item active">EM/CryoEM fitting</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sobreposicao-de-modelos-moleculares-a-mapas-de-criomicroscopia-eletronica-em">Sobreposição de modelos moleculares a mapas de (crio)microscopia eletrônica (EM)</h1>
+<p>Neste tutorial você irá aprender a sobrepor e analisar a sobreposição de modelos moleculares, provenientes de modelagem <em>In silico</em> ou a partir de estruturas de cristalografia de raios-X, em mapas de (crio)microscopia eletrônica.</p>
+<p><strong>Observações:</strong></p>
+<ul>
+<li>Este tutorial foi traduzido e adaptado dos tutoriais do programa UCSF Chimera. O tutorial foi desenvolvido por Tom Goddard, para o <strong><em>EMBO Practical Course: The combination of electron microscopy and x-ray crystallography for the structure determination of large biological complexes</em></strong>. O tutorial no idioma original e sem adaptações pode ser acessado <a href="https://www.cgl.ucsf.edu/chimera/data/tutorials/emfit09/emfit.html">AQUI</a> e <a href="http://cwp.embo.org/pc09-18/">AQUI</a>.</li>
+<li>A tradução/adaptação foi construída <strong><em>apenas para fins didáticos</em></strong>.</li>
+</ul>
+<h2 id="protuberancias-do-hiv">Protuberâncias do HIV</h2>
+<p>O vírus HIV se une e infecta células-alvo por meio da interação dos receptores e das estruturas pontiagudas do envelope viral (<em>Env</em>). <em>Env</em> é um heterodímero de uma glicoproteína transmembrana (gp41) e de uma glicoproteína de superfície (gp120), formando um trímero na superfície da membrana viral. A figura abaixo mostra a estrutura geral do virion do HIV.</p>
+<p><img alt="Virion do HIV" src="../str9-fig1.png" /></p>
+<p>O topo do Env consiste na proteína gp120 e tem a função de se acoplar ao receptor CD4 em células T humanas (célula-alvo). A gp41, por sua vez, se amarra à membrana externa do HIV, formando o “caule” da estrutura “afiada” (protuberância) do envelope.</p>
+<p><img alt="HIV spikes. Stephen Fuller lab" src="../str9-fig2.png" /></p>
+<p>Cabe a essa proteína preparar a inoculação do material genético do vírus nas células hospedeiras e auxiliar na fusão da membrana viral com a membrana celular. O formato espinhoso da estrutura também é fruto de contatos intensos entre as proteínas gp41 da base e de poucas ligações entre as gp120 do topo (<a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=18668044">Liu et al. 2008</a>).</p>
+<p><img alt="HIV-1 BaL spike with CD4 and FAB 17b bound. Subramaniam lab." src="../str9-fig3.png" /></p>
+<h3 id="datasets-necessarios"><em>Datasets</em> necessários</h3>
+<ul>
+<li>env.map - Protuberância do HIV, sem ligantes (<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5019">emdb 5019</a>).</li>
+<li>env_b12.map - Anticorpo FAB b12 ligado a protuberância do HIV (<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5018">emdb 5018</a>).</li>
+<li><a href="https://www.rcsb.org/structure/2NY7">2ny7.pdb</a> - b12 ligado a gp120 (x-ray), b12 se liga numa região diferente do que o anticorpo 17b.</li>
+<li>env_cd4_17b.map - CD4 and FAB 17b bound to HIV spike (<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5020">emdb 5020</a>)</li>
+<li><a href="https://www.rcsb.org/structure/1GC1">1gc1.pdb</a> - CD4 e FAB 17b ligados a gp120 (x-ray).</li>
+<li>env_membrane.map - Membrana viral (<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5023">emdb 5023</a>).</li>
+</ul>
+<h2 id="parte-1-sobreposicao-de-estrutura-de-cristalografia-de-raios-x-a-mapa-da-protuberancia">Parte 1: sobreposição de estrutura de cristalografia de raios-x a mapa da protuberância</h2>
+<ul>
+<li>Abra o arquivo <code>env_cd4_17b.map</code> (<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5020">emdb 5020</a>).</li>
+</ul>
+<blockquote>
+<p><em>Você pode abrir diretamente a partir da janela de <code>Fetch</code> do UCSF Chimera. Basta clicar em EMDB e digitar o código 5020.</em></p>
+</blockquote>
+<ul>
+<li>A estrutura macromolecular irá aparecer na janela principal do programa, assim como a janela abaixo <strong><em>Volume Viewer</em></strong>:</li>
+</ul>
+<p><img alt="Volume Viewer" src="../str9-fig4.png" /></p>
+<blockquote>
+<p><em>Nela você perceberá os valores e opções relativas ao mapa (histograma do mapa, o nível de contorno, a faixa de valores, cor, estilo (sólido usado para dados de tomografia), tamanho da grade, tamanho do passo (mostrar efeito com malha), mostrar / ocultar, fechar mapa.).</em></p>
+</blockquote>
+<ul>
+<li>Abra a estrutura proveniente de cristalografia de raios-x <a href="https://www.rcsb.org/structure/1GC1">1gc1.pdb</a>.</li>
+</ul>
+<blockquote>
+<p><em>Outra ação que também pode ser realizada pelo comando <code>Fetch</code> do UCSF Chimera.</em></p>
+</blockquote>
+<ul>
+<li>Diminua o zoom caso a molécula esteja longe do mapa.</li>
+<li>Oculte por alguns instantes o mapa clicando no ícone com um <em>olho</em> na caixa de diálogo <code>Volume Viewer</code>. Centralize na molécula usando <strong><em>Actions &gt; Focus</em></strong>.</li>
+<li>Mostre a linha de comando, usando <strong><em>Favorites &gt; Command line</em></strong>. Quando ela aparecer na parte inferior da janela principal do UCSF Chimera, digite:</li>
+</ul>
+<pre><code>rainbow chain
+</code></pre>
+<ul>
+<li>Passe o mouse sobre as cadeias para mostrar os seus respectivos IDs no balão pop-up. O Modelo #, nome e número do resíduo também mostrado.</li>
+<li>A cadeia G (azul) é gp120.</li>
+<li>A cadeia C (ciano) é o fragmento do receptor CD4.</li>
+<li>As cadeias L, H são o fragmento do anticorpo ligado (FAB) 17b.</li>
+</ul>
+<h3 id="sobrepor-a-estrutura-molecular-no-mapa">Sobrepor a estrutura molecular no mapa</h3>
+<p>Agora vamos começar o procedimento de sobreposição da estrutura. Observe atentamente a estrutura geral do mapa e da proteína. Verifique regiões que tenham formato semelhante. O UCSF Chimera não é um programa específico para isso, pois não fornece algoritmos de ajuste global e não faz cálculos de longa duração. Ele se concentra na visualização e análise interativa de dados, realizando cálculos que levam frações de segundo até alguns segundos, o que pode facilitar uma análise mais rápida.</p>
+<p>Vamos aos passos:</p>
+<ul>
+<li>Exiba o mapa com o ícone de mostrar/ocultar da caixa de diálogo <code>Volume Viewer</code>. Depois aplique um <strong><em>Actions &gt; Focus</em></strong>.</li>
+<li>Desmarque o botão ativo 0 abaixo da linha de comando. Isso irá "<em>congelar</em>" o mapa. Arraste então a molécula para perto do mapa.</li>
+<li>Verifique o botão ativo 0, gire para inspecionar a superposição.</li>
+<li>Esconda o mapa e examine a forma da molécula, como a letra "L". Procure por uma região similar a forma de um "L" no mapa.</li>
+<li>Ativando/Desativando o botão 0 na linha de comando repetidamente para alinhar a molécula no mapa.</li>
+<li>Segure a tecla <code>Ctrl</code> com o botão do meio do mouse para movimentar a estrutura em relação ao plano da tela (movimento tridimensional).</li>
+<li>Torne o mapa transparente com o botão de cor na caixa de diálogo <code>Volume Viewer</code>, clique em Opacidade no editor de cores (isso também pode ser realizado a partir de <strong><em>Actions &gt; Surface &gt; transparency</em></strong>).</li>
+</ul>
+<p>A sobreposição geral deverá ficar similar a da figura abaixo:</p>
+<p><img alt="Sobreposição 1GC1 no mapa 5020" src="../str9-fig5.png" /></p>
+<blockquote>
+<p><em>Tente aproximar o melhor possível a molécula, evitando grandes regiões fora do mapa.</em></p>
+</blockquote>
+<h3 id="otimizacao-da-sobreposicao">Otimização da Sobreposição</h3>
+<p>O UCSF Chimera faz uma otimização da sobreposição colocando a orientação em um <em>best fit</em> local. É importante você saber que tal adequação é apenas local, ou seja, se a estrutura for colocada numa região errada, ela irá adequar ao máximo a sobreposição naquela região. Em outras palavras, ele não faz correções de sobreposições erradas.</p>
+<p>Com a estrutura sobreposta de forma similar a da figura anterior, siga os seguintes passos:</p>
+<ul>
+<li>Na caixa de diálogo <code>Volume Viewer</code>, siga o menu <strong><em>Tools &gt; Fit in Map</em></strong>.</li>
+<li>Na caixa de diálogo <code>Fit in Map</code>, escolha a estrutura 1gc1 e o mapa 5020. Depois, pressione o botão <code>Fit</code>. Tal ação moverá a estrutura 1gc1 para o melhor ajuste local.</li>
+<li>Pressione os botões <code>Undo</code> e <code>Redo</code> (desfazer/refazer) para ver o quanto a estrutura se moveu.</li>
+</ul>
+<h3 id="qualidade-do-fit">Qualidade do <em>Fit</em></h3>
+<p>Observe o valor médio do mapa (<em>Average map value</em>) antes e depois da otimização (use desfazer/refazer). Esse valor está sendo maximizado pela rotação/tradução local. Apenas valores relativos são significativos, uma vez que a normalização do valor do mapa é arbitrária.</p>
+<ul>
+<li>Observe o número de átomos fora do contorno exibido antes e depois.</li>
+<li>Vamos agora alterar o nível de contorno, mexendo na barra cinza na caixa <code>Volume Viewer</code>. Depois pressione o botão <code>Update</code> na caixa <code>Fit in Map</code> para ver o número de átomos fora das mudanças de contorno.</li>
+<li>Exiba os átomos, seguindo o menu: <strong><em>Actions &gt; Atoms/Bonds &gt; Show</em></strong>.</li>
+<li>Aproxime a visão e observe que muitos átomos fora são relativos a moléculas de água (apenas o oxigênio será visualizado). Confirme, colocando o ponteiro do mouse em cima do átomo para ver o nome HOH.</li>
+<li>Agora vá em <strong><em>Select &gt; Residue &gt; HOH</em></strong>. 603 átomos serão selecionados. Agora vamos apagá-los, seguindo o menu <strong><em>Actions &gt; Atoms &gt; Delete</em></strong>.</li>
+<li>Verifique a atualização do número de átomos fora do contorno. Caso facilite, torne a superfície opaca novamente para ver onde os átomos se projetam.</li>
+<li>Pressione <code>Fit</code> mais vezes. Observe pequenas alterações. Esta operação tem o Limite de 100 passos.</li>
+</ul>
+<h3 id="coeficiente-de-correlacao">Coeficiente de Correlação</h3>
+<p>O valor médio do mapa ou o número de átomos fora do contorno não são valores muito úteis para relatar em um artigo ou em uma apresentação. Uma normalização é necessária, como valores de mapa normalizados para peso molecular por angstrom cúbico, ou conjunto de nível de contorno englobando o mesmo volume do envelope de modelo molecular. A medida mais comumente informada da qualidade do ajuste é a correlação.</p>
+<ul>
+<li>Na caixa de diálogo <code>Fit in Map</code>, marque a opção <strong><em>Use map simulated from atoms, resolution</em></strong> e coloque a resolução de mapa de 20 A.</li>
+</ul>
+<p>A correlação depende do domínio (volume dentro do nível de contorno mais baixo do mapa simulado). Portanto, também é um valor ambíguo, a menos que o ajuste corresponda ao volume inteiro. Isso não é típico. A maioria dos artigos envolvendo <em>fit</em> pdb-emdb apenas relata qual software foi utilizado sem especificar qualquer indicativo da qualidade do ajuste. O mapa simulado é inicialmente mostrado em nível de contorno contendo 95% de massa.</p>
+<p>A correlação mostrada aumenta à medida que o contorno menor (domínio maior) é usado. Mesmo a medida de correlação do <em>goodness of fit</em> não é definida exclusivamente sem especificar um parâmetro adicional.</p>
+<h3 id="salvando-o-trabalho">Salvando o trabalho</h3>
+<ul>
+<li>Salve a sessão com nome <strong>cd4_17b_fit.py</strong>. Ao salvar, um aviso aparecerá, porque o mapa simulado não foi salvo. Tudo bem, já que pode ser facilmente recalculado.</li>
+<li>Salve também o mapa calculado. Na janela <code>Volume Viewer</code> clique na parte do mapa calculado (1gc1) e nesta mesma janela vá em <strong><em>File &gt; Save map as...</em></strong>. Salve como .mrc.</li>
+<li>Salve o pdb em relação ao mapa, com o nome <strong>1gc1_fit.pdb</strong>.</li>
+<li>Feche a sessão, abra o mapa <strong>env_cd4_17b.map</strong> e os arquivos <strong>1gc1_fit.pdb</strong> e <strong>1gc1.pdb</strong>.</li>
+<li>Saia da Quimera, reinicie, carregue a sessão.</li>
+</ul>
+<blockquote>
+<p><em>Apenas Chimera irá ler o arquivo de sessão. Outros programas lerão mapas salvos e PDBs. Observe que ao abrir novamente o esquema de cores aplicado anteriormente será perdido.</em></p>
+</blockquote>
+<h2 id="parte-2-fit-da-protuberancia-com-fab-b12-ligado-sem-cd4">Parte 2: <em>fit</em> da protuberância com FAB b12 ligado (sem CD4)</h2>
+<ul>
+<li>Abra uma nova sessão do UCSF Chimera e repita os passos acima com o modelo de raios-x <a href="https://www.rcsb.org/structure/2NY7">2ny7.pdb</a> em com o mapa da protuberância FAB b12 (<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5018">emdb 5018</a>). A orientação geral é como a da figura abaixo:</li>
+</ul>
+<p><img alt="2ny7-5018 fit" src="../str9-fig6.png" /></p>
+<ul>
+<li>Dicas:</li>
+<li>A cadeia FAB verde fica voltada para cima.</li>
+<li>A correlação com o mapa simulado fica por volta de 0.68.</li>
+<li>Após terminar o <em>fit</em>, salve a sessão como <strong>b12_fit.py</strong>.</li>
+</ul>
+<h2 id="parte-3-fit-da-gp120-com-protuberancia-nao-ligada">Parte 3: <em>fit</em> da gp120 com protuberância não-ligada</h2>
+<ul>
+<li>Feche a sessão anterior. Abra agora o mapa não vinculado env.map (<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5019">emdb 5019</a>).</li>
+<li>Abra o pdb 1gc1.</li>
+<li>Use apenas a cadeia da gp120. Para isso selecione a cadeia G, inverta a seleção, e exclua os átomos.</li>
+</ul>
+<blockquote>
+<p><em>Use o limite (threshold) do mapa alto para ver a localização provável.</em></p>
+</blockquote>
+<p>Este encaixe não é fácil e direto. O <em>core</em> gp120 é basicamente um triângulo com um <em>loop</em> para fora. O triângulo pode entrar na densidade de 6 maneiras.
+As diferenças na qualidade do <em>fit</em> são muito pequenas. Veja o ajuste de 1gc1 no mapa cd4/17b para ver qual orientação ele possui. A ideia é que o pico ligado versus o não-ligado não deve ser muito diferente. Para isso:</p>
+<ul>
+<li>Inicie outra janela do UCSF Chimera e abra a sessão anteriomente salva <strong>cd4-17b-fit.py</strong>.</li>
+<li>Esconda CD4 e FAB. Selecione a cadeia G, inverta a seleção. Vá em <strong>Actions &gt; Ribbons &gt; hide</strong>.</li>
+<li>Na linha de comando, digite:</li>
+</ul>
+<pre><code>rainbow
+</code></pre>
+<p>Isto irá identificar os terminais N e C (azul / vermelho) apontando para baixo da base da protuberância. O <em>Loop</em> está mais perto do eixo da espiga.
+Use o arco-íris em Quimera de ajuste ilimitado. Oriente N, C termina abaixo, volta perto do eixo.
+- Faça o <strong><em>Fit in map</em></strong>.</p>
+<p>A orientação geral é similar a da figura abaixo:</p>
+<p><img alt="fit 1gc1-5019" src="../str9-fig7.png" />.</p>
+<h2 id="parte-4-fazendo-um-trimero">Parte 4: Fazendo um trímero</h2>
+<p>O objetivo aqui é fazer um modelo molecular trimérico, para caber 3 monômeros. Mas imperfeições na montagem tornariam o modelo não exatamente 3 vezes simétrico. Mesmo assim iremos tentar fazer um modelo simétrico de 3x um monômero sobreposto.</p>
+<ul>
+<li>Abra a sessão cd4_17b_fit.py, feche os modelos anteriores.</li>
+<li>O comando para copiar a molécula para a simetria de 3 dobras é:</li>
+</ul>
+<pre><code> sym # 1 group c3
+</code></pre>
+<p>Você pode verificar que a simetria não está correta. Isto porque as coordenadas precisam ser dadas. Neste momento de aprendizagem iremos passar as coordenadas, mas elas podem ser aproximadas por uma série de funções no UCSF Chimera.</p>
+<ul>
+<li>Tente agora com o seguinte comando:</li>
+</ul>
+<pre><code>sym #1 group c3 coordinateSystem #0 center 207.9,204.9,0
+</code></pre>
+<p>Verifique que o <em>fit</em> agora ficou bem melhor. Agora vamos colocar a membrana do vírus. Para isso, abra o env_membrane.map (<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5023">emdb 5023</a>). A representação final deverá ficar parecida com a da figura abaixo:</p>
+<p><img alt="Fit Final HIV-env" src="../str9-fig8.png" />.</p>
+<h1 id="exercicios">Exercícios</h1>
+<ul>
+<li>Salve cada uma das sessões acima e entregue junto com um pequeno resumo sobre a atividade.</li>
+</ul>
+<h2 id="filamento-parm">Filamento ParM</h2>
+<p>A proteína ParM é um homólogo da proteína actina em bactérias que formam filamentos semelhantes a actina.
+Os filamentos empurram pares de plasmídeos de DNA de baixo número de cópias para lados opostos
+da célula antes da divisão celular para assegurar que ambas as células-filhas assegurem cópias dos plasmídeos. Extremidades do filamento se anexam aos plasmídeos e, em seguida, os filamento cresce para alguns micrômetros de comprimento, empurrando os plasmídeos para longe um do outro. ATP é consumido como fonte de energia no crescimento deste filamento.</p>
+<h3 id="datasets"><em>Datasets</em>:</h3>
+<ul>
+<li>parm_open.map - filamento ParM em estado aberto, resolução 19.5 Å, emdb <a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5129">5129</a>.</li>
+<li>parm_closed.map - filamento ParM em estado fechado, resolução 17.2 Å, emdb <a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5128">5128</a>.</li>
+<li>PDB <a href="https://www.rcsb.org/structure/1MWK">1mwk</a> - apo ParM.</li>
+<li>PDB <a href="https://www.rcsb.org/structure/1MWM">1mwm</a> - Parm ligado ao ADP.</li>
+</ul>
+<h3 id="ajuste-o-mapa-em-conformacao-aberta">Ajuste o mapa em conformação aberta</h3>
+<p>Este é exemplo é um pouco mais difícil do que as protuberâncias do HIV. Preste bem atenção nas formas das estruturas antes de fazer o ajuste.</p>
+<ul>
+<li>Abra o emdb <a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5129">5129</a> e o apo ParM (<a href="https://www.rcsb.org/structure/1MWK">1mwk</a>) e faça o ajuste a molécula no mapa.</li>
+<li>O modelo de raios-x de <a href="https://www.rcsb.org/structure/1MWK">1mwk</a> possui duas cópias de ParM. Para facilitar o processo de sobreposição, faça a exclusão da cadeia B.</li>
+<li>Observe na janela <code>Volume Viewer</code> que o <em>step size</em> é 2. Mudar para 1 irá facilitar o processo de sobreposição.</li>
+<li>O feixes de alfa-hélices entra no lóbulo. Duas possibilidades dão diferentes correlações 0.58 vs 0.76.</li>
+<li>Use a figura abaixo como guia:</li>
+</ul>
+<p><img alt="ParM Aberta" src="../str9-fig9.png" /></p>
+<h4 id="questoes-1a-parte">Questões (1a Parte)</h4>
+<ul>
+<li>Entregue as sessões salvas, com as sobreposições relativas as duas correlações acima. A correlação da figura é de 0.58 ou 0.76?</li>
+</ul>
+<h3 id="alinhando-os-mapas-de-conformacao-fechada-e-aberta">Alinhando os mapas de conformação fechada e aberta</h3>
+<ul>
+<li>Abra o mapa fechado parm_closed.map (emdb <a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-5128">5128</a>) e tente alinhar com o mapa aberto.</li>
+</ul>
+<blockquote>
+<p><em>Neste caso, girar e otimizar o ajuste produzirá resultados ruins.</em></p>
+</blockquote>
+<ul>
+<li>Aumente o <em>threshold</em> na janela <code>Volume Viewer</code> em ambos os mapas para que dois os proto-filamentos não fiquem conectados. Exiba um mapa por vez e compare.</li>
+<li>Observe os pontos do lóbulo em baixo no mapa aberto e no mapa fechado.</li>
+<li>Inverta o mapa fechado de ponta a ponta e tente encaixar. Use <em>thresholds</em> altos.</li>
+<li>Uma vez bem alinhada a correlação nota é ~0.3 com alto <em>threshold</em> mas 0,7 com baixo <em>threshold</em> no mapa aberto já que o <em>match</em> é muito melhor se medido em uma região maior. Veja a figura abaixo:</li>
+</ul>
+<p><img alt="ParM aberto/fechado" src="../str9-fig10.png" /></p>
+<h4 id="questoes-2a-parte">Questões (2a Parte)</h4>
+<ul>
+<li>Explique como se dá o funcionamento da proteína ParM, utilizando os mapas acima.</li>
+</ul>
+<blockquote>
+<p><em>Procure também sobre a proteína actina ou sobre contração muscular. O funcionamento destas proteínas e da contração muscular irá lhe dar uma base para entender o funcionamento da ParM.</em></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../STR8-Aval/" class="btn btn-neutral float-left" title="Avaliação dos Modelos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STR10-RINs/" class="btn btn-neutral float-right" title="RINs">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../STR8-Aval/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../STR10-RINs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
