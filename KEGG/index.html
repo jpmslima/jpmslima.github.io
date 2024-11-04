@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/tutoriais/KEGG/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Explorando Vias Metabólicas - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Explorando Vias Metab\u00f3licas";
+        var mkdocs_page_input_path = "KEGG.md";
+        var mkdocs_page_url = "/tutoriais/KEGG/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../enzima-annot/">Integração de Bancos - Exemplo</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Explorando Vias Metabólicas</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../video/">Videoaulas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UC_slides/">Slides</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Material/">Files and References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../First_Tutorial_ENG/">First Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Substitution_saturation_ENG/">Analysis of Substitution Saturation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ModelTest_ENG/">Test of the Best-Fit Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MEGAX_ENG/">Using MEGAX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1st_BEAST/">Using BEAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BEAST%2BEBSP_ENG/">Phylodynamics using EBSP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../IQTree/">Using IQ-Tree</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutoriais Iniciais de Bioinformática</li>
+      <li class="breadcrumb-item active">Explorando Vias Metabólicas</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="bancos-de-dados-de-vias-metabolicas">Bancos de dados de Vias Metabólicas</h1>
+<p><strong>Objetivos</strong></p>
+<ul>
+<li>Obter familiarização com o banco KEGG.</li>
+<li>Anotar sequências em uma via metabólica.</li>
+<li>Extrair informações de uma via e de seus componentes.</li>
+</ul>
+<p><strong>Observação:</strong></p>
+<ul>
+<li>Este tutorial foi construído <strong><em>apenas para fins didáticos para a disciplina de Bioinformática, do curso de Biomedicina da UFRN</em></strong>. <strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida pelos professores do curso.</strong></li>
+</ul>
+<h1 id="explorando-o-kegg">Explorando o KEGG</h1>
+<h2 id="introducao">Introdução</h2>
+<p><em>Anotando sequências desconhecidas em uma via metabólica usando o KEGG.</em></p>
+<p>O banco de dados <a href="https://www.kegg.jp">KEGG</a> (<em>Kyoto Encyclopedia of Genes and Genomes</em>) é um dos mais utilizados e um dos padrões para anotação de sequências obtidas em abordagens <em>“-ômicas”</em>. Nele estão contidas informações gerais de sistemas (metabolismo dos organismos vivos, como descrição de redes, vias, processos de sinalização), genômicas (genes e genomas), químicas (enzimas, metabólitos, etc.) e de saúde (fármacos, doenças, etc.). Ele pode ser acessado tanto por um servidor web, como pode ser obtido para integração com bancos de dados do tipo SQL.</p>
+<p>Cada mapa de via no KEGG é identificado pela combinação de um código de 2-4 letras e um número de 5 dígitos. Os prefixos tem os seguintes significados:</p>
+<ul>
+<li>map - Reference pathway (Via de referência, desenhada).</li>
+<li>ko - Reference pathway (KO).</li>
+<li>ec - Reference pathway (EC).</li>
+<li>rn - Reference pathway (Reaction).</li>
+<li>org - Organism-specific pathway map.</li>
+</ul>
+<p>Objetos gráficos nos mapas, tem os seguintes significados:</p>
+<ul>
+<li>Caixas - grupos ortólogos (KO) identificados por números K e, em mapas metabólicos, reações identificadas por números R.</li>
+<li>Círculos - outras moléculas, geralmente compostos químicos identificados por números C, incluindo glicanos, identificados por números G.</li>
+<li>Linhas - reações identificadas por números R nos mapas metabólicos; grupos ortólogos (KO) identificados por números K em mapas globais do metabolismo.</li>
+</ul>
+<h2 id="anotando-sequencias">Anotando sequências</h2>
+<p>Baseado nas informações acima iremos anotar um grupo de sequências de proteínas “desconhecidas”, descobrindo sua função e a quais vias/processos elas pertencem, utilizando o KEGG Mapper (BlastKOALA). O arquivo com as sequências é o seguinte:</p>
+<ul>
+<li><a href="https://drive.google.com/uc?id=1iRfCu0vJ4ygq94pgwNRgPxyOwJYrXrSS">SeqsKEGG.fasta</a>.</li>
+</ul>
+<p>Copie as sequências ou salve o arquivo e, sem seguida, siga os passos abaixo:</p>
+<ul>
+<li>Abra a página inicial do <a href="http://www.kegg.jp/kegg/tool/annotate_sequence.html">KEGG Mapper</a>.</li>
+<li>Cole as sequências fasta dadas na caixa <code>Enter fasta sequences</code> (ou faça o upload do arquivo).</li>
+<li>Clique em <code>Family/Genus</code>. Isto abrirá uma nova página, e nesta selecione o número 9604, correspondente a família Hominidae. Volte a página anterior e clique em executar.</li>
+<li>Verifique e interprete o gráfico dado como resultado. Clique em <code>View</code> para ver uma tabela com a anotação das sequências. Verifique na tabela o número KO.</li>
+<li>Volte a página do sumário do resultado e agora clique em <code>Reconstruct Pathway</code>. Verifique os resultados, especialmente os número entre parênteses.</li>
+</ul>
+<h2 id="questoes-de-direcionamento">Questões de direcionamento</h2>
+<p>Baseado no encontrado acima (deixe as páginas abertas), responda as seguintes questões:</p>
+<ul>
+<li>As sequências obtidas participam de quantas vias metabólicas? Qual seria a principal?</li>
+<li>A via metabólica que você considerou como principal está completa? (No sentido de todas as enzimas estarem presentes). Quantas enzimas estão presentes? Liste as enzimas ausentes?</li>
+<li>Existem isoformas de proteínas para a mesma função?</li>
+<li>Há sobreposição de vias, ou seja, proteínas que estejam relacionadas a vias interligadas?</li>
+<li>Quais processos de sinalização estão relacionados as sequências utilizadas como input?</li>
+<li>Elas estão envolvidas em algum evento de sinalização hormonal?</li>
+<li>Elas estão envolvidas em alguma doença? Obtenha informações.</li>
+</ul>
+<p>SeqsKEGG.fasta</p>
+<pre><code class="language-none">&gt;KPYM_HUMAN
+MSKPHSEAGTAFIQTQQLHAAMADTFLEHMCRLDIDSPPITARNTGIICTIGPASRSVET
+LKEMIKSGMNVARLNFSHGTHEYHAETIKNVRTATESFASDPILYRPVAVALDTKGPEIR
+TGLIKGSGTAEVELKKGATLKITLDNAYMEKCDENILWLDYKNICKVVEVGSKIYVDDGL
+ISLQVKQKGADFLVTEVENGGSLGSKKGVNLPGAAVDLPAVSEKDIQDLKFGVEQDVDMV
+FASFIRKASDVHEVRKVLGEKGKNIKIISKIENHEGVRRFDEILEASDGIMVARGDLGIE
+IPAEKVFLAQKMMIGRCNRAGKPVICATQMLESMIKKPRPTRAEGSDVANAVLDGADCIM
+LSGETAKGDYPLEAVRMQHLIAREAEAAIYHLQLFEELRRLAPITSDPTEATAVGAVEAS
+FKCCSGAIIVLTKSGRSAHQVARYRPRAPIIAVTRNPQTARQAHLYRGIFPVLCKDPVQE
+AWAEDVDLRVNFAMNVGKARGFFKKGDVVIVLTGWRPGSGFTNTMRVVPVP
+&gt;G3P_HUMAN
+MGKVKVGVNGFGRIGRLVTRAAFNSGKVDIVAINDPFIDLNYMVYMFQYDSTHGKFHGTV
+KAENGKLVINGNPITIFQERDPSKIKWGDAGAEYVVESTGVFTTMEKAGAHLQGGAKRVI
+ISAPSADAPMFVMGVNHEKYDNSLKIISNASCTTNCLAPLAKVIHDNFGIVEGLMTTVHA
+ITATQKTVDGPSGKLWRDGRGALQNIIPASTGAAKAVGKVIPELNGKLTGMAFRVPTANV
+SVVDLTCRLEKPAKYDDIKKVVKQASEGPLKGILGYTEHQVVSSDFNSDTHSSTFDAGAG
+IALNDHFVKLISWYDNEFGYSNRVVDLMAHMASKE
+&gt;ENOA_HUMAN
+MSILKIHAREIFDSRGNPTVEVDLFTSKGLFRAAVPSGASTGIYEALELRDNDKTRYMGK
+GVSKAVEHINKTIAPALVSKKLNVTEQEKIDKLMIEMDGTENKSKFGANAILGVSLAVCK
+AGAVEKGVPLYRHIADLAGNSEVILPVPAFNVINGGSHAGNKLAMQEFMILPVGAANFRE
+AMRIGAEVYHNLKNVIKEKYGKDATNVGDEGGFAPNILENKEGLELLKTAIGKAGYTDKV
+VIGMDVAASEFFRSGKYDLDFKSPDDPSRYISPDQLADLYKSFIKDYPVVSIEDPFDQDD
+WGAWQKFTASAGIQVVGDDLTVTNPKRIAKAVNEKSCNCLLLKVNQIGSVTESLQACKLA
+QANGWGVMVSHRSGETEDTFIADLVVGLCTGQIKTGAPCRSERLAKYNQLLRIEEELGSK
+AKFAGRNFRNPLAK
+&gt;ALDOA_HUMAN
+MPYQYPALTPEQKKELSDIAHRIVAPGKGILAADESTGSIAKRLQSIGTENTEENRRFYR
+QLLLTADDRVNPCIGGVILFHETLYQKADDGRPFPQVIKSKGGVVGIKVDKGVVPLAGTN
+GETTTQGLDGLSERCAQYKKDGADFAKWRCVLKIGEHTPSALAIMENANVLARYASICQQ
+NGIVPIVEPEILPDGDHDLKRCQYVTEKVLAAVYKALSDHHIYLEGTLLKPNMVTPGHAC
+TQKFSHEEIAMATVTALRRTVPPAVTGITFLSGGQSEEEASINLNAINKCPLLKPWALTF
+SYGRALQASALKAWGGKKENLKAAQEEYVKRALANSLACQGKYTPSGQAGAAASESLFVS
+NHAY
+&gt;G6PI_HUMAN
+MAALTRDPQFQKLQQWYREHRSELNLRRLFDANKDRFNHFSLTLNTNHGHILVDYSKNLV
+TEDVMRMLVDLAKSRGVEAARERMFNGEKINYTEGRAVLHVALRNRSNTPILVDGKDVMP
+EVNKVLDKMKSFCQRVRSGDWKGYTGKTITDVINIGIGGSDLGPLMVTEALKPYSSGGPR
+VWYVSNIDGTHIAKTLAQLNPESSLFIIASKTFTTQETITNAETAKEWFLQAAKDPSAVA
+KHFVALSTNTTKVKEFGIDPQNMFEFWDWVGGRYSLWSAIGLSIALHVGFDNFEQLLSGA
+HWMDQHFRTTPLEKNAPVLLALLGIWYINCFGCETHAMLPYDQYLHRFAAYFQQGDMESN
+GKYITKSGTRVDHQTGPIVWGEPGTNGQHAFYQLIHQGTKMIPCDFLIPVQTQHPIRKGL
+HHKILLANFLAQTEALMRGKSTEEARKELQAAGKSPEDLERLLPHKVFEGNRPTNSIVFT
+KLTPFMLGALVAMYEHKIFVQGIIWDINSFDQWGVELGKQLAKKIEPELDGSAQVTSHDA
+STNGLINFIKQQREARVQ
+&gt;PFKAL_HUMAN
+MAAVDLEKLRASGAGKAIGVLTSGGDAQGMNAAVRAVTRMGIYVGAKVFLIYEGYEGLVE
+GGENIKQANWLSVSNIIQLGGTIIGSARCKAFTTREGRRAAAYNLVQHGITNLCVIGGDG
+SLTGANIFRSEWGSLLEELVAEGKISETTARTYSHLNIAGLVGSIDNDFCGTDMTIGTDS
+ALHRIMEVIDAITTTAQSHQRTFVLEVMGRHCGYLALVSALASGADWLFIPEAPPEDGWE
+NFMCERLGETRSRGSRLNIIIIAEGAIDRNGKPISSSYVKDLVVQRLGFDTRVTVLGHVQ
+RGGTPSAFDRILSSKMGMEAVMALLEATPDTPACVVTLSGNQSVRLPLMECVQMTKEVQK
+AMDDKRFDEATQLRGGSFENNWNIYKLLAHQKPPKEKSNFSLAILNVGAPAAGMNAAVRS
+AVRTGISHGHTVYVVHDGFEGLAKGQVQEVGWHDVAGWLGRGGSMLGTKRTLPKGQLESI
+VENIRIYGIHALLVVGGFEAYEGVLQLVEARGRYEELCIVMCVIPATISNNVPGTDFSLG
+SDTAVNAAMESCDRIKQSASGTKRRVFIVETMGGYCGYLATVTGIAVGADAAYVFEDPFN
+IHDLKVNVEHMTEKMKTDIQRGLVLRNEKCHDYYTTEFLYNLYSSEGKGVFDCRTNVLGH
+LQQGGAPTPFDRNYGTKLGVKAMLWLSEKLREVYRKGRVFANAPDSACVIGLKKKAVAFS
+PVTELKKDTDFEHRMPREQWWLSLRLMLKMLAQYRISMAAYVSGELEHVTRRTLSMDKGF
+&gt;PFKAM_HUMAN
+MTHEEHHAAKTLGIGKAIAVLTSGGDAQGMNAAVRAVVRVGIFTGARVFFVHEGYQGLVD
+GGDHIKEATWESVSMMLQLGGTVIGSARCKDFREREGRLRAAYNLVKRGITNLCVIGGDG
+SLTGADTFRSEWSDLLSDLQKAGKITDEEATKSSYLNIVGLVGSIDNDFCGTDMTIGTDS
+ALHRIMEIVDAITTTAQSHQRTFVLEVMGRHCGYLALVTSLSCGADWVFIPECPPDDDWE
+EHLCRRLSETRTRGSRLNIIIVAEGAIDKNGKPITSEDIKNLVVKRLGYDTRVTVLGHVQ
+RGGTPSAFDRILGSRMGVEAVMALLEGTPDTPACVVSLSGNQAVRLPLMECVQVTKDVTK
+AMDEKKFDEALKLRGRSFMNNWEVYKLLAHVRPPVSKSGSHTVAVMNVGAPAAGMNAAVR
+STVRIGLIQGNRVLVVHDGFEGLAKGQIEEAGWSYVGGWTGQGGSKLGTKRTLPKKSFEQ
+ISANITKFNIQGLVIIGGFEAYTGGLELMEGRKQFDELCIPFVVIPATVSNNVPGSDFSV
+GADTALNTICTTCDRIKQSAAGTKRRVFIIETMGGYCGYLATMAGLAAGADAAYIFEEPF
+TIRDLQANVEHLVQKMKTTVKRGLVLRNEKCNENYTTDFIFNLYSEEGKGIFDSRKNVLG
+HMQQGGSPTPFDRNFATKMGAKAMNWMSGKIKESYRNGRIFANTPDSGCVLGMRKRALVF
+QPVAELKDQTDFEHRIPKEQWWLKLRPILKILAKYEIDLDTSDHAHLEHITRKRSGEAAV
+&gt;PGK1_HUMAN
+MSLSNKLTLDKLDVKGKRVVMRVDFNVPMKNNQITNNQRIKAAVPSIKFCLDNGAKSVVL
+MSHLGRPDGVPMPDKYSLEPVAVELKSLLGKDVLFLKDCVGPEVEKACANPAAGSVILLE
+NLRFHVEEEGKGKDASGNKVKAEPAKIEAFRASLSKLGDVYVNDAFGTAHRAHSSMVGVN
+LPQKAGGFLMKKELNYFAKALESPERPFLAILGGAKVADKIQLINNMLDKVNEMIIGGGM
+AFTFLKVLNNMEIGTSLFDEEGAKIVKDLMSKAEKNGVKITLPVDFVTADKFDENAKTGQ
+ATVASGIPAGWMGLDCGPESSKKYAEAVTRAKQIVWNGPVGVFEWEAFARGTKALMDEVV
+KATSRGCITIIGGGDTATCCAKWNTEDKVSHVSTGGGASLELLEGKVLPGVDALSNI
+&gt;TPIS_HUMAN
+MAEDGEEAEFHFAALYISGQWPRLRADTDLQRLGSSAMAPSRKFFVGGNWKMNGRKQSLG
+ELIGTLNAAKVPADTEVVCAPPTAYIDFARQKLDPKIAVAAQNCYKVTNGAFTGEISPGM
+IKDCGATWVVLGHSERRHVFGESDELIGQKVAHALAEGLGVIACIGEKLDEREAGITEKV
+VFEQTKVIADNVKDWSKVVLAYEPVWAIGTGKTATPQQAQEVHEKLRGWLKSNVSDAVAQ
+STRIIYGGSVTGATCKELASQPDVDGFLVGGASLKPEFVDIINAKQ
+&gt;PFKAP_HUMAN
+MDADDSRAPKGSLRKFLEHLSGAGKAIGVLTSGGDAQGMNAAVRAVVRMGIYVGAKVYFI
+YEGYQGMVDGGSNIAEADWESVSSILQVGGTIIGSARCQAFRTREGRLKAACNLLQRGIT
+NLCVIGGDGSLTGANLFRKEWSGLLEELARNGQIDKEAVQKYAYLNVVGMVGSIDNDFCG
+TDMTIGTDSALHRIIEVVDAIMTTAQSHQRTFVLEVMGRHCGYLALVSALACGADWVFLP
+ESPPEEGWEEQMCVKLSENRARKKRLNIIIVAEGAIDTQNKPITSEKIKELVVTQLGYDT
+RVTILGHVQRGGTPSAFDRILASRMGVEAVIALLEATPDTPACVVSLNGNHAVRLPLMEC
+VQMTQDVQKAMDERRFQDAVRLRGRSFAGNLNTYKRLAIKLPDDQIPKTNCNVAVINVGA
+PAAGMNAAVRSAVRVGIADGHRMLAIYDGFDGFAKGQIKEIGWTDVGGWTGQGGSILGTK
+RVLPGKYLEEIATQMRTHSINALLIIGGFEAYLGLLELSAAREKHEEFCVPMVMVPATVS
+NNVPGSDFSIGADTALNTITDTCDRIKQSASGTKRRVFIIETMGGYCGYLANMGGLAAGA
+DAAYIFEEPFDIRDLQSNVEHLTEKMKTTIQRGLVLRNESCSENYTTDFIYQLYSEEGKG
+VFDCRKNVLGHMQQGGAPSPFDRNFGTKISARAMEWITAKLKEARGRGKKFTTDDSICVL
+GISKRNVIFQPVAELKKQTDFEHRIPKEQWWLKLRPLMKILAKYKASYDVSDSGQLEHVQ
+PWSV
+&gt;ADPGK_HUMAN
+MALWRGSAYAGFLALAVGCVFLLEPELPGSALRSLWSSLCLGPAPAPPGPVSPEGRLAAA
+WDALIVRPVRRWRRVAVGVNACVDVVLSGVKLLQALGLSPGNGKDHSILHSRNDLEEAFI
+HFMGKGAAAERFFSDKETFHDIAQVASEFPGAQHYVGGNAALIGQKFAANSDLKVLLCGP
+VGPKLHELLDDNVFVPPESLQEVDEFHLILEYQAGEEWGQLKAPHANRFIFSHDLSNGAM
+NMLEVFVSSLEEFQPDLVVLSGLHMMEGQSKELQRKRLLEVVTSISDIPTGIPVHLELAS
+MTNRELMSSIVHQQVFPAVTSLGLNEQELLFLTQSASGPHSSLSSWNGVPDVGMVSDILF
+WILKEHGRSKSRASDLTRIHFHTLVYHILATVDGHWANQLAAVAAGARVAGTQACATETI
+DTSRVSLRAPQEFMTSHSEAGSRIVLNPNKPVVEWHREGISFHFTPVLVCKDPIRTVGLG
+DAISAEGLFYSEVHPHY
+&gt;PGK2_HUMAN
+MSLSKKLTLDKLDVRGKRVIMRVDFNVPMKKNQITNNQRIKASIPSIKYCLDNGAKAVVL
+MSHLGRPDGVPMPDKYSLAPVAVELKSLLGKDVLFLKDCVGAEVEKACANPAPGSVILLE
+NLRFHVEEEGKGQDPSGKKIKAEPDKIEAFRASLSKLGDVYVNDAFGTAHRAHSSMVGVN
+LPHKASGFLMKKELDYFAKALENPVRPFLAILGGAKVADKIQLIKNMLDKVNEMIIGGGM
+AYTFLKVLNNMEIGASLFDEEGAKIVKDIMAKAQKNGVRITFPVDFVTGDKFDENAQVGK
+ATVASGISPGWMGLDCGPESNKNHAQVVAQARLIVWNGPLGVFEWDAFAKGTKALMDEIV
+KATSKGCITVIGGGDTATCCAKWNTEDKVSHVSTGGGASLELLEGKILPGVEALSNM
+</code></pre>
+<h1 id="one-more-thing"><em>One more thing...</em></h1>
+<p>Um dos grupos de pesquisa do <a href="https://bioinfo.imd.ufrn.br">BioME</a> possui uma ferramenta bem interessante, chamada <a href="[KEGG Pathway Viewer](https://dalmolingroup.imd.ufrn.br/kpv/)">KEGG Pathway Viewer</a>. Com ela você pode verificar vias metabólicas do KEGG por meio de uma perspectiva da Biologia de Sistemas/teoria dos grafos. Além disso, ela também ajuda a identificar/ressaltar as proteínas mais importantes na rede/via e os seus pontos de articulação.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../enzima-annot/" class="btn btn-neutral float-left" title="Integração de Bancos - Exemplo"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../110-BDs/" class="btn btn-neutral float-right" title="Bancos de Dados de Informação Proteica">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../enzima-annot/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../110-BDs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
