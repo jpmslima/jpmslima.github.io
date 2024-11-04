@@ -220,6 +220,17 @@
 <li>Círculos - outras moléculas, geralmente compostos químicos identificados por números C, incluindo glicanos, identificados por números G.</li>
 <li>Linhas - reações identificadas por números R nos mapas metabólicos; grupos ortólogos (KO) identificados por números K em mapas globais do metabolismo.</li>
 </ul>
+<h2 id="explorando-vias">Explorando Vias</h2>
+<ul>
+<li>Abra a página do <a href="https://www.kegg.jp/kegg/">KEGG</a> e insira no campo de busca no início da página o termo <code>MAP00010</code> e clique em <code>SEARCH</code>.</li>
+<li>Na paǵina seguinte clique no resultado: MAP00010.</li>
+<li>Agora uma descrição geral da Via glicolítica irá aparecer. Leia-a e depois clique em <strong>Pathway Map</strong>. Observe a via.</li>
+<li>Volte para a página inicial do <a href="https://www.kegg.jp/kegg/">KEGG</a> e agora coloque os termos, um de cada vez:</li>
+<li><code>ko00010</code>;</li>
+<li><code>eco00010</code>;</li>
+<li><code>hsa00010</code>.</li>
+<li>As caixas em verde representam os ortólogos encontrados naquela espécie. Compare e veja as diferenças entre a via glicolítica da <em>E. coli</em> e a de humanos. </li>
+</ul>
 <h2 id="anotando-sequencias">Anotando sequências</h2>
 <p>Baseado nas informações acima iremos anotar um grupo de sequências de proteínas “desconhecidas”, descobrindo sua função e a quais vias/processos elas pertencem, utilizando o KEGG Mapper (BlastKOALA). O arquivo com as sequências é o seguinte:</p>
 <ul>
@@ -227,10 +238,12 @@
 </ul>
 <p>Copie as sequências ou salve o arquivo e, sem seguida, siga os passos abaixo:</p>
 <ul>
-<li>Abra a página inicial do <a href="http://www.kegg.jp/kegg/tool/annotate_sequence.html">KEGG Mapper</a>.</li>
+<li>Abra a página inicial do <a href="https://www.kegg.jp/kegg/annotation/">KEGG Annotation</a>.</li>
+<li>Na coluna do lado esquerdo clique em <a href="https://www.kegg.jp/blastkoala/">BlastKOALA</a></li>
 <li>Cole as sequências fasta dadas na caixa <code>Enter fasta sequences</code> (ou faça o upload do arquivo).</li>
-<li>Clique em <code>Family/Genus</code>. Isto abrirá uma nova página, e nesta selecione o número 9604, correspondente a família Hominidae. Volte a página anterior e clique em executar.</li>
+<li>Clique em <code>Eukaryotes</code>, abaixo do item <strong>Enter KEGG GENES database file to be searched</strong> e coloque seu e-mail institucional (.edu.br ou outro). Abra seu email, confirme os resultados. Esta etapa geralmente demora mais do que alguns minutos.</li>
 <li>Verifique e interprete o gráfico dado como resultado. Clique em <code>View</code> para ver uma tabela com a anotação das sequências. Verifique na tabela o número KO.</li>
+<li>Volte a página do <a href="https://www.kegg.jp/kegg/annotation/">KEGG Annotation</a> e coloque a lista com os KOs na caixa <strong><em>Ortholog table</em></strong> e clique em <code>GO</code>.</li>
 <li>Volte a página do sumário do resultado e agora clique em <code>Reconstruct Pathway</code>. Verifique os resultados, especialmente os número entre parênteses.</li>
 </ul>
 <h2 id="questoes-de-direcionamento">Questões de direcionamento</h2>
