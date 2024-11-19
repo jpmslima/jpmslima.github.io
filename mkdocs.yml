@@ -1,0 +1,71 @@
+site_name: Tutoriais BioinfoX
+site_url: https://jpmslima.github.io/tutoriais
+site_author: jpmslima
+site_description: Tutoriais básicos de Bioinformática para as disciplinas da UFRN
+
+nav:
+  - Página Inicial: index.md
+  - Sobre o grupo: aboutus.md
+  - Tutoriais Iniciais de Bioinformática: 
+    - Inicial: basic1.md
+    - Introdução a linha de comando UNIX: 101.md
+    - Manipulando dados na CLI: 102.md
+    - Introdução ao GenBank: 103.md
+    - Buscas de Similaridade: 104.md
+    - Alinhamento entre pares de sequências: 105.md
+    - Alinhamento Múltiplo de Sequências: 106-MSA.md
+    - NCBI/GenBank via CLI: 107-NCBI-CLI.md
+    - BLAST via CLI: 108-BLAST-CLI.md
+    - Comandos Básicos em SQL: 109-SQL.md
+    - Integração de Bancos - Exemplo: enzima-annot.md
+    - Explorando Vias Metabólicas: KEGG.md
+    - Bancos de Dados de Informação Proteica: 110-BDs.md
+    - Modelagem Computacional de Proteínas: 111-Modelagem.md
+    - Primeiros Passos no MEGA: 112-MEGAX.md
+    - Navegando por Genomas: 113-Genomes.md
+    - Videoaulas: video.md
+  - Bioinformática Estrutural:
+    - Inicial: basic2.md
+    - Slides de Acompanhamento: slides.md
+    - Programas e Ferramentas: tools.md
+    - Visualização Computacional de Moléculas: STR1-Visualizacao.md
+    - Informações a partir da estrutura primária: STR2-pred.md
+    - Predição de Epítopos: STR22-Epitopos.md
+    - Modelagem 101: STR3-Model1.md
+    - Modelagem 102: STR4-Model2.md
+    - Modeller-CLI: STR5-Model3.md
+    - Métodos baseados em IA: STR6-AlphaFold.md
+    - MDA: STR7-MDA.md
+    - Avaliação dos Modelos: STR8-Aval.md
+    - EM/CryoEM fitting: STR9-EM.md
+    - RINs: STR10-RINs.md
+    - APBS: STR11-APBS.md
+    - Proteínas de Membrana: STR12-Memb.md
+    - Autodock (básico): STR13-Dock1.md
+    - Docking: STR14-Dock2.md
+    - Virtual Screening: STR15-VS1.md
+    - Introdução a Dinâmica Molecular: STR23-MDIntro.md
+    - Modelos de Pequenas Moléculas: STR16-EGB1.md
+    - Análise conformacional: STR17-EGB2.md
+    - Docking Automático: STR18-EGB3.md
+    - Posicionamento Manual: STR19-EGB4.md
+    - Dinâmica Molecular: STR20-EGB5.md
+    - VS-2: STR21-EGB6.md
+    - Complements: comps.md
+  - Diplomado - UChile: 
+    - Home: Presentation.md
+    - Slides: UC_slides.md
+    - Files and References: Material.md
+    - First Tutorial: First_Tutorial_ENG.md
+    - Analysis of Substitution Saturation: Substitution_saturation_ENG.md
+    - Test of the Best-Fit Models: ModelTest_ENG.md
+    - Using MEGAX: MEGAX_ENG.md
+    - Using BEAST: 1st_BEAST.md
+    - Phylodynamics using EBSP: BEAST+EBSP_ENG.md
+    - Using IQ-Tree: IQTree.md
+
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml

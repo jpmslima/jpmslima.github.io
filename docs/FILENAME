@@ -1,0 +1,57 @@
+drop table if exists S;
+create table S (
+   SC char(3) not null,
+   nome varchar(10) not null,
+   status int(2),
+   cidade varchar(10),
+   primary key (SC)
+);
+
+drop table if exists P;
+create table P (
+   PC char(3) not null,
+   nome varchar(10) not null,
+   cor varchar(10),
+   peso int(6),
+   cidade varchar(10),
+   primary key (PC)
+);
+
+drop table if exists SP;
+create table SP (
+   SC char(3) not null,
+   PC char(3) not null,
+   qtd int(4),
+   primary key (SC,PC),
+   foreign key (SC) references S(SC),
+   foreign key (PC) references P(PC)
+);
+
+insert into S values ('S1','Smith',20,'Londres');
+insert into S values ('S2','Lones',10,'Paris');
+insert into S values ('S3','Blake',30,'Paris');
+insert into S values ('S4','Clark',20,'Londres');
+insert into S values ('S5','Adams',30,'Atenas');
+
+insert into P values ('P1','Porca','verm',12,'Londres');
+insert into P values ('P2','Trinco','verde',17,'Paris');
+insert into P values ('P3','Parafuso','azul',17,'Roma');
+insert into P values ('P4','Parafuso','verm',14,'Londres');
+insert into P values ('P5','Prego','azul',12,'Paris');
+insert into P values ('P6','Rosca','verm',19,'Londres');
+
+insert into SP values ('S1','P1',300);
+insert into SP values ('S1','P2',200);
+insert into SP values ('S1','P3',400);
+insert into SP values ('S1','P4',200);
+insert into SP values ('S1','P5',100);
+insert into SP values ('S1','P6',100);
+insert into SP values ('S2','P1',300);
+insert into SP values ('S2','P2',400);
+insert into SP values ('S3','P2',200);
+insert into SP values ('S4','P2',null);
+insert into SP values ('S4','P4',300);
+insert into SP values ('S4','P5',400);
+
+
+

@@ -1,0 +1,4 @@
+[submodule "jpmslima.github.io"]
+	path = jpmslima.github.io
+	url = https://github.com/jpmslima/jpmslima.github.io/
+	branch = main

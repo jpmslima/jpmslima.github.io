@@ -1,0 +1,331 @@
+[![Biome](https://drive.google.com/uc?id=1Rgh88avopwh7YtUKsD5hXMwF3BFH5-Kj)](bioinfo.ufrn.br)
+
+
+# Bancos de dados de informação proteica
+
+**Objetivos**
+
+- Usar os diferentes bancos de dados de informação de proteínas.
+- Caracterizar proteínas desconhecidas utilizando não apenas a sequência, mas perfis, motivos e domínios.
+- Obter informações sobre a família de uma determinada proteína.
+- Obter alinhamentos e matrizes de posicionamento específicas para uma família de proteínas.
+
+**Observação:**
+
+- Este tutorial foi construído ***apenas para fins didáticos para a disciplina de Fundamentos de Bioquímica e Biologia Molecular, do Instituto Metrópole Digital da UFRN***. <span style="color:red">**A reprodução dele para qualquer outro fim não é permitida e nem consentida pelos professores do curso.**</span>
+
+## Identificação de Proteínas utilizando o UniPROT
+
+ Este é o principal banco de dados de informação de proteínas, com links e informações cruzadas para diversos outros bancos de dados.
+
+### Quando utilizar o Uniprot?
+
+- Para obter informações gerais sobre uma proteína.
+- Registro de anotação mais completo para proteínas únicas.
+- Swiss-prot: proteínas anotadas e revisadas manualmente.
+- Para realizar busca de similaridade com proteínas conhecidas.
+- Encontrar homólogos curados e já confirmados experimentalmente.
+- Encontrar dados relacionados a mutantes naturais e variações associadas a doenças ou fenótipos alterados.
+- Obter informações sobre a estrutura e resíduos importantes para a atividade.
+
+Buscas de similiaridade utilizando o BLAST também poderão ser realizadas diretamente no site do UniPROT. Vamos a um exemplo?
+
+- Abrir a Home Page do UNIPROT:
+<p align="center">
+[http://ww.uniprot.org](http://ww.uniprot.org)
+</p>
+
+- Clicar no link **BLAST** (Canto superior esquerdo).
+
+![Uniprot](https://drive.google.com/uc?id=1O2WrhLUAyvZQcyikfaMCvPR7lSCs-jnY)
+
+- Copiar e colar a sequência abaixo no campo *Query*:
+
+```
+>Seq5
+MASFTTTTAAAASRLLPSSSSSISRLSLSSSSSSSSSLKCLRSSPLVSHLFLRQRGGSAYVTKTRFSTKC
+YASDPAQLKNAREDIKELLQSKFCHPIMVRLGWHDAGTYNKDIKEWPQRGGANGSLSFDVELRHGANAGL
+VNALKLLQPIKDKYSGVTYADLFQLASATAIEEAGGPTIPMKYGRVDATGPEQCPEEGRLPDAGPPSPAQ
+HLRDVFYRMGLDDKDIVALSGAHTLGRSRPERSGWGKPETKYTKDGPGAPGGQSWTAEWLKFDNSYFKDI
+KEKRDADLLVLPTDAALFEDPSFKVYAEKYAADQEAFFKDYAEAHAKLSNQGAKFDPAEGITLNGTPAGA
+APEKFVAAKYSSNKRSELSDSMKEKIRAEYEGFGGSPNKPLPTNYFLNIMIVIGVLAVLSYLAGN
+```
+
+- Clicar em BLAST, e após o aparecimento dos resultados, analisar a tabela de hits (Sequências similares ou iguais presentes no banco de dados).
+
+- Verificar os 6 primeiros *Hits*.
+
+- Clique no primeiro *hit* e verifique a estrutura das informações contidas no Uniprot.
+
+
+## Obtendo informações sobre estrutura proteíca no UniProt:
+
+Abrir novamente o site do UniProt:
+<p align="center">
+[http://www.uniprot.org](http://www.uniprot.org)
+</p>
+
+
+- No campo Query, inserir o termo **PGH2_MOUSE**.
+
+- Observar os resultados.
+
+- Em uma outra janela/aba do navegador, na mesma página acima, faça a busca pelo termo **GYS2_HUMAN**.
+
+- Observar os resultados.
+
+## Explorando o *Protein Data Bank*
+
+O RCSB PDB é o principal banco de estruturas de proteínas resolvidas experimentalmente. É dele que retiramos as proteínas molde para realização de modelagem comparativa.
+
+![Protein Data bank](https://drive.google.com/uc?id=1Fs3d5KEBhjurPznpbB4e0WEz8l9HI4vp)
+
+#### Quando utilizar o PDB?
+
+- Para obter estruturas de proteínas resolvidas experimentalmente.
+- Para obter informações estruturais sobre uma proteína.
+- Para verificar e encontrar estruturas proteicas homólogas.
+- Para obter informações sobre sítios importantes para a atividade enzimática.
+- Obter informações sobre os ligantes das proteínas.
+
+Vamos agora explorar o banco PDB.
+
+- Abrir a Home Page do Protein Data Bank (PDB):
+<p align="center">
+[www.rcsb.org](www.rcsb.org)
+</p>
+- No campo “PDB ID or Text” insira o termo: 3HTB
+
+- A partir da página aberta, obter as seguintes informações:
+     
+	- Identificação da Proteína;
+	- Organismo Fonte;
+	- Número de Cadeias Polipeptídicas;
+	- Método Experimental pelo qual o modelo foi obtido;
+	- Outras estruturas relacionadas;
+	- Mutações encontradas (se existirem).
+	- Clicar na estrutura e observar o modelo 3D utilizando a ferramenta Jmol.
+
+## Identificando os domínios de uma proteína
+
+<p align=justify>
+Vamos agora identificar a arquitetura dos domínios que esta proteína abaixo possui e a família a qual pertence. 
+
+```
+>1smd
+GRTSIVHLFEWRWVDIALECERYLAPKGFGGVQVSPPNENVAIHNPFRPWWERYQPVSYK
+LCTRSGNEDEFRNMVTRCNNVGVRIYVDAVINHMCGNAVSAGTSSTCGSYFNPGSRDFPA
+VPYSGWDFNDGKCKTGSGDIENYNDATQVRDCRLSGLLDLALGKDYVRSKIAEYMNHLID
+IGVAGFRIDASKHMWPGDIKAILDKLHNLNSNWFPEGSKPFIYQEVIDLGGEPIKSSDYF
+GNGRVTEFKYGAKLGTVIRKWNGEKMSYLKNWGEGWGFMPSDRALVFVDNHDNQRGHGAG
+GASILTFWDARLYKMAVGFMLAHPYGFTRVMSSYRWPRYFENGKDVNDWVGPPNDNGVTK
+EVTINPDTTCGNDWVCEHRWRQIRNMVNFRNVVDGQPFTNWYDNGSNQVAFGRGNRGFIV
+FNNDDWTFSLTLQTGLPAGTYCDVISGDKINGNCTGIKIYVSDDGKAHFSISNSAEDPFI
+AIHAESKL
+```
+
+<p align=justify>
+Para isto, iremos utilizar primeiramente o banco [CDD](https://www.ncbi.nlm.nih.gov/Structure/cdd/cdd.shtml) (*Conserved Domain Databases*), o qual é vinculado ao NCBI. A ferramenta que faz esta identificação é o [SPARCLE](https://www.ncbi.nlm.nih.gov/sparcle) (*Subfamily Protein Architecture Labeling Engine*), que é um recurso que caracteriza funcionalmente e rotula sequências de proteínas que foram agrupadas por sua arquitetura de domínio conservado característica. Uma arquitectura de domínio é definida como a ordem sequencial de domínios conservados numa sequência de proteínas (CDD-NCBI).
+
+### Quando usar o CDD?
+
+- Para procurar domínios conservados de proteínas.
+- Encontrar informações sobre famílias de proteínas.
+- Inclusive superfamílias e subfamílias.
+- Para obter matrizes PSSM específicas para cada família de proteína.
+- Para obter alinhamentos entre representantes de cada família.
+- Entre os mais distantes e os mais representativos.
+- Verificar relações de proximidade entre as famílias proteicas.
+
+<p align=justify>
+A utilização do SPARCLE pode ser realizada de duas maneiras: a partir de uma sequência de aminoácidos ou por uma palavra-chave. Para utilizar a partir da sequência, utilizaremos o [CD-Search](https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi):
+Abra o [CD-Search](https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi).
+Copie a sequência fasta ```1smd``` na caixa de consulta, como indicado na figura abaixo:
+
+![CD-Search](https://drive.google.com/uc?id=1gZN4gt1dg691yccE_LYKPoV9SMHsvHdd)
+
+Deixe as opções já marcadas no campo ***Options***.
+Clique em ***Submit***.
+
+O primeiro resultado que é retornado é uma tela como a seguinte:
+
+![CD-Search](https://drive.google.com/uc?id=10_Mk0lN62Mao7wuH-80GD5Q7P5ZVV0oo)
+
+<p align=justify>
+Nesta, podem ser identificados:
+
+- A classificação da proteína (*Protein Classification*), com o link para o ID da arquitetura do domínio (do SPARCLE).
+- A superfamília (*Superfamilies*) e os hits específicos (*Specific hits*) dentro desta superfamília.
+- Os domínios identificados (*Domain hits*).
+
+> **Pergunta**: *Quantos domínios esta proteína apresenta?*
+
+<p align=justify>
+Na lista de domínios clique no primeiro e veja a descrição da família que contém este domínio. É uma tela como a representada abaixo:
+
+![Domínio cd11317](https://drive.google.com/uc?id=1n5dLGgolp4x8cWcfg3LgP0dTRRRC0fkM)
+
+<p align=justify>
+Role esta página até que o alinhamento de proteínas pertencentes a este CD seja mostrado. A opção padrão é o alinhamento dos membros mais diversos (*most diverse members*), ou seja, aqueles que apresentam sequências menos similares.
+
+<p align=justify>
+No exercício 104 foi ressaltado que 3 resíduos eram importantes para a atividade catalítica desta proteína. São os resíduos que estão marcados na sequência fasta acima. Verifique se os 3 resíduos estão conservados na sequência dos membros mais diversos no alinhamento obtido nesta página.
+
+> ***Podemos afirmar que os resíduos marcados são realmente característicos desta família?***
+> 
+> *Sim. Isto pode ser verificado ao clicar em* ***catalytic site***, na caixa ***Conserved Features/Sites***.
+
+A matriz de escores de posicionamento específico (PSSM) para esta família pode ser obtida na caixa ***Statistics***, presente na lateral esquerda. Clique no link indicado pela seta, como representado na figura abaixo:
+
+![Obtenção da PSSM](https://drive.google.com/uc?id=1d_CVkuQy7OqLq-87RJNU4VINVpLyRDzg)
+
+Na nova página aberta, a matriz PSSM pode ser observada. 
+
+![Página de descrição da PSSM](https://drive.google.com/uc?id=1q4PH2yFhyDMbZLH1MwcaqQt3X_nTtwry)
+
+Para cada posição da sequência das proteínas desta família, está denotada a possibilidade de mudanças entre os aminoácidos:
+
+- Na primeira parte, a probabilidade de aquela posição conter cada aminoácidos está representada na forma de barras empilhadas.
+- Abaixo, temos os aminoácidos presentes na sequência consenso, ou seja, o resíduo que ocorre mais frequentemente naquela posição, quando considerado todas as proteínas desta família.
+- Logo abaixo, temos a sequência *master* (mestre). A seqüência mestre é a primeira seqüência listada no alinhamento do CD. É uma proteína real, e é a seqüência à qual todas as outras seqüências no alinhamento do CD estão alinhadas. Sempre que possível, a seqüência mestre será uma seqüência com uma estrutura 3D resolvida (um PDB). No caso de CDs curados pelo NCBI, um CD ou um de seus CDs superiores sempre terá uma seqüência mestre com uma estrutura 3D resolvida.
+
+No botão ```Download Table File``` (indicado por um quadro vermelho na figura acima), o download da PSSM pode ser realizado, para ser utilizado em uma busca utilizando o PSI-BLAST (Tutorial 105). Por exemplo, se o próximo passo é verificar os homólogos distantes da sequência ```1smd```, presentes em sequências de amostras de metagenomas (para possíveis aplicações biotecnológicas), por meio de um PSI-BLAST, faremos assim (acompanhe também pelas figuras):
+
+![PSI-BLAST com a 1smd](https://drive.google.com/uc?id=1IQ15CkIH6ODaV9g66wE_YHXt6ePRHZMQ)
+
+- Utilize o [BLASTp](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome), para executar uma busca contra o banco **env_nr** (*Metagenomic proteins*). Não esqueça de colar a sequência ```1smd``` no campo de busca.
+- Na seção ***Program Selection*** selecione PSI-BLAST. 
+- Clique em ***Algorithm parameters***.
+
+![Escolhendo a PSSM no PSI-BLAST](https://drive.google.com/uc?id=127lj9XPqUs0WgbScpvJ99f1k5EXS62eT)
+
+- Na seção ***PSI/PHI/DELTA BLAST***, existe uma opção ***Upload PSSM***. Clique para selecionar o arquivo e escolha o arquivo da PSSM salvo anteriormente, que possui o nome cd11317_res.txt que foi salvo anteriormente (também pode ser obtido pelo link).
+- Clique em BLAST e verifique os resultados.
+
+
+## Usando o Pfam e o InterPro
+
+O [Pfam](http://pfam.xfam.org) é um outro banco para obtenção de informações, funcionais, de famílias proteicas e domínios. A partir dele também é possível obter alinhamentos múltiplos de sequências de proteínas de uma mesma família (assim como o CDD) e
+obter perfis (*profiles*) de Hidden Markov Models (HMMs), que é uma das suas principais utilidades.
+
+> ***HMMs:*** *É um modelo estatístico para qualquer sistema que pode ser representado como uma sucessão de transições entre estados discretos.*
+
+### Quando usar o Pfam?
+
+- Obter informações de famílias proteicas e domínios.
+- Obter informações funcionais.
+- Obter alinhamentos múltiplos de sequências de proteínas de uma mesma família.
+
+- Obter perfis (profiles) *Hidden Markov Models*:
+	- É um modelo estatístico para qualquer sistema que pode ser representado como uma sucessão de transições entre estados discretos.
+
+Nesta parte, também utilizaremos a sequência ```1smd```. Para isso siga os passos abaixo:
+
+![Realizando uma consulta no Pfam](https://drive.google.com/uc?id=1uNWnTKC6MRxhXbFGLDowUGM3wQMAr3O4)
+
+- Abra a página do [Pfam](http://pfam.xfam.org).
+- Clique em ***Sequence Search***.
+- Copie a sequência da proteína ```1smd``` no campo indicado.
+- Espere os resultados.
+
+A primeira página de resultados será a seguinte:
+
+![Resultados Pfam - 1smd](https://drive.google.com/uc?id=1_s3MRUG96IkRq8DFUsXltJPqZrEwTTPt)
+
+- Clique agora no clam CL0058, correspondente as alfa-amilases.
+- Observe todos os resultados, clicando no menu de navegação a direita.
+
+> *Veja principalmente os itens* ***Domain organisation***, ***HMM Logo*** *e* ***Alignments***.
+
+![Clan CL0058](https://drive.google.com/uc?id=17LI_2R-73k5PoEIDroub96LVV5guKXCp)
+
+Na parte ***Summary*** há uma aba que indica o código [**InterPro**](http://www.ebi.ac.uk/interpro/) para esta família proteica, que é [IPR006047](http://www.ebi.ac.uk/interpro/entry/IPR006047).
+
+No InterPro informações similares estão também disponíveis. Neste banco, uma busca a partir da sequência também pode ser realizada.
+
+### Quando usar o InterPro
+
+- Para obter informações gerais sobre uma proteína.
+- Obter informações sobre a estrutura e resíduos importantes para a atividade.
+- Obter informações ligadas com outros bancos de dados biológicos.
+
+> ***Qual banco utilizar?***
+> 
+> *Esta não é uma pergunta trivial. É importante que você explore as informações disponíveis em cada banco e extraia o máximo de informações sobre a proteína de interesse. Como pode ser notado, embora exista uma redundância nas informações disponíveis, cada banco tem sua especificidade e particularidade.*
+
+## Usando o PROSITE
+
+O banco de dados [PROSITE](http://prosite.expasy.org) é um outro banco muito útil para obter informações funcionais e de famílias proteicas e domínios. 
+
+### Quando o usar o PROSITE?
+
+- Para obter informações de famílias proteicas e domínios.
+- Para obtenção de informações funcionais.
+- Obter as assinaturas de sequência que caracterizam as famílias de proteínas.
+- Usar para buscas de similaridade utilizando o PHI-BLAST.
+
+Para este exemplo, iremos utilizar a sequência abaixo:
+
+```
+>Enzyme_Test_1
+MVKIVTVKTQAYQDQKPGTSGLRKRVKVFQSSANYAENFIQSIISTVEPAQRQEATLVVGGDGRFYMKEAIQLIARIA
+AANGIGRLVIGQNGILSTPAVSCIIRKIKAIGGIILTASHNPGGPNGDFGIKFNISNGGPAPEAITDKIFQISKTIEE
+YAVCPDLKVDLGVLGKQQFDLENKFKPFTVEIVDSVEAYATMLRSIFDFSALKELLSGPNRLKIRIDAMHGVVGPYVK
+KILCEELGAPANSAVNCVPLEDFGGHHPDPNLTYAADLVETMKSGEHDFGAAFDGDGDRNMILGKHGFFVNPSDSVAV
+IAANIFSIPYFQQTGVRGFARSMPTSGALDRVASATKIALYETPTGWKFFGNLMDASKLSLCGEESFGTGSDHIREKD
+GLWAVLAWLSILATRKQSVEDILKDHWQKYGRNFFTRYDYEEVEAEGANKMMKDLEALMFDRSFVGKQFSANDKVYTV
+EKADNFEYSDPVDGSISRNQGLRLIFTDGSRIVFRLSGTGSAGATIRLYIDSYEKDVAKINQDPQVMLAPLISIALKV
+SQLQERTGRTAPTVIT
+```
+**Passos:**
+
+- Abra a página inicial do [PROSITE](http://prosite.expasy.org).
+- Na caixa ***Quick Scan mode of ScanProsite***, cole a sequência acima.
+- Marque a opção ***Exclude motifs with a high probability of occurrence from the scan***.
+
+> *Esta opção serve para excluir motivos lineares na sequência proteica que são muito comuns, em inúmeras proteínas.*
+ 
+- Clique em ***Scan***.
+- Observe os resultados, que devem estar de acordo com a figura abaixo:
+
+![Resultados do PROSITE](https://drive.google.com/uc?id=1aQoj0d_0dKAFTS6w96mEu1iSi8A-MSaO)
+
+Os resultados mostram que entre as posições 111 e 120 há a assinatura de enzimas do tipo fosfoglucomutase e fosfomannomutase fosfoserine. Clique no link indicado acima ([PS00710](http://prosite.expasy.org/cgi-bin/prosite/nicedoc.pl?PS00710)) e veja as informações deste motivo.
+
+Nesta mesma página, mais abaixo, temos um quadro denominado ***PGM_PMM, PS00710; Phosphoglucomutase and phosphomannomutase phosphoserine signature  (PATTERN)***. Nele temos o seguinte consenso padrão:
+
+```
+Consensus pattern:
+[GSA]-[LIVMF]-x-[LIVM]-[ST]-[PGA]-S-H-[NIC]-P
+```
+Esta é assinatura PROSITE deste tipo de proteínas. Ela pode ser usada em uma busca PHI-BLAST (ver tutorial 105) para identificar proteínas que tenham esta assinatura em buscas de similaridade utilizando o BLAST. 
+
+###Vamos a um exemplo?
+
+Você quer verificar quais proteínas obtidas a partir de amostras ambientais de metagenomas possuem esta assinatura de fosfoglicomutase, para uma possível aplicação biotecnológica. Para isso, siga os passos abaixo (acompanhe também pela figura):
+
+![PHI-BLAST](https://drive.google.com/uc?id=1tasfVqBbRi7gBC_pZJNmWKAVC-MWcndw)
+
+- Utilize o [BLASTp](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome), para executar uma busca contra o banco **env_nr** (*Metagenomic proteins*). Não esqueça de colar a sequência ```Enzyme_Test_1``` no campo de busca.
+- Na seção ***Program Selection*** selecione PHI-BLAST. Ao clicar em PSI-BLAST, uma caixa abaixo é aberta. Nela você insere a assinatura PROSITE acima. 
+- Clique em BLAST e espere os resultados (Pode demorar!!!).
+- Verifique os resultados.
+
+> *Pelos resultados, há algo promissor para aplicação?*
+
+## *One More Thing*
+
+O site [Jena Library](http://jenalib.leibniz-fli.de/IMAGE.html) agrega informações de proteínas conhecidas de vários bancos de dados (alguns vistos neste próprio tutorial).
+
+![Jena Library](https://drive.google.com/uc?id=1YV9fzlWu6WllyUi0R9-kxQTAQwTy2LWf)
+
+Para fazer um teste, coloque o código ```1smd``` no campo ***QuickSearch*** no canto superior direito da página e clique em ***Go***. Na página seguinte, informações presentes em outros bancos de dados de proteínas serão retornadas, com os links para a página específica da entrada.
+
+
+
+  
+
+
+
+
+
