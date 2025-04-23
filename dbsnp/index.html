@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/dbsnp/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Bancos de Dados de Polimorfismos e mutações - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Bancos de Dados de Polimorfismos e muta\u00e7\u00f5es";
+        var mkdocs_page_input_path = "dbsnp.md";
+        var mkdocs_page_url = "/dbsnp/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../enzima-annot/">Integração de Bancos - Exemplo</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Bancos de Dados de Polimorfismos e mutações</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introducao-e-conceitos">Introdução e Conceitos</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mutacoes">Mutações</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#polimorfismos">Polimorfismos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#variacao-no-numero-de-copias">Variação no número de cópias</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dbsnp">dbSNP</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-uso">Exemplo de uso:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#passos-para-buscar-o-rs6275-no-dbsnp">Passos para buscar o rs6275 no dbSNP:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#para-os-apressados">Para os apressados:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#clinvar">ClinVar</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-uso_1">Exemplo de uso:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#para-os-apressados_1">Para os apressados:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#omim">OMIM</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-uso_2">Exemplo de uso:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#para-os-apressados_2">Para os apressados:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tcga">TCGA</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#para-os-apressados_3">Para os Apressados:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cbioportal-for-cancer-genomics">CBioPortal for Cancer Genomics</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-uso_3">Exemplo de uso:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cosmic-3d">COSMIC-3D</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-uso_4">Exemplo de uso:</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../KEGG/">Explorando Vias Metabólicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../video/">Videoaulas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UC_slides/">Slides</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Material/">Files and References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../First_Tutorial_ENG/">First Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Substitution_saturation_ENG/">Analysis of Substitution Saturation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ModelTest_ENG/">Test of the Best-Fit Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MEGAX_ENG/">Using MEGAX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1st_BEAST/">Using BEAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BEAST%2BEBSP_ENG/">Phylodynamics using EBSP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../IQTree/">Using IQ-Tree</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tutoriais Iniciais de Bioinformática</li>
+      <li class="breadcrumb-item active">Bancos de Dados de Polimorfismos e mutações</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="bancos-de-dados-de-mutacoes-e-polimorfismos">Bancos de dados de Mutações e Polimorfismos</h1>
+<p><strong><em>"Mutation, then, is a feature, not a bug in DNA"</em></strong></p>
+<p>Sean B. Carroll​, <a href="https://press.princeton.edu/books/hardcover/9780691201757/a-series-of-fortunate-events?srsltid=AfmBOorz9DA37jnIUzhXSU7rgLw5QQ3WaXWFsHrWD6Kj39fCmejIF-On">"A series of fortunate events: Chance and the Making of the Planet, Life, and You."</a>​</p>
+<p><strong>Observações:</strong></p>
+<ul>
+<li>Este tutorial foi construído <strong><em>apenas para fins didáticos para a disciplina de Bioinformática, do curso de Biomedicina da UFRN</em></strong>. <strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida pelos professores do curso.</strong></li>
+</ul>
+<p><strong>ATENÇÃO:</strong>
+- O tutorial usa exemplos de doenças genéticas, neurológicas e comportamentais.</p>
+<h2 id="introducao-e-conceitos">Introdução e Conceitos</h2>
+<p>O avanço da genômica nas últimas décadas tem levado ao descobrimento de um número cada vez maior de variantes estruturais 
+e de sequência do genoma humano. Informações como SNVs, MNVs, mutações associadas ao câncer e suas respectivas correlações 
+com dados clínicos e síndromes genéticas/erros inatos do metabolismo estão catalogadas em diversos bancos de dados primários 
+e secundários. Apesar da inerente redundância, cada banco apresenta particularidades na forma como o dado está organizado e 
+nas informações relacionadas a cada mudança encontrada.</p>
+<p>Antes de começarmos a explorar alguns desses bancos (acredite, são muitos!), precisamos revisar alguns conceitos importantes.</p>
+<h3 id="mutacoes">Mutações</h3>
+<p>Qualquer alteração encontrada na sequência de nucleotídeos de uma molécula de DNA de um organismo.​ Não estão presentes na maioria dos indivíduos de uma espécie.​ São raras, com frequência alélica menor que 1%.​</p>
+<h3 id="polimorfismos">Polimorfismos</h3>
+<p>Diferenças na sequência de DNA entre indivíduos, grupos, ou populações.​ Presentes em pelo menos 2% de uma amostra populacional aleatória, com frequência alélica maior que 1%.​</p>
+<h3 id="variacao-no-numero-de-copias">Variação no número de cópias</h3>
+<p>A variação no número de cópias (CNV) é um termo geral usado para descrever um fenômeno molecular em que sequências do genoma são repetidas, e o número de repetições varia entre indivíduos da mesma espécie.​</p>
+<h2 id="dbsnp">dbSNP</h2>
+<p>O <strong>dbSNP</strong> contém informações sobre variações genéticas, incluindo SNPs e pequenas inserções/deleções.</p>
+<h3 id="exemplo-de-uso">Exemplo de uso:</h3>
+<p>O <a href="https://www.ncbi.nlm.nih.gov/snp/rs6275">rs6275</a> é um SNP no gene <strong><em>DRD2</em></strong>, que está associado a diferenças na resposta dopaminérgica, mas não é considerado patogênico.</p>
+<h4 id="passos-para-buscar-o-rs6275-no-dbsnp">Passos para buscar o rs6275 no dbSNP:</h4>
+<ul>
+<li>Acesse o site do <a href="https://www.ncbi.nlm.nih.gov/snp/">dbSNP</a>.</li>
+<li>Na barra de pesquisa, digite <strong>rs6275</strong> e pressione <strong>Enter</strong>.</li>
+</ul>
+<p><img alt="Página Principal do dbSNP" src="../dbsnp1.png" /></p>
+<ul>
+<li>A página inicial de resultados trará um resumo de cada <em>rs</em> relacionado a sua busca.</li>
+</ul>
+<p><img alt="Página de resultados da busca do dbSNP" src="../dbsnp2.png" /></p>
+<ul>
+<li>O resultado resumido mostrará informações como:</li>
+<li><strong>Localização genômica</strong> (cromossomo e posição exata).</li>
+<li><strong>Consequência funcional</strong>.</li>
+<li><strong>Frequência alélica</strong> em diferentes populações.</li>
+<li>
+<p><strong>Estudos associados</strong> que analisaram sua influência em características humanas.</p>
+</li>
+<li>
+<p>Você pode explorar os detalhes clicando no primeiro resultado, obtendo assim a página abaixo:</p>
+</li>
+</ul>
+<p><img alt="Página do dbSNP rs6275" src="../dbsnp3.png" /></p>
+<ul>
+<li>Nas abas abaixo você terá informações mais detalhadas sobre essa variante.</li>
+</ul>
+<p>Esse SNP é um ótimo exemplo de como variações genéticas podem influenciar características sem necessariamente causar doenças. Vamos agora verificar um patogênico?</p>
+<p>Repita os passos acima com o SNP de código <a href="https://www.ncbi.nlm.nih.gov/snp/rs121913529">rs121913529</a> e responda:
+- Em qual gene esse SNP é relatado?
+- Qual o seu efeito?
+- Qual a sua frequência alélica na população </p>
+<h3 id="para-os-apressados">Para os apressados:</h3>
+<ul>
+<li>Acesse o site oficial do dbSNP <a href="https://www.ncbi.nlm.nih.gov/snp/">aqui</a>.</li>
+<li>Utilize a barra de pesquisa para buscar um SNP específico usando um <strong>RefSNP ID (rsID)</strong> ou um <strong>gene</strong>.</li>
+<li>Filtre os resultados por <strong>significância clínica</strong>, <strong>frequência alélica</strong> e <strong>localização genômica</strong>.</li>
+<li>Para baixar os dados, vá até a seção <strong>FTP Download</strong>.</li>
+</ul>
+<h2 id="clinvar">ClinVar</h2>
+<p>O <a href="https://www.ncbi.nlm.nih.gov/clinvar">ClinVar</a> é um banco de dados que relaciona variações genéticas com condições médicas.</p>
+<h3 id="exemplo-de-uso_1">Exemplo de uso:</h3>
+<p>O exemplo para uso do ClinVar será um pouco diferente do anterior, embora você também possa procurar códigos <strong>rs</strong> diretamente nele. Aqui iremos iniciar a busca com uma condição. A condição é a esquizofrenia (em inglês, <em>Schizophrenia</em>).</p>
+<ul>
+<li>Acesse o site do <a href="https://www.ncbi.nlm.nih.gov/clinvar">ClinVar</a>.</li>
+<li>Coloque o termo <em>Schizophrenia</em> no campo de busca.</li>
+</ul>
+<p><img alt="Página Inicial do ClinVar" src="../dbsnp-clinvar1.png" /></p>
+<ul>
+<li>Observe a página inicial dos resultados:</li>
+</ul>
+<p><img alt="Página de resultados de uma busca no ClinVar" src="../dbsnp-clinvar2.png" /></p>
+<ul>
+<li>No menu lateral esquerdo, vamos filtrar os resultados por:</li>
+<li><em>Germline classification: Pathogenic.</em></li>
+<li><em>Molecular consequence: UTR.</em></li>
+</ul>
+<p><img alt="Página de resultados de uma busca no ClinVar" src="../dbsnp-clinvar3.png" /></p>
+<ul>
+<li>Clique no resultado único e explore a página seguinte de descrição dessa variante.</li>
+</ul>
+<p><img alt="Página de descrição de uma variante no ClinVar" src="../dbsnp-clinvar4.png" /></p>
+<ul>
+<li>Verifique todas as informações nessa página e principalmente os links para outros bancos de dados.</li>
+</ul>
+<h4 id="para-os-apressados_1">Para os apressados:</h4>
+<ul>
+<li>Acesse o site do <a href="https://www.ncbi.nlm.nih.gov/clinvar">ClinVar</a>.</li>
+<li>Use a barra de pesquisa para buscar variantes associadas a doenças específicas: códigos do dbSNP, variante, condição, etc.</li>
+<li>Explore os detalhes de cada variante, incluindo <strong>significância clínica</strong>, <strong>publicações científicas</strong> e <strong>frequência populacional</strong>.</li>
+</ul>
+<h2 id="omim">OMIM</h2>
+<p>O <a href="https://www.omim.org/"><strong>OMIM</strong></a> (<em>Online Mendelian Inheritance in Man</em>) é um banco de dados que contém informações sobre doenças genéticas e genes associados.</p>
+<h3 id="exemplo-de-uso_2">Exemplo de uso:</h3>
+<p>No OMIM também iremos procurar por uma condição genética, a <em>Mucoviscidosis</em>, que é um outro nome para a Fibrose Cística.</p>
+<ul>
+<li>Abra a página do <a href="https://www.omim.org/"><strong>OMIM</strong></a>.</li>
+</ul>
+<p><img alt="Página Inicial do OMIM" src="../dbsnp-omim1.png" /></p>
+<ul>
+<li>No campo de busca, coloque o termo Mucoviscidosis.</li>
+<li>Clique no único resultado que aparece, <em>Cystic fibrosis</em>.</li>
+<li>Veja a página de resultados, com a descrição completa da doença.</li>
+</ul>
+<p><img alt="Resultado do OMIM para uma condição" src="../dbsnp-omim2.png" /></p>
+<ul>
+<li>Verifique a tabela e clique no link da última coluna na segunda linha da tabela (onde tem <a href="https://www.omim.org/entry/602421">602421</a>).</li>
+<li>Além de registros para doenças, o OMIM tem também registros para cada gene. Nessa página temos o registro do gene CFTR. Na coluna à esquerda da página temos várias informações textuais sobre o gene.</li>
+</ul>
+<p><img alt="Resultado do OMIM para o gene CFTR" src="../dbsnp-omim-3.png" />.</p>
+<ul>
+<li>Ainda na coluna à esquerda existe um menu chamado <em>Allelic Variants</em>. Clique no link logo abaixo, chamado <em>Table View</em>. Uma nova página irá abrir:</li>
+</ul>
+<p><img alt="Table View do OMIM para o gene CFTR" src="../dbsnp-omim4.png" />.</p>
+<ul>
+<li>Na tabela acima você encontra:</li>
+<li>O número da mutação/polimorfismo no formato <strong>602421#0001</strong> (Registro do Gene # Número da mutação).</li>
+<li>O fenótipo (<em>phenotype</em>).</li>
+<li>A descrição da mutação (<em>Mutation</em>), no formato PHE508DEL (XNY).</li>
+<li>O código dela no dbSNP (<em>SNP</em> - código com início em <em>rs</em>).</li>
+<li>A frequência alélica descrita no banco de genomas/exomas <a href="https://gnomad.broadinstitute.org/">gnomAD™</a> (<em>Genome Aggregation Database</em>, antes conhecido como ExAC).</li>
+<li>O código dela no <a href="https://www.ncbi.nlm.nih.gov/clinvar">ClinVar</a>.</li>
+</ul>
+<p>Esse exemplo demonstra a integração que existe entre os diversos bancos de dados. Em todos os bancos acima, existem links que direcionam uma determinada variante aos outros bancos de dados em que ela é descrita.</p>
+<h4 id="para-os-apressados_2">Para os apressados:</h4>
+<ol>
+<li>Acesse o site do OMIM <a href="https://www.omim.org/">aqui</a>.</li>
+<li>Utilize a barra de pesquisa para buscar um gene ou uma doença específica.</li>
+<li>Leia as descrições detalhadas sobre a condição genética e suas variantes associadas.</li>
+</ol>
+<h2 id="tcga">TCGA</h2>
+<p>O <a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga">TCGA</a> (<em>The Cancer Genome Atlas</em>) contém dados genômicos de diversos tipos de câncer.</p>
+<p><img alt="Página Inicial do TCGA" src="../dbsnp-tcga1.png" /></p>
+<p>Para acessar diretamente os dados, você pode ir diretamente para o link <a href="https://portal.gdc.cancer.gov/">Access TCGA Data</a>.</p>
+<p><img alt="Página de acesso aos dados do TCGA" src="../dbsnp-tcga2.png" />.</p>
+<p>No campo de busca à direita, vamos procurar por um gene, o BRCA1, que está relacionado a diversos tipos de câncer, especialmente o de mama. Ao acessar a página de resultados, uma série de informações serão mostradas para o gene, assim como suas associações à doenças.</p>
+<p><img alt="Página do TCGA para o gene BRCA1" src="../dbsnp-tcga3.png" /></p>
+<p>Nela você também encontrará integração com diversos outros bancos de dados biológicos.</p>
+<p>Na página anterior você pode também analisar diretamente os dados presente no TCGA. Existem links para demonstrações para cada tipo de análise.</p>
+<h4 id="para-os-apressados_3">Para os Apressados:</h4>
+<ol>
+<li>Acesse o portal do TCGA <a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga">aqui</a>.</li>
+<li>Utilize a ferramenta de busca para encontrar dados genômicos de diferentes tipos de câncer.</li>
+<li>Explore os dados de expressão gênica, mutações e análises clínicas.</li>
+<li>Para baixar os dados, é necessário criar uma conta no <strong>Genomic Data Commons (GDC)</strong>.</li>
+</ol>
+<h2 id="cbioportal-for-cancer-genomics"><em>CBioPortal for Cancer Genomics</em></h2>
+<p>O <a href="https://www.cbioportal.org/">CBioPortal</a> é uma base de conhecimento que apresenta dados complexos de diversos coortes e projetos genoma de câncer de uma forma interativa e de fácil análise para profissionais de saúde.</p>
+<h3 id="exemplo-de-uso_3">Exemplo de uso:</h3>
+<p>Vamos obter uma visão geral de um conjunto de dados de câncer de mama (<em>Breast cancer</em>). Na coluna à direita no site inicial do CBioPortal, selecione <strong>Breast</strong>. Em seguida, à esquerda, selecione a segunda caixa (<em>MSK Cancer Cell 2018</em>). Após isso, clique na caixa azul na parte inferior da página <code>Explore Selected Studies</code>.</p>
+<p><img alt="CBioPortal" src="../dbsnp-cbioportal1.png" /></p>
+<p>Verifique a página com o sumário dos resultados:</p>
+<p><img alt="CBioPortal - Breast Cancer" src="../dbsnp-cbioportal2.png" /></p>
+<p>Quais dos dados lhe chama mais atenção nessa análise?</p>
+<h2 id="cosmic-3d">COSMIC-3D</h2>
+<p>O <a href="https://cancer.sanger.ac.uk/cosmic3d/">COSMIC-3D</a> é um banco de dados que integra mutações associadas ao câncer com estruturas tridimensionais do proteoma humano. É uma base muito interessante para visualizar o efeito de mutações na estrutura das proteínas.</p>
+<p><img alt="Cosmic-3D" src="../dbsnp-cosmic3d-1.png" /></p>
+<h3 id="exemplo-de-uso_4">Exemplo de uso:</h3>
+<p>Vamos continuar utilizando o gene BRCA1, colocando sua sigla (na verdade, seu <em>GeneSymbol</em>) no campo de busca. Logo abaixo uma caixa com o código Uniprot da proteína e o número de estruturas disponíveis aparece embaixo. Aperte <code>ENTER</code>.</p>
+<p>Na página seguinte você verá a estrutura da proteína e um gráfico que resume as mutações reportadas, a sua cobertura estrutural e a sua frequência de ocorrência. Ao clicar na mutação, a mudança de aminoácido é visualizada na estrutura.</p>
+<p>O vídeo abaixo demonstra a procura pelo gene EGFR:</p>
+<iframe src="https://drive.google.com/file/d/1pFc1kVYLBHkjd4zQZOcx61kXjuIapBVP/preview" width="640" height="480" allow="autoplay"></iframe>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../enzima-annot/" class="btn btn-neutral float-left" title="Integração de Bancos - Exemplo"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../KEGG/" class="btn btn-neutral float-right" title="Explorando Vias Metabólicas">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../enzima-annot/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../KEGG/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
