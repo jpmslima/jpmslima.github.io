@@ -18,6 +18,7 @@ nav:
     - BLAST via CLI: 108-BLAST-CLI.md
     - Comandos Básicos em SQL: 109-SQL.md
     - Integração de Bancos - Exemplo: enzima-annot.md
+    - Bancos de Dados de Polimorfismos e mutações: dbsnp.md
     - Explorando Vias Metabólicas: KEGG.md
     - Bancos de Dados de Informação Proteica: 110-BDs.md
     - Modelagem Computacional de Proteínas: 111-Modelagem.md
