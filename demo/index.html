@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/demo/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Representação Computacional de Biomoléculas - Tutoriais BioinfoX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Representa\u00e7\u00e3o Computacional de Biomol\u00e9culas";
+        var mkdocs_page_input_path = "demo.md";
+        var mkdocs_page_url = "/demo/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tutoriais BioinfoX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Página Inicial</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Representação Computacional de Biomoléculas</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#nocoes-basicas-de-visualizacao-computacional-de-moleculas">Noções Básicas de Visualização computacional de moléculas</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#acidos-nucleicos">Ácidos Nucleicos</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#transformando-em-visulizacao-tridimensional">Transformando em visulização tridimensional</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#representando-pequenas-moleculas">Representando pequenas moléculas</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#proteinas">Proteínas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#verificando-angulos-de-rotacao">Verificando ângulos de rotação</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#estruturas-secundarias">Estruturas secundárias</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#estruturas-terciaria-e-quaternaria">Estruturas Terciária e Quaternária</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#predicao-do-efeito-de-modificacoes">Predição do efeito de modificações</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cosmic-3d">COSMIC-3D</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-uso">Exemplo de uso:</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aboutus/">Sobre o grupo</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutoriais Iniciais de Bioinformática</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic1/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../101/">Introdução a linha de comando UNIX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../104/">Buscas de Similaridade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../105/">Alinhamento entre pares de sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../106-MSA/">Alinhamento Múltiplo de Sequências</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../107-NCBI-CLI/">NCBI/GenBank via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../108-BLAST-CLI/">BLAST via CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../enzima-annot/">Integração de Bancos - Exemplo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dbsnp/">Bancos de Dados de Polimorfismos e mutações</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../KEGG/">Explorando Vias Metabólicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../110-BDs/">Bancos de Dados de Informação Proteica</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../111-Modelagem/">Modelagem Computacional de Proteínas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../112-MEGAX/">Primeiros Passos no MEGA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../113-Genomes/">Navegando por Genomas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../video/">Videoaulas</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformática Estrutural</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic2/">Inicial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slides/">Slides de Acompanhamento</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Programas e Ferramentas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR1-Visualizacao/">Visualização Computacional de Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR2-pred/">Informações a partir da estrutura primária</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR22-Epitopos/">Predição de Epítopos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR3-Model1/">Modelagem 101</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR4-Model2/">Modelagem 102</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR5-Model3/">Modeller-CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR6-AlphaFold/">Métodos baseados em IA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR7-MDA/">MDA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR8-Aval/">Avaliação dos Modelos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR9-EM/">EM/CryoEM fitting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR10-RINs/">RINs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR11-APBS/">APBS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR12-Memb/">Proteínas de Membrana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR13-Dock1/">Autodock (básico)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR14-Dock2/">Docking</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR15-VS1/">Virtual Screening</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR23-MDIntro/">Introdução a Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR16-EGB1/">Modelos de Pequenas Moléculas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR17-EGB2/">Análise conformacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR18-EGB3/">Docking Automático</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR19-EGB4/">Posicionamento Manual</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR20-EGB5/">Dinâmica Molecular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../STR21-EGB6/">VS-2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../comps/">Complements</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UC_slides/">Slides</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Material/">Files and References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../First_Tutorial_ENG/">First Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Substitution_saturation_ENG/">Analysis of Substitution Saturation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ModelTest_ENG/">Test of the Best-Fit Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MEGAX_ENG/">Using MEGAX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1st_BEAST/">Using BEAST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BEAST%2BEBSP_ENG/">Phylodynamics using EBSP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../IQTree/">Using IQ-Tree</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tutoriais BioinfoX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Representação Computacional de Biomoléculas</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="representacao-computacional-de-biomoleculas">Representação computacional de Biomoléculas</h1>
+<p>O objetivo deste tutorial é introduzir conceitos relacionados a representação 
+e visualização computacional de moléculas biológicas, como proteínas, ácidos nucléicos,
+pequenos ligantes, etc. Serve como suporte visual para o entendimento das estruturas tridimensionais e
+as ligações/interações químicas que a estabilizam.</p>
+<p><strong>Observações:</strong></p>
+<ul>
+<li>Este tutorial foi construído <strong><em>apenas para fins didáticos</em></strong>. <span style="color:red"><strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida.</strong></span></li>
+<li>Para fins de otimização de tempo, as ferramentas/programas aqui utilizados já devem estar instalados na máquina. Navegue pelo restante do site para verificar as etapas necessárias para instalação delas.</li>
+</ul>
+<h2 id="nocoes-basicas-de-visualizacao-computacional-de-moleculas">Noções Básicas de Visualização computacional de moléculas</h2>
+<h3 id="acidos-nucleicos">Ácidos Nucleicos</h3>
+<p>Os ácidos nucleicos são moléculas informacionais e com estrutura tridimensional. Esta é uniforme no caso da dupla-hélice (DNA ou RNA) ou variável, no caso de RNAs com estruturas secundárias/terciárias ativas biologicamente. A informação pode ser representada na forma de simples caracteres, como um arquivo de texto (texto simples, não em um .doc). A forma mais comum de representação da informação de sequências de nucleotídeos ou proteínas em Bioinformática é o formato <strong>fasta</strong>. Ele foi desenvolvido por David J. Lipman e William R. Pearson em 1985, junto a um programa de busca de similaridades de sequências chamado <a href="https://pubmed.ncbi.nlm.nih.gov/2983426/">FASTA</a>, que foi substituído em muitas aplicações posteriormente pelo <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a>.</p>
+<p>Ele começa com uma linha de descrição precedida por <code>&gt;</code> seguida pela sequência propriamente dita, sem espaços ou números. Sua simplicidade facilita a manipulação e análise de dados biológicos. Segue abaixo um exemplo de uma sequência nucleotídica nesse formato:</p>
+<pre><code class="language-fasta">&gt;Sequencia_1
+TCTCGATGCAGCTAGCTATCGCAT
+</code></pre>
+<p>Nas linhas relativas à sequência, são apenas aceitos os caracteres canônicos para nucleotídeos e para aminoácidos, que podem ser conferidos <a href="https://web.archive.org/web/20110811073845/http://www.dna.affrc.go.jp/misc/MPsrch/InfoIUPAC.html">AQUI</a>.</p>
+<p>Copie a sequência acima e cole um documento de texto simples (usando o bloco de notas ou gedit, em SOs Windows e Linux, respectivamente).</p>
+<h4 id="transformando-em-visulizacao-tridimensional">Transformando em visulização tridimensional</h4>
+<p>Para transformar a visualização dessa informação em estrutura tridimensional vamos utilizar o programa <a href="https://www.cgl.ucsf.edu/chimerax/">UCSF ChimeraX</a> e seguir os seguintes passos:</p>
+<ul>
+<li>Abra o ChimeraX.</li>
+<li>Ao abrir o programa, uma tela semelhante a abaixo deverá aparecer:</li>
+</ul>
+<p><img alt="Página Inicial do UCSF ChimeraX" src="../demo0.png" /></p>
+<blockquote>
+<p><em>Caso uma tela preta apareça, clique no ícone marcado na figura acima.</em></p>
+</blockquote>
+<ul>
+<li>Vamos agora seuir o seguinte caminho no menu: </li>
+<li><em>Tools... Structure Editing... Build Structure</em></li>
+</ul>
+<p><img alt="Menu de construção de moléculas" src="../demo1.png" /></p>
+<ul>
+<li>Na aba lateral irá aparecer uma caixa de diálogo. Clique em <em>helical DNA/RNA</em> e cole a sequência descrita acima na caixa, mantendo as opções <em>DNA</em> e <em>B-Form</em> marcadas, de acordo com a figura abaixo:</li>
+</ul>
+<p><img alt="Menu de construção de moléculas" src="../demo2.png" /></p>
+<ul>
+<li>Clique em <code>Apply</code>. Sua molécula deverá aparecer.</li>
+</ul>
+<p><img alt="Menu de construção de moléculas" src="../demo3.png" /></p>
+<ul>
+<li>Explore a molécula e suas diferentes representações, clicando na aba acima <em>Molecule Display</em>. Esses passos serão direcionados pelo professor durante a demonstração.</li>
+</ul>
+<blockquote>
+<p><em>Você pode também usar sua própria sequência ou mudar a forma de visualização. Exemplo, que tal fazer uma dupla-hélice híbrida DNA/RNA?</em></p>
+</blockquote>
+<ul>
+<li>Vamos salvar a molécula em um outro formato de arquivo, chamado <code>pdb</code>. </li>
+<li>Vá em <em>File</em> &gt; <em>Save...</em> e salve a molécula com o nome <code>Seq1.pdb</code>.</li>
+<li>Agora abriremos esse arquivo em editor de texto. </li>
+<li>Vamos verificar seu formato?</li>
+</ul>
+<h2 id="representando-pequenas-moleculas">Representando pequenas moléculas</h2>
+<p>Vamos agora usar uma notação química simplificada, chamada de SMILES (<em>Simplified Molecular Input Line Entry System</em>), que serve para a representação de moléculas e reações.</p>
+<blockquote>
+<p><em>Mais informações sobre o SMILES podem ser encontradas <a href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html">AQUI</a>.</em></p>
+</blockquote>
+<p>A partir do site de informações sobre o <a href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html">SMILES</a> ou partir de buscas Google ou em bancos de dados de estruturas químicas (como o <a href="https://pubchem.ncbi.nlm.nih.gov">PubChem</a>) procure pelo nome e desenhe outras moléculas do seu interesse. Por exemplo, vamos visualizar a estrutura da Rosuvastatina<a href="https://pubchem.ncbi.nlm.nih.gov/compound/446157">Clique aqui</a>?</p>
+<ul>
+<li>Na página de informações sobre o fármaco, procure o código SMILES, que estará no Campo "<em>Canonical SMILES</em>":</li>
+</ul>
+<pre><code>CC(C)C1=NC(=NC(=C1/C=C/[C@H](C[C@H](CC(=O)O)O)O)C2=CC=C(C=C2)F)N(C)S(=O)(=O)C
+</code></pre>
+<ul>
+<li>Esse código SMILES pode ser utilizado para construir a molécula na caixa de diálogo <code>Build Structure</code> do UCSF Chimera.</li>
+</ul>
+<p>O código da molécula da Rosuvastatina no PubChem é 446157. Em em <em>File &gt; Fetch by ID</em>, marque o banco PubChem e coloque este código.</p>
+<ul>
+<li>Observe a representação da Rosuvastatina, nos diferentes tipos de visualização. Veja outras moléculas lhe interessam.</li>
+</ul>
+<h3 id="proteinas">Proteínas</h3>
+<p>As proteínas também são moléculas informacionais, no entanto, com um "alfabeto" maior, com 20 aminoácidos proteicos (que estão codfificados no código genético), descritos na figura abaixo:</p>
+<p><img alt="Classificação dos Aminoácidos com base nas características químicas do grupo R" src="../str1-fig5.png" /></p>
+<p>A tabela abaixo sumariza os códigos de 1 e de 3 letras destes aminoácidos:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Aminoácido</th>
+<th style="text-align: center;">Código de 3 letras</th>
+<th style="text-align: center;">Código de 1 Letra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Alanina</td>
+<td style="text-align: center;">Ala</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Arginina</td>
+<td style="text-align: center;">Arg</td>
+<td style="text-align: center;">R</td>
+</tr>
+<tr>
+<td style="text-align: left;">Asparagina</td>
+<td style="text-align: center;">Asn</td>
+<td style="text-align: center;">N</td>
+</tr>
+<tr>
+<td style="text-align: left;">Aspartato</td>
+<td style="text-align: center;">Asp</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cisteína</td>
+<td style="text-align: center;">Cys</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td style="text-align: left;">Glutamato</td>
+<td style="text-align: center;">Glu</td>
+<td style="text-align: center;">E</td>
+</tr>
+<tr>
+<td style="text-align: left;">Glutamina</td>
+<td style="text-align: center;">Gln</td>
+<td style="text-align: center;">Q</td>
+</tr>
+<tr>
+<td style="text-align: left;">Glicina</td>
+<td style="text-align: center;">Gly</td>
+<td style="text-align: center;">G</td>
+</tr>
+<tr>
+<td style="text-align: left;">Histidina</td>
+<td style="text-align: center;">His</td>
+<td style="text-align: center;">H</td>
+</tr>
+<tr>
+<td style="text-align: left;">Isoleucina</td>
+<td style="text-align: center;">Ile</td>
+<td style="text-align: center;">I</td>
+</tr>
+<tr>
+<td style="text-align: left;">Leucina</td>
+<td style="text-align: center;">Leu</td>
+<td style="text-align: center;">L</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lisina</td>
+<td style="text-align: center;">Lys</td>
+<td style="text-align: center;">K</td>
+</tr>
+<tr>
+<td style="text-align: left;">Metionina</td>
+<td style="text-align: center;">Met</td>
+<td style="text-align: center;">M</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fenilalanina</td>
+<td style="text-align: center;">Phe</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prolina</td>
+<td style="text-align: center;">Pro</td>
+<td style="text-align: center;">P</td>
+</tr>
+<tr>
+<td style="text-align: left;">Serina</td>
+<td style="text-align: center;">Ser</td>
+<td style="text-align: center;">S</td>
+</tr>
+<tr>
+<td style="text-align: left;">Treonina</td>
+<td style="text-align: center;">Thr</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr>
+<td style="text-align: left;">Triptofano</td>
+<td style="text-align: center;">Trp</td>
+<td style="text-align: center;">W</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tirosina</td>
+<td style="text-align: center;">Tyr</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr>
+<td style="text-align: left;">Valina</td>
+<td style="text-align: center;">Val</td>
+<td style="text-align: center;">V</td>
+</tr>
+</tbody>
+</table>
+<p>Em outro momento, você poder ver a fórmula individual de todos estes aminoácidos, usando o menu <code>Build Structure</code> do UCSF Chimera, clicando em peptide e colocando apenas um aminoácido, utilizando sempre o código de uma letra.</p>
+<p>A informação da estrutura primária das proteínas é também descrita no formato <code>fasta</code>:</p>
+<pre><code>&gt;Pep1
+RDQ
+</code></pre>
+<h3 id="verificando-angulos-de-rotacao">Verificando ângulos de rotação</h3>
+<p>Agora iremos trabalhar com o peptídeo acima (RDQ), para visualizar as diferentes possibilidades dos ângulos de rotação <strong>ø</strong> (<em>phi</em>) <strong>Ψ</strong> (<em>psi</em>), e relacioná-los ao <a href="https://en.wikibooks.org/wiki/Structural_Biochemistry/Proteins/Ramachandran_Plot">Gráfico de Ramanchandran</a>. Para isso, siga os passos abaixo:</p>
+<ul>
+<li><em>Tools... Structure Editing... Build Structure</em></li>
+</ul>
+<p>Na janela que aparecer clique em <code>peptide</code> e no espaço indicado coloque <strong>RDQ</strong>.</p>
+<p><img alt="Construindo um peptídeo" src="../demo4.png" /></p>
+<ul>
+<li>No campo <code>named</code>, dê um nome a molécula ou deixe o padrão.</li>
+<li>Clique em <code>Apply</code>.</li>
+</ul>
+<p>Na janela que abrir em seguida, verifique os ângulos <strong>ø</strong> (<em>phi</em>) <strong>Ψ</strong> (<em>psi</em>) atribuídos por padrão no resíduo D (-57/-47). Clique novamente em <code>Apply</code>, mas neste caso deixe esta janela aberta. A primeira molécula irá aparecer.</p>
+<p><img alt="Ângulos phi e psi" src="../demo5.png" /></p>
+<p>Nesta mesma janela, você irá mudar os ângulos de rotação, da seguinte forma:
+    - Você irá selecionar o resíduo D e nas caixas abaixo você irá colocar 0 graus, para ambos os ângulos <em>ø</em> e <em>Ψ</em>. Aperte a tecla <code>Set</code>, verifique se os ângulos relativos ao resíduo D mudaram e aperte em <code>Apply</code>.</p>
+<p><img alt="Ajustando os ângulos de torção" src="../demo6.png" /></p>
+<ul>
+<li>Adicione os átomos de H para as 3 moléculas de acordo com o mostrado em aula (<em>Tools &gt; Structure Editing &gt; Add Hydrogens</em>). Mude também as opções de visualização para sua visualização favorita.</li>
+</ul>
+<p>As duas moléculas irão aparecer sobrepostas. Clique na aba <code>Right Mouse</code>na janela principal do ChimeraX, clique em <em>Drag Model</em> e com o ponteiro do mouse em cima de um dos peptídeos, clique no botão direito do mouse e arraste-o para outro lugar na tela, para não termos sobreposição.</p>
+<p><img alt="Peptídeos RDQ" src="../demo7.png" /></p>
+<p>Verifique as sobreposições entre os átomos causadas pelos diferentes ângulos de torção em torno da ligação peptídica em torno resíduo D.</p>
+<h3 id="estruturas-secundarias">Estruturas secundárias</h3>
+<p>Agora vamos abrir uma primeira estrutura completa.</p>
+<ul>
+<li>Clique em <em>File &gt; Fetch by ID</em>.</li>
+<li>Na janela que apareceu, selecione o banco <code>PDB</code> e no campo digite <a href="https://www.rcsb.org/structure/1ZIK">1ZIK</a>.</li>
+</ul>
+<p><img alt="Baixando estruturas" src="../demo8.png" /></p>
+<ul>
+<li>Clique em <code>Fetch</code>.</li>
+<li>Mexa e observe as características desta estrutura.</li>
+</ul>
+<p>Esta proteína é zíper de leucine formado por dois peptídeos.</p>
+<blockquote>
+<p><em>Qual o tipo de estrutura secundária principal desta proteína?</em></p>
+</blockquote>
+<p>A exibição inicial padrão é fitas (ribbons). Para exibir também seus átomos, clique em:</p>
+<ul>
+<li><em>Actions... Atoms/Bonds... show</em>.</li>
+</ul>
+<p>O comando mostra todos os átomos e ligações na estrutura, exceto aqueles que na cadeia do peptídeo são suprimidos pela exibição da fita. Inicialmente, os heteroátomos (átomos além do carbono) são codificados por cores por elementos: oxigênio vermelho, azul de nitrogênio, etc. Os carbonos retêm a cor do modelo.</p>
+<ul>
+<li>Tente mover a estrutura com o mouse na janela principal de gráficos.</li>
+</ul>
+<p>Agora vamos retirar a visualização em fitas:</p>
+<ul>
+<li><em>Actions... Ribbon... hide</em> (Para mostrar apenas os átomos).</li>
+</ul>
+<p>Identifique os aminoácidos, suas cadeias laterais e as ligações peptídicas.</p>
+<p>Agora selecione uma das cadeias da estrutura 1ZIK e mostre as ligações de hidrogênio, com a opção:</p>
+<ul>
+<li><em>Tools... Structure Analysis... H-Bonds</em>. Na janela que abrir em seguida, clique em <code>Ok</code>.</li>
+</ul>
+<p>Observe as ligações de hidrogênio que estabilizam a estrutura das alfa-hélices.</p>
+<blockquote>
+<p><em>No ChimeraX, todos os comandos acima podem ser realizados por cliques nos ícones.</em></p>
+</blockquote>
+<p>Vamos analisar agora uma estrutura que também tenha folhas-betas.</p>
+<ul>
+<li>Clique em <em>File &gt; Fetch by ID</em>.</li>
+<li>Na janela que apareceu, selecione o banco <code>PDB</code> e no campo digite <a href="https://www.rcsb.org/structure/5BVL">5BVL</a>.</li>
+<li>Clique em <code>Fetch</code>.</li>
+<li>Mexa e observe as características desta estrutura.</li>
+</ul>
+<p>Vamos visualizar de forma diferenciada os tipos de estrutura secundária nesta estrutura:</p>
+<ul>
+<li>Vá na linha de comando, na parte inferior do ChimeraX e digite <em>color strand red</em> e aperte <code>ENTER</code>. A folhas betas deverão agora aparecer em vermelho.</li>
+</ul>
+<h3 id="estruturas-terciaria-e-quaternaria">Estruturas Terciária e Quaternária</h3>
+<p>A estrutura primária da insulina está representada na figura abaixo:</p>
+<p><img alt="Estrutura Primária da Insulina" src="../str1-fig15.png" /></p>
+<p>Vamos agora trabalhar com a estrutura terciária deste hormônio. Abra da forma acima indicada a estrutura <a href="https://www.rcsb.org/structure/1ZEH">1ZEH</a>.</p>
+<p>Com ele aberto, identifique:</p>
+<ul>
+<li>As cadeias do hormônio insulina.</li>
+<li>Os tipos de estruturas secundárias envolvidas.</li>
+<li>Obtenha o gráfico de Ramachandran.</li>
+<li>Visualize as ligações de H.</li>
+<li>Localize e visualize as pontes dissulfeto (S-S).<blockquote>
+<p><em>Para este último item, a dica é procurar pelas cisteínas, de acordo com a figura abaixo.</em></p>
+</blockquote>
+</li>
+</ul>
+<p>Para verificar estruturas quaternárias, iremos baixar estrutura da HMG-CoA Sintase Humana em complexo com a Rosuvastatina. Essa estrutura é o pdb <a href="https://www.rcsb.org/structure/1HWL">1HWL</a>. Siga os passos orientados em sala de aula.</p>
+<h2 id="predicao-do-efeito-de-modificacoes">Predição do efeito de modificações</h2>
+<p>A partir do número de acesso <a href="http://uniprot.org">Uniprot</a> (ou do <em>entry name</em>) da proteína iremos obter informações sobre a modelagem computacional automática dessa proteína e sobre a predição funcional de modificações de sua sequência a partir do <a href="https://deepmind.google/discover/blog/a-catalogue-of-genetic-mutations-to-help-pinpoint-the-cause-of-diseases/">AlphaMissense</a>. O número de acesso Uniprot que utilizaremos é o <a href="https://www.uniprot.org/uniprotkb/P04035/entry">P04035 · HMDH_HUMAN</a>. Clique nesse registro para verificar a descrição dessa proteína.</p>
+<ul>
+<li>Abra a página do <a href="https://alphafold.ebi.ac.uk/">AlphaFoldDB</a>.</li>
+<li>No campo de busca, coloque o número de acesso Uniprot ou o seu <em>entry name</em> e clique em <code>SEARCH</code>.</li>
+<li>Clique no resultado obtido ou você pode ir diretamente <a href="https://alphafold.ebi.ac.uk/entry/P04035">AQUI</a>.</li>
+</ul>
+<p>No registro do AlphaFoldDB, você verá a estrutura tridimensional modelada e logo abaixo você verá um gráfico com a predição de impacto funcional realizada pelo <a href="https://deepmind.google/discover/blog/a-catalogue-of-genetic-mutations-to-help-pinpoint-the-cause-of-diseases/">AlphaMissense</a>. Cada modificação prevista (troca de um aminoácido por qualquer um dos outros 19) em cada sítio da sequência primária pode ser observada no gráfico, que descreve o resultado em três categorias: Benginas (Azuis), Provavelmente Patogênicas (Vermelhas) e Efeito incerto (Gradiente entre azul e vermelho). Esta escala reflete o AlphaMissense escore (<em>am_score</em>), que varia entre 0 (mais benigna) até 1 (mais patogênica).</p>
+<h2 id="cosmic-3d">COSMIC-3D</h2>
+<p>O <a href="https://cancer.sanger.ac.uk/cosmic3d/">COSMIC-3D</a> é um banco de dados que integra mutações associadas ao câncer com estruturas tridimensionais do proteoma humano. É uma base muito interessante para visualizar o efeito de mutações/polimorfismos na estrutura das proteínas.</p>
+<p><img alt="Cosmic-3D" src="../dbsnp-cosmic3d-1.png" /></p>
+<h3 id="exemplo-de-uso">Exemplo de uso:</h3>
+<p>Vamos utilizar o gene FGFR2, colocando sua sigla (na verdade, seu <em>GeneSymbol</em>) no campo de busca. Logo abaixo uma caixa com o código Uniprot da proteína e o número de estruturas disponíveis aparece embaixo. Aperte <code>ENTER</code>.</p>
+<p>Na página seguinte você verá a estrutura da proteína e um gráfico que resume as mutações reportadas, a sua cobertura estrutural e a sua frequência de ocorrência. Ao clicar na mutação, a mudança de aminoácido é visualizada na estrutura.</p>
+<ul>
+<li>Qual é o impacto de uma mutação na posição 376 dessa proteína?</li>
+<li>Ela possui cobertura estrutural?</li>
+</ul>
+<p>O vídeo abaixo demonstra a procura pelo gene EGFR:</p>
+<iframe src="https://drive.google.com/file/d/1pFc1kVYLBHkjd4zQZOcx61kXjuIapBVP/preview" width="640" height="480" allow="autoplay"></iframe>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Página Inicial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../aboutus/" class="btn btn-neutral float-right" title="Sobre o grupo">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../aboutus/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
