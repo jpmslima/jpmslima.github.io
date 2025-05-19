@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/enzima-annot/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/CLI-Colab/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Integração de Bancos - Exemplo - Tutoriais BioinfoX</title>
+    <title>Introdução a CLI e ao Google Colab - Tutoriais BioinfoX</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Integra\u00e7\u00e3o de Bancos - Exemplo";
-        var mkdocs_page_input_path = "enzima-annot.md";
-        var mkdocs_page_url = "/enzima-annot/";
+        var mkdocs_page_name = "Introdu\u00e7\u00e3o a CLI e ao Google Colab";
+        var mkdocs_page_input_path = "CLI-Colab.md";
+        var mkdocs_page_url = "/CLI-Colab/";
       </script>
     
     <!--[if lt IE 9]>
@@ -60,7 +60,21 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../102/">Manipulando dados na CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../CLI-Colab/">Introdução a CLI e ao Google Colab</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Introdução a CLI e ao Google Colab</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#o-que-sao-os-notebooks-computacionais">O que são os notebooks computacionais?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-que-e-a-shell">O que é a Shell?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#observacoes">Observações</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acesso-ao-notebook">Acesso ao Notebook</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visualizacao-do-googlecolab">Visualização do GoogleColab</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../103/">Introdução ao GenBank</a>
                   </li>
@@ -76,19 +90,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../109-SQL/">Comandos Básicos em SQL</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Integração de Bancos - Exemplo</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#identificacao-e-caracterizacao-in-silico-de-uma-enzima">Identificação e caracterização in silico de uma enzima</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#primeira-parte-obtendo-informacoes-gerais">Primeira Parte: Obtendo informações Gerais</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#segunda-parte-informacoes-geneticas">Segunda Parte: Informações genéticas</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#terceira-parte-estrutura-e-predicao-do-efeito-de-modificacoes">Terceira Parte: Estrutura e predição do efeito de modificações</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../enzima-annot/">Integração de Bancos - Exemplo</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../dbsnp/">Bancos de Dados de Polimorfismos e mutações</a>
                   </li>
@@ -200,7 +202,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Tutoriais Iniciais de Bioinformática</li>
-      <li class="breadcrumb-item active">Integração de Bancos - Exemplo</li>
+      <li class="breadcrumb-item active">Introdução a CLI e ao Google Colab</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -209,67 +211,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="busca-e-integracao-em-bancos-de-dados-exemplo-1">Busca e integração em Bancos de Dados - Exemplo 1</h1>
-<p>Prof. Gustavo de Souza (DBq/BioME/UFRN)</p>
+                <h1 id="introducao-ao-shell-no-googlecolab">Introdução ao <em>Shell</em> no GoogleColab</h1>
+<p>Embora pareça assustadora para iniciantes, a Interface de Linha de Comando (CLI) é uma forma poderosa de lidar diretamente com a máquina e os dados a serem analisados. É uma das formas usuais de trabalho em Bioinformática e em ciências de dados. É também pela CLI que acessamos servidores computacionais remotos para a execução de tarefas mais complexas.</p>
+<p>Para evitarmos a instalação de programas nos computadores da sala ou no seu computador pessoal utilizaremos o ambiente do GoogleColab. O ambiente do Colab é uma máquina virtual executando Ubuntu Linux, e os usuários têm acesso root, permitindo a instalação de softwares conforme necessário. Isso o torna adequado para praticar vários comandos Linux relacionados à manipulação de arquivos, gerenciamento de pacotes e administração do sistema. Ele também serve como um ambiente de desenvolvimento em Python, Julia e R (como veremos em neste outro notebook).</p>
+<h2 id="o-que-sao-os-notebooks-computacionais">O que são os notebooks computacionais?</h2>
+<p>Os notebooks Jupyter são uma ferramenta interativa usada para programação, análise de dados e documentação. Eles permitem que os usuários combinem código, texto explicativo, fórmulas matemáticas, gráficos e outros elementos em um único documento.Eles são muito utilizados em ciência de dados, aprendizado de máquina e pesquisa acadêmica, pois facilitam o compartilhamento e a reprodutibilidade de experimentos computacionais. O GoogleColab os incorpora em uma máquina virtual para você ter seu próprio ambiente de desenvolvimento ou análise de dados.</p>
+<h2 id="o-que-e-a-shell">O que é a <em>Shell</em>?</h2>
+<p>Um <em>shell</em> é um programa que recebe comandos digitados pelo usuário ou armazenados em arquivos e os encaminha para o sistema operacional, que então os executa. O <em>shell</em> é acessado por meio de um terminal ou emulador de terminal.</p>
+<p>Ken Thompson, do Bell Labs, desenvolveu o predecessor do <em>shell</em> moderno para a primeira versão do UNIX em 1971. Em 1977, Stephen Bourne introduziu o Bourne shell (<code>sh</code>), que adicionou a capacidade de invocar scripts (pequenos programas reutilizáveis) dentro do shell. O Bourne shell ainda é relevante e, em alguns casos, continua sendo o shell padrão do usuário root.</p>
+<p>Hoje é mais comum utilizarmos o Bash, conhecido como <em>Bourne Again Shell</em>. Este foi desenvolvido por Brian Fox para substituir o Bourne shell. Ele adiciona vários recursos úteis ao <code>sh</code> e é o shell padrão do terminal de várias distribuições Linux.</p>
+<h3 id="observacoes">Observações</h3>
 <ul>
-<li>O tutorial abaixo é <strong><em>apenas para fins didáticos</em></strong>. <span style="color:red"><strong>A reprodução dele para qualquer outro fim não é permitida e nem consentida.</strong></span></li>
+<li>Este tutorial foi adaptado a partir do Livro The Biostars Handbook (Istvan Albert, 2022) e do <em>Command-line Bootcamp</em><em> por Keith Bradnam e está licenciado via Creative Commons Attribution 4.0 International License. O conteúdo original foi traduzido e modificado em parte de sua estrutura apenas para fins didáticos. </em><em>A reprodução dele para qualquer outro fim não é permitida e nem consentida.</em>*</li>
 </ul>
-<h2 id="identificacao-e-caracterizacao-in-silico-de-uma-enzima">Identificação e caracterização <em>in silico</em> de uma enzima</h2>
-<p>Partiremos agora de um exemplo para caracterização de uma enzima a partir da sequência de aminoácidos, a partir do <em>E.C. number</em> (<em>Enzyme Comission</em>) e do próprio nome da enzima.</p>
-<h3 id="primeira-parte-obtendo-informacoes-gerais">Primeira Parte: Obtendo informações Gerais</h3>
-<p>A sequência abaixo corresponde a sequência primária de uma enzima do metabolismo.</p>
-<pre><code>&gt;Enzyme_Test_1
-MVKIVTVKTQAYQDQKPGTSGLRKRVKVFQSSANYAENFIQSIISTVEPAQRQEATLVVGGDGRFYMKEAIQLIARIAA
-ANGIGRLVIGQNGILSTPAVSCIIRKIKAIGGIILTASHNPGGPNGDFGIKFNISNGGPAPEAITDKIFQISKTIEEYA
-VCPDLKVDLGVLGKQQFDLENKFKPFTVEIVDSVEAYATMLRSIFDFSALKELLSGPNRLKIRIDAMHGVVGPYVKKIL
-CEELGAPANSAVNCVPLEDFGGHHPDPNLTYAADLVETMKSGEHDFGAAFDGDGDRNMILGKHGFFVNPSDSVAVIAAN
-IFSIPYFQQTGVRGFARSMPTSGALDRVASATKIALYETPTGWKFFGNLMDASKLSLCGEESFGTGSDHIREKDGLWAV
-LAWLSILATRKQSVEDILKDHWQKYGRNFFTRYDYEEVEAEGANKMMKDLEALMFDRSFVGKQFSANDKVYTVEKADNF
-EYSDPVDGSISRNQGLRLIFTDGSRIVFRLSGTGSAGATIRLYIDSYEKDVAKINQDPQVMLAPLISIALKVSQLQERT
-GRTAPTVIT
-</code></pre>
-<p>A partir de uma busca por similaridade em bancos de dados biológicos (BLAST contra o NCBI e/ou contra o Uniprot), identifique e caracterize esta enzima de acordo com os seguintes itens:
-- O nome da enzima.
-- O organismo do qual ela faz parte.
-- O seu número E.C. (Consulte o banco de dados BRENDA - <a href="https://www.brenda-enzymes.org/">https://www.brenda-enzymes.org/</a>).
-- Reação enzimática.
-- Identifique o substrato da enzima.
-- Produto formado.
-- Via metabólica.
-- Substratos alternativos.
-- Inibidores.</p>
-<blockquote>
-<p><em>É importante prestar bem atenção nas páginas e nos links que os bancos de dados fornecem. Essas páginas mudam com uma certa periodicidade, mas as informações gerais tendem a se manter integradas.</em></p>
-</blockquote>
-<h3 id="segunda-parte-informacoes-geneticas">Segunda Parte: Informações genéticas</h3>
-<p>Alguns polimorfismos (SNPs) em genes estão associados à condições patológicas, como Erros Inatos do Metabolismo ou doenças que podem ser desenvolvidas ao longo da vida. Para isso, é vasta a quantidade de dados relativos a seres humanos, e a sua integração é extremamente necessária. O objetivo agora é verificar se mutações/modificações na enzima do exercício anterior estão relacionadas à situações patológicas.</p>
-<p>Para isso, vá para a entrada do Genbank do gene que codifica para a enzima acima e procure as informações abaixo:
-- Quais os SNPs já relatados para esta proteína em humanos?
-  - Procure no menu que contém <strong><em>Related Information</em></strong>.
-- Existe alguma STS (sequence-tagged site) para amplificação específica deste gene por PCR? Veja os iniciadores que podem utilizados para isso.
-- Existem condições associadas?
-- Verificar a opção OMIM (<em>Online Mendelian Inheritance in Man®</em>) no menu Related Information.
-- Verifique a sua direita a subdivisão dos resultados em dbSNPs e os UniSTS.</p>
-<p>Condições ou doenças também podem ser procuradas diretamente no <a href="https://www.omim.org/">OMIM</a>. Para isso, abra a página do OMIM e faça uma busca, usando o nome da proteína acima. Verifique as informações para esta enzima.</p>
-<h3 id="terceira-parte-estrutura-e-predicao-do-efeito-de-modificacoes">Terceira Parte: Estrutura e predição do efeito de modificações</h3>
-<p>A partir do número de acesso Uniprot (ou do <em>entry name</em>) da proteína iremos obter informações sobre a modelagem computacional automática dessa proteína e sobre a predição funcional de modificações de sua sequência a partir do <a href="https://deepmind.google/discover/blog/a-catalogue-of-genetic-mutations-to-help-pinpoint-the-cause-of-diseases/">AlphaMissense</a>. O número de acesso Uniprot pode ser obtido nas buscas realizadas na 1a e na 2a parte deste tutorial.</p>
-<ul>
-<li>Abra a página do <a href="https://alphafold.ebi.ac.uk/">AlphaFoldDB</a>.</li>
-<li>No campo de busca, coloque o número de acesso Uniprot ou o seu <em>entry name</em> e clique em <code>SEARCH</code>.</li>
-<li>Clique no resultado obtido.</li>
-</ul>
-<p>No registro do AlphaFoldDB, você verá a estrutura tridimensional modelada e logo abaixo você verá um gráfico com a predição de impacto funcional realizada pelo AlphaMissense. Cada modificação prevista (troca de um aminoácido por qualquer um dos outros 19) em cada sítio da sequência primária pode ser observada no gráfico, que descreve o resultado em três categorias: Benginas (Azuis), Provavelmente Patogênicas (Vermelhas) e Efeito incerto (Gradiente entre azul e vermelho). Esta escala reflete o AlphaMissense escore (<em>am_score</em>), que varia entre 0 (mais benigna) até 1 (mais patogênica).</p>
-<p><strong>Pergunta:</strong>
-Quais regiões da proteína são menos sensíveis a modificações?</p>
-<blockquote>
-<p><em>Lembre-se que a predição de efeito funcional do AlphaMissense apesar de muito precisa, é apenas uma predição. O efeito funcional depende também de outros fatores.</em></p>
-</blockquote>
+<h2 id="acesso-ao-notebook">Acesso ao Notebook</h2>
+<p>O notebook pode ser acessado e executado no modo playground no link abaixo:</p>
+<p><a href="https://colab.research.google.com/drive/1mhX_2Ua3aqJeCzIpiUtrcHcYwjHQDPbD?usp=sharing">Introdução a CLI-Colab</a></p>
+<h2 id="visualizacao-do-googlecolab">Visualização do GoogleColab</h2>
+<p>O Notebook completamente executado, para fins de conferência, está descrito abaixo.</p>
+<script src="https://gist.github.com/jpmslima/b952f357094385c0d7262943bd48ad44.js"></script>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../109-SQL/" class="btn btn-neutral float-left" title="Comandos Básicos em SQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../dbsnp/" class="btn btn-neutral float-right" title="Bancos de Dados de Polimorfismos e mutações">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../102/" class="btn btn-neutral float-left" title="Manipulando dados na CLI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../103/" class="btn btn-neutral float-right" title="Introdução ao GenBank">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -292,10 +258,10 @@ Quais regiões da proteína são menos sensíveis a modificações?</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../109-SQL/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../102/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../dbsnp/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../103/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
