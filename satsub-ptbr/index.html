@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/Substitution_saturation_ENG/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="jpmslima" /><link rel="canonical" href="https://jpmslima.github.io/satsub-ptbr/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Analysis of Substitution Saturation - Tutoriais BioinfoX</title>
+    <title>Análise de Saturação de Substituições - Tutoriais BioinfoX</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Analysis of Substitution Saturation";
-        var mkdocs_page_input_path = "Substitution_saturation_ENG.md";
-        var mkdocs_page_url = "/Substitution_saturation_ENG/";
+        var mkdocs_page_name = "An\u00e1lise de Satura\u00e7\u00e3o de Substitui\u00e7\u00f5es";
+        var mkdocs_page_input_path = "satsub-ptbr.md";
+        var mkdocs_page_url = "/satsub-ptbr/";
       </script>
     
     <!--[if lt IE 9]>
@@ -151,14 +151,24 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Análise Evolucionária de Sequências (Evolução Molecular)</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../satsub-ptbr/">Análise de Saturação de Substituições</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Análise de Saturação de Substituições</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#metodo-qualitativo">Método Qualitativo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-metodo-quantitativo">O Método Quantitativo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#influencia-da-posicao-no-codon">Influência da Posição no Códon</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#consideracoes-finais">Considerações Finais</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="" href="../bestfit-ptbr.md">Escolha do Modelo de Substituição</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Diplomado - UChile</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../Presentation/">Home</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../UC_slides/">Slides</a>
@@ -167,17 +177,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../First_Tutorial_ENG/">First Tutorial</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Analysis of Substitution Saturation</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#the-qualitative-method">The Qualitative Method</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#the-quantitative-method">The quantitative method</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#influence-of-the-position-on-the-codon">Influence of the position on the codon</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#final-remarks">Final Remarks</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Substitution_saturation_ENG/">Analysis of Substitution Saturation</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../ModelTest_ENG/">Test of the Best-Fit Models</a>
                   </li>
@@ -204,8 +204,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Diplomado - UChile</li>
-      <li class="breadcrumb-item active">Analysis of Substitution Saturation</li>
+          <li class="breadcrumb-item">Análise Evolucionária de Sequências (Evolução Molecular)</li>
+      <li class="breadcrumb-item active">Análise de Saturação de Substituições</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -214,51 +214,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="analysis-of-substitution-saturation-of-nucleotide-sequences">Analysis of Substitution Saturation of nucleotide sequences</h1>
-<p>The substitutionhttp://www.postgradoquimica.cl/informacion-diplomado-en-bioinformatica-y-biologia-computacional/ saturation estimation is an <strong>essential</strong> analysis to check if the alignment sequences still maintain a phylogenetic signal. Saturation is much more common in nucleotide sequences. There are two methods: one extremely simple and qualitative and the other quantitative, with associated probability (the Xia method, 2009). Both are implemented in the program <a href="http://dambe.bio.uottawa.ca/DAMBE/dambe.aspx">DAMBE</a> (<a href="https://www.ncbi.nlm.nih.gov/pubmed/29669107">Xia, 2018</a>).</p>
-<p><a href="http://dambe.bio.uottawa.ca/DAMBE/dambe.aspx">DAMBE</a> (<a href="https://www.ncbi.nlm.nih.gov/pubmed/29669107">Xia, 2018</a>) is a suite with several phylogenetic and sequence analysis applications. Additionally, it is multi-platform (except if you run MacOS Catalina, as it is not completely 64 bits - Feb 2020) and simple to use. To our knowledge, it is the only phylogenetic analysis program that performs these tests.</p>
-<h2 id="the-qualitative-method">The Qualitative Method</h2>
-<p>The qualitative method of substitution saturation analysis consists of analyzing a plot called "transition and transversals versus divergence" (<em>transitions and transversals versus divergence</em>). This method assumes that the distance calculated between the sequences is directly proportional to the divergence time between them, either on any scale.</p>
-<p>The steps to obtain this graph are:</p>
-<ul>
-<li>Open the DAMBE program. Click on <em>File</em> and then on <em>Open Standard Sequence File</em>.</li>
-</ul>
+                <h1 id="estimativa-da-saturacao-de-substituicoes-em-sequencias-nucleotidicas">Estimativa da Saturação de Substituições em Sequências Nucleotídicas</h1>
+<p>A estimativa de saturação por substituição é uma análise essencial para verificar se os alinhamentos de sequências ainda mantêm um sinal filogenético. A saturação é muito mais comum em sequências de nucleotídeos. Existem dois métodos para essa estimativa: um extremamente simples e qualitativo, e outro quantitativo, com probabilidade associada (o método de Xia, 2009). Ambos estão implementados no programa <a href="http://dambe.bio.uottawa.ca/DAMBE/dambe.aspx">DAMBE</a> (<a href="https://www.ncbi.nlm.nih.gov/pubmed/29669107">Xia, 2018</a>)</p>
+<p>O <strong>DAMBE</strong> (Xia, 2018) é um pacote de programas com diversas aplicações para análise de sequências e filogenia. Além disso, é multiplataforma (com exceção de sistemas com macOS Catalina, que não é completamente compatível com programas de 64 bits – atualização de fevereiro de 2020) e possui uma interface simples de usar. Até onde se sabe, é o único programa de análise filogenética que realiza esses testes.</p>
+<h2 id="metodo-qualitativo">Método Qualitativo</h2>
+<p>O método qualitativo para análise de saturação por substituição consiste na visualização de um gráfico chamado “transições e transversões versus divergência” (<em>transitions and transversions versus divergence</em>). Esse método assume que a distância calculada entre as sequências é diretamente proporcional ao tempo de divergência entre elas, qualquer que seja a escala utilizada.</p>
+<p>Os passos para gerar esse gráfico são:</p>
+<p>Abra o programa DAMBE. Clique em <strong><em>File</em></strong> e depois em <strong><em>Open Standard Sequence File</em></strong>:</p>
 <p><img alt="DAMBE 1" src="../SS-fig1.png" /></p>
-<ul>
-<li>Select the <em>dataset</em> <a href="https://drive.google.com/uc?export=download&amp;id=1sPodmXGkPCxWu7t8CIZzHmumYS_0kX18">VertCOI.fas</a>. Click <code>Open</code>.</li>
-<li>In the dialog box that appears, called <em>SequenceInfo</em>, check the option <em>Protein-coding Nuc-Seq</em>. In this same window, in the Genetic Code options, choose the number 2 (from the Vertebrate mitochondria).</li>
-</ul>
+<p>Selecione o arquivo de dados (<em>dataset</em>) <a href="https://drive.google.com/uc?export=download&amp;id=1sPodmXGkPCxWu7t8CIZzHmumYS_0kX18">VertCOI.fas</a> e clique em <strong><em>Open</em></strong> (Abrir).</p>
 <p><img alt="DAMBE 2" src="../SS-fig2.png" /></p>
-<ul>
-<li>In the main window, the alignment will appear in Clustal format. </li>
-</ul>
+<p>Na caixa de diálogo que será exibida, chamada <em>SequenceInfo</em>, marque a opção <strong>Protein-coding Nuc-Seq</strong> (Sequência de nucleotídeos codificadora de proteína).
+Ainda nessa mesma janela, na seção Genetic Code (Código Genético), selecione o número <strong>2</strong>, que corresponde ao mitocondrial de vertebrados (<em>Vertebrate mitochondria</em>).</p>
 <p><img alt="DAMBE 3" src="../SS-fig3.png" /></p>
-<p>On DAMBE's main menu, go to <em>Graphics</em> and click on <strong>*transition and transversion versus divergence</strong>. </p>
+<p>Na janela principal, o alinhamento será exibido no formato <strong>Clustal</strong>.</p>
 <p><img alt="DAMBE 4" src="../SS-fig4.png" /></p>
-<p>A new dialog box will appear. In it, the default values can be used. However, we will change the genetic distance (<em>Genetic distance</em> field) to TN93, as shown in the figure below:</p>
+<p>No menu principal do <strong>DAMBE</strong>, vá até <strong><em>Graphics</em></strong> e clique em <strong><em>transition and transversion versus divergence</em></strong> (transições e transversões versus divergência).</p>
 <p><img alt="DAMBE 5" src="../SS-fig5.png" /></p>
-<ul>
-<li>Click on <code>Go</code> and watch the resulting graph. To make the visualization easier, leave the options as below:</li>
-</ul>
+<p>Uma nova janela de diálogo será exibida. Nela, os valores padrão podem ser mantidos. No entanto, vamos alterar a distância genética (campo <strong><em>Genetic distance</em></strong>) para <strong>TN93</strong>, conforme mostrado na figura abaixo:</p>
 <p><img alt="DAMBE 6" src="../SS-fig6.png" /></p>
-<blockquote>
-<p>The letter "s" refers to the transitions and the letter "v" to the transversions*.</p>
-</blockquote>
-<p>Compare the graph above with the figure below and draw your conclusions about the saturation of these sequences.</p>
+<p>Clique em <code>Go</code> e observe o gráfico gerado. Para facilitar a visualização, mantenha as opções conforme ilustrado abaixo:</p>
 <p><img alt="Figure3-3 - DAMBE7" src="../SS-fig7.png" /></p>
-<h2 id="the-quantitative-method">The quantitative method</h2>
-<p>The Xia method is a quantitative method, based on entropy, that
-assigns a significant value to the saturation of substitutions. It returns two criteria: Iss and Iss.c. The first is the substitution saturation index. The second is the critical substitution saturation index, which is the value of Iss at which sequences can no longer return the correct tree. When an observed Iss value is significantly lower than Iss.c (Iss &lt; Iss.c), substitution saturation is not a problem for the <em>dataset</em> in question. The steps to perform this method are:</p>
+<blockquote>
+<p><em>A letra </em>s<em> se refere às transições, e a letra </em>v<em> às transversões.</em></p>
+</blockquote>
+<p>Compare o gráfico obtido com a figura de referência abaixo e tire suas próprias conclusões sobre o nível de saturação dessas sequências.</p>
+<h2 id="o-metodo-quantitativo">O Método Quantitativo</h2>
+<p>O método de Xia é um método quantitativo, baseado em entropia, que atribui um valor significativo à saturação por substituição. Ele retorna dois critérios: <strong><em>Iss</em></strong> e <strong><em>Iss.c</em></strong>.
+- O primeiro (<strong><em>Iss</em></strong>) é o índice de saturação por substituição observado.
+- O segundo (<strong><em>Iss.c</em></strong>) é o índice de saturação crítica — o valor a partir do qual as sequências não conseguem mais recuperar uma árvore filogenética correta.</p>
+<p>Quando o <em>valor observado</em> de <strong><em>Iss</em></strong> é significativamente <em>menor</em> que o valor crítico <strong><em>Iss.c</em></strong> (<strong><em>Iss &lt; Iss.c</em></strong>), a saturação por substituição <strong>não</strong> é um problema para o conjunto de dados analisado.</p>
+<p>Os passos para realizar esse método são:</p>
 <ul>
-<li>Open the DAMBE program. Click on <em>File</em> and then on <em>Open Standard Sequence File</em>.</li>
-<li>Select VertCOI.fas dataset. Click on <code>Open</code>.</li>
-<li>In the dialog box that appears, called <em>SequenceInfo</em>, check the option <em>Protein-coding Nuc-Seq</em>. In this same window, in the Genetic Code options, choose the number 2 (from the Vertebrate mitochondria).</li>
-<li>In the main window, the alignment will appear in Clustal format. Before continuing, the proportion of invariable sites (Pinvar) should be calculated for this <em>dataset</em>. This parameter is crucial for sequences with very different substitution rates along with the sites. </li>
-<li>To do this, follow the path: <em>Seq.Analysis</em> &gt; <em>Substitution rates over site</em> &gt; <em>Estimate proportion of invariant sites</em>.</li>
+<li>Abra o programa DAMBE. Clique em <strong><em>File</em></strong> e depois em <strong><em>Open Standard Sequence File</em></strong>.</li>
+<li>Selecione o mesmo arquivo acima utilizado <code>VertCOI.fas</code> e clique em <strong><em>Open</em></strong>.</li>
+<li>Na caixa de diálogo que aparece (<strong><em>SequenceInfo</em></strong>), marque a opção <strong><em>Protein-coding Nuc-Seq</em></strong>. Ainda nesta janela, em <strong><em>Genetic Code</em></strong>, selecione o número <strong><em>2</em></strong> (relativo ao código genético mitocondrial de vertebrados).</li>
+<li>Na janela principal, o alinhamento será exibido no formato <strong>Clustal</strong>. </li>
+<li>Antes de continuar, é necessário calcular a <strong>proporção de sítios invariantes (Pinvar)</strong> para este conjunto de dados. Esse parâmetro é fundamental quando há taxas de substituição muito diferentes entre os sítios da sequência.</li>
+<li>Para isso, siga o caminho: <em>Seq.Analysis &gt; Substitution rates over site &gt; Estimate proportion of invariant sites.</em></li>
 </ul>
 <p><img alt="DAMBE 7" src="../SS-fig8.png" /></p>
 <ul>
-<li>In the dialog box that follows, check the "<em>Use a new tree</em>" option. In the new window, choose the <em>Neighbor-Joining</em> method, choose the appropriate <em>outgroup</em> (for this example, we will use <em>Alligator mississippis</em>) and keep the rest of the options the way it is. Click on <code>Run</code> and then click on <code>Go</code>. At the end of the text output, Pinvar will be described, as below:</li>
+<li>Na janela que se abrirá - Marque a opção <strong><em>Use a new tree</em></strong>.</li>
+<li>
+<p>Em seguida, selecione o método <strong><em>Neighbor-Joining</em></strong>, escolha o grupo externo apropriado (<em>outgroup</em>) — neste exemplo, utilizaremos <em>Alligator mississippis</em> — e mantenha o restante das opções como estão.</p>
+</li>
+<li>
+<p>Clique em <code>Run</code> e depois em <code>Go</code>.</p>
+</li>
+<li>
+<p>No final da saída de texto, o valor de <strong>Pinvar</strong> será exibido, como no exemplo abaixo:</p>
+</li>
 </ul>
 <pre><code>Estimation based on tree:
 (AlligatorMississippiensis:0.13730,(MasturusLanceolatus:0.15730,(((HomoSapiens:0.04522,PanTroglodytes:0.04795):0.02113,PongoPygmaeus:0.08982):0.05970,(BosTaurus:0.09378,BalaenopteraMusculus:0.10744):0.01982):0.01484):0.01673,GallusGallus:0.12297);
@@ -293,23 +299,22 @@ Estimating the proportion of invariant sites by iteration.
 P(invariant) = 0.51555
 </code></pre>
 <ul>
-<li>Save or write down the Pinvar value (0.51555).</li>
+<li>Salve ou anote o valor de Pinvar (0.51555).</li>
 </ul>
 <blockquote>
-<p>Depending on your operating system's language settings, you will have to use decimal notation as a period and not as a comma. Pay close attention to this.*</p>
+<p>⚠️ <em>Dependendo das configurações de idioma do sistema operacional, pode ser necessário usar ponto (.) como separador decimal, e não vírgula (,). Fique atento(a)!</em></p>
 </blockquote>
-<p>Now let us estimate the saturation of substitutions (the program may present some problems, and so, in some cases, the sequence file should be opened again).</p>
+<p>Agora, vamos estimar a saturação por substituições (o programa pode apresentar alguns problemas, em alguns casos, o artigo the sequencia deve ser aberto novamente):</p>
 <ul>
-<li>Click on "<em>Seq.Analysis</em> &gt; <em>Measure substitution saturation</em> &gt; <em>Test by Xia et al.</em>".</li>
+<li>Clique em <strong><em>Seq.Analysis &gt; Measure substitution saturation &gt; Test by Xia et al</em></strong>.</li>
 </ul>
 <p><img alt="DAMBE 8" src="../SS-fig9.png" /></p>
 <ul>
-<li>In the window, just put the Pinvar value calculated and then click Go.</li>
+<li>Na janela que abrir, insira o valor de <strong>Pinvar</strong> calculado e clique em <code>Go</code>.</li>
 </ul>
 <p><img alt="DAMBE 9" src="../SS-fig10.png" /></p>
 <ul>
-<li>Analyze the results (further comments will be made during the
-  practice).</li>
+<li>Analise os resultados (Comentários adicionais serão feitos durante a prática).</li>
 </ul>
 <pre><code>Test of substitution saturation (Xia et al. 2003; Xia and Lemey 2009)
 
@@ -362,9 +367,12 @@ Xia, X., Z. Xie, M. Salemi, L. Chen, Y. Wang. 2003. An index of substitution sat
 
 Xia, X. and Lemey, P. 2009. Assessing substitution saturation with DAMBE. Pp. 615-630 in Philippe Lemey, Marco Salemi and Anne-Mieke Vandamme, eds. The Phylogenetic Handbook: A Practical Approach to DNA and Protein Phylogeny. 2nd edition Cambridge University Press.
 </code></pre>
-<p>It can be verified that both scenarios have Iss&lt;Iss.c. Therefore these sequences do not present substitution saturation and can be used for phylogenetic analysis.</p>
-<h2 id="influence-of-the-position-on-the-codon">Influence of the position on the codon</h2>
-<p>Due to the genetic code characteristics, nucleotide sequences coding for proteins tends to show a higher number of changes in the 3rd position of the codon than in the 1st and 2nd position. Therefore, in these cases, the ideal is to perform both methods for all codon positions (this option will be shown during practice). The table below shows all Pinvar, Iss, and Iss.c data for all codon positions.</p>
+<blockquote>
+<p>Pode-se verificar que em ambos os cenários <strong><em>Iss &lt; Iss.c</em></strong>. Portanto, essas sequências <strong>não apresentam saturação por substituição</strong> e podem ser utilizadas para análise filogenética.</p>
+</blockquote>
+<h2 id="influencia-da-posicao-no-codon">Influência da Posição no Códon</h2>
+<p>Devido às características do código genético, as sequências de nucleotídeos codificadoras de proteínas tendem a apresentar um número maior de substituições na <strong>3ª posição do códon</strong> do que nas <strong>1ª e 2ª posições</strong>. Por isso, o ideal é realizar <strong>ambos os métodos para cada posição do códon separadamente</strong> (essa opção será mostrada durante a prática).</p>
+<p>A tabela abaixo deve conter os valores de <strong>Pinvar</strong>, <strong>Iss</strong> e <strong>Iss.c</strong> para todas as posições do códon.</p>
 <table>
 <thead>
 <tr>
@@ -413,14 +421,15 @@ Xia, X. and Lemey, P. 2009. Assessing substitution saturation with DAMBE. Pp. 61
 </tr>
 </tbody>
 </table>
-<h2 id="final-remarks">Final Remarks</h2>
-<p>You should always perform the analysis of substitution saturation whenever working with a new or not widely known marker. If you are using genes or proteins already known and commonly used in the literature studies, these estimates, although still recommended, are not indispensable. However, you can still perform these tests to confirm if the marker is suitable to the taxonomic level/rank that you are working on. Sometimes qualitative analysis is sufficient, but you can (and should) use the quantitative method if the graph presents a problematic interpretation.sudo apt install ttf-mscorefonts-installer -y</p>
+<h2 id="consideracoes-finais">Considerações Finais</h2>
+<p>Sempre que for trabalhar com um marcador novo ou pouco conhecido, <strong>a análise de saturação por substituição deve ser realizada</strong>. Se estiver utilizando genes ou proteínas já bem estabelecidos na literatura, esses testes são recomendados, mas não obrigatórios.</p>
+<p>No entanto, realizar essas análises pode confirmar se o marcador é adequado ao <strong>nível taxonômico</strong> com o qual você está trabalhando. Às vezes, uma análise qualitativa é suficiente, mas o ideal é sempre realizar o método quantitativo, especialmente se o gráfico apresentar interpretação ambígua.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../First_Tutorial_ENG/" class="btn btn-neutral float-left" title="First Tutorial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../ModelTest_ENG/" class="btn btn-neutral float-right" title="Test of the Best-Fit Models">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../comps/" class="btn btn-neutral float-left" title="Complements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Presentation/" class="btn btn-neutral float-right" title="Home">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -443,10 +452,10 @@ Xia, X. and Lemey, P. 2009. Assessing substitution saturation with DAMBE. Pp. 61
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../First_Tutorial_ENG/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../comps/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../ModelTest_ENG/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Presentation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
