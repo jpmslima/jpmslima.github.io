@@ -10,7 +10,8 @@ Sean B. Carroll​, ["A series of fortunate events: Chance and the Making of the
 
 - Este tutorial foi construído ***apenas para fins didáticos para a disciplina de Bioinformática, do curso de Biomedicina da UFRN***. **A reprodução dele para qualquer outro fim não é permitida e nem consentida pelos professores do curso.**
 
-**ATENÇÃO:**
+<span style="color:red">**ATENÇÃO:**</span>
+
 - O tutorial usa exemplos de doenças genéticas, neurológicas e comportamentais.
 
 ## Introdução e Conceitos

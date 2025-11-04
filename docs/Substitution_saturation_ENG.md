@@ -1,6 +1,4 @@
-![UChile](UChile.png)
-
-# Analysisuchile
+# Analysis of Substitution Saturation of nucleotide sequences
 
 The substitutionhttp://www.postgradoquimica.cl/informacion-diplomado-en-bioinformatica-y-biologia-computacional/ saturation estimation is an **essential** analysis to check if the alignment sequences still maintain a phylogenetic signal. Saturation is much more common in nucleotide sequences. There are two methods: one extremely simple and qualitative and the other quantitative, with associated probability (the Xia method, 2009). Both are implemented in the program [DAMBE](http://dambe.bio.uottawa.ca/DAMBE/dambe.aspx) ([Xia, 2018](https://www.ncbi.nlm.nih.gov/pubmed/29669107)).
 

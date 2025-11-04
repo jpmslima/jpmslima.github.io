@@ -5,11 +5,13 @@ site_description: Tutoriais básicos de Bioinformática para as disciplinas da U
 
 nav:
   - Página Inicial: index.md
+  - Representação Computacional de Biomoléculas: demo.md
   - Sobre o grupo: aboutus.md
   - Tutoriais Iniciais de Bioinformática: 
     - Inicial: basic1.md
     - Introdução a linha de comando UNIX: 101.md
     - Manipulando dados na CLI: 102.md
+    - Introdução a CLI e ao Google Colab: CLI-Colab.md
     - Introdução ao GenBank: 103.md
     - Buscas de Similaridade: 104.md
     - Alinhamento entre pares de sequências: 105.md
@@ -17,8 +19,9 @@ nav:
     - NCBI/GenBank via CLI: 107-NCBI-CLI.md
     - BLAST via CLI: 108-BLAST-CLI.md
     - Comandos Básicos em SQL: 109-SQL.md
+    - Introdução ao R usando o Google Colab: r-colab.md
     - Integração de Bancos - Exemplo: enzima-annot.md
-    - Bancos de Dados de Polimorfismos e mutações: dbsnp.md
+    - Bancos de dados de Mutações e Polimorfismos: dbsnp.md
     - Explorando Vias Metabólicas: KEGG.md
     - Bancos de Dados de Informação Proteica: 110-BDs.md
     - Modelagem Computacional de Proteínas: 111-Modelagem.md
@@ -34,7 +37,7 @@ nav:
     - Predição de Epítopos: STR22-Epitopos.md
     - Modelagem 101: STR3-Model1.md
     - Modelagem 102: STR4-Model2.md
-    - Modeller-CLI: STR5-Model3.md
+    - Modeller-CLI: STR5-Model3.mkdocs gh-deploy --forcemd
     - Métodos baseados em IA: STR6-AlphaFold.md
     - MDA: STR7-MDA.md
     - Avaliação dos Modelos: STR8-Aval.md
@@ -53,6 +56,10 @@ nav:
     - Dinâmica Molecular: STR20-EGB5.md
     - VS-2: STR21-EGB6.md
     - Complements: comps.md
+  - Análise Evolucionária de Sequências (Evolução Molecular):
+    - Análise de Saturação de Substituições: satsub-ptbr.md
+    - Escolha do Modelo de Substituição: bestfit-ptbr.md
+    - Usando o BEAST: BEAST_ptbr.md
   - Diplomado - UChile: 
     - Home: Presentation.md
     - Slides: UC_slides.md
